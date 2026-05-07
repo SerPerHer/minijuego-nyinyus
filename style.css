@@ -135,8 +135,8 @@ button:active {
   z-index: 2;
   inset: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-end;
   padding: 24px;
   pointer-events: none;
 }
@@ -406,8 +406,8 @@ button:active {
   }
 
   .inspect-button {
-    width: min(84vw, 360px);
-    justify-content: center;
+    width: min(70vw, 320px);
+    justify-content: flex-start;
     padding: 16px 20px;
   }
 
