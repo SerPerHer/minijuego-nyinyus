@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Mapa de los Nyinyus</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game">
+    <section id="intro-screen">
+      <img
+        class="title-art"
+        src="assets/backgrounds/la_gran_aventura.png"
+        alt="La Gran Aventura"
+      />
+      <p>Haz sonar la llamada del mar y abre la puerta de la aventura.</p>
+      <button id="intro-button">Comenzar</button>
+    </section>
+
+    <section id="start-screen" class="hidden">
+      <img
+        class="title-art title-art-nyinyus"
+        src="assets/backgrounds/nyinyus.png"
+        alt="Nyinyus"
+      />
+      <p>El horizonte arde en promesas, el viento cambia de rumbo y el mar ya susurra vuestro nombre.</p>
+      <p>Hoy no empieza solo un viaje. Empieza una leyenda que nadie podrá olvidar.</p>
+      <button id="start-button">Comenzar aventura</button>
+    </section>
+
+    <section id="game-screen" class="hidden">
+      <div id="background-layer"></div>
+      <div id="character-layer"></div>
+
+      <div id="dialogue-box">
+        <div id="speaker-name"></div>
+        <div id="dialogue-text"></div>
+        <div id="choice-box" class="hidden"></div>
+        <button id="next-button">Siguiente</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="story.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
