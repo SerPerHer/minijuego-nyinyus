@@ -130,6 +130,88 @@ button:active {
   overflow: hidden;
 }
 
+#inspect-prompt {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  pointer-events: none;
+}
+
+.inspect-button {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 28px;
+  border-radius: 22px;
+  background: rgba(24, 16, 10, 0.92);
+  color: #fff4d5;
+  border: 3px solid var(--gold);
+  box-shadow:
+    0 18px 32px rgba(0, 0, 0, 0.34),
+    0 0 0 3px rgba(255, 226, 152, 0.18);
+  font-size: clamp(18px, 3vw, 24px);
+}
+
+.inspect-button-thumb {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 236, 184, 0.8);
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+}
+
+#inspect-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(5, 8, 14, 0.82);
+  backdrop-filter: blur(6px);
+}
+
+#inspect-panel {
+  position: relative;
+  width: min(92vw, 980px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 52px 20px 20px;
+  border-radius: 24px;
+  background:
+    linear-gradient(rgba(22, 15, 9, 0.96), rgba(10, 7, 5, 0.96));
+  border: 3px solid rgba(248, 217, 139, 0.9);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+#inspect-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  min-width: 48px;
+  padding: 12px 16px;
+  border-radius: 999px;
+}
+
+#inspect-image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: min(78vh, 760px);
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
 .character {
   position: absolute;
   bottom: 126px;
@@ -137,7 +219,10 @@ button:active {
   max-height: 86vh;
   object-fit: contain;
   filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.6));
-  transform: translateX(var(--base-shift, 0));
+  transform:
+    translateX(var(--base-shift, 0))
+    scaleX(var(--character-face, 1))
+    scale(var(--character-scale, 1));
   will-change: transform;
 }
 
@@ -244,33 +329,53 @@ button:active {
 @keyframes enter-left {
   from {
     opacity: 0;
-    transform: translateX(calc(var(--base-shift, 0) - 56px));
+    transform:
+      translateX(calc(var(--base-shift, 0) - 56px))
+      scaleX(var(--character-face, 1))
+      scale(var(--character-scale, 1));
   }
   to {
     opacity: 1;
-    transform: translateX(var(--base-shift, 0));
+    transform:
+      translateX(var(--base-shift, 0))
+      scaleX(var(--character-face, 1))
+      scale(var(--character-scale, 1));
   }
 }
 
 @keyframes enter-right {
   from {
     opacity: 0;
-    transform: translateX(calc(var(--base-shift, 0) + 56px));
+    transform:
+      translateX(calc(var(--base-shift, 0) + 56px))
+      scaleX(var(--character-face, 1))
+      scale(var(--character-scale, 1));
   }
   to {
     opacity: 1;
-    transform: translateX(var(--base-shift, 0));
+    transform:
+      translateX(var(--base-shift, 0))
+      scaleX(var(--character-face, 1))
+      scale(var(--character-scale, 1));
   }
 }
 
 @keyframes enter-center {
   from {
     opacity: 0;
-    transform: translateX(var(--base-shift, 0)) translateY(28px);
+    transform:
+      translateX(var(--base-shift, 0))
+      translateY(28px)
+      scaleX(var(--character-face, 1))
+      scale(var(--character-scale, 1));
   }
   to {
     opacity: 1;
-    transform: translateX(var(--base-shift, 0)) translateY(0);
+    transform:
+      translateX(var(--base-shift, 0))
+      translateY(0)
+      scaleX(var(--character-face, 1))
+      scale(var(--character-scale, 1));
   }
 }
 
@@ -300,6 +405,26 @@ button:active {
     max-height: 64vh;
   }
 
+  .inspect-button {
+    width: min(84vw, 360px);
+    justify-content: center;
+    padding: 16px 20px;
+  }
+
+  .inspect-button-thumb {
+    width: 48px;
+    height: 48px;
+  }
+
+  #inspect-overlay {
+    padding: 14px;
+  }
+
+  #inspect-panel {
+    width: 100%;
+    padding: 58px 14px 14px;
+  }
+
   #dialogue-box {
     bottom: 14px;
     min-height: 210px;
@@ -319,6 +444,11 @@ button:active {
   .title-art {
     width: min(88vw, 520px);
     max-height: 24vh;
+  }
+
+  #inspect-close {
+    min-width: 44px;
+    padding: 10px 14px;
   }
 
   #intro-screen p,

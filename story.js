@@ -166,7 +166,7 @@ const story = {
       image: "rocky_normal.png",
       accent: "#f2bf57",
       accentDark: "#9b682b",
-      position: "far-left"
+      position: "left"
     },
     {
       type: "character",
@@ -175,7 +175,8 @@ const story = {
       image: "reina_normal.png",
       accent: "#f28cae",
       accentDark: "#9b4563",
-      position: "left"
+      position: "far-left",
+      flip: true
     },
     {
       type: "character",
@@ -185,6 +186,7 @@ const story = {
       accent: "#9fd7b7",
       accentDark: "#4b8f69",
       position: "right",
+      scale: 0.8,
       animation: "enter"
     },
 
@@ -282,12 +284,10 @@ const story = {
 
   mapa_antiguo: [
     {
-      type: "background",
-      image: "mapa_antiguo.png"
-    },
-    {
-      type: "effect",
-      name: "shake"
+      type: "inspect",
+      image: "mapa_antiguo.png",
+      buttonText: "Abrir mapa antiguo",
+      alt: "Mapa antiguo con cinco puntos marcados"
     },
     {
       type: "dialogue",

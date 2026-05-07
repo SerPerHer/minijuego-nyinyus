@@ -6,6 +6,11 @@ const startButton = document.getElementById("start-button");
 const nextButton = document.getElementById("next-button");
 const backgroundLayer = document.getElementById("background-layer");
 const characterLayer = document.getElementById("character-layer");
+const inspectPrompt = document.getElementById("inspect-prompt");
+const inspectOverlay = document.getElementById("inspect-overlay");
+const inspectPanel = document.getElementById("inspect-panel");
+const inspectImage = document.getElementById("inspect-image");
+const inspectClose = document.getElementById("inspect-close");
 const dialogueBox = document.getElementById("dialogue-box");
 const speakerName = document.getElementById("speaker-name");
 const dialogueText = document.getElementById("dialogue-text");
@@ -41,6 +46,8 @@ let speakingAnimation = null;
 introButton.addEventListener("click", showStartScreen);
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", nextStep);
+inspectClose.addEventListener("click", finishInspectStep);
+inspectOverlay.addEventListener("click", handleInspectBackdropClick);
 
 function showStartScreen() {
   introScreen.classList.add("hidden");
@@ -59,6 +66,8 @@ function startGame() {
 function resetGameState() {
   stopTyping();
   clearChoices();
+  clearInspectPrompt();
+  closeInspectOverlay();
   setSpeakerStyle("");
   setSpeakingCharacter("");
   characterState.clear();
@@ -138,6 +147,9 @@ function showCurrentStep() {
       playSound(step);
       advanceStep();
       break;
+    case "inspect":
+      showInspect(step);
+      break;
     default:
       advanceStep();
       break;
@@ -216,6 +228,8 @@ function renderCharacters(animatedId) {
     characterImage.alt = character.name || character.id || "";
     characterImage.dataset.characterId = character.id;
     characterImage.dataset.position = position;
+    characterImage.style.setProperty("--character-face", character.flip ? "-1" : "1");
+    characterImage.style.setProperty("--character-scale", normalizeCharacterScale(character.scale));
 
     if (character.id === animatedId && character.animation === "enter") {
       characterImage.classList.add("enter-" + animationSideForPosition(position));
@@ -285,6 +299,73 @@ function clearChoices() {
   choiceBox.classList.add("hidden");
 }
 
+function showInspect(step) {
+  stopTyping();
+  setSpeakingCharacter("");
+  clearInspectPrompt();
+  nextButton.classList.add("hidden");
+
+  const inspectButton = document.createElement("button");
+  const buttonLabel = step.buttonText || "Ver objeto";
+  const imagePath = step.image ? "assets/backgrounds/" + step.image : "";
+
+  inspectButton.type = "button";
+  inspectButton.className = "inspect-button";
+  inspectButton.innerHTML =
+    '<span class="inspect-button-thumb"></span><span>' + buttonLabel + "</span>";
+
+  const thumb = inspectButton.querySelector(".inspect-button-thumb");
+  if (thumb && imagePath) {
+    thumb.style.backgroundImage = 'url("' + imagePath + '")';
+  }
+
+  inspectButton.addEventListener("click", () => openInspectOverlay(step));
+  inspectPrompt.appendChild(inspectButton);
+  inspectPrompt.classList.remove("hidden");
+}
+
+function openInspectOverlay(step) {
+  const imagePath = step.image ? "assets/backgrounds/" + step.image : "";
+
+  if (!imagePath) {
+    finishInspectStep();
+    return;
+  }
+
+  inspectImage.alt = step.alt || step.buttonText || "Imagen";
+  inspectImage.onerror = () => {
+    closeInspectOverlay();
+    finishInspectStep();
+  };
+  inspectImage.src = imagePath;
+  inspectOverlay.classList.remove("hidden");
+  inspectOverlay.setAttribute("aria-hidden", "false");
+}
+
+function closeInspectOverlay() {
+  inspectOverlay.classList.add("hidden");
+  inspectOverlay.setAttribute("aria-hidden", "true");
+  inspectImage.removeAttribute("src");
+}
+
+function handleInspectBackdropClick(event) {
+  if (event.target !== inspectOverlay) {
+    return;
+  }
+
+  finishInspectStep();
+}
+
+function finishInspectStep() {
+  closeInspectOverlay();
+  nextButton.classList.remove("hidden");
+}
+
+function clearInspectPrompt() {
+  inspectPrompt.innerHTML = "";
+  inspectPrompt.classList.add("hidden");
+}
+
 function typeText(text) {
   stopTyping();
   isTyping = true;
@@ -348,9 +429,19 @@ function setSpeakingCharacter(speaker) {
   if (activeImage) {
     speakingAnimation = activeImage.animate(
       [
-        { transform: "translateX(var(--base-shift, 0)) translateY(0) scale(1)" },
-        { transform: "translateX(var(--base-shift, 0)) translateY(-3px) scale(1.01)", offset: 0.5 },
-        { transform: "translateX(var(--base-shift, 0)) translateY(0) scale(1)" }
+        {
+          transform:
+            "translateX(var(--base-shift, 0)) translateY(0) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))"
+        },
+        {
+          transform:
+            "translateX(var(--base-shift, 0)) translateY(-3px) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))",
+          offset: 0.5
+        },
+        {
+          transform:
+            "translateX(var(--base-shift, 0)) translateY(0) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))"
+        }
       ],
       {
         duration: 220,
@@ -479,9 +570,18 @@ function animationSideForPosition(position) {
   return "left";
 }
 
+function normalizeCharacterScale(scale) {
+  if (typeof scale !== "number" || !isFinite(scale) || scale <= 0) {
+    return "1";
+  }
+
+  return String(scale);
+}
+
 function showEnd() {
   stopTyping();
   clearChoices();
+  clearInspectPrompt();
   setSpeakerStyle("Fin");
   setSpeakingCharacter("");
   speakerName.textContent = "Fin";
