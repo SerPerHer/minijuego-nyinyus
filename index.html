@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="audio-controls">
+    <button id="mute-button" type="button">Musica: On</button>
+    <label id="volume-control" for="volume-slider">
+      <span>Volumen</span>
+      <input id="volume-slider" type="range" min="0" max="100" value="100" />
+    </label>
+  </div>
+
   <main id="game">
     <section id="intro-screen">
       <img
@@ -26,7 +34,10 @@
       />
       <p>El horizonte arde en promesas, el viento cambia de rumbo y el mar ya susurra vuestro nombre.</p>
       <p>Hoy no empieza solo un viaje. Empieza una leyenda que nadie podrá olvidar.</p>
-      <button id="start-button">Comenzar aventura</button>
+      <div id="scenario-select">
+        <button class="scenario-button" data-start-scene="start">Introduccion</button>
+        <button class="scenario-button" data-start-scene="tempestaria_llegada">Isla Tempestaria</button>
+      </div>
     </section>
 
     <section id="game-screen" class="hidden">
@@ -38,7 +49,10 @@
         <div id="speaker-name"></div>
         <div id="dialogue-text"></div>
         <div id="choice-box" class="hidden"></div>
-        <button id="next-button">Siguiente</button>
+        <div id="dialogue-actions">
+          <button id="back-button" type="button">Atras</button>
+          <button id="next-button">Siguiente</button>
+        </div>
       </div>
     </section>
   </main>
@@ -50,7 +64,9 @@
     </div>
   </div>
 
-  <script src="story.js"></script>
+  <script src="scenes/characters.js"></script>
+  <script src="scenes/intro.js"></script>
+  <script src="scenes/isla-tempestaria.js"></script>
   <script src="game.js"></script>
 </body>
 </html>

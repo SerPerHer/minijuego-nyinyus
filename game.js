@@ -2,7 +2,10 @@ const introScreen = document.getElementById("intro-screen");
 const startScreen = document.getElementById("start-screen");
 const gameScreen = document.getElementById("game-screen");
 const introButton = document.getElementById("intro-button");
-const startButton = document.getElementById("start-button");
+const scenarioButtons = Array.from(document.querySelectorAll("[data-start-scene]"));
+const muteButton = document.getElementById("mute-button");
+const volumeSlider = document.getElementById("volume-slider");
+const backButton = document.getElementById("back-button");
 const nextButton = document.getElementById("next-button");
 const backgroundLayer = document.getElementById("background-layer");
 const characterLayer = document.getElementById("character-layer");
@@ -17,6 +20,15 @@ const dialogueText = document.getElementById("dialogue-text");
 const choiceBox = document.getElementById("choice-box");
 const START_SCREEN_MUSIC = "One_Piece_tantantan_tantantanta.mp3";
 const START_GAME_MUSIC = "One_Piece_aventura.mp3";
+const INTRO_SCENE_IDS = new Set([
+  "start",
+  "aparicion_abuela",
+  "mapa_antiguo",
+  "la_leyenda",
+  "decision_viaje",
+  "emprender_viaje",
+  "ignorar_leyenda"
+]);
 
 const characterState = new Map();
 const defaultSpeakerStyles = {
@@ -24,15 +36,29 @@ const defaultSpeakerStyles = {
     accent: "#9ac7d8",
     accentDark: "#406678"
   },
+  abuela: {
+    accent: "#9fd7b7",
+    accentDark: "#4b8f69"
+  },
+  minutu: {
+    accent: "#ceb0ff",
+    accentDark: "#6f49a8"
+  },
   decision: {
     accent: "#f4cc6f",
     accentDark: "#8e6026"
+  },
+  npc: {
+    accent: "#fbfbfb",
+    accentDark: "#a7a7a7"
   },
   fin: {
     accent: "#f8d98b",
     accentDark: "#9b682b"
   }
 };
+const characterLibrary = globalThis.CHARACTER_LIBRARY || {};
+const sceneCharacterLayouts = globalThis.SCENE_CHARACTER_LAYOUTS || {};
 
 let currentScene = [];
 let currentStepIndex = 0;
@@ -40,14 +66,28 @@ let isTyping = false;
 let currentFullText = "";
 let typingInterval = null;
 let activeAudio = null;
+let activeAudioBaseVolume = 1;
 let backgroundRequestId = 0;
 let speakingAnimation = null;
+let currentSceneId = "";
+let layoutSettleTimeout = null;
+let checkpointHistory = [];
+let isRestoringCheckpoint = false;
+let masterVolume = 1;
+let isMuted = false;
 
 introButton.addEventListener("click", showStartScreen);
-startButton.addEventListener("click", startGame);
+scenarioButtons.forEach((button) => {
+  button.addEventListener("click", () => startGame(button.dataset.startScene || "start"));
+});
+muteButton.addEventListener("click", toggleMute);
+volumeSlider.addEventListener("input", handleVolumeChange);
+backButton.addEventListener("click", previousStep);
 nextButton.addEventListener("click", nextStep);
 inspectClose.addEventListener("click", finishInspectStep);
 inspectOverlay.addEventListener("click", handleInspectBackdropClick);
+updateAudioControls();
+updateBackButton();
 
 function showStartScreen() {
   introScreen.classList.add("hidden");
@@ -55,12 +95,12 @@ function showStartScreen() {
   playMusicFile(START_SCREEN_MUSIC, { loop: true, volume: 0.45 });
 }
 
-function startGame() {
+function startGame(sceneId) {
   startScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
   resetGameState();
   playMusicFile(START_GAME_MUSIC, { loop: true, volume: 0.55 });
-  loadScene("start");
+  loadScene(sceneId || "start");
 }
 
 function resetGameState() {
@@ -79,11 +119,17 @@ function resetGameState() {
   nextButton.classList.remove("hidden");
   currentScene = [];
   currentStepIndex = 0;
+  currentSceneId = "";
+  checkpointHistory = [];
+  setInspectPromptCompact(false);
 
-  if (activeAudio) {
-    activeAudio.pause();
-    activeAudio = null;
+  if (layoutSettleTimeout) {
+    clearTimeout(layoutSettleTimeout);
+    layoutSettleTimeout = null;
   }
+
+  stopActiveAudio();
+  updateBackButton();
 }
 
 function nextStep() {
@@ -96,6 +142,15 @@ function nextStep() {
   showCurrentStep();
 }
 
+function previousStep() {
+  if (checkpointHistory.length <= 1) {
+    return;
+  }
+
+  checkpointHistory.pop();
+  restoreCheckpoint(checkpointHistory[checkpointHistory.length - 1]);
+}
+
 function loadScene(sceneId) {
   const scene = story[sceneId];
 
@@ -104,10 +159,16 @@ function loadScene(sceneId) {
     return;
   }
 
+  if (isIntroSceneId(currentSceneId) && !isIntroSceneId(sceneId)) {
+    stopActiveAudio();
+  }
+
   stopTyping();
   clearChoices();
   setSpeakingCharacter("");
   nextButton.classList.remove("hidden");
+  currentSceneId = sceneId;
+  setInspectPromptCompact(!isIntroSceneId(sceneId));
   currentScene = scene;
   currentStepIndex = 0;
   showCurrentStep();
@@ -124,6 +185,10 @@ function showCurrentStep() {
   switch (step.type) {
     case "background":
       showBackground(step);
+      advanceStep();
+      break;
+    case "clearCharacters":
+      clearCharacters(step);
       advanceStep();
       break;
     case "character":
@@ -145,6 +210,10 @@ function showCurrentStep() {
       break;
     case "sound":
       playSound(step);
+      advanceStep();
+      break;
+    case "stopSound":
+      stopActiveAudio();
       advanceStep();
       break;
     case "inspect":
@@ -208,28 +277,60 @@ function showCharacter(step) {
     return;
   }
 
-  const savedCharacter = characterState.get(step.id) || {};
-  characterState.set(step.id, {
-    ...savedCharacter,
-    ...step
-  });
-
+  setCharacterState(step);
   renderCharacters(step.id);
 }
 
-function renderCharacters(animatedId) {
-  characterLayer.innerHTML = "";
+function clearCharacters(step) {
+  setSpeakingCharacter("");
 
-  characterState.forEach((character) => {
+  if (Array.isArray(step.ids) && step.ids.length > 0) {
+    step.ids.forEach((id) => {
+      characterState.delete(id);
+    });
+    renderCharacters("");
+    return;
+  }
+
+  characterState.clear();
+  characterLayer.innerHTML = "";
+}
+
+function renderCharacters(animatedId) {
+  if (layoutSettleTimeout) {
+    clearTimeout(layoutSettleTimeout);
+    layoutSettleTimeout = null;
+  }
+
+  characterLayer.innerHTML = "";
+  const layout = resolveCharacterLayout(Array.from(characterState.values()), animatedId);
+
+  layout.items.forEach((item) => {
+    const character = item.character;
     const characterImage = document.createElement("img");
-    const position = normalizePosition(character.position);
+    const position = normalizePosition(item.position || character.position);
+    const shouldFlip = resolveCharacterFlip(character, item, position);
 
     characterImage.className = "character is-" + position;
     characterImage.alt = character.name || character.id || "";
     characterImage.dataset.characterId = character.id;
     characterImage.dataset.position = position;
-    characterImage.style.setProperty("--character-face", character.flip ? "-1" : "1");
-    characterImage.style.setProperty("--character-scale", normalizeCharacterScale(character.scale));
+    characterImage.style.setProperty("--character-face", shouldFlip ? "-1" : "1");
+    characterImage.style.setProperty(
+      "--character-offset-x",
+      normalizeCharacterOffset(item.offsetX)
+    );
+    characterImage.style.setProperty(
+      "--character-scale",
+      normalizeCharacterScale(item.scale)
+    );
+    characterImage.style.width = item.width;
+
+    if (item.bottom) {
+      characterImage.style.bottom = normalizeCharacterOffset(item.bottom);
+    } else {
+      characterImage.style.removeProperty("bottom");
+    }
 
     if (character.id === animatedId && character.animation === "enter") {
       characterImage.classList.add("enter-" + animationSideForPosition(position));
@@ -248,9 +349,17 @@ function renderCharacters(animatedId) {
 
     characterLayer.appendChild(characterImage);
   });
+
+  if (layout.settleAfterEnter) {
+    layoutSettleTimeout = window.setTimeout(() => {
+      layoutSettleTimeout = null;
+      renderCharacters("");
+    }, 440);
+  }
 }
 
 function showDialogue(step) {
+  recordCheckpoint();
   const speaker = step.speaker || "";
 
   speakerName.textContent = speaker;
@@ -269,6 +378,7 @@ function showChoices(step) {
   }
 
   stopTyping();
+  recordCheckpoint();
   setSpeakerStyle("Decisión");
   setSpeakingCharacter("");
   speakerName.textContent = "Decisión";
@@ -301,9 +411,15 @@ function clearChoices() {
 
 function showInspect(step) {
   stopTyping();
+  recordCheckpoint();
   setSpeakingCharacter("");
   clearInspectPrompt();
   nextButton.classList.add("hidden");
+
+  if (step.autoOpen) {
+    openInspectOverlay(step);
+    return;
+  }
 
   const inspectButton = document.createElement("button");
   const buttonLabel = step.buttonText || "Ver objeto";
@@ -431,16 +547,16 @@ function setSpeakingCharacter(speaker) {
       [
         {
           transform:
-            "translateX(var(--base-shift, 0)) translateY(0) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))"
+            "translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px))) translateY(0) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))"
         },
         {
           transform:
-            "translateX(var(--base-shift, 0)) translateY(-3px) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))",
+            "translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px))) translateY(-3px) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))",
           offset: 0.5
         },
         {
           transform:
-            "translateX(var(--base-shift, 0)) translateY(0) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))"
+            "translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px))) translateY(0) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))"
         }
       ],
       {
@@ -462,6 +578,13 @@ function setSpeakerStyle(speaker) {
 }
 
 function getSpeakerStyle(speaker) {
+  const normalizedSpeaker = normalizeSpeakerKey(speaker);
+  const directStyle = defaultSpeakerStyles[normalizedSpeaker];
+
+  if (directStyle) {
+    return directStyle;
+  }
+
   const character = findCharacterBySpeaker(speaker);
 
   if (character && character.accent && character.accentDark) {
@@ -471,8 +594,7 @@ function getSpeakerStyle(speaker) {
     };
   }
 
-  const fallbackKey = normalizeSpeakerKey(speaker);
-  return defaultSpeakerStyles[fallbackKey] || defaultSpeakerStyles.fin;
+  return defaultSpeakerStyles.npc;
 }
 
 function findCharacterBySpeaker(speaker) {
@@ -533,14 +655,12 @@ function playMusicFile(fileName, options) {
     return null;
   }
 
-  if (activeAudio) {
-    activeAudio.pause();
-    activeAudio = null;
-  }
+  stopActiveAudio();
 
   const audio = new Audio("assets/sounds/" + fileName);
   audio.loop = Boolean(options && options.loop);
-  audio.volume = options && typeof options.volume === "number" ? options.volume : 1;
+  activeAudioBaseVolume = options && typeof options.volume === "number" ? options.volume : 1;
+  audio.volume = getEffectiveVolume(activeAudioBaseVolume);
   audio.addEventListener("error", () => {});
 
   const playPromise = audio.play();
@@ -550,6 +670,16 @@ function playMusicFile(fileName, options) {
 
   activeAudio = audio;
   return audio;
+}
+
+function stopActiveAudio() {
+  if (!activeAudio) {
+    return;
+  }
+
+  activeAudio.pause();
+  activeAudio = null;
+  activeAudioBaseVolume = 1;
 }
 
 function normalizePosition(position) {
@@ -578,12 +708,626 @@ function normalizeCharacterScale(scale) {
   return String(scale);
 }
 
+function normalizeCharacterOffset(value) {
+  if (typeof value === "number" && isFinite(value)) {
+    return value + "px";
+  }
+
+  if (typeof value === "string" && value.trim()) {
+    return value.trim();
+  }
+
+  return "0px";
+}
+
+function resolveCharacterFlip(character, item, position) {
+  if (typeof item.manualFlip === "boolean") {
+    return item.manualFlip;
+  }
+
+  if (typeof character.manualFlip === "boolean") {
+    return character.manualFlip;
+  }
+
+  if (isCharacter(character, "rocky")) {
+    return false;
+  }
+
+  return isLeftFacingPosition(position) || item.side === "left";
+}
+
+function isLeftFacingPosition(position) {
+  return position === "far-left" || position === "left";
+}
+
+function isIntroSceneId(sceneId) {
+  return INTRO_SCENE_IDS.has(sceneId);
+}
+
+function setInspectPromptCompact(isCompact) {
+  inspectPrompt.classList.toggle("is-compact", Boolean(isCompact));
+}
+
+function recordCheckpoint() {
+  if (isRestoringCheckpoint) {
+    return;
+  }
+
+  const lastCheckpoint = checkpointHistory[checkpointHistory.length - 1];
+  const checkpoint = {
+    sceneId: currentSceneId,
+    stepIndex: currentStepIndex
+  };
+
+  if (
+    lastCheckpoint &&
+    lastCheckpoint.sceneId === checkpoint.sceneId &&
+    lastCheckpoint.stepIndex === checkpoint.stepIndex
+  ) {
+    updateBackButton();
+    return;
+  }
+
+  checkpointHistory.push(checkpoint);
+  updateBackButton();
+}
+
+function restoreCheckpoint(checkpoint) {
+  const scene = checkpoint ? story[checkpoint.sceneId] : null;
+
+  if (!checkpoint || !Array.isArray(scene)) {
+    return;
+  }
+
+  isRestoringCheckpoint = true;
+  stopTyping();
+  clearChoices();
+  clearInspectPrompt();
+  closeInspectOverlay();
+  setSpeakingCharacter("");
+  speakerName.textContent = "";
+  speakerName.classList.add("hidden");
+  dialogueText.textContent = "";
+  nextButton.classList.remove("hidden");
+  currentSceneId = checkpoint.sceneId;
+  currentScene = scene;
+  currentStepIndex = 0;
+  setInspectPromptCompact(!isIntroSceneId(checkpoint.sceneId));
+  characterState.clear();
+  characterLayer.innerHTML = "";
+  backgroundLayer.style.backgroundImage = "";
+
+  for (let index = 0; index < checkpoint.stepIndex; index += 1) {
+    applyStepSilently(scene[index]);
+  }
+
+  renderCharacters("");
+  currentStepIndex = checkpoint.stepIndex;
+  isRestoringCheckpoint = false;
+  showCurrentStep();
+  updateBackButton();
+}
+
+function applyStepSilently(step) {
+  if (!step) {
+    return;
+  }
+
+  switch (step.type) {
+    case "background":
+      showBackground(step);
+      break;
+    case "clearCharacters":
+      if (Array.isArray(step.ids) && step.ids.length > 0) {
+        step.ids.forEach((id) => {
+          characterState.delete(id);
+        });
+      } else {
+        characterState.clear();
+      }
+      break;
+    case "character":
+      setCharacterState(step);
+      break;
+    default:
+      break;
+  }
+}
+
+function updateBackButton() {
+  backButton.disabled = checkpointHistory.length <= 1;
+}
+
+function resolveCharacterLayout(characters, animatedId) {
+  const count = characters.length;
+  const width = getCharacterWidth(count);
+  const autoScale = getCharacterScale(count);
+  const rocky = takeCharacter(characters, "rocky");
+  const reina = takeCharacter(characters, "reina");
+  const hasCorePair = Boolean(rocky && reina);
+
+  if (characters.some((character) => character.layoutMode === "manual")) {
+    return {
+      items: createManualLayoutItems(characters, width, autoScale),
+      settleAfterEnter: false
+    };
+  }
+
+  if (count === 1) {
+    return {
+      items: createManualLayoutItems(characters, width, autoScale),
+      settleAfterEnter: false
+    };
+  }
+
+  if (hasCorePair) {
+    return {
+      items: createRoleBasedLayoutItems(characters, rocky, reina, animatedId, width, autoScale),
+      settleAfterEnter: false
+    };
+  }
+
+  return {
+    items: createManualLayoutItems(characters, width, autoScale),
+    settleAfterEnter: false
+  };
+}
+
+function setCharacterState(step) {
+  if (!step.id) {
+    return;
+  }
+
+  const savedCharacter = characterState.get(step.id) || {};
+  const characterDefaults = getCharacterDefaults(step.id);
+  const sceneDefaults = getSceneCharacterDefaults(currentSceneId, step.id);
+  characterState.set(step.id, {
+    ...characterDefaults,
+    ...sceneDefaults,
+    ...savedCharacter,
+    ...step,
+    manualFlip: resolveCharacterManualFlip(savedCharacter, characterDefaults, sceneDefaults, step)
+  });
+}
+
+function createManualLayoutItems(characters, width, scale) {
+  return characters.map((character) => ({
+    character,
+    position: character.position || "center",
+    scale:
+      typeof character.scale === "number" && isFinite(character.scale) && character.scale > 0
+        ? character.scale
+        : scale,
+    width: character.width || width,
+    bottom: character.bottom,
+    offsetX: character.offsetX,
+    side: inferSideFromPosition(character.position),
+    manualFlip:
+      typeof character.manualFlip === "boolean"
+        ? character.manualFlip
+        : typeof character.flip === "boolean"
+          ? character.flip
+          : undefined
+  }));
+}
+
+function createRoleBasedLayoutItems(characters, rocky, reina, animatedId, width, scale) {
+  const others = characters.filter(
+    (character) => !isCharacter(character, "rocky") && !isCharacter(character, "reina")
+  );
+  const secondaryCharacters = others.filter((character) => getCharacterRole(character) === "secondary");
+  const tertiaryCharacters = others.filter((character) => getCharacterRole(character) !== "secondary");
+
+  if (others.length === 0) {
+    return [
+      createResolvedLayoutItem(rocky, { position: "left", side: "left" }, width, scale),
+      createResolvedLayoutItem(reina, { position: "right", side: "right" }, width, scale)
+    ];
+  }
+
+  if (tertiaryCharacters.length > 0) {
+    return createTertiaryPriorityLayoutItems(
+      rocky,
+      reina,
+      secondaryCharacters,
+      tertiaryCharacters,
+      animatedId,
+      width,
+      scale
+    );
+  }
+
+  const leadingCharacters = [reina, rocky];
+  const rightSlots = getRightGroupSlots(secondaryCharacters.length);
+
+  return leadingCharacters
+    .map((character, index) =>
+      createResolvedLayoutItem(
+        character,
+        [
+          { position: "far-left", side: "left" },
+          { position: "left", side: "left" }
+        ][index],
+        width,
+        scale
+      )
+    )
+    .concat(
+      secondaryCharacters.map((character, index) =>
+        createResolvedLayoutItem(character, rightSlots[index], width, scale)
+      )
+    );
+}
+
+function createTertiaryPriorityLayoutItems(
+  rocky,
+  reina,
+  secondaryCharacters,
+  tertiaryCharacters,
+  animatedId,
+  width,
+  scale
+) {
+  const normalizedAnimatedId = normalizeSpeakerKey(animatedId);
+  const highlightedTertiary =
+    tertiaryCharacters.find(
+      (character) => normalizeSpeakerKey(character.id) === normalizedAnimatedId
+    ) || tertiaryCharacters[tertiaryCharacters.length - 1];
+  const remainingTertiaries = tertiaryCharacters.filter(
+    (character) => character !== highlightedTertiary
+  );
+  const leftGroup = [reina, rocky, ...secondaryCharacters, ...remainingTertiaries];
+  const leftSlots = getPackedLeftGroupSlots(leftGroup.length);
+  const leftWidth = getPackedLeftGroupWidth(leftGroup.length, width);
+
+  return leftGroup
+    .map((character, index) =>
+      createResolvedLayoutItem(character, leftSlots[index], leftWidth, scale)
+    )
+    .concat([
+      createResolvedLayoutItem(
+        highlightedTertiary,
+        { position: "far-right", side: "right", bottom: "126px" },
+        width,
+        scale
+      )
+    ]);
+}
+
+function createResolvedLayoutItem(character, layoutConfig, width, scale) {
+  const config = layoutConfig || {};
+  const preserveManualFlip = Boolean(config.preserveFlip || character.layoutMode === "manual");
+
+  return {
+    character,
+    position: config.position || character.position || "center",
+    scale:
+      typeof character.scale === "number" && isFinite(character.scale) && character.scale > 0
+        ? character.scale
+        : scale,
+    width: pickDefined(character.width, config.width, width),
+    bottom: pickDefined(character.bottom, config.bottom),
+    offsetX: pickDefined(character.offsetX, config.offsetX),
+    side: config.side || inferSideFromPosition(config.position || character.position),
+    manualFlip:
+      preserveManualFlip && typeof character.manualFlip === "boolean"
+        ? character.manualFlip
+        : preserveManualFlip && typeof config.flip === "boolean"
+          ? config.flip
+          : undefined
+  };
+}
+
+function getLeftGroupSlots(count) {
+  const slots = [
+    { position: "far-left", side: "left" },
+    { position: "left", side: "left" },
+    { position: "center", side: "left", offsetX: "-86px" },
+    { position: "right", side: "left", offsetX: "-154px" },
+    { position: "far-right", side: "left", offsetX: "-212px" }
+  ];
+
+  return buildSlotSequence(count, slots);
+}
+
+function getPackedLeftGroupSlots(count) {
+  if (count <= 2) {
+    return getLeftGroupSlots(count);
+  }
+
+  if (count === 3) {
+    return [
+      { position: "far-left", side: "left", bottom: "140px" },
+      { position: "left", side: "left", bottom: "116px" },
+      { position: "center", side: "left", offsetX: "-198px", bottom: "156px" }
+    ];
+  }
+
+  if (count === 4) {
+    return [
+      { position: "far-left", side: "left", bottom: "144px" },
+      { position: "left", side: "left", bottom: "114px" },
+      { position: "center", side: "left", offsetX: "-214px", bottom: "162px" },
+      { position: "center", side: "left", offsetX: "-112px", bottom: "98px" }
+    ];
+  }
+
+  const slots = [
+    { position: "far-left", side: "left", bottom: "144px" },
+    { position: "left", side: "left", bottom: "114px" },
+    { position: "center", side: "left", offsetX: "-230px", bottom: "164px" },
+    { position: "center", side: "left", offsetX: "-128px", bottom: "98px" },
+    { position: "center", side: "left", offsetX: "-320px", bottom: "108px" }
+  ];
+
+  return buildSlotSequence(count, slots);
+}
+
+function getPackedLeftGroupWidth(count, fallbackWidth) {
+  if (count === 3) {
+    return "clamp(150px, 20vw, 250px)";
+  }
+
+  if (count === 4) {
+    return "clamp(132px, 17vw, 215px)";
+  }
+
+  if (count >= 5) {
+    return "clamp(116px, 15vw, 188px)";
+  }
+
+  return fallbackWidth;
+}
+
+function getRightGroupSlots(count) {
+  if (count <= 1) {
+    return [{ position: "right", side: "right" }];
+  }
+
+  if (count === 2) {
+    return [
+      { position: "right", side: "right" },
+      { position: "far-right", side: "right" }
+    ];
+  }
+
+  if (count === 3) {
+    return [
+      { position: "center", side: "right", offsetX: "88px" },
+      { position: "right", side: "right" },
+      { position: "far-right", side: "right" }
+    ];
+  }
+
+  const slots = [
+    { position: "center", side: "right", offsetX: "78px" },
+    { position: "right", side: "right" },
+    { position: "far-right", side: "right" },
+    { position: "far-right", side: "right", offsetX: "84px" },
+    { position: "far-right", side: "right", offsetX: "152px" }
+  ];
+
+  return buildSlotSequence(count, slots);
+}
+
+function buildSlotSequence(count, slots) {
+  return Array.from({ length: count }, (_, index) => {
+    if (index < slots.length) {
+      return slots[index];
+    }
+
+    const lastSlot = slots[slots.length - 1];
+    const extraOffset = 68 * (index - slots.length + 1);
+    const direction = lastSlot.side === "left" ? -1 : 1;
+
+    return {
+      ...lastSlot,
+      offsetX: String(parseOffsetValue(lastSlot.offsetX) + extraOffset * direction) + "px"
+    };
+  });
+}
+
+function parseOffsetValue(value) {
+  if (typeof value === "number" && isFinite(value)) {
+    return value;
+  }
+
+  if (typeof value !== "string") {
+    return 0;
+  }
+
+  const parsedValue = parseFloat(value);
+  return isFinite(parsedValue) ? parsedValue : 0;
+}
+
+function pickDefined() {
+  for (const value of arguments) {
+    if (value !== undefined && value !== null && value !== "") {
+      return value;
+    }
+  }
+
+  return undefined;
+}
+
+function inferSideFromPosition(position) {
+  if (position === "far-left" || position === "left") {
+    return "left";
+  }
+
+  if (position === "far-right" || position === "right") {
+    return "right";
+  }
+
+  return "center";
+}
+
+function resolveCharacterManualFlip(savedCharacter, characterDefaults, sceneDefaults, step) {
+  if (Object.prototype.hasOwnProperty.call(step, "flip")) {
+    return step.flip;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(savedCharacter, "manualFlip")) {
+    return savedCharacter.manualFlip;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(savedCharacter, "flip")) {
+    return savedCharacter.flip;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(sceneDefaults, "flip")) {
+    return sceneDefaults.flip;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(characterDefaults, "flip")) {
+    return characterDefaults.flip;
+  }
+
+  return undefined;
+}
+
+function getCharacterDefaults(characterId) {
+  const normalizedId = normalizeSpeakerKey(characterId);
+  return characterLibrary[normalizedId] || {};
+}
+
+function getSceneCharacterDefaults(sceneId, characterId) {
+  const normalizedSceneId = normalizeSpeakerKey(sceneId);
+  const normalizedCharacterId = normalizeSpeakerKey(characterId);
+  const sceneLayout = sceneCharacterLayouts[normalizedSceneId];
+
+  if (!sceneLayout) {
+    return {};
+  }
+
+  return sceneLayout[normalizedCharacterId] || {};
+}
+
+function getCharacterRole(character) {
+  const role = character && character.role;
+
+  if (role === "protagonist" || role === "secondary" || role === "tertiary") {
+    return role;
+  }
+
+  if (isCharacter(character, "rocky") || isCharacter(character, "reina")) {
+    return "protagonist";
+  }
+
+  return "tertiary";
+}
+
+function buildOrderedCharacters(characters, priorityIds) {
+  const ordered = [];
+  const remaining = [...characters];
+
+  priorityIds.forEach((priorityId) => {
+    const matchIndex = remaining.findIndex((character) => isCharacter(character, priorityId));
+    if (matchIndex >= 0) {
+      ordered.push(remaining.splice(matchIndex, 1)[0]);
+    }
+  });
+
+  return ordered.concat(remaining);
+}
+
+function takeCharacter(characters, characterId) {
+  return characters.find((character) => isCharacter(character, characterId)) || null;
+}
+
+function isCharacter(character, characterId) {
+  return (
+    normalizeSpeakerKey(character && character.id) === characterId ||
+    normalizeSpeakerKey(character && character.name) === characterId
+  );
+}
+
+function getCharacterWidth(count) {
+  if (count <= 1) {
+    return "clamp(260px, 42vw, 560px)";
+  }
+
+  if (count === 2) {
+    return "clamp(220px, 34vw, 460px)";
+  }
+
+  if (count === 3) {
+    return "clamp(200px, 30vw, 400px)";
+  }
+
+  if (count === 4) {
+    return "clamp(180px, 26vw, 340px)";
+  }
+
+  if (count === 5) {
+    return "clamp(150px, 22vw, 280px)";
+  }
+
+  return "clamp(130px, 18vw, 230px)";
+}
+
+function getCharacterScale(count) {
+  if (count >= 4) {
+    return 1;
+  }
+
+  return 1;
+}
+
+function toggleMute() {
+  isMuted = !isMuted;
+  syncActiveAudioVolume();
+  updateAudioControls();
+}
+
+function handleVolumeChange() {
+  const sliderValue = Number(volumeSlider.value);
+
+  if (!Number.isFinite(sliderValue)) {
+    return;
+  }
+
+  masterVolume = Math.min(Math.max(sliderValue / 100, 0), 1);
+  if (masterVolume > 0 && isMuted) {
+    isMuted = false;
+  }
+  syncActiveAudioVolume();
+  updateAudioControls();
+}
+
+function syncActiveAudioVolume() {
+  if (!activeAudio) {
+    return;
+  }
+
+  activeAudio.volume = getEffectiveVolume(activeAudioBaseVolume);
+}
+
+function getEffectiveVolume(baseVolume) {
+  if (isMuted) {
+    return 0;
+  }
+
+  return Math.min(Math.max(baseVolume * masterVolume, 0), 1);
+}
+
+function updateAudioControls() {
+  muteButton.textContent = isMuted ? "Musica: Off" : "Musica: On";
+  volumeSlider.value = String(Math.round(masterVolume * 100));
+}
+
 function showEnd() {
   stopTyping();
   clearChoices();
   clearInspectPrompt();
   setSpeakerStyle("Fin");
   setSpeakingCharacter("");
+
+  if (isIntroSceneId(currentSceneId)) {
+    stopActiveAudio();
+    setInspectPromptCompact(true);
+  }
+
   speakerName.textContent = "Fin";
   speakerName.classList.remove("hidden");
   dialogueText.textContent = "La aventura acaba de empezar...";
