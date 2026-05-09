@@ -31,7 +31,8 @@ const INTRO_SCENE_IDS = new Set([
   "la_leyenda",
   "decision_viaje",
   "emprender_viaje",
-  "ignorar_leyenda"
+  "ignorar_leyenda",
+  "ignorar_leyenda_final"
 ]);
 
 const characterState = new Map();

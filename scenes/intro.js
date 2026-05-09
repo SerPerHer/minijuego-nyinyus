@@ -604,6 +604,26 @@ const story = {
       type: "dialogue",
       speaker: "Narrador",
       text: "Pero aquella noche, ninguno de los dos dejó de pensar en las cinco islas marcadas en el mapa."
+    },
+    {
+      type: "choice",
+      text: "Fin de la introduccion.",
+      options: [
+        {
+          text: "Fin",
+          nextScene: "ignorar_leyenda_final"
+        }
+      ]
+    }
+  ],
+
+  ignorar_leyenda_final: [
+    {
+      type: "background",
+      image: "boda_solos.png"
+    },
+    {
+      type: "clearCharacters"
     }
   ]
 };
