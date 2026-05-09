@@ -275,14 +275,18 @@ button:active {
 .character {
   position: absolute;
   bottom: 126px;
+  --character-lift: -18px;
   width: var(--character-width, min(58vw, 620px));
   max-height: 86vh;
   object-fit: contain;
   filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.6));
   transform:
     translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px)))
+    translateY(var(--character-lift, -18px))
     scaleX(var(--character-face, 1))
     scale(var(--character-scale, 1));
+  transform-origin: center bottom;
+  backface-visibility: hidden;
   will-change: transform;
 }
 
@@ -408,6 +412,7 @@ button:active {
     opacity: 0;
     transform:
       translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px) - 56px))
+      translateY(var(--character-lift, -18px))
       scaleX(var(--character-face, 1))
       scale(var(--character-scale, 1));
   }
@@ -415,6 +420,7 @@ button:active {
     opacity: 1;
     transform:
       translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px)))
+      translateY(var(--character-lift, -18px))
       scaleX(var(--character-face, 1))
       scale(var(--character-scale, 1));
   }
@@ -425,6 +431,7 @@ button:active {
     opacity: 0;
     transform:
       translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px) + 56px))
+      translateY(var(--character-lift, -18px))
       scaleX(var(--character-face, 1))
       scale(var(--character-scale, 1));
   }
@@ -432,6 +439,7 @@ button:active {
     opacity: 1;
     transform:
       translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px)))
+      translateY(var(--character-lift, -18px))
       scaleX(var(--character-face, 1))
       scale(var(--character-scale, 1));
   }
@@ -442,7 +450,7 @@ button:active {
     opacity: 0;
     transform:
       translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px)))
-      translateY(28px)
+      translateY(calc(var(--character-lift, -18px) + 28px))
       scaleX(var(--character-face, 1))
       scale(var(--character-scale, 1));
   }
@@ -450,7 +458,7 @@ button:active {
     opacity: 1;
     transform:
       translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px)))
-      translateY(0)
+      translateY(var(--character-lift, -18px))
       scaleX(var(--character-face, 1))
       scale(var(--character-scale, 1));
   }
@@ -496,6 +504,7 @@ button:active {
 
   .character {
     bottom: 168px;
+    --character-lift: -22px;
     width: min(72vw, 420px);
     max-height: 64vh;
   }

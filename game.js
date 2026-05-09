@@ -310,20 +310,23 @@ function renderCharacters(animatedId) {
     const characterImage = document.createElement("img");
     const position = normalizePosition(item.position || character.position);
     const shouldFlip = resolveCharacterFlip(character, item, position);
+    const offsetX = normalizeCharacterOffset(item.offsetX);
+    const scale = normalizeCharacterScale(item.scale);
 
     characterImage.className = "character is-" + position;
     characterImage.alt = character.name || character.id || "";
     characterImage.dataset.characterId = character.id;
     characterImage.dataset.position = position;
+    characterImage.dataset.flipped = shouldFlip ? "true" : "false";
+    characterImage.classList.toggle("is-flipped", shouldFlip);
     characterImage.style.setProperty("--character-face", shouldFlip ? "-1" : "1");
-    characterImage.style.setProperty(
-      "--character-offset-x",
-      normalizeCharacterOffset(item.offsetX)
-    );
-    characterImage.style.setProperty(
-      "--character-scale",
-      normalizeCharacterScale(item.scale)
-    );
+    characterImage.style.setProperty("--character-offset-x", offsetX);
+    characterImage.style.setProperty("--character-scale", scale);
+    characterImage.style.transform = buildCharacterTransform({
+      offsetX,
+      scale,
+      shouldFlip
+    });
     characterImage.style.width = item.width;
 
     if (item.bottom) {
@@ -546,17 +549,27 @@ function setSpeakingCharacter(speaker) {
     speakingAnimation = activeImage.animate(
       [
         {
-          transform:
-            "translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px))) translateY(0) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))"
+          transform: buildCharacterTransform({
+            offsetX: activeImage.style.getPropertyValue("--character-offset-x"),
+            scale: activeImage.style.getPropertyValue("--character-scale"),
+            shouldFlip: activeImage.style.getPropertyValue("--character-face") === "-1"
+          })
         },
         {
-          transform:
-            "translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px))) translateY(-3px) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))",
+          transform: buildCharacterTransform({
+            offsetX: activeImage.style.getPropertyValue("--character-offset-x"),
+            scale: activeImage.style.getPropertyValue("--character-scale"),
+            shouldFlip: activeImage.style.getPropertyValue("--character-face") === "-1",
+            translateY: "-3px"
+          }),
           offset: 0.5
         },
         {
-          transform:
-            "translateX(calc(var(--base-shift, 0) + var(--character-offset-x, 0px))) translateY(0) scaleX(var(--character-face, 1)) scale(var(--character-scale, 1))"
+          transform: buildCharacterTransform({
+            offsetX: activeImage.style.getPropertyValue("--character-offset-x"),
+            scale: activeImage.style.getPropertyValue("--character-scale"),
+            shouldFlip: activeImage.style.getPropertyValue("--character-face") === "-1"
+          })
         }
       ],
       {
@@ -718,6 +731,31 @@ function normalizeCharacterOffset(value) {
   }
 
   return "0px";
+}
+
+function buildCharacterTransform(options) {
+  const offsetX = normalizeCharacterOffset(options && options.offsetX);
+  const scale = normalizeCharacterScale(options && options.scale);
+  const translateY = normalizeCharacterOffset(
+    options && Object.prototype.hasOwnProperty.call(options, "translateY")
+      ? options.translateY
+      : 0
+  );
+  const face = options && options.shouldFlip ? "-1" : "1";
+
+  return (
+    "translateX(calc(var(--base-shift, 0) + " +
+    offsetX +
+    ")) translateY(calc(var(--character-lift, -18px) + " +
+    translateY +
+    "))" +
+    " scaleX(" +
+    face +
+    ")" +
+    " scale(" +
+    scale +
+    ")"
+  );
 }
 
 function resolveCharacterFlip(character, item, position) {
