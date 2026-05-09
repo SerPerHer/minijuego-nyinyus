@@ -620,10 +620,24 @@ const story = {
   ignorar_leyenda_final: [
     {
       type: "background",
-      image: "boda_solos.png"
+      image: "boda_solos.png",
+      backgroundSize: "cover, 88% auto",
+      backgroundPosition: "center, center",
+      backgroundRepeat: "no-repeat, no-repeat"
     },
     {
       type: "clearCharacters"
+    },
+    {
+      type: "choice",
+      speaker: "Fin",
+      text: "",
+      options: [
+        {
+          text: "Volver al inicio",
+          action: "returnToIntro"
+        }
+      ]
     }
   ]
 };

@@ -119,6 +119,14 @@ function showStartScreen() {
   playMusicFile(START_SCREEN_MUSIC, { loop: true, volume: 0.45 });
 }
 
+function returnToIntroScreen() {
+  resetGameState();
+  stopActiveAudio();
+  gameScreen.classList.add("hidden");
+  startScreen.classList.add("hidden");
+  introScreen.classList.remove("hidden");
+}
+
 function startGame(sceneId) {
   startScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
@@ -278,7 +286,10 @@ function showBackground(step) {
   currentBackgroundState =
     step && step.image
       ? {
-          image: step.image
+          image: step.image,
+          backgroundSize: step.backgroundSize || "",
+          backgroundPosition: step.backgroundPosition || "",
+          backgroundRepeat: step.backgroundRepeat || ""
         }
       : null;
   stopSpeakingAnimation();
@@ -435,6 +446,11 @@ function showChoices(step) {
 function chooseOption(option) {
   clearChoices();
   nextButton.classList.remove("hidden");
+
+  if (option && option.action === "returnToIntro") {
+    returnToIntroScreen();
+    return;
+  }
 
   if (option && option.nextScene) {
     jumpToScene(option.nextScene);
@@ -1104,7 +1120,10 @@ function cloneBackgroundState(backgroundState) {
   }
 
   return {
-    image: backgroundState.image
+    image: backgroundState.image,
+    backgroundSize: backgroundState.backgroundSize || "",
+    backgroundPosition: backgroundState.backgroundPosition || "",
+    backgroundRepeat: backgroundState.backgroundRepeat || ""
   };
 }
 
@@ -1134,6 +1153,9 @@ function applyBackgroundState(backgroundState) {
 
   if (!imagePath) {
     backgroundLayer.style.backgroundImage = "";
+    backgroundLayer.style.removeProperty("background-size");
+    backgroundLayer.style.removeProperty("background-position");
+    backgroundLayer.style.removeProperty("background-repeat");
     return;
   }
 
@@ -1141,6 +1163,12 @@ function applyBackgroundState(backgroundState) {
     'linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.52)), url("' +
     imagePath +
     '")';
+  backgroundLayer.style.backgroundSize =
+    (backgroundState && backgroundState.backgroundSize) || "cover, cover";
+  backgroundLayer.style.backgroundPosition =
+    (backgroundState && backgroundState.backgroundPosition) || "center, center";
+  backgroundLayer.style.backgroundRepeat =
+    (backgroundState && backgroundState.backgroundRepeat) || "no-repeat, no-repeat";
 }
 
 function shouldHideCharactersForCurrentBackground() {
