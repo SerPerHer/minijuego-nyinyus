@@ -1,4 +1,4 @@
-﻿Object.assign(story, {
+Object.assign(story, {
   tempestaria_llegada: [
     {
       type: "clearCharacters"
@@ -19,12 +19,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La aguja de la brujula apuntaba hacia una zona del mar donde las corrientes parecian completamente desquiciadas."
+      text: "La aguja de la brújula apuntaba hacia una zona del mar donde las corrientes parecían completamente desquiciadas."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Incluso desde lejos, la isla parecia un caos."
+      text: "Incluso desde lejos, la isla parecía un caos."
     },
     {
       type: "dialogue",
@@ -39,7 +39,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Molinos enormes inclinandose bajo la fuerza del viento."
+      text: "Molinos enormes inclinándose bajo la fuerza del viento."
     },
     {
       type: "dialogue",
@@ -63,17 +63,17 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El Nyinyus avanzaba dando tumbos entre corrientes aereas imposibles."
+      text: "El Nyinyus avanzaba dando tumbos entre corrientes aéreas imposibles."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu sujetaba el timon con expresion funeraria."
+      text: "Minutu sujetaba el timón con expresión funeraria."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Esto ya estaba mal planteado desde el momento en que el mapa decia \"sumate al viento\"."
+      text: "Esto ya estaba mal planteado desde el momento en que el mapa decía \"súmate al viento\"."
     },
     {
       type: "dialogue",
@@ -83,22 +83,22 @@
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Esa frase suele preceder a accidentes maritimos."
+      text: "Esa frase suele preceder a accidentes marítimos."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina observo la isla."
+      text: "Reina observó la isla."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La gente corria. No caminaban o paseaban. Corrian constantemente. Saltaban entre plataformas. Se agarraban a postes. Usaban telas tensadas para impulsarse. Y aun asi el viento no se los llevaba. Casi."
+      text: "La gente corría. No caminaban o paseaban. Corrían constantemente. Saltaban entre plataformas. Se agarraban a postes. Usaban telas tensadas para impulsarse. Y aún así el viento no se los llevaba. Casi."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Como vive aqui esta gente?"
+      text: "¿Cómo vive aquí esta gente?"
     },
     {
       type: "effect",
@@ -107,7 +107,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Una rafaga atraveso el barco."
+      text: "Una ráfaga atravesó el barco."
     },
     {
       type: "dialogue",
@@ -117,12 +117,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutos despues, los tres caminaban por el puerto principal. O al menos lo intentaban."
+      text: "Minutos después, los tres caminaban por el puerto principal. O al menos lo intentaban."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El viento rugia entre los edificios como un monstruo vivo. Todos los puestos estaban anclados con cadenas. Las mesas clavadas al suelo. Las farolas dobladas. La gente gritaba para poder escucharse."
+      text: "El viento rugía entre los edificios como un monstruo vivo. Todos los puestos estaban anclados con cadenas. Las mesas clavadas al suelo. Las farolas dobladas. La gente gritaba para poder escucharse."
     },
     {
       type: "dialogue",
@@ -157,7 +157,7 @@
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Si alguien me explico como sobrevivir aqui, claramente no lo escuche porque el viento se llevo la conversacion."
+      text: "Si alguien me explicó cómo sobrevivir aquí, claramente no lo escuché porque el viento se llevó la conversación."
     },
     {
       type: "dialogue",
@@ -177,17 +177,17 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mucho estruendo. Algo venia hacia ellos. Rapido. Muy rapido."
+      text: "Mucho estruendo. Algo venía hacia ellos. Rápido. Muy rápido."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Los tres se giraron. Una chica atravesaba el puerto corriendo como si el viento no existiera. Saltaba entre cajas. Pisaba barriles. Usaba las rafagas para impulsarse."
+      text: "Los tres se giraron. Una chica atravesaba el puerto corriendo como si el viento no existiera. Saltaba entre cajas. Pisaba barriles. Usaba las ráfagas para impulsarse."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y detras de ella: tres hombres enormes."
+      text: "Y detrás de ella: tres hombres enormes."
     },
     {
       type: "character",
@@ -241,12 +241,12 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "TECNICAMENTE LO HE CONSEGUIDO, ASI QUE ESO CUENTA COMO VICTORIA."
+      text: "TÉCNICAMENTE LO HE CONSEGUIDO, ASÍ QUE ESO CUENTA COMO VICTORIA."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "No me gusta la energia de esta situacion."
+      text: "No me gusta la energía de esta situación."
     },
     {
       type: "effect",
@@ -255,7 +255,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Entonces ocurrio. Reina perdio el agarre. El viento la arranco del suelo."
+      text: "Entonces ocurrió. Reina perdió el agarre. El viento la arrancó del suelo."
     },
     {
       type: "dialogue",
@@ -265,12 +265,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La rafaga la elevo hacia el cielo. Todo ocurrio rapido. Demasiado rapido. Mako vio a Reina. Salto sobre una caja. Luego a un barril medio suspendido. Luego al toldo de un tenderete."
+      text: "La ráfaga la elevó hacia el cielo. Todo ocurrió rápido. Demasiado rápido. Mako vio a Reina. Saltó sobre una caja. Luego a un barril medio suspendido. Luego al toldo de un tenderete."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako salio disparada. Agarro a Reina de la cintura en el aire. Y ambas cayeron rodando contra el suelo como un saco de piedras."
+      text: "Mako salió disparada. Agarró a Reina de la cintura en el aire. Y ambas cayeron rodando contra el suelo como un saco de piedras."
     },
     {
       type: "dialogue",
@@ -290,17 +290,17 @@
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Estais bien?"
+      text: "¿Estáis bien?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina se incorporo lentamente."
+      text: "Reina se incorporó lentamente."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako seguia tumbada en el suelo."
+      text: "Mako seguía tumbada en el suelo."
     },
     {
       type: "dialogue",
@@ -310,37 +310,37 @@
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Con quien compites?"
+      text: "¿Con quién compites?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Nadie... Todos?"
+      text: "Nadie... ¿Todos?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Los tres hombres gritaban a traves del puerto."
+      text: "Los tres hombres gritaban a través del puerto."
     },
     {
       type: "dialogue",
       speaker: "Hombre",
-      text: "AHI ESTA."
+      text: "AHÍ ESTÁ."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako se levanto tranquilamente."
+      text: "Mako se levantó tranquilamente."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Que has robado exactamente?"
+      text: "¿Qué has robado exactamente?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako saco una pequena brujula metalica del bolsillo."
+      text: "Mako sacó una pequeña brújula metálica del bolsillo."
     },
     {
       type: "dialogue",
@@ -350,22 +350,22 @@
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Perfecto. Ya estamos implicados en un delito maritimo."
+      text: "Perfecto. Ya estamos implicados en un delito marítimo."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Oh no no no. Escuchad el contexto. Me dijeron: no tendras valor para hacerlo."
+      text: "Oh no no no. Escuchad el contexto. Me dijeron: no tendrás valor para hacerlo."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Levanto un dedo."
+      text: "Levantó un dedo."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Luego dijeron: aunque lo intentes, no lo conseguiras."
+      text: "Luego dijeron: aunque lo intentes, no lo conseguirás."
     },
     {
       type: "dialogue",
@@ -375,22 +375,22 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Y yo pense... Eso no es basicamente una invitacion?"
+      text: "Y yo pensé... ¿Eso no es básicamente una invitación?"
     },
     {
       type: "dialogue",
       speaker: "Hombres",
-      text: "DEVUELVELA."
+      text: "DEVUÉLVELA."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Y ENCIMA lo consegui. Deberian darme las gracias."
+      text: "Y ENCIMA lo conseguí. Deberían darme las gracias."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Rocky empezo a reirse."
+      text: "Rocky empezó a reírse."
     },
     {
       type: "dialogue",
@@ -400,12 +400,12 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Perdon por eso. No puedo evitarlo cuando me emociono. En fin... quiza ahora os culpen tambien."
+      text: "Perdón por eso. No puedo evitarlo cuando me emociono. En fin... quizá ahora os culpen también."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Quiza?"
+      text: "¿Quizá?"
     },
     {
       type: "dialogue",
@@ -425,7 +425,7 @@
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Cual?"
+      text: "¿Cuál?"
     },
     {
       type: "dialogue",
@@ -440,33 +440,33 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Vamos. Cogedme la mano. Os llevare a un sitio seguro."
+      text: "Vamos. Cogedme la mano. Os llevaré a un sitio seguro."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Detras de ellos, los hombres empezaban a acercarse."
+      text: "Detrás de ellos, los hombres empezaban a acercarse."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El viento rugia entre los edificios."
+      text: "El viento rugía entre los edificios."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La brujula brillaba en la mano de Mako."
+      text: "La brújula brillaba en la mano de Mako."
     },
     {
       type: "choice",
-      text: "Que haceis?",
+      text: "¿Qué hacéis?",
       options: [
         {
-          text: "A) Cogeis la mano de Mako y escapais con ella.",
+          text: "A) Cogéis la mano de Mako y escapáis con ella.",
           nextScene: "tempestaria_escapar_con_mako"
         },
         {
-          text: "B) No confiais en ella y os quedais.",
+          text: "B) No confiáis en ella y os quedáis.",
           nextScene: "tempestaria_quedarse"
         }
       ]
@@ -481,12 +481,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Rocky miro la mano de Mako."
+      text: "Rocky miró la mano de Mako."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Luego a los tres hombres acercandose."
+      text: "Luego a los tres hombres acercándose."
     },
     {
       type: "dialogue",
@@ -496,22 +496,22 @@
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Quiero dejar claro que estadisticamente esta decision nos llevara a un problema mucho mayor."
+      text: "Quiero dejar claro que estadísticamente esta decisión nos llevará a un problema mucho mayor."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Si. Vamos."
+      text: "Sí. Vamos."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina suspiro. Y le cogio la mano. Rocky hizo lo mismo inmediatamente."
+      text: "Reina suspiró. Y le cogió la mano. Rocky hizo lo mismo inmediatamente."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu los observo en silencio unos segundos."
+      text: "Minutu los observó en silencio unos segundos."
     },
     {
       type: "dialogue",
@@ -521,32 +521,32 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Eso es espiritu de equipo."
+      text: "Eso es espíritu de equipo."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y salio corriendo."
+      text: "Y salió corriendo."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El mundo se convirtio en viento. Mako atravesaba Tempestaria a una velocidad absurda mientras los otros tres eran practicamente arrastrados detras de ella."
+      text: "El mundo se convirtió en viento. Mako atravesaba Tempestaria a una velocidad absurda mientras los otros tres eran prácticamente arrastrados detrás de ella."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Parecia una cometa tirando de otras tres cometas."
+      text: "Parecía una cometa tirando de otras tres cometas."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Saltaba barandillas. Se impulsaba con rafagas. Pisaba paredes inclinadas. Usaba telas tensadas entre edificios como trampolines."
+      text: "Saltaba barandillas. Se impulsaba con ráfagas. Pisaba paredes inclinadas. Usaba telas tensadas entre edificios como trampolines."
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "ESTO ES INCREIBLE."
+      text: "ESTO ES INCREÍBLE."
     },
     {
       type: "dialogue",
@@ -561,27 +561,27 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina apenas conseguia mantener los ojos abiertos por el viento."
+      text: "Reina apenas conseguía mantener los ojos abiertos por el viento."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y aun asi, Mako no salia volando. Ni siquiera parecia costarle."
+      text: "Y aún así, Mako no salía volando. Ni siquiera parecía costarle."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "COMO NO TE ARRASTRA EL VIENTO."
+      text: "¿CÓMO NO TE ARRASTRA EL VIENTO?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "CORRO MAS RAPIDO QUE EL."
+      text: "CORRO MÁS RÁPIDO QUE ÉL."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Eso no tiene ningun sentido fisico."
+      text: "Eso no tiene ningún sentido físico."
     },
     {
       type: "dialogue",
@@ -591,7 +591,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Finalmente llegaron a una pequena zona elevada de la ciudad. Las casas estaban construidas unas sobre otras, sujetas con cadenas gigantescas clavadas entre si."
+      text: "Finalmente llegaron a una pequeña zona elevada de la ciudad. Las casas estaban construidas unas sobre otras, sujetas con cadenas gigantescas clavadas entre sí."
     },
     {
       type: "stopSound"
@@ -637,7 +637,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako abrio una puerta de una patada."
+      text: "Mako abrió una puerta de una patada."
     },
     {
       type: "background",
@@ -651,22 +651,22 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La casa era pequena. Y estaba completamente llena de cosas. Libros. Herramientas. Mapas. Cuerdas. Objetos extranos. Cosas claramente valiosas mezcladas con basura absoluta."
+      text: "La casa era pequeña. Y estaba completamente llena de cosas. Libros. Herramientas. Mapas. Cuerdas. Objetos extraños. Cosas claramente valiosas mezcladas con basura absoluta."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Habia incluso un remo colgado del techo por algun motivo. La casa se balanceaba ligeramente con el viento exterior."
+      text: "Había incluso un remo colgado del techo por algún motivo. La casa se balanceaba ligeramente con el viento exterior."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu observo alrededor."
+      text: "Minutu observó alrededor."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Esto parece el almacen de un pirata con Diogenes tactico."
+      text: "Esto parece el almacén de un pirata con Diógenes táctico."
     },
     {
       type: "dialogue",
@@ -676,47 +676,47 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Rocky cogio un objeto raro de una estanteria."
+      text: "Rocky cogió un objeto raro de una estantería."
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Que es esto?"
+      text: "¿Qué es esto?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "No tengo ni idea. Pero lo gane."
+      text: "No tengo ni idea. Pero lo gané."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Como?"
+      text: "¿Cómo?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Competicion de gritos."
+      text: "Competición de gritos."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Por supuesto que existe eso aqui."
+      text: "Por supuesto que existe eso aquí."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Tras unos minutos recuperandose del viaje, Reina saco el mapa. El viejo pergamino se abrio sobre la mesa. Las cinco marcas seguian brillando debilmente."
+      text: "Tras unos minutos recuperándose del viaje, Reina sacó el mapa. El viejo pergamino se abrió sobre la mesa. Las cinco marcas seguían brillando débilmente."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y en el centro, el simbolo. Un extrano grabado circular dividido en cinco partes."
+      text: "Y en el centro, el símbolo. Un extraño grabado circular dividido en cinco partes."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako se inclino sobre el. Por primera vez desde que la conocian, parecio concentrarse de verdad."
+      text: "Mako se inclinó sobre él. Por primera vez desde que la conocían, pareció concentrarse de verdad."
     },
     {
       type: "dialogue",
@@ -726,7 +726,7 @@
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Te suena?"
+      text: "¿Te suena?"
     },
     {
       type: "dialogue",
@@ -746,22 +746,22 @@
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "No me gusta como suena esta frase."
+      text: "No me gusta cómo suena esta frase."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Sabe muchisimo sobre reliquias antiguas. Objetos extranos. Simbolos raros. Cosas de viejos piratas."
+      text: "Sabe muchísimo sobre reliquias antiguas. Objetos extraños. Símbolos raros. Cosas de viejos piratas."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Y donde esta?"
+      text: "¿Y dónde está?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Bueno... tecnicamente casi lo conoceis."
+      text: "Bueno... técnicamente casi lo conocéis."
     },
     {
       type: "dialogue",
@@ -771,7 +771,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu cerro los ojos lentamente."
+      text: "Minutu cerró los ojos lentamente."
     },
     {
       type: "dialogue",
@@ -791,12 +791,12 @@
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Le quitaste una brujula y ahora te persiguen tres hombres."
+      text: "Le quitaste una brújula y ahora te persiguen tres hombres."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako levanto un dedo."
+      text: "Mako levantó un dedo."
     },
     {
       type: "dialogue",
@@ -811,7 +811,7 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Y ademas practicamente me retaron a hacerlo."
+      text: "Y además prácticamente me retaron a hacerlo."
     },
     {
       type: "dialogue",
@@ -821,22 +821,22 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "En Tempestaria si."
+      text: "En Tempestaria sí."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El viento golpeo las ventanas. Mako se dejo caer sobre una silla."
+      text: "El viento golpeó las ventanas. Mako se dejó caer sobre una silla."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Esta noche hara una fiesta en su mansion."
+      text: "Esta noche hará una fiesta en su mansión."
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Una fiesta?"
+      text: "¿Una fiesta?"
     },
     {
       type: "dialogue",
@@ -846,12 +846,12 @@
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Y crees que tiene uno de los objetos?"
+      text: "¿Y crees que tiene uno de los objetos?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Si alguien en esta isla sabe algo sobre vuestro simbolo, es el."
+      text: "Si alguien en esta isla sabe algo sobre vuestro símbolo, es él."
     },
     {
       type: "dialogue",
@@ -866,53 +866,53 @@
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Por que me estais mirando asi?"
+      text: "¿Por qué me estáis mirando así?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Porque eso suena aburridisimo."
+      text: "Porque eso suena aburridísimo."
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Un poco si."
+      text: "Un poco sí."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako se inclino sobre la mesa con una sonrisa enorme."
+      text: "Mako se inclinó sobre la mesa con una sonrisa enorme."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Entonces, que os parece si...?"
+      text: "Entonces, ¿qué os parece si...?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La casa crujio con el viento."
+      text: "La casa crujió con el viento."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La tormenta rugia fuera."
+      text: "La tormenta rugía fuera."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y la siguiente decision quedo suspendida en el aire."
+      text: "Y la siguiente decisión quedó suspendida en el aire."
     },
     {
       type: "choice",
-      text: "Que haceis?",
+      text: "¿Qué hacéis?",
       options: [
         {
           text: "A) Intentar hablar con el coleccionista durante la fiesta.",
           nextScene: "tempestaria_fiesta_hablar"
         },
         {
-          text: "B) Colaros en la mansion para buscar el objeto por vuestra cuenta.",
+          text: "B) Colaros en la mansión para buscar el objeto por vuestra cuenta.",
           nextScene: "tempestaria_mansion_colarse"
         }
       ]
@@ -972,27 +972,27 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La mansion Gildrack brillaba sobre los acantilados de Tempestaria como un palacio suspendido en mitad de la tormenta."
+      text: "La mansión Gildrack brillaba sobre los acantilados de Tempestaria como un palacio suspendido en mitad de la tormenta."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La lluvia golpeaba los enormes ventanales. Los relampagos iluminaban las torres doradas."
+      text: "La lluvia golpeaba los enormes ventanales. Los relámpagos iluminaban las torres doradas."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y dentro, la fiesta rugia casi tan fuerte como el viento exterior."
+      text: "Y dentro, la fiesta rugía casi tan fuerte como el viento exterior."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Musica. Copas. Risas exageradas. Nobles vestidos con telas imposibles. Coleccionistas presumiendo de reliquias absurdas. Mercaderes intentando impresionarse entre ellos."
+      text: "Música. Copas. Risas exageradas. Nobles vestidos con telas imposibles. Coleccionistas presumiendo de reliquias absurdas. Mercaderes intentando impresionarse entre ellos."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Habia piratas refinados, millonarios extravagantes, aristocratas del Grand Line y personas tan ricas que probablemente nunca habian cargado una caja en su vida."
+      text: "Había piratas refinados, millonarios extravagantes, aristócratas del Grand Line y personas tan ricas que probablemente nunca habían cargado una caja en su vida."
     },
     {
       type: "dialogue",
@@ -1002,37 +1002,37 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y entre toda aquella opulencia, Mako llevaba un vestido precioso. Elegante. Oscuro. Con detalles rosados que se movian con el viento."
+      text: "Y entre toda aquella opulencia, Mako llevaba un vestido precioso. Elegante. Oscuro. Con detalles rosados que se movían con el viento."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Un vestido que quiza, y solo quiza, habia cogido prestado. Para luego no devolverlo nunca."
+      text: "Un vestido que quizá, y solo quizá, había cogido prestado. Para luego no devolverlo nunca."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina iba espectacular. Elegante. Serena. Con una presencia que hacia que incluso la gente se apartara ligeramente al verla pasar."
+      text: "Reina iba espectacular. Elegante. Serena. Con una presencia que hacía que incluso la gente se apartara ligeramente al verla pasar."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y sorprendentemente, hasta Rocky y Minutu habian conseguido arreglarse bastante bien."
+      text: "Y sorprendentemente, hasta Rocky y Minutu habían conseguido arreglarse bastante bien."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Aunque Minutu parecia un hombre atrapado en una experiencia social contra su voluntad."
+      text: "Aunque Minutu parecía un hombre atrapado en una experiencia social contra su voluntad."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Frente a la entrada principal, un guardia les corto el paso."
+      text: "Frente a la entrada principal, un guardia les cortó el paso."
     },
     {
       type: "dialogue",
       speaker: "Guardia",
-      text: "Invitacion."
+      text: "Invitación."
     },
     {
       type: "dialogue",
@@ -1072,22 +1072,22 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina dio un paso al frente. Y por un instante, parecio completamente parte de aquel mundo. Levanto ligeramente la barbilla."
+      text: "Reina dio un paso al frente. Y por un instante, pareció completamente parte de aquel mundo. Levantó ligeramente la barbilla."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Venimos de muy lejos para traerle una reliquia al senor Gildrack."
+      text: "Venimos de muy lejos para traerle una reliquia al señor Gildrack."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El guardia dudo."
+      text: "El guardia dudó."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Y puedo asegurarte que no estara contento si nos haceis esperar."
+      text: "Y puedo asegurarte que no estará contento si nos hacéis esperar."
     },
     {
       type: "dialogue",
@@ -1097,7 +1097,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El guardia trago saliva."
+      text: "El guardia tragó saliva."
     },
     {
       type: "dialogue",
@@ -1107,12 +1107,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu la miro impresionado."
+      text: "Minutu la miró impresionado."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Rocky sonrio."
+      text: "Rocky sonrió."
     },
     {
       type: "dialogue",
@@ -1126,22 +1126,22 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La fiesta era incluso mas absurda por dentro."
+      text: "La fiesta era incluso más absurda por dentro."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Aranas de cristal colgaban sujetas con cadenas de piedras preciosas. Instrumentos sonaban sobre plataformas flotantes. Habia esculturas traidas de islas lejanas y animales exoticos paseando entre invitados."
+      text: "Arañas de cristal colgaban sujetas con cadenas de piedras preciosas. Instrumentos sonaban sobre plataformas flotantes. Había esculturas traídas de islas lejanas y animales exóticos paseando entre invitados."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "En una esquina, dos nobles discutian sobre que espada antigua tenia mas aura."
+      text: "En una esquina, dos nobles discutían sobre qué espada antigua tenía más aura."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Quiero robarles solo por la conversacion."
+      text: "Quiero robarles solo por la conversación."
     },
     {
       type: "dialogue",
@@ -1156,17 +1156,17 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Decidisteis separaros para encontrar a Valerio antes. Y vaya si lo encontrasteis. O mejor dicho, el os encuentra primero."
+      text: "Decidisteis separaros para encontrar a Valerio antes. Y vaya si lo encontrasteis. O mejor dicho, él os encuentra primero."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Un pequeno revuelo empieza a formarse cerca de la sala principal."
+      text: "Un pequeño revuelo empieza a formarse cerca de la sala principal."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Cuando os acercais, veis a Mako delante de Valerio Gildrack."
+      text: "Cuando os acercáis, veis a Mako delante de Valerio Gildrack."
     },
     {
       type: "character",
@@ -1186,12 +1186,12 @@
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Que haces exactamente en mi fiesta?"
+      text: "¿Qué haces exactamente en mi fiesta?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako sonrio inocentemente."
+      text: "Mako sonrió inocentemente."
     },
     {
       type: "dialogue",
@@ -1201,7 +1201,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Cogio una copa de la bandeja de un camarero que pasaba cerca. Se la bebio entera."
+      text: "Cogió una copa de la bandeja de un camarero que pasaba cerca. Se la bebió entera."
     },
     {
       type: "dialogue",
@@ -1211,37 +1211,37 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Vaya. Esto esta buenisimo."
+      text: "Vaya. Esto está buenísimo."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y ahi empezo el desastre."
+      text: "Y ahí empezó el desastre."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El grupo termino reuniendose alrededor de ellos."
+      text: "El grupo terminó reuniéndose alrededor de ellos."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako ya estaba claramente mas alegre. Mucho mas alegre. Se apoyo ligeramente sobre Valerio y le dio un empujoncito."
+      text: "Mako ya estaba claramente más alegre. Mucho más alegre. Se apoyó ligeramente sobre Valerio y le dio un empujoncito."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Y si jugamos a un juego?"
+      text: "¿Y si jugamos a un juego?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Valerio suspiro profundamente."
+      text: "Valerio suspiró profundamente."
     },
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Temo muchisimo la continuacion de esa frase."
+      text: "Temo muchísimo la continuación de esa frase."
     },
     {
       type: "dialogue",
@@ -1251,7 +1251,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Le senalo."
+      text: "Le señaló."
     },
     {
       type: "dialogue",
@@ -1261,7 +1261,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Luego se senalo a si misma."
+      text: "Luego se señaló a sí misma."
     },
     {
       type: "dialogue",
@@ -1271,7 +1271,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Sonrio."
+      text: "Sonrió."
     },
     {
       type: "dialogue",
@@ -1281,12 +1281,12 @@
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Estamos apostando cosas y aun no se cuales son."
+      text: "Estamos apostando cosas y aún no sé cuáles son."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Valerio observo al grupo. Luego sonrio ligeramente."
+      text: "Valerio observó al grupo. Luego sonrió ligeramente."
     },
     {
       type: "dialogue",
@@ -1296,7 +1296,7 @@
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Que?"
+      text: "¿Qué?"
     },
     {
       type: "dialogue",
@@ -1321,52 +1321,52 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y sorprendentemente, Rocky arraso. Saco sus pasos prohibidos y los dejo a todos con la boca abierta."
+      text: "Y sorprendentemente, Rocky arrasó. Sacó sus pasos prohibidos y los dejó a todos con la boca abierta."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Nadie entendia como. Pero en algun momento empezo la musica, comenzo a bailar, la gente hizo espacio y toda la fiesta termino mirando."
+      text: "Nadie entendía cómo. Pero en algún momento empezó la música, comenzó a bailar, la gente hizo espacio y toda la fiesta terminó mirando."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Incluso Valerio parecia impresionado."
+      text: "Incluso Valerio parecía impresionado."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "VAMOS ROCKY. LOS ESTAS DESTRUYENDO A TODOS."
+      text: "VAMOS ROCKY. LOS ESTÁS DESTRUYENDO A TODOS."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Durante un rato, todo dejo de importar. La mision. El mapa. El One Piece."
+      text: "Durante un rato, todo dejó de importar. La misión. El mapa. El One Piece."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Solo hubo musica, risas, copas, viento golpeando los ventanales y la sensacion de estar viviendo una aventura."
+      text: "Solo hubo música, risas, copas, viento golpeando los ventanales y la sensación de estar viviendo una aventura."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Todos bailaban. Todos reian. Todos excepto Minutu."
+      text: "Todos bailaban. Todos reían. Todos excepto Minutu."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Observaba la escena con expresion de hombre al borde de un aneurisma cerebral. Aunque en el fondo, muy en el fondo, tambien estaba disfrutando un poco viendo a todos tan felices."
+      text: "Observaba la escena con expresión de hombre al borde de un aneurisma cerebral. Aunque en el fondo, muy en el fondo, también estaba disfrutando un poco viendo a todos tan felices."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Finalmente, la musica termino."
+      text: "Finalmente, la música terminó."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Valerio suspiro."
+      text: "Valerio suspiró."
     },
     {
       type: "dialogue",
@@ -1376,12 +1376,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Miro al grupo."
+      text: "Miró al grupo."
     },
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Que quereis?"
+      text: "¿Qué queréis?"
     },
     {
       type: "dialogue",
@@ -1391,12 +1391,12 @@
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Queremos que nos digas cual es el objeto que tiene el circulo fragmentado en cinco."
+      text: "Queremos que nos digas cuál es el objeto que tiene el círculo fragmentado en cinco."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La sonrisa de Valerio desaparecio lentamente. El ambiente cambio."
+      text: "La sonrisa de Valerio desapareció lentamente. El ambiente cambió."
     },
     {
       type: "effect",
@@ -1405,12 +1405,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El viento golpeo los ventanales."
+      text: "El viento golpeó los ventanales."
     },
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Intente que no os metierais en esto."
+      text: "Intenté que no os metierais en esto."
     },
     {
       type: "dialogue",
@@ -1420,17 +1420,17 @@
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Pero parece que ya habeis decidido."
+      text: "Pero parece que ya habéis decidido."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Miro directamente a Mako."
+      text: "Miró directamente a Mako."
     },
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Es la brujula."
+      text: "Es la brújula."
     },
     {
       type: "dialogue",
@@ -1440,12 +1440,12 @@
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "La que Mako tan amablemente sustrajo de mi almacen."
+      text: "La que Mako tan amablemente sustrajo de mi almacén."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako hizo una pequena reverencia orgullosa."
+      text: "Mako hizo una pequeña reverencia orgullosa."
     },
     {
       type: "dialogue",
@@ -1460,7 +1460,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina cruzo los brazos."
+      text: "Reina cruzó los brazos."
     },
     {
       type: "dialogue",
@@ -1475,17 +1475,17 @@
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Rocky ha ganado de sobra y lo sabes. Cualquier otro premio no seria justo, verdad?"
+      text: "Rocky ha ganado de sobra y lo sabes. Cualquier otro premio no sería justo, ¿verdad?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako aparecio al lado de Rocky comiendo palomitas de algun lugar desconocido."
+      text: "Mako apareció al lado de Rocky comiendo palomitas de algún lugar desconocido."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Uou... Que poder de persuasion. Es increible."
+      text: "Uou... Qué poder de persuasión. Es increíble."
     },
     {
       type: "dialogue",
@@ -1495,12 +1495,12 @@
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Si, lo es."
+      text: "Sí, lo es."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "De donde han salido esas palomitas?"
+      text: "¿De dónde han salido esas palomitas?"
     },
     {
       type: "dialogue",
@@ -1510,17 +1510,17 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Valerio cerro los ojos unos segundos. Como un hombre aceptando que el universo lo odiaba personalmente."
+      text: "Valerio cerró los ojos unos segundos. Como un hombre aceptando que el universo lo odiaba personalmente."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Finalmente suspiro."
+      text: "Finalmente suspiró."
     },
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Esta bien."
+      text: "Está bien."
     },
     {
       type: "dialogue",
@@ -1530,17 +1530,17 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Rocky sonrio."
+      text: "Rocky sonrió."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina tambien."
+      text: "Reina también."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y entonces Mako se paso la mano por la frente, exageradamente."
+      text: "Y entonces Mako se pasó la mano por la frente, exageradamente."
     },
     {
       type: "dialogue",
@@ -1555,7 +1555,7 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "La verdadera brujula era tan bonita que la escondi."
+      text: "La verdadera brújula era tan bonita que la escondí."
     },
     {
       type: "dialogue",
@@ -1565,12 +1565,12 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "La que llevaba encima era una falsificacion."
+      text: "La que llevaba encima era una falsificación."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu se quedo completamente inmovil."
+      text: "Minutu se quedó completamente inmóvil."
     },
     {
       type: "dialogue",
@@ -1590,7 +1590,7 @@
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Entonces sera mejor que nos marchemos. Ya."
+      text: "Entonces será mejor que nos marchemos. Ya."
     },
     {
       type: "background",
@@ -1641,22 +1641,22 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y asi, despues de colarse en una fiesta imposible, enganar guardias, bailar por una reliquia legendaria y sobrevivir socialmente a Mako, el grupo abandono la mansion bajo la tormenta."
+      text: "Y así, después de colarse en una fiesta imposible, engañar guardias, bailar por una reliquia legendaria y sobrevivir socialmente a Mako, el grupo abandonó la mansión bajo la tormenta."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El viento rugia sobre Tempestaria."
+      text: "El viento rugía sobre Tempestaria."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y mientras iban hacia la pequena casa balanceante de Mako, por primera vez desde que comenzo el viaje, ya no parecian simplemente viajeros."
+      text: "Y mientras iban hacia la pequeña casa balanceante de Mako, por primera vez desde que comenzó el viaje, ya no parecían simplemente viajeros."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Parecian empezar a convertirse en una verdadera tripulacion."
+      text: "Parecían empezar a convertirse en una verdadera tripulación."
     },
     {
       type: "goto",
@@ -1717,37 +1717,37 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La tormenta envolvia la mansion Gildrack mientras las luces de la fiesta brillaban entre los enormes ventanales."
+      text: "La tormenta envolvía la mansión Gildrack mientras las luces de la fiesta brillaban entre los enormes ventanales."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Musica. Copas. Risas."
+      text: "Música. Copas. Risas."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y, deslizandose entre las sombras exteriores del edificio: cuatro personas."
+      text: "Y, deslizándose entre las sombras exteriores del edificio: cuatro personas."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu observaba la pared de la mansion con expresion de absoluto sufrimiento psicologico."
+      text: "Minutu observaba la pared de la mansión con expresión de absoluto sufrimiento psicológico."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Podriamos estar dentro hablando civilizadamente."
+      text: "Podríamos estar dentro hablando civilizadamente."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Si, pero no es esto muchisimo mejor?"
+      text: "Sí, pero ¿no es esto muchísimo mejor?"
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Tiene un poco de razon."
+      text: "Tiene un poco de razón."
     },
     {
       type: "dialogue",
@@ -1771,37 +1771,37 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Moverse por la mansion resulto mucho mas complicado de lo esperado."
+      text: "Moverse por la mansión resultó mucho más complicado de lo esperado."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Habian duplicado la seguridad. Guardias en cada pasillo. Sensores de viento colocados en ventanas abiertas."
+      text: "Habían duplicado la seguridad. Guardias en cada pasillo. Sensores de viento colocados en ventanas abiertas."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako avanzaba agachada. Completamente concentrada. Por primera vez desde conocerla, parecia profesional."
+      text: "Mako avanzaba agachada. Completamente concentrada. Por primera vez desde conocerla, parecía profesional."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Vale. Eso antes no estaba asi."
+      text: "Vale. Eso antes no estaba así."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Antes?"
+      text: "¿Antes?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "La ultima vez que me cole."
+      text: "La última vez que me colé."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Fantastico."
+      text: "Fantástico."
     },
     {
       type: "dialogue",
@@ -1816,12 +1816,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako levanto el puno inmediatamente. Todos se detuvieron."
+      text: "Mako levantó el puño inmediatamente. Todos se detuvieron."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La voz venia de una habitacion cercana. Una puerta entreabierta. Valerio Gildrack. Y estaba hablando con alguien."
+      text: "La voz venía de una habitación cercana. Una puerta entreabierta. Valerio Gildrack. Y estaba hablando con alguien."
     },
     {
       type: "character",
@@ -1836,7 +1836,7 @@
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Hay gente preguntando por el simbolo del Quinto Elemento."
+      text: "Hay gente preguntando por el símbolo del Quinto Elemento."
     },
     {
       type: "dialogue",
@@ -1846,7 +1846,7 @@
     {
       type: "dialogue",
       speaker: "?????",
-      text: "Saben algo?"
+      text: "¿Saben algo?"
     },
     {
       type: "dialogue",
@@ -1866,7 +1866,7 @@
     {
       type: "dialogue",
       speaker: "?????",
-      text: "Aun lo tienes en tu posesion?"
+      text: "¿Aún lo tienes en tu posesión?"
     },
     {
       type: "dialogue",
@@ -1876,52 +1876,52 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Un pequeno titubeo."
+      text: "Un pequeño titubeo."
     },
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Esta en la segunda habitacion de la tercera planta bajo vigilancia."
+      text: "Está en la segunda habitación de la tercera planta bajo vigilancia."
     },
     {
       type: "dialogue",
       speaker: "?????",
-      text: "Que siga asi."
+      text: "Que siga así."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako abrio mucho los ojos."
+      text: "Mako abrió mucho los ojos."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina la miro inmediatamente."
+      text: "Reina la miró inmediatamente."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Rocky sonrio, expectante."
+      text: "Rocky sonrió, expectante."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu fruncio el ceno."
+      text: "Minutu frunció el ceño."
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Y ahora que?"
+      text: "¿Y ahora qué?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako sonrio lentamente."
+      text: "Mako sonrió lentamente."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Claramente debemos ir a esa habitacion."
+      text: "Claramente debemos ir a esa habitación."
     },
     {
       type: "dialogue",
@@ -1931,7 +1931,7 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Ademas, tengo que confirmar algo."
+      text: "Además, tengo que confirmar algo."
     },
     {
       type: "dialogue",
@@ -1951,12 +1951,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako reacciono inmediatamente. Se puso delante del grupo y empezo a guiarlos por la mansion como si realmente fuera suya."
+      text: "Mako reaccionó inmediatamente. Se puso delante del grupo y empezó a guiarlos por la mansión como si realmente fuera suya."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Subieron escaleras. Atravesaron habitaciones. Pasaron por corredores llenos de reliquias imposibles. Hasta llegar a la segunda habitacion de la tercera planta."
+      text: "Subieron escaleras. Atravesaron habitaciones. Pasaron por corredores llenos de reliquias imposibles. Hasta llegar a la segunda habitación de la tercera planta."
     },
     {
       type: "dialogue",
@@ -1971,7 +1971,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La habitacion estaba llena de objetos extranos: mascaras antiguas, armas ornamentales, joyas, mapas y reliquias de lugares que probablemente ni existian ya."
+      text: "La habitación estaba llena de objetos extraños: máscaras antiguas, armas ornamentales, joyas, mapas y reliquias de lugares que probablemente ni existían ya."
     },
     {
       type: "dialogue",
@@ -1981,32 +1981,32 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Entonces lo vieron. Una vitrina distinta al resto. Mas protegida. Con un pequeno cartel metalico."
+      text: "Entonces lo vieron. Una vitrina distinta al resto. Más protegida. Con un pequeño cartel metálico."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y grabado en el, el simbolo. El circulo fragmentado en cinco partes."
+      text: "Y grabado en él, el símbolo. El círculo fragmentado en cinco partes."
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Nos mintio cuando dijo que no sabia lo que era el circulo."
+      text: "Nos mintió cuando dijo que no sabía lo que era el círculo."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Pues claro. Que esperabas? Que se hubiera hecho rico diciendo la verdad?"
+      text: "Pues claro. ¿Qué esperabas? ¿Qué se hubiera hecho rico diciendo la verdad?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Dentro de la vitrina habia un objeto cubierto por una tela dorada."
+      text: "Dentro de la vitrina había un objeto cubierto por una tela dorada."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina se acerco lentamente."
+      text: "Reina se acercó lentamente."
     },
     {
       type: "dialogue",
@@ -2016,7 +2016,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Entonces Rocky apoyo la mano sobre la vitrina."
+      text: "Entonces Rocky apoyó la mano sobre la vitrina."
     },
     {
       type: "dialogue",
@@ -2031,7 +2031,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y despues: WIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII."
+      text: "Y después: WIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII."
     },
     {
       type: "effect",
@@ -2040,27 +2040,27 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La alarma empezo a sonar por toda la mansion."
+      text: "La alarma empezó a sonar por toda la mansión."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu cerro los ojos."
+      text: "Minutu cerró los ojos."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Genial. Tenemos exactamente tres minutos, veintinueve segundos y treinta y seis milisegundos para salir de aqui."
+      text: "Genial. Tenemos exactamente tres minutos, veintinueve segundos y treinta y seis milisegundos para salir de aquí."
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Pero aun no tenemos el objeto."
+      text: "Pero aún no tenemos el objeto."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako empezo a reirse salvajemente."
+      text: "Mako empezó a reírse salvajemente."
     },
     {
       type: "dialogue",
@@ -2070,27 +2070,27 @@
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Que?"
+      text: "¿Qué?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Ahora toca fuga con persecucion. Mi momento favorito."
+      text: "Ahora toca fuga con persecución. Mi momento favorito."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Estamos siguiendo a una loca. Vamos a acabar en prision."
+      text: "Estamos siguiendo a una loca. Vamos a acabar en prisión."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Venga. Vamonos. Ya lo volveremos a intentar ahora que sabemos donde esta."
+      text: "Venga. Vámonos. Ya lo volveremos a intentar ahora que sabemos dónde está."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y entonces la puerta del pasillo se abrio de golpe. Dos guardias."
+      text: "Y entonces la puerta del pasillo se abrió de golpe. Dos guardias."
     },
     {
       type: "dialogue",
@@ -2125,7 +2125,7 @@
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "CUAL ERA EL A?"
+      text: "¿CUÁL ERA EL A?"
     },
     {
       type: "dialogue",
@@ -2135,17 +2135,17 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Los guardias empezaron a perseguirlos inmediatamente. Mas pasos empezaban a escucharse por toda la mansion. La alarma seguia sonando."
+      text: "Los guardias empezaron a perseguirlos inmediatamente. Más pasos empezaban a escucharse por toda la mansión. La alarma seguía sonando."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako giro la cabeza hacia el grupo."
+      text: "Mako giró la cabeza hacia el grupo."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y por primera vez desde conocerla, hablo completamente en serio."
+      text: "Y por primera vez desde conocerla, habló completamente en serio."
     },
     {
       type: "dialogue",
@@ -2155,7 +2155,7 @@
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Que?"
+      text: "¿Qué?"
     },
     {
       type: "dialogue",
@@ -2165,12 +2165,12 @@
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "No vamos a dejarte aqui."
+      text: "No vamos a dejarte aquí."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Claro que si. Porque voy ganando."
+      text: "Claro que sí. Porque voy ganando."
     },
     {
       type: "dialogue",
@@ -2180,37 +2180,37 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako sonrio. Luego senalo una direccion."
+      text: "Mako sonrió. Luego señaló una dirección."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Mi casa esta en la zona alta del puerto. Tercera plataforma. Puerta rosa. Nos vemos alli."
+      text: "Mi casa está en la zona alta del puerto. Tercera plataforma. Puerta rosa. Nos vemos allí."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Dudaron solo un instante. Pero mas guardias empezaban a llegar."
+      text: "Dudaron solo un instante. Pero más guardias empezaban a llegar."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Asi que echaron a correr. Saltando entre pasillos. Escaleras. Puertas. Hasta desaparecer de la mansion."
+      text: "Así que echaron a correr. Saltando entre pasillos. Escaleras. Puertas. Hasta desaparecer de la mansión."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y mientras huian, escucharon la voz de Mako resonando detras de ellos. Cada vez mas rapida. Mas fuerte. Mas imposible de entender."
+      text: "Y mientras huían, escucharon la voz de Mako resonando detrás de ellos. Cada vez más rápida. Más fuerte. Más imposible de entender."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "ESCUCHAD PRIMERO NO ES LO QUE PARECE PORQUE ESTO ES REALMENTE UN MAL ENTENDIDO CON MUCHAS VARIABLES Y ADEMAS SI ESTAIS GRITANDO QUIERO DECIR QUE YO HE GANADO EMOCIONAL MENTE..."
+      text: "ESCUCHAD PRIMERO NO ES LO QUE PARECE PORQUE ESTO ES REALMENTE UN MAL ENTENDIDO CON MUCHAS VARIABLES Y ADEMÁS SI ESTÁIS GRITANDO QUIERO DECIR QUE YO HE GANADO EMOCIONAL MENTE..."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Luego: golpes. Guardias cayendo. Gente mareandose."
+      text: "Luego: golpes. Guardias cayendo. Gente mareándose."
     },
     {
       type: "dialogue",
@@ -2269,17 +2269,17 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El grupo consiguio escapar de la mansion sin demasiados problemas."
+      text: "El grupo consiguió escapar de la mansión sin demasiados problemas."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El viento de Tempestaria rugia entre las calles mientras corrian hacia la zona alta del puerto."
+      text: "El viento de Tempestaria rugía entre las calles mientras corrían hacia la zona alta del puerto."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Finalmente llegaron a la pequena casa inclinada de Mako. Entraron."
+      text: "Finalmente llegaron a la pequeña casa inclinada de Mako. Entraron."
     },
     {
       type: "dialogue",
@@ -2299,7 +2299,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu simplemente se dejo caer sobre una silla."
+      text: "Minutu simplemente se dejó caer sobre una silla."
     },
     {
       type: "dialogue",
@@ -2309,37 +2309,37 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Pasaron unos minutos. Entonces la puerta se abrio de golpe."
+      text: "Pasaron unos minutos. Entonces la puerta se abrió de golpe."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako aparecio despeinada. Sonriendo. Completamente orgullosa de si misma."
+      text: "Mako apareció despeinada. Sonriendo. Completamente orgullosa de sí misma."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Buenas noticias. No os preocupeis. Tengo lo que quereis."
+      text: "Buenas noticias. No os preocupéis. Tengo lo que queréis."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Que?"
+      text: "¿Qué?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako se dejo caer sobre una silla."
+      text: "Mako se dejó caer sobre una silla."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "El objeto que estaba alli era la brujula que robe."
+      text: "El objeto que estaba allí era la brújula que robé."
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Entonces la tenian ellos?"
+      text: "¿Entonces la tenían ellos?"
     },
     {
       type: "dialogue",
@@ -2354,12 +2354,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako sonrio aun mas."
+      text: "Mako sonrió aún más."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Cuando vi la brujula real, me parecio tan bonita que la escondi."
+      text: "Cuando vi la brújula real, me pareció tan bonita que la escondí."
     },
     {
       type: "dialogue",
@@ -2369,7 +2369,7 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Y la que he llevado encima todo este tiempo era una falsificacion."
+      text: "Y la que he llevado encima todo este tiempo era una falsificación."
     },
     {
       type: "dialogue",
@@ -2379,22 +2379,22 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu se quedo completamente inmovil."
+      text: "Minutu se quedó completamente inmóvil."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Cada conversacion contigo empeora mi estado mental."
+      text: "Cada conversación contigo empeora mi estado mental."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako abrio un cajon."
+      text: "Mako abrió un cajón."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y lentamente saco una antigua brujula metalica."
+      text: "Y lentamente sacó una antigua brújula metálica."
     },
     {
       type: "goto",
@@ -2458,57 +2458,57 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La pequena casa de Mako crujia suavemente con cada rafaga de viento."
+      text: "La pequeña casa de Mako crujía suavemente con cada ráfaga de viento."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Fuera, Tempestaria seguia rugiendo como una tormenta viva."
+      text: "Fuera, Tempestaria seguía rugiendo como una tormenta viva."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Dentro, los cuatro estaban sentados alrededor de una mesa llena de mapas, tazas, herramientas extranas y restos de comida que probablemente llevaban ahi mas tiempo del recomendable."
+      text: "Dentro, los cuatro estaban sentados alrededor de una mesa llena de mapas, tazas, herramientas extrañas y restos de comida que probablemente llevaban ahí más tiempo del recomendable."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "En el centro descansaba la brujula. La autentica. Antigua. Pesada. Con grabados extranos recorriendo el metal."
+      text: "En el centro descansaba la brújula. La auténtica. Antigua. Pesada. Con grabados extraños recorriendo el metal."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y en su interior, probablemente una de las cinco partes del circulo fragmentado."
+      text: "Y en su interior, probablemente una de las cinco partes del círculo fragmentado."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Rocky observo la brujula unos segundos. Luego miro al resto."
+      text: "Rocky observó la brújula unos segundos. Luego miró al resto."
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Vale... y ahora que?"
+      text: "Vale... ¿y ahora qué?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako levanto inmediatamente las manos."
+      text: "Mako levantó inmediatamente las manos."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Eh. A mi no me mireis."
+      text: "Eh. A mí no me miréis."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu seguia observando el objeto con el ceno fruncido. Con esa expresion que significaba que estaba pensando muy intensamente."
+      text: "Minutu seguía observando el objeto con el ceño fruncido. Con esa expresión que significaba que estaba pensando muy intensamente."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Hay una pieza que no encaja del todo. Creo que deberiamos abrirla."
+      text: "Hay una pieza que no encaja del todo. Creo que deberíamos abrirla."
     },
     {
       type: "dialogue",
@@ -2518,57 +2518,57 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako abrio los ojos horrorizada."
+      text: "Mako abrió los ojos horrorizada."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "QUEEEEE?"
+      text: "¿QUÉEEEE?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Cogio la brujula entre las manos como si estuvieran amenazando a un cachorro."
+      text: "Cogió la brújula entre las manos como si estuvieran amenazando a un cachorro."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Y romper esta preciosidad?"
+      text: "¿Y romper esta preciosidad?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Puso una carita tristisima."
+      text: "Puso una carita tristísima."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina sonrio ligeramente."
+      text: "Reina sonrió ligeramente."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Mako... debemos saber por que este objeto es importante."
+      text: "Mako... debemos saber por qué este objeto es importante."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako abrazo la brujula dramaticamente unos segundos mas."
+      text: "Mako abrazó la brújula dramáticamente unos segundos más."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Luego suspiro derrotada."
+      text: "Luego suspiró derrotada."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Vale... Pero si se rompe os odiare mucho. Jeje. Nah, en realidad me gustais mucho."
+      text: "Vale... Pero si se rompe os odiaré mucho. Jeje. Nah, en realidad me gustáis mucho."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Entre los cuatro consiguieron abrir cuidadosamente la brujula."
+      text: "Entre los cuatro consiguieron abrir cuidadosamente la brújula."
     },
     {
       type: "dialogue",
@@ -2578,52 +2578,52 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El mecanismo interno se abrio lentamente."
+      text: "El mecanismo interno se abrió lentamente."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y entonces lo vieron. En la parte interior de la tapa, grabado cuidadosamente sobre el metal, estaba el simbolo."
+      text: "Y entonces lo vieron. En la parte interior de la tapa, grabado cuidadosamente sobre el metal, estaba el símbolo."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El circulo fragmentado en cinco partes."
+      text: "El círculo fragmentado en cinco partes."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Pero no solo eso. Dentro habia una aguja extraible."
+      text: "Pero no solo eso. Dentro había una aguja extraíble."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu la saco lentamente."
+      text: "Minutu la sacó lentamente."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Debajo habia unos numeros grabados. Algun tipo de codigo?"
+      text: "Debajo había unos números grabados. ¿Algún tipo de código?"
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Que significa eso?"
+      text: "¿Qué significa eso?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina nego lentamente con la cabeza."
+      text: "Reina negó lentamente con la cabeza."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu observo los numeros unos segundos."
+      text: "Minutu observó los números unos segundos."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "No lo se. Aun."
+      text: "No lo sé. Aún."
     },
     {
       type: "dialogue",
@@ -2633,22 +2633,22 @@
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Pero estoy completamente seguro de que mas adelante necesitaremos esto. Recordad que en la mascara tambien hay unos numeros."
+      text: "Pero estoy completamente seguro de que más adelante necesitaremos esto. Recordad que en la máscara también hay unos números."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Sera eso lo que debemos buscar en las otras islas?"
+      text: "¿Será eso lo que debemos buscar en las otras islas?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako miraba la brujula abierta con expresion de absoluta preocupacion maternal."
+      text: "Mako miraba la brújula abierta con expresión de absoluta preocupación maternal."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "La habeis destripado..."
+      text: "La habéis destripado..."
     },
     {
       type: "dialogue",
@@ -2663,12 +2663,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Durante unos segundos, ninguno hablo. Solo miraban la brujula, el mapa y las posibilidades que se abrian delante de ellos."
+      text: "Durante unos segundos, ninguno habló. Solo miraban la brújula, el mapa y las posibilidades que se abrían delante de ellos."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Entonces Reina rompio el silencio."
+      text: "Entonces Reina rompió el silencio."
     },
     {
       type: "dialogue",
@@ -2678,27 +2678,27 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Miro hacia la ventana."
+      text: "Miró hacia la ventana."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Deberiamos irnos antes de que Gildrack decida venir a por nosotros."
+      text: "Deberíamos irnos antes de que Gildrack decida venir a por nosotros."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu asintio inmediatamente."
+      text: "Minutu asintió inmediatamente."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Veo logica en tus palabras."
+      text: "Veo lógica en tus palabras."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Rocky sonrio."
+      text: "Rocky sonrió."
     },
     {
       type: "dialogue",
@@ -2708,27 +2708,27 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako se quedo callada."
+      text: "Mako se quedó callada."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Algo rarisimo por lo que habian visto. Miro hacia otro lado. Intentando disimular. Pero era evidente. Le daba pena que se fueran."
+      text: "Algo rarísimo por lo que habían visto. Miró hacia otro lado. Intentando disimular. Pero era evidente. Le daba pena que se fueran."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Habia habido caos. Persecuciones. Problemas. Locura. Pero tambien habia sido divertido."
+      text: "Había habido caos. Persecuciones. Problemas. Locura. Pero también había sido divertido."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y ahora ellos se irian. Y probablemente no volverian a verse."
+      text: "Y ahora ellos se irían. Y probablemente no volverían a verse."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina la observo unos segundos. Luego sonrio suavemente."
+      text: "Reina la observó unos segundos. Luego sonrió suavemente."
     },
     {
       type: "dialogue",
@@ -2738,12 +2738,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako levanto la vista."
+      text: "Mako levantó la vista."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Quieres venir con nosotros?"
+      text: "¿Quieres venir con nosotros?"
     },
     {
       type: "dialogue",
@@ -2758,7 +2758,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako parpadeo una vez."
+      text: "Mako parpadeó una vez."
     },
     {
       type: "dialogue",
@@ -2768,37 +2768,37 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "QUE!?"
+      text: "¿QUÉ!?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Rocky empezo a reirse."
+      text: "Rocky empezó a reírse."
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Claro. Necesitamos a alguien capaz de correr mas rapido que un huracan."
+      text: "Claro. Necesitamos a alguien capaz de correr más rápido que un huracán."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako se levanto de golpe."
+      text: "Mako se levantó de golpe."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "SI. CLARO QUE SI. HE GANADO AMIGOS."
+      text: "SI. CLARO QUE SÍ. HE GANADO AMIGOS."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Salto por encima de la mesa abrazando a Reina y casi tirando una silla."
+      text: "Saltó por encima de la mesa abrazando a Reina y casi tirando una silla."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu observo la escena con expresion de hombre al que le va a aparecer una ulcera en cualquier momento."
+      text: "Minutu observó la escena con expresión de hombre al que le va a aparecer una úlcera en cualquier momento."
     },
     {
       type: "dialogue",
@@ -2808,7 +2808,7 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Pero aun asi, no se opuso."
+      text: "Pero aún así, no se opuso."
     },
     {
       type: "background",
@@ -2820,22 +2820,22 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y asi, al amanecer del dia siguiente, cuatro figuras abandonaron Tempestaria a bordo del Nyinyus."
+      text: "Y así, al amanecer del día siguiente, cuatro figuras abandonaron Tempestaria a bordo del Nyinyus."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Dejando atras los vientos huracanados, las calles imposibles y la isla donde hasta respirar parecia una competicion."
+      text: "Dejando atrás los vientos huracanados, las calles imposibles y la isla donde hasta respirar parecía una competición."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Las corrientes rugian alrededor del barco. El viento podria haber tumbado a un gigante."
+      text: "Las corrientes rugían alrededor del barco. El viento podría haber tumbado a un gigante."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Pero ya no importaba demasiado. Porque la tripulacion ya tenia su propio huracan a bordo."
+      text: "Pero ya no importaba demasiado. Porque la tripulación ya tenía su propio huracán a bordo."
     }
   ],
 
@@ -2848,17 +2848,17 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El viento rugia entre los edificios."
+      text: "El viento rugía entre los edificios."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Los tres hombres seguian acercandose."
+      text: "Los tres hombres seguían acercándose."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina miro a Rocky. Rocky miro a Minutu."
+      text: "Reina miró a Rocky. Rocky miró a Minutu."
     },
     {
       type: "dialogue",
@@ -2868,17 +2868,17 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "\"Buscada\" suena muy dramatico."
+      text: "\"Buscada\" suena muy dramático."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Porque ESTAMOS EN MEDIO DE UNA PERSECUCION."
+      text: "Porque ESTAMOS EN MEDIO DE UNA PERSECUCIÓN."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Bueno, si, pero no te preocupes."
+      text: "Bueno, sí, pero no te preocupes."
     },
     {
       type: "dialogue",
@@ -2888,27 +2888,27 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Uno de ellos senalo directamente a Mako."
+      text: "Uno de ellos señaló directamente a Mako."
     },
     {
       type: "dialogue",
       speaker: "Hombre",
-      text: "AHI ESTA."
+      text: "AHÍ ESTÁ."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Otro senalo al grupo."
+      text: "Otro señaló al grupo."
     },
     {
       type: "dialogue",
       speaker: "Hombre 2",
-      text: "Y ELLOS ESTAN CON ELLA."
+      text: "Y ELLOS ESTÁN CON ELLA."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Magnifico. Condenados por asociacion delictiva."
+      text: "Magnífico. Condenados por asociación delictiva."
     },
     {
       type: "dialogue",
@@ -2922,17 +2922,17 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Poco despues, los cuatro eran guiados por las calles altas de Tempestaria."
+      text: "Poco después, los cuatro eran guiados por las calles altas de Tempestaria."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El viento golpeaba los enormes ventanales de una mansion construida sobre un risco gigantesco."
+      text: "El viento golpeaba los enormes ventanales de una mansión construida sobre un risco gigantesco."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Era absurdamente lujosa. Columnas de marmol. Telas flotando con el viento. Aranas de cristal sujetas con cadenas de piedras preciosas. Esculturas traidas de todos los mares."
+      text: "Era absurdamente lujosa. Columnas de mármol. Telas flotando con el viento. Arañas de cristal sujetas con cadenas de piedras preciosas. Esculturas traídas de todos los mares."
     },
     {
       type: "dialogue",
@@ -2942,17 +2942,17 @@
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Vale... este tipo tiene muchisimo dinero."
+      text: "Vale... este tipo tiene muchísimo dinero."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Y probablemente muchisima seguridad. Dato relevante ahora mismo."
+      text: "Y probablemente muchísima seguridad. Dato relevante ahora mismo."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Los hombres los guiaron por largos pasillos repletos de reliquias, armas antiguas, mapas, brujulas y objetos imposibles."
+      text: "Los hombres los guiaron por largos pasillos repletos de reliquias, armas antiguas, mapas, brújulas y objetos imposibles."
     },
     {
       type: "dialogue",
@@ -2962,12 +2962,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Alli los esperaba un hombre sentado tras una mesa gigantesca. Elegante. Cabello largo peinado hacia atras. Abrigo blanco lleno de detalles dorados."
+      text: "Allí los esperaba un hombre sentado tras una mesa gigantesca. Elegante. Cabello largo peinado hacia atrás. Abrigo blanco lleno de detalles dorados."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y una mirada de alguien que valoraba los objetos mas que a las personas."
+      text: "Y una mirada de alguien que valoraba los objetos más que a las personas."
     },
     {
       type: "background",
@@ -2991,7 +2991,7 @@
     {
       type: "inspect",
       image: "Isla_Tempestaria_Presentación_Valerio_Gildrack.png",
-      alt: "Presentacion de Valerio Gildrack",
+      alt: "Presentación de Valerio Gildrack",
       autoOpen: true
     },
     {
@@ -3052,22 +3052,22 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Valerio observo a Mako en silencio."
+      text: "Valerio observó a Mako en silencio."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Luego miro la brujula que ella aun llevaba colgada a la cintura."
+      text: "Luego miró la brújula que ella aún llevaba colgada a la cintura."
     },
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Devuelvemela."
+      text: "Devuélvemela."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako dejo la brujula sobre la mesa."
+      text: "Mako dejó la brújula sobre la mesa."
     },
     {
       type: "dialogue",
@@ -3077,12 +3077,12 @@
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Has entrado en mi almacen privado."
+      text: "Has entrado en mi almacén privado."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Si."
+      text: "Sí."
     },
     {
       type: "dialogue",
@@ -3102,12 +3102,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako levanto un dedo."
+      text: "Mako levantó un dedo."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Pero antes de eso me dijeron: \"No tendras valor para hacerlo.\""
+      text: "Pero antes de eso me dijeron: \"No tendrás valor para hacerlo.\""
     },
     {
       type: "dialogue",
@@ -3117,7 +3117,7 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Y luego: \"Aunque lo intentes, no lo conseguiras.\""
+      text: "Y luego: \"Aunque lo intentes, no lo conseguirás.\""
     },
     {
       type: "dialogue",
@@ -3127,17 +3127,17 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Eso no es una advertencia. Eso es practicamente una invitacion."
+      text: "Eso no es una advertencia. Eso es prácticamente una invitación."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Uno de los guardias suspiro cansado."
+      text: "Uno de los guardias suspiró cansado."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Valerio se masajeo el puente de la nariz."
+      text: "Valerio se masajeó el puente de la nariz."
     },
     {
       type: "dialogue",
@@ -3147,7 +3147,7 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Ademas lo consegui. Lo que sinceramente demuestra problemas graves en vuestro sistema de seguridad."
+      text: "Además lo conseguí. Lo que sinceramente demuestra problemas graves en vuestro sistema de seguridad."
     },
     {
       type: "dialogue",
@@ -3162,42 +3162,42 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Valerio se levanto lentamente. Camino hasta ellos. El viento hacia vibrar las ventanas de la mansion."
+      text: "Valerio se levantó lentamente. Caminó hasta ellos. El viento hacía vibrar las ventanas de la mansión."
     },
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Por esta vez, te perdonare."
+      text: "Por esta vez, te perdonaré."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako sonrio orgullosa."
+      text: "Mako sonrió orgullosa."
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Sabia que apreciarias el talento."
+      text: "Sabía que apreciarías el talento."
     },
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Pero si vuelvo a atraparte robandome..."
+      text: "Pero si vuelvo a atraparte robándome..."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Miro a los cuatro."
+      text: "Miró a los cuatro."
     },
     {
       type: "dialogue",
       speaker: "Valerio",
-      text: "Os encerrare a todos en mis calabozos."
+      text: "Os encerraré a todos en mis calabozos."
     },
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Al fin una consecuencia logica."
+      text: "Al fin una consecuencia lógica."
     },
     {
       type: "dialogue",
@@ -3207,12 +3207,12 @@
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Eh... ya que estamos aqui... Ha visto alguna vez un circulo fragmentado en cinco partes, como un simbolo?"
+      text: "Eh... ya que estamos aquí... ¿Ha visto alguna vez un círculo fragmentado en cinco partes, como un símbolo?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Valerio lo observo fijamente, en silencio. Luego nego lentamente con la cabeza."
+      text: "Valerio lo observó fijamente, en silencio. Luego negó lentamente con la cabeza."
     },
     {
       type: "dialogue",
@@ -3222,12 +3222,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina intercambio una mirada con Rocky."
+      text: "Reina intercambió una mirada con Rocky."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Minutu observo al coleccionista con desconfianza. Como si no estuviera seguro de si decia la verdad."
+      text: "Minutu observó al coleccionista con desconfianza. Como si no estuviera seguro de si decía la verdad."
     },
     {
       type: "effect",
@@ -3282,17 +3282,17 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Poco despues los expulsaron de la mansion. La enorme puerta se cerro tras ellos. CLONK."
+      text: "Poco después los expulsaron de la mansión. La enorme puerta se cerró tras ellos. CLONK."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "El viento volvio a golpearlos de lleno."
+      text: "El viento volvió a golpearlos de lleno."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako caminaba hacia atras mirandolos."
+      text: "Mako caminaba hacia atrás mirándolos."
     },
     {
       type: "dialogue",
@@ -3302,17 +3302,17 @@
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Contexto?"
+      text: "¿Contexto?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Si. Por que demonios le habeis preguntado eso al tipo mas obsesionado con los objetos raros de toda Tempestaria?"
+      text: "Sí. ¿Por qué demonios le habéis preguntado eso al tipo más obsesionado con los objetos raros de toda Tempestaria?"
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Rocky suspiro."
+      text: "Rocky suspiró."
     },
     {
       type: "dialogue",
@@ -3322,12 +3322,12 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako escucho sorprendentemente atenta. Incluso Minutu dejo de quejarse unos segundos."
+      text: "Mako escuchó sorprendentemente atenta. Incluso Minutu dejó de quejarse unos segundos."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Cuando terminaron, Mako se quedo callada."
+      text: "Cuando terminaron, Mako se quedó callada."
     },
     {
       type: "dialogue",
@@ -3337,27 +3337,27 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Vale. Eso es muchisimo mas interesante que un robo normal."
+      text: "Vale. Eso es muchísimo más interesante que un robo normal."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "Crees que el sabe algo?"
+      text: "¿Crees que él sabe algo?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Quiza."
+      text: "Quizá."
     },
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "Quiza?"
+      text: "¿Quizá?"
     },
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Esta noche hay una fiesta en la mansion."
+      text: "Esta noche hay una fiesta en la mansión."
     },
     {
       type: "dialogue",
@@ -3367,7 +3367,7 @@
     {
       type: "dialogue",
       speaker: "Mako",
-      text: "Muchisima gente rica. Coleccionistas. Mercaderes. Subastas privadas."
+      text: "Muchísima gente rica. Coleccionistas. Mercaderes. Subastas privadas."
     },
     {
       type: "dialogue",
@@ -3377,12 +3377,12 @@
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Suena a una cadena de malas decisiones. Podriamos intentar hablar con el."
+      text: "Suena a una cadena de malas decisiones. Podríamos intentar hablar con él."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Mako empezo a caminar sonriendo."
+      text: "Mako empezó a caminar sonriendo."
     },
     {
       type: "dialogue",
@@ -3397,18 +3397,18 @@
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Y la mansion iluminada brillaba a lo lejos sobre el risco."
+      text: "Y la mansión iluminada brillaba a lo lejos sobre el risco."
     },
     {
       type: "choice",
-      text: "Que haceis?",
+      text: "¿Qué hacéis?",
       options: [
         {
           text: "A) Entrar en la fiesta e intentar hablar otra vez con Valerio Gildrack.",
           nextScene: "tempestaria_fiesta_hablar"
         },
         {
-          text: "B) Colaros en la mansion y buscar vosotros mismos el objeto.",
+          text: "B) Colaros en la mansión y buscar vosotros mismos el objeto.",
           nextScene: "tempestaria_mansion_colarse"
         }
       ]

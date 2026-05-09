@@ -63,6 +63,22 @@ const defaultSpeakerStyles = {
 };
 const characterLibrary = globalThis.CHARACTER_LIBRARY || {};
 const sceneCharacterLayouts = globalThis.SCENE_CHARACTER_LAYOUTS || {};
+const collectibleLibrary = {
+  mapa: {
+    id: "mapa",
+    order: 1,
+    buttonText: "Mapa",
+    image: "mapa_antiguo.png",
+    alt: "Mapa antiguo con cinco puntos marcados"
+  },
+  pergamino: {
+    id: "pergamino",
+    order: 2,
+    buttonText: "Pergamino",
+    image: "PERGAMINO_DEL_KYUBI_CELESTIAL.jpeg",
+    alt: "Pergamino con una mascara de zorro y un simbolo circular fragmentado"
+  }
+};
 
 let currentScene = [];
 let currentStepIndex = 0;
@@ -80,6 +96,8 @@ let masterVolume = 1;
 let isMuted = false;
 let currentBackgroundState = null;
 let currentAudioState = null;
+let unlockedCollectibles = new Map();
+let currentOverlayCompletesInspectStep = false;
 
 introButton.addEventListener("click", showStartScreen);
 scenarioButtons.forEach((button) => {
@@ -89,7 +107,7 @@ muteButton.addEventListener("click", toggleMute);
 volumeSlider.addEventListener("input", handleVolumeChange);
 backButton.addEventListener("click", previousStep);
 nextButton.addEventListener("click", nextStep);
-inspectClose.addEventListener("click", finishInspectStep);
+inspectClose.addEventListener("click", handleInspectClose);
 inspectOverlay.addEventListener("click", handleInspectBackdropClick);
 updateAudioControls();
 updateBackButton();
@@ -127,7 +145,10 @@ function resetGameState() {
   currentStepIndex = 0;
   currentSceneId = "";
   checkpointHistory = [];
+  unlockedCollectibles = new Map();
+  currentOverlayCompletesInspectStep = false;
   setInspectPromptCompact(false);
+  renderInspectPrompt();
 
   if (layoutSettleTimeout) {
     clearTimeout(layoutSettleTimeout);
@@ -424,45 +445,47 @@ function showInspect(step) {
   stopTyping();
   recordCheckpoint();
   setSpeakingCharacter("");
-  clearInspectPrompt();
   nextButton.classList.add("hidden");
 
-  if (step.autoOpen) {
-    openInspectOverlay(step);
+  if (step.collectible) {
+    unlockCollectible(step);
+    renderInspectPrompt({ requiredStep: step });
+
+    if (step.autoOpen) {
+      openInspectOverlay(step, { completesInspectStep: true });
+    }
     return;
   }
 
-  const inspectButton = document.createElement("button");
-  const buttonLabel = step.buttonText || "Ver objeto";
-  const imagePath = step.image ? "assets/backgrounds/" + step.image : "";
+  renderInspectPrompt({ temporaryStep: step, requiredStep: step });
 
-  inspectButton.type = "button";
-  inspectButton.className = "inspect-button";
-  inspectButton.innerHTML =
-    '<span class="inspect-button-thumb"></span><span>' + buttonLabel + "</span>";
-
-  const thumb = inspectButton.querySelector(".inspect-button-thumb");
-  if (thumb && imagePath) {
-    thumb.style.backgroundImage = 'url("' + imagePath + '")';
+  if (step.autoOpen) {
+    openInspectOverlay(step, { completesInspectStep: true });
+    return;
   }
-
-  inspectButton.addEventListener("click", () => openInspectOverlay(step));
-  inspectPrompt.appendChild(inspectButton);
-  inspectPrompt.classList.remove("hidden");
 }
 
-function openInspectOverlay(step) {
-  const imagePath = step.image ? "assets/backgrounds/" + step.image : "";
+function openInspectOverlay(step, options) {
+  const resolvedStep = resolveInspectStep(step);
+  const imagePath = resolvedStep.image ? "assets/backgrounds/" + resolvedStep.image : "";
+  const completesInspectStep = Boolean(options && options.completesInspectStep);
 
   if (!imagePath) {
-    finishInspectStep();
+    if (completesInspectStep) {
+      finishInspectStep();
+    }
     return;
   }
 
-  inspectImage.alt = step.alt || step.buttonText || "Imagen";
+  currentOverlayCompletesInspectStep = completesInspectStep;
+  inspectImage.alt = resolvedStep.alt || resolvedStep.buttonText || "Imagen";
   inspectImage.onerror = () => {
+    if (completesInspectStep) {
+      finishInspectStep();
+      return;
+    }
+
     closeInspectOverlay();
-    finishInspectStep();
   };
   inspectImage.src = imagePath;
   inspectOverlay.classList.remove("hidden");
@@ -470,8 +493,10 @@ function openInspectOverlay(step) {
 }
 
 function closeInspectOverlay() {
+  currentOverlayCompletesInspectStep = false;
   inspectOverlay.classList.add("hidden");
   inspectOverlay.setAttribute("aria-hidden", "true");
+  inspectImage.onerror = null;
   inspectImage.removeAttribute("src");
 }
 
@@ -480,17 +505,147 @@ function handleInspectBackdropClick(event) {
     return;
   }
 
-  finishInspectStep();
+  handleInspectClose();
+}
+
+function handleInspectClose() {
+  if (currentOverlayCompletesInspectStep) {
+    finishInspectStep();
+    return;
+  }
+
+  closeInspectOverlay();
 }
 
 function finishInspectStep() {
   closeInspectOverlay();
+  renderInspectPrompt();
   nextButton.classList.remove("hidden");
 }
 
 function clearInspectPrompt() {
+  renderInspectPrompt();
+}
+
+function unlockCollectible(step) {
+  const resolvedStep = resolveInspectStep(step);
+
+  if (!resolvedStep.collectible) {
+    return;
+  }
+
+  unlockedCollectibles.set(resolvedStep.collectible, {
+    id: resolvedStep.collectible,
+    buttonText: resolvedStep.buttonText || "Ver objeto",
+    image: resolvedStep.image,
+    alt: resolvedStep.alt || "Imagen"
+  });
+}
+
+function renderInspectPrompt(options) {
+  const temporaryStep =
+    options && options.temporaryStep && !options.temporaryStep.collectible
+      ? resolveInspectStep(options.temporaryStep)
+      : null;
+  const requiredStep = options && options.requiredStep ? resolveInspectStep(options.requiredStep) : null;
+
   inspectPrompt.innerHTML = "";
-  inspectPrompt.classList.add("hidden");
+
+  getUnlockedCollectiblesInOrder().forEach((collectible) => {
+    const isRequired =
+      requiredStep &&
+      requiredStep.collectible &&
+      requiredStep.collectible === collectible.id;
+
+    inspectPrompt.appendChild(
+      createInspectButton(collectible, {
+        isRequired,
+        onClick: () =>
+          handleInspectButtonClick(collectible, {
+            completesInspectStep: isRequired
+          })
+      })
+    );
+  });
+
+  if (temporaryStep) {
+    inspectPrompt.appendChild(
+      createInspectButton(temporaryStep, {
+        isRequired: true,
+        onClick: () =>
+          handleInspectButtonClick(temporaryStep, {
+            completesInspectStep: true
+          })
+      })
+    );
+  }
+
+  inspectPrompt.classList.toggle("hidden", inspectPrompt.childElementCount === 0);
+}
+
+function createInspectButton(step, options) {
+  const inspectButton = document.createElement("button");
+  const imagePath = step.image ? "assets/backgrounds/" + step.image : "";
+
+  inspectButton.type = "button";
+  inspectButton.className = "inspect-button";
+  inspectButton.classList.toggle("is-required", Boolean(options && options.isRequired));
+  inspectButton.innerHTML =
+    '<span class="inspect-button-thumb"></span><span class="inspect-button-label">' +
+    (step.buttonText || "Ver objeto") +
+    "</span>";
+
+  const thumb = inspectButton.querySelector(".inspect-button-thumb");
+  if (thumb && imagePath) {
+    thumb.style.backgroundImage = 'url("' + imagePath + '")';
+  }
+
+  inspectButton.addEventListener("click", () => {
+    if (options && typeof options.onClick === "function") {
+      options.onClick();
+    }
+  });
+
+  return inspectButton;
+}
+
+function handleInspectButtonClick(step, options) {
+  if (isTyping) {
+    finishTyping();
+  }
+
+  openInspectOverlay(step, options);
+}
+
+function getUnlockedCollectiblesInOrder() {
+  return Array.from(unlockedCollectibles.values()).sort((left, right) => {
+    return getCollectibleOrder(left.id) - getCollectibleOrder(right.id);
+  });
+}
+
+function getCollectibleOrder(collectibleId) {
+  const collectible = collectibleLibrary[collectibleId];
+
+  if (!collectible || typeof collectible.order !== "number") {
+    return Number.MAX_SAFE_INTEGER;
+  }
+
+  return collectible.order;
+}
+
+function resolveInspectStep(step) {
+  const collectible =
+    step && step.collectible ? collectibleLibrary[step.collectible] || null : null;
+
+  return {
+    ...step,
+    buttonText:
+      (step && step.buttonText) ||
+      (collectible && collectible.buttonText) ||
+      "Ver objeto",
+    image: (step && step.image) || (collectible && collectible.image) || "",
+    alt: (step && step.alt) || (collectible && collectible.alt) || "Imagen"
+  };
 }
 
 function typeText(text) {

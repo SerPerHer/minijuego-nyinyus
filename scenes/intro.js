@@ -250,8 +250,9 @@ const story = {
   mapa_antiguo: [
     {
       type: "inspect",
+      collectible: "mapa",
       image: "mapa_antiguo.png",
-      buttonText: "Abrir mapa antiguo",
+      buttonText: "Mapa",
       alt: "Mapa antiguo con cinco puntos marcados"
     },
     {
@@ -345,7 +346,7 @@ const story = {
     {
       type: "dialogue",
       speaker: "Rocky",
-      text: "¿Como la leyenda?"
+      text: "¿Cómo la leyenda?"
     },
     {
       type: "dialogue",
@@ -567,7 +568,7 @@ const story = {
       options: [
         {
           text: "Hacerse a la mar",
-          nextScene: "tempestaria_llegada"
+          nextScene: "toki_hanashima_llegada"
         }
       ]
     }
