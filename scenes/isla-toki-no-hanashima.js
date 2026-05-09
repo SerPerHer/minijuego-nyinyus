@@ -950,9 +950,19 @@ Object.assign(story, {
       text: "Rocky y Reina se miraron. Reina sonrió ligeramente. Y se dispusieron a contestar las preguntas."
     },
     {
-      type: "dialogue",
+      type: "choice",
       speaker: "Lienzo",
-      text: "Si el viaje se vuelve más difícil de lo esperado... A) Buscaríais cómo adaptaros juntos B) Empezaríais a preguntaros si merece la pena seguir"
+      text: "Si el viaje se vuelve más difícil de lo esperado...",
+      options: [
+        {
+          text: "A) Buscaríais cómo adaptaros juntos",
+          nextStep: true
+        },
+        {
+          text: "B) Empezaríais a preguntaros si merece la pena seguir",
+          nextStep: true
+        }
+      ]
     },
     {
       type: "dialogue",
@@ -960,14 +970,34 @@ Object.assign(story, {
       text: "Se miraron apenas un instante. No necesitaron más. La primera respuesta hizo aparecer el primer escalón."
     },
     {
-      type: "dialogue",
+      type: "choice",
       speaker: "Lienzo",
-      text: "¿Qué significa acompañar a alguien? A) Caminar incluso en días malos B) Estar solo cuando todo va bien"
+      text: "¿Qué significa acompañar a alguien?",
+      options: [
+        {
+          text: "A) Caminar incluso en días malos",
+          nextStep: true
+        },
+        {
+          text: "B) Estar solo cuando todo va bien",
+          nextStep: true
+        }
+      ]
     },
     {
-      type: "dialogue",
+      type: "choice",
       speaker: "Lienzo",
-      text: "¿Qué es más difícil? A) Ser sinceros B) Fingir que todo está bien"
+      text: "¿Qué es más difícil?",
+      options: [
+        {
+          text: "A) Ser sinceros",
+          nextStep: true
+        },
+        {
+          text: "B) Fingir que todo está bien",
+          nextStep: true
+        }
+      ]
     },
     {
       type: "dialogue",
@@ -975,14 +1005,34 @@ Object.assign(story, {
       text: "Con cada verdad, la madera roja se alargaba sobre el vacío. Un tramo. Luego otro."
     },
     {
-      type: "dialogue",
+      type: "choice",
       speaker: "Lienzo",
-      text: "¿Qué significa realmente caminar junto a alguien? A) Adaptar vuestro ritmo mutuamente B) Esperar que el otro siga el tuyo"
+      text: "¿Qué significa realmente caminar junto a alguien?",
+      options: [
+        {
+          text: "A) Adaptar vuestro ritmo mutuamente",
+          nextStep: true
+        },
+        {
+          text: "B) Esperar que el otro siga el tuyo",
+          nextStep: true
+        }
+      ]
     },
     {
-      type: "dialogue",
+      type: "choice",
       speaker: "Lienzo",
-      text: "Si todo sale mal... A) Buscaríais una forma de reíros juntos B) Convertiríais el desastre en una competición de culpables"
+      text: "Si todo sale mal...",
+      options: [
+        {
+          text: "A) Buscaríais una forma de reíros juntos",
+          nextStep: true
+        },
+        {
+          text: "B) Convertiríais el desastre en una competición de culpables",
+          nextStep: true
+        }
+      ]
     },
     {
       type: "dialogue",
@@ -990,19 +1040,49 @@ Object.assign(story, {
       text: "Los pétalos giraban a su alrededor mientras nuevos escalones se encajaban en su sitio con suaves crujidos de madera antigua."
     },
     {
-      type: "dialogue",
+      type: "choice",
       speaker: "Lienzo",
-      text: "¿Qué haríais si uno de vosotros duda antes de cruzar el puente? A) Tenderle la mano B) Cruzar primero para demostrar que no era difícil"
+      text: "¿Qué haríais si uno de vosotros duda antes de cruzar el puente?",
+      options: [
+        {
+          text: "A) Tenderle la mano",
+          nextStep: true
+        },
+        {
+          text: "B) Cruzar primero para demostrar que no era difícil",
+          nextStep: true
+        }
+      ]
     },
     {
-      type: "dialogue",
+      type: "choice",
       speaker: "Lienzo",
-      text: "¿Qué une más a dos personas? A) Haber superado cosas juntos B) Nunca haber tenido problemas"
+      text: "¿Qué une más a dos personas?",
+      options: [
+        {
+          text: "A) Haber superado cosas juntos",
+          nextStep: true
+        },
+        {
+          text: "B) Nunca haber tenido problemas",
+          nextStep: true
+        }
+      ]
     },
     {
-      type: "dialogue",
+      type: "choice",
       speaker: "Lienzo",
-      text: "¿Qué es más peligroso? A) No hablar las cosas B) Equivocarse de vez en cuando"
+      text: "¿Qué es más peligroso?",
+      options: [
+        {
+          text: "A) No hablar las cosas",
+          nextStep: true
+        },
+        {
+          text: "B) Equivocarse de vez en cuando",
+          nextStep: true
+        }
+      ]
     },
     {
       type: "dialogue",

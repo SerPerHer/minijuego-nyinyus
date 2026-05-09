@@ -403,6 +403,7 @@ function showDialogue(step) {
 
 function showChoices(step) {
   const options = step.options || [];
+  const speaker = step.speaker || "Decisión";
 
   if (options.length === 0) {
     showEnd();
@@ -411,9 +412,9 @@ function showChoices(step) {
 
   stopTyping();
   recordCheckpoint();
-  setSpeakerStyle("Decisión");
+  setSpeakerStyle(speaker);
   setSpeakingCharacter("");
-  speakerName.textContent = "Decisión";
+  speakerName.textContent = speaker;
   speakerName.classList.remove("hidden");
   dialogueText.textContent = step.text || "";
   nextButton.classList.add("hidden");
@@ -433,7 +434,19 @@ function showChoices(step) {
 function chooseOption(option) {
   clearChoices();
   nextButton.classList.remove("hidden");
-  jumpToScene(option.nextScene);
+
+  if (option && option.nextScene) {
+    jumpToScene(option.nextScene);
+    return;
+  }
+
+  if (option && option.nextStep) {
+    currentStepIndex += 1;
+    showCurrentStep();
+    return;
+  }
+
+  showEnd();
 }
 
 function clearChoices() {
