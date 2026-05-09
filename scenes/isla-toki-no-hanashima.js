@@ -31,10 +31,6 @@ Object.assign(story, {
       text: "Era preciosa."
     },
     {
-      type: "background",
-      image: "Hanashima_puente.jpeg"
-    },
-    {
       type: "dialogue",
       speaker: "Narrador",
       text: "Puentes rojos cruzaban canales cristalinos. Pagodas de varios pisos se elevaban entre jardines perfectamente cuidados."
@@ -43,10 +39,6 @@ Object.assign(story, {
       type: "dialogue",
       speaker: "Narrador",
       text: "Farolillos colgaban sobre calles empedradas. Campanas sonaban a intervalos exactos."
-    },
-    {
-      type: "background",
-      image: "Hanashima_ciudad.jpeg"
     },
     {
       type: "dialogue",
@@ -96,6 +88,10 @@ Object.assign(story, {
       type: "dialogue",
       speaker: "Narrador",
       text: "Y toda la isla... empezó a correr."
+    },
+    {
+      type: "background",
+      image: "Hanashima_ciudad.jpeg"
     },
     {
       type: "dialogue",
@@ -704,7 +700,7 @@ Object.assign(story, {
     {
       type: "dialogue",
       speaker: "Minutu",
-      text: "Primero debéis cruzar el Puente de los Compromisos. Después llegaréis al Templo de los Invitados Imposibles. Y finalmente..."
+      text: "Primero debéis cruzar el Puente de los Compromisos. Después llegaréis al Templo del Banquete Eterno. Y finalmente..."
     },
     {
       type: "dialogue",
@@ -725,6 +721,367 @@ Object.assign(story, {
       type: "dialogue",
       speaker: "Narrador",
       text: "Y el misterio de Toki no Hanashima... parecía llamarlos."
+    },
+    {
+      type: "clearCharacters",
+      ids: ["minutu"]
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Siguiendo el pequeño mapa marcado con tinta roja, Rocky y Reina dejaron atrás el caos de la ciudad y continuaron hacia las zonas más antiguas de la isla."
+    },
+    {
+      type: "background",
+      image: "Fondo_Tori.jpeg"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Los pétalos de cerezo flotaban lentamente alrededor del enorme Tori rojo."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky y Reina se detuvieron frente a él."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Era gigantesco. Mucho más de lo que parecía desde lejos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Las columnas estaban cubiertas de símbolos antiguos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Campanillas colgaban moviéndose suavemente con el viento."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y detrás del arco... no había nada."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Solo una especie de vacío brillante."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky miró el interior del Tori."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "Bueno. Eso parece como si nos fuera a llevar a otro lugar."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Reina observó las columnas."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Se veían antiguas y gastadas, pero a la vez parecía que fueran a aguantar miles de años más."
+    },
+    {
+      type: "dialogue",
+      speaker: "Reina",
+      text: "Creo que tenemos que cruzar."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky sonrió."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "Vamos. ¿Qué es lo peor que podría pasar?"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "En cuanto atravesaron el Tori... el mundo desapareció."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El suelo dejó de existir. El cielo también."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Todo se volvió luz. Pétalos. Constelaciones. Fragmentos de recuerdos flotando en la oscuridad."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Durante unos segundos... parecía que estaban cayendo y avanzando al mismo tiempo."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "¡Uooooo! ¡Cómo mola, ¿no?!"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Reina intentó mantener el equilibrio mientras el espacio entero giraba alrededor de ellos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Entonces... todo se detuvo."
+    },
+    {
+      type: "background",
+      image: "Hanashima_puente.jpeg"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Aparecieron frente a un enorme puente rojo adornado con cintas, amuletos y faroles de piedra."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Al fondo, una cascada que caía entre templos rodeados de cerezos en flor formaba un río de agua cristalina que pasaba por debajo del puente."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Los pétalos rosados flotaban en el aire mientras contemplaban el Puente de los Compromisos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El viento soplaba suavemente entre cintas de deseos atadas a los pilares."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Pero había un problema."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El puente estaba incompleto. Grandes tramos habían desaparecido. No había forma de llegar al otro lado."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky se acercó al borde. Había agua por todas partes."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "Bueno… Eso complica un poco las cosas."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Reina observó los huecos del puente."
+    },
+    {
+      type: "dialogue",
+      speaker: "Reina",
+      text: "Quizá hay otro camino."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Entonces... una voz resonó por todo el lugar. Profunda y antigua. Venía de todas partes y de ninguna a la vez."
+    },
+    {
+      type: "dialogue",
+      speaker: "?????",
+      text: "Si cruzar queréis..."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El viento levantó pétalos alrededor de ellos."
+    },
+    {
+      type: "dialogue",
+      speaker: "?????",
+      text: "...vuestro compromiso demostraréis."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Las cintas del puente empezaron a moverse. Símbolos brillaron sobre la madera."
+    },
+    {
+      type: "dialogue",
+      speaker: "?????",
+      text: "Cada verdad construirá el camino. Cada mentira... lo romperá."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky levantó una ceja."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "Vale. Esto da bastante miedo."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Escucharon un ruido susurrante y, al mirar, vieron un cartel en blanco en el que iban apareciendo símbolos hasta formar letras."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "La primera pregunta apareció grabada en el lienzo."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky y Reina se miraron. Reina sonrió ligeramente. Y se dispusieron a contestar las preguntas."
+    },
+    {
+      type: "dialogue",
+      speaker: "Lienzo",
+      text: "Si el viaje se vuelve más difícil de lo esperado... A) Buscaríais cómo adaptaros juntos B) Empezaríais a preguntaros si merece la pena seguir"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Se miraron apenas un instante. No necesitaron más. La primera respuesta hizo aparecer el primer escalón."
+    },
+    {
+      type: "dialogue",
+      speaker: "Lienzo",
+      text: "¿Qué significa acompañar a alguien? A) Caminar incluso en días malos B) Estar solo cuando todo va bien"
+    },
+    {
+      type: "dialogue",
+      speaker: "Lienzo",
+      text: "¿Qué es más difícil? A) Ser sinceros B) Fingir que todo está bien"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Con cada verdad, la madera roja se alargaba sobre el vacío. Un tramo. Luego otro."
+    },
+    {
+      type: "dialogue",
+      speaker: "Lienzo",
+      text: "¿Qué significa realmente caminar junto a alguien? A) Adaptar vuestro ritmo mutuamente B) Esperar que el otro siga el tuyo"
+    },
+    {
+      type: "dialogue",
+      speaker: "Lienzo",
+      text: "Si todo sale mal... A) Buscaríais una forma de reíros juntos B) Convertiríais el desastre en una competición de culpables"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Los pétalos giraban a su alrededor mientras nuevos escalones se encajaban en su sitio con suaves crujidos de madera antigua."
+    },
+    {
+      type: "dialogue",
+      speaker: "Lienzo",
+      text: "¿Qué haríais si uno de vosotros duda antes de cruzar el puente? A) Tenderle la mano B) Cruzar primero para demostrar que no era difícil"
+    },
+    {
+      type: "dialogue",
+      speaker: "Lienzo",
+      text: "¿Qué une más a dos personas? A) Haber superado cosas juntos B) Nunca haber tenido problemas"
+    },
+    {
+      type: "dialogue",
+      speaker: "Lienzo",
+      text: "¿Qué es más peligroso? A) No hablar las cosas B) Equivocarse de vez en cuando"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Mientras iban respondiendo, el puente formaba o hacía desaparecer los escalones, uno a uno."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Hasta que llegó la última pregunta."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y el viento se detuvo."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El último escalón se encajó en su sitio."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Durante unos segundos... no ocurrió nada."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Entonces:"
+    },
+    {
+      type: "effect",
+      name: "shake"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "BOOOOOOOONG."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Una campana resonó en la distancia."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El puente entero brilló de golpe. Como si la luz saliera de él."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y cuando se atenuó el brillo, vieron que ya podían pasar."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El Puente de los Compromisos estaba completo."
+    },
+    {
+      type: "dialogue",
+      speaker: "?????",
+      text: "Quienes avanzan juntos... encuentran caminos donde antes solo había vacío."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El viento volvió a soplar."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y al otro lado del puente... entre cerezos blancos y farolillos apagados... podía verse el siguiente destino."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El Templo del Banquete Eterno."
     }
   ]
 });

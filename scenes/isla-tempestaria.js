@@ -476,7 +476,7 @@ Object.assign(story, {
   tempestaria_escapar_con_mako: [
     {
       type: "background",
-      image: "Casa_de_Mako.jpeg"
+      image: "Isla_Tempestaria_calles.png"
     },
     {
       type: "dialogue",
@@ -641,7 +641,7 @@ Object.assign(story, {
     },
     {
       type: "background",
-      image: "Casa_de_Mako.jpeg"
+      image: "Fondo Opción A - Casa de Mako .jpeg"
     },
     {
       type: "dialogue",
@@ -922,7 +922,7 @@ Object.assign(story, {
   tempestaria_fiesta_hablar: [
     {
       type: "background",
-      image: "FONDO OPCIÓN 1.jpeg"
+      image: "Fondo Opción B.jpeg"
     },
     {
       type: "clearCharacters"
@@ -1121,7 +1121,7 @@ Object.assign(story, {
     },
     {
       type: "background",
-      image: "Isla_Tempestaria_Fondo_Valerio Gildrack.jpeg"
+      image: "FONDO OPCIÓN 1.jpeg"
     },
     {
       type: "dialogue",
@@ -1667,7 +1667,7 @@ Object.assign(story, {
   tempestaria_mansion_colarse: [
     {
       type: "background",
-      image: "FONDO OPCIÓN  2 .jpeg"
+      image: "Fondo Opción B.jpeg"
     },
     {
       type: "clearCharacters"
@@ -1765,10 +1765,6 @@ Object.assign(story, {
       text: "Vamos, lentos."
     },
     {
-      type: "background",
-      image: "Isla_Tempestaria_Fondo_Valerio Gildrack.jpeg"
-    },
-    {
       type: "dialogue",
       speaker: "Narrador",
       text: "Moverse por la mansión resultó mucho más complicado de lo esperado."
@@ -1802,6 +1798,10 @@ Object.assign(story, {
       type: "dialogue",
       speaker: "Minutu",
       text: "Fantástico."
+    },
+    {
+      type: "background",
+      image: "FONDO OPCIÓN  2 .jpeg"
     },
     {
       type: "dialogue",
@@ -1969,6 +1969,10 @@ Object.assign(story, {
       text: "Entraron. Y durante unos segundos, nadie dijo nada."
     },
     {
+      type: "background",
+      image: "Habitación Reliquia.jpeg"
+    },
+    {
       type: "dialogue",
       speaker: "Narrador",
       text: "La habitación estaba llena de objetos extraños: máscaras antiguas, armas ornamentales, joyas, mapas y reliquias de lugares que probablemente ni existían ya."
@@ -2133,6 +2137,10 @@ Object.assign(story, {
       text: "NO SER DETECTADOS."
     },
     {
+      type: "background",
+      image: "Pasillo.jpeg"
+    },
+    {
       type: "dialogue",
       speaker: "Narrador",
       text: "Los guardias empezaron a perseguirlos inmediatamente. Más pasos empezaban a escucharse por toda la mansión. La alarma seguía sonando."
@@ -2221,10 +2229,6 @@ Object.assign(story, {
       type: "stopSound"
     },
     {
-      type: "background",
-      image: "Casa_de_Mako.jpeg"
-    },
-    {
       type: "clearCharacters",
       ids: ["valerio"]
     },
@@ -2280,6 +2284,10 @@ Object.assign(story, {
       type: "dialogue",
       speaker: "Narrador",
       text: "Finalmente llegaron a la pequeña casa inclinada de Mako. Entraron."
+    },
+    {
+      type: "background",
+      image: "Casa_de_Mako.jpeg"
     },
     {
       type: "dialogue",
