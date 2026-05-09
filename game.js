@@ -1143,22 +1143,12 @@ function createRoleBasedLayoutItems(characters, rocky, reina, animatedId, width,
     );
   }
 
-  const leadingCharacters = [reina, rocky];
   const rightSlots = getRightGroupSlots(secondaryCharacters.length);
 
-  return leadingCharacters
-    .map((character, index) =>
-      createResolvedLayoutItem(
-        character,
-        [
-          { position: "far-left", side: "left" },
-          { position: "left", side: "left" }
-        ][index],
-        width,
-        height,
-        scale
-      )
-    )
+  return [
+    createResolvedLayoutItem(rocky, { position: "left", side: "left" }, width, height, scale),
+    createResolvedLayoutItem(reina, { position: "far-left", side: "left" }, width, height, scale)
+  ]
     .concat(
       secondaryCharacters.map((character, index) =>
         createResolvedLayoutItem(character, rightSlots[index], width, height, scale)
