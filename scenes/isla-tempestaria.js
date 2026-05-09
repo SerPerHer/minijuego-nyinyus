@@ -922,7 +922,7 @@
   tempestaria_fiesta_hablar: [
     {
       type: "background",
-      image: "FONDO OPCIÃ“N 1.jpeg"
+      image: "FONDO OPCIÓN 1.jpeg"
     },
     {
       type: "clearCharacters"
@@ -1594,7 +1594,7 @@
     },
     {
       type: "background",
-      image: "FONDO OPCIÃ“N 1.jpeg"
+      image: "FONDO OPCIÓN 1.jpeg"
     },
     {
       type: "clearCharacters",
@@ -1667,7 +1667,7 @@
   tempestaria_mansion_colarse: [
     {
       type: "background",
-      image: "FONDO OPCIÃ“N  2 .jpeg"
+      image: "FONDO OPCIÓN  2 .jpeg"
     },
     {
       type: "clearCharacters"
@@ -2812,42 +2812,10 @@
     },
     {
       type: "background",
-      image: "FONDO TRANSICIÃ“N.jpeg"
+      image: "FONDO TRANSICIÓN.jpeg"
     },
     {
       type: "clearCharacters"
-    },
-    {
-      type: "character",
-      id: "rocky",
-      name: "Rocky",
-      image: "rocky_normal.png",
-      accent: "#f2bf57",
-      accentDark: "#9b682b",
-      position: "left",
-      animation: "enter"
-    },
-    {
-      type: "character",
-      id: "mako",
-      name: "Mako",
-      image: "mako.png",
-      accent: "#f27983",
-      accentDark: "#8f3944",
-      position: "center",
-      scale: 0.94,
-      animation: "enter"
-    },
-    {
-      type: "character",
-      id: "minutu",
-      name: "Minutu",
-      image: "minutu.png",
-      accent: "#8fc4f2",
-      accentDark: "#436f96",
-      position: "right",
-      scale: 0.94,
-      animation: "enter"
     },
     {
       type: "dialogue",
@@ -3022,7 +2990,7 @@
     },
     {
       type: "inspect",
-      image: "Isla_Tempestaria_PresentaciÃ³n_Valerio_Gildrack.png",
+      image: "Isla_Tempestaria_Presentación_Valerio_Gildrack.png",
       alt: "Presentacion de Valerio Gildrack",
       autoOpen: true
     },
