@@ -337,6 +337,12 @@ function renderCharacters(animatedId) {
       characterImage.style.removeProperty("bottom");
     }
 
+    if (item.zIndex !== undefined && item.zIndex !== null) {
+      characterImage.style.zIndex = String(item.zIndex);
+    } else {
+      characterImage.style.removeProperty("z-index");
+    }
+
     if (character.id === animatedId && character.animation === "enter") {
       characterImage.classList.add("enter-" + animationSideForPosition(position));
     }
@@ -1185,17 +1191,54 @@ function createTertiaryPriorityLayoutItems(
 
   return leftGroup
     .map((character, index) =>
-      createResolvedLayoutItem(character, leftSlots[index], leftWidth, leftHeight, scale)
+      applyCrowdedCorePairStacking(
+        createResolvedLayoutItem(character, leftSlots[index], leftWidth, leftHeight, scale),
+        leftGroup.length,
+        index
+      )
     )
     .concat([
-      createResolvedLayoutItem(
-        highlightedTertiary,
-        { position: "far-right", side: "right" },
-        leftWidth,
-        leftHeight,
-        scale
+      applyCrowdedCorePairStacking(
+        createResolvedLayoutItem(
+          highlightedTertiary,
+          { position: "far-right", side: "right" },
+          leftWidth,
+          leftHeight,
+          scale
+        ),
+        leftGroup.length,
+        leftGroup.length
       )
     ]);
+}
+
+function applyCrowdedCorePairStacking(item, leftGroupCount, index) {
+  if (!item || !item.character) {
+    return item;
+  }
+
+  if (isCharacter(item.character, "reina")) {
+    return {
+      ...item,
+      zIndex: 34
+    };
+  }
+
+  if (isCharacter(item.character, "rocky")) {
+    return {
+      ...item,
+      zIndex: 33
+    };
+  }
+
+  if (leftGroupCount >= 3 && index >= leftGroupCount) {
+    return {
+      ...item,
+      zIndex: 35
+    };
+  }
+
+  return item;
 }
 
 function createResolvedLayoutItem(character, layoutConfig, width, height, scale) {
@@ -1244,7 +1287,7 @@ function getPackedLeftGroupSlots(count) {
     return [
       { position: "far-left", side: "left" },
       { position: "center", side: "left", offsetX: "-214px" },
-      { position: "center", side: "left", offsetX: "-112px" }
+      { position: "center", side: "left", offsetX: "-68px" }
     ];
   }
 
@@ -1253,7 +1296,7 @@ function getPackedLeftGroupSlots(count) {
       { position: "far-left", side: "left" },
       { position: "left", side: "left" },
       { position: "center", side: "left", offsetX: "-214px" },
-      { position: "center", side: "left", offsetX: "-112px" }
+      { position: "center", side: "left", offsetX: "-68px" }
     ];
   }
 

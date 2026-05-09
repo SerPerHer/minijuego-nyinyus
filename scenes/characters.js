@@ -13,8 +13,8 @@ window.CHARACTER_LIBRARY = {
     imageTrimmed: "reina_normal_trim.png",
     imageFlipped: "reina_normal_flip.png",
     imageFlippedTrimmed: "reina_normal_flip_trim.png",
-    accent: "#f28cae",
-    accentDark: "#9b4563",
+    accent: "#f786ed",
+    accentDark: "#f84eb7",
     role: "protagonist"
   },
   abuela: {
