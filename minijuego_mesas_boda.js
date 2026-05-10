@@ -438,6 +438,7 @@
     launchButton: null,
     lastFocusedElement: null,
     onComplete: null,
+    allowClose: true,
     status: {
       tone: "info",
       title: "Pulsa un asiento vacio para empezar el banquete.",
@@ -497,7 +498,7 @@
       '<div class="seating-game__frame">' +
       '<header class="seating-game__header">' +
       '<div class="seating-game__title-group">' +
-      '<p class="seating-game__eyebrow">Banquete nupcial en la isla de Hanamori</p>' +
+      '<p class="seating-game__eyebrow">Banquete nupcial en Toki no Hanashima</p>' +
       '<h1 id="seating-game-title" class="seating-game__title">Puzzle de mesas imperiales</h1>' +
       '<p class="seating-game__subtitle">Ordena a doce invitados entre cuatro mesas sin provocar duelos, haikus ofensivos ni ramen ritual.</p>' +
       "</div>" +
@@ -545,6 +546,7 @@
       counter: root.querySelector('[data-role="counter"]'),
       tables: root.querySelector('[data-role="tables"]'),
       rulebook: root.querySelector('[data-role="rulebook"]'),
+      primaryAction: root.querySelector('[data-action="validate"]'),
       closeButton: root.querySelector(".seating-game__close")
     };
 
@@ -585,14 +587,20 @@
     }
 
     state.onComplete = typeof resolvedOptions.onComplete === "function" ? resolvedOptions.onComplete : null;
+    state.allowClose = resolvedOptions.allowClose !== false;
     state.lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     state.isOpen = true;
     state.elements.root.classList.remove("hidden");
     state.elements.root.setAttribute("aria-hidden", "false");
     document.body.classList.add("seating-game--open");
-    renderAll();
     if (state.elements.closeButton) {
-      state.elements.closeButton.focus();
+      state.elements.closeButton.hidden = !state.allowClose;
+    }
+    renderAll();
+
+    const preferredFocus = state.allowClose ? state.elements.closeButton : state.elements.primaryAction;
+    if (preferredFocus) {
+      preferredFocus.focus();
     }
   }
 
@@ -679,6 +687,10 @@
       const action = actionTarget.getAttribute("data-action");
 
       if (action === "close") {
+        if (!state.allowClose) {
+          return;
+        }
+
         close();
         return;
       }
@@ -730,6 +742,10 @@
     }
 
     if (event.key === "Escape") {
+      if (!state.allowClose) {
+        return;
+      }
+
       close();
     }
   }

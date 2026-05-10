@@ -74,6 +74,55 @@ window.CHARACTER_LIBRARY = {
     imageFlippedTrimmed: "haze_flip_trim.png",
     role: "secondary"
   },
+  aiko: {
+    name: "Fukuro",
+    image: "Aiko_Fukuro.png",
+    accent: "#e7c58f",
+    accentDark: "#8f6331",
+    role: "tertiary"
+  },
+  kenji: {
+    name: "Kenji",
+    image: "Kenji_Gorumaru.png",
+    accent: "#b7c7f6",
+    accentDark: "#4f5f94",
+    role: "tertiary"
+  },
+  miko: {
+    name: "Lady Miko",
+    image: "Lady_Miko.png",
+    accent: "#f1d1ca",
+    accentDark: "#9b5b4d",
+    role: "tertiary"
+  },
+  ren: {
+    name: "Ren",
+    image: "Ren.png",
+    accent: "#bde7d6",
+    accentDark: "#3f7862",
+    role: "tertiary"
+  },
+  nobu: {
+    name: "Poeta",
+    image: "Nobu.png",
+    accent: "#d1c0f3",
+    accentDark: "#6b55a1",
+    role: "tertiary"
+  },
+  hana_takeshi: {
+    name: "Hana y Takeshi",
+    image: "Hana_y_Takeshi.png",
+    accent: "#efbac6",
+    accentDark: "#8d4f61",
+    role: "tertiary"
+  },
+  kyubi: {
+    name: "Kyūbi",
+    image: "Kyübi.png",
+    accent: "#a9dcff",
+    accentDark: "#3b6f9a",
+    role: "tertiary"
+  },
   valerio: {
     name: "Valerio",
     image: "Valerio.png",

@@ -1162,6 +1162,815 @@ Object.assign(story, {
       type: "dialogue",
       speaker: "Narrador",
       text: "El Templo del Banquete Eterno."
+    },
+    {
+      type: "background",
+      image: "Hanashima_puente.jpeg"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky observó el puente completo delante de ellos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "Vale. Eso ha sido bastante increíble."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Reina miró al otro lado."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Entre la niebla y los árboles podía verse un enorme edificio iluminado por farolillos dorados. Un templo."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Cruzaron el Puente de los Compromisos mientras el viento movía las cintas de deseos atadas a los pilares."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y cuanto más avanzaban... más extraña se volvía la atmósfera."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "No había pájaros. No había gente. Ni siquiera se escuchaba el agua."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Solo música. Lejana."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Como si alguien estuviera celebrando algo a lo lejos."
+    },
+    {
+      type: "background",
+      image: "Fondo_Castillo.jpeg"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Finalmente llegaron ante unas enormes puertas de madera roja y negra."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Sobre ellas había un símbolo tallado: dos copas unidas por una cadena dorada."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y debajo, grabado en piedra:"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "EL TEMPLO DEL BANQUETE ETERNO"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky levantó una ceja."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "Eso suena divertidamente aterrador."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Las puertas se abrieron solas."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El interior era gigantesco, adornado con columnas rojas, detalles dorados y estandartes con inscripciones que celebraban el matrimonio."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Mesas infinitas recorrían todo el salón."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Farolillos flotaban en el aire. Fuentes de sake llenas se repartían por toda la estancia."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y el sonido de instrumentos tradicionales surgía desde los rincones."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Todo estaba preparado para una boda perfecta."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Pero no había nadie."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Reina avanzó lentamente."
+    },
+    {
+      type: "background",
+      image: "Fondo_Banquete.jpeg"
+    },
+    {
+      type: "dialogue",
+      speaker: "Reina",
+      text: "¿Hola?"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Silencio."
+    },
+    {
+      type: "effect",
+      name: "shake"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Entonces sonó una campana."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "BOOOOOOOONG."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y todos los farolillos del salón se encendieron al mismo tiempo."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Todo apareció."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Figuras transparentes empezaron a materializarse alrededor de las mesas."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Invitados espirituales. Decenas. Con vestidos ceremoniales. Con kimonos antiguos. Nobles. Samuráis. Monjes. Familias enteras."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y en menos de tres segundos... todo se convirtió en caos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Invitada",
+      text: "¡¡¡YO NO PIENSO SENTARME CERCA DE ESA MUJER!!!"
+    },
+    {
+      type: "dialogue",
+      speaker: "Invitado",
+      text: "¡¡¡SU FAMILIA INSULTÓ A MI PEZ EN EL FESTIVAL DE PRIMAVERA!!!"
+    },
+    {
+      type: "dialogue",
+      speaker: "Otro",
+      text: "¡¡¡ALGUIEN HA CAMBIADO MI COPA DE SAKE POR UNA DE VINO!!!"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky observó el desastre."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "Ah. Ahora entiendo por qué Minutu parece muerto por dentro."
+    },
+    {
+      type: "dialogue",
+      speaker: "?????",
+      text: "Cuando las sombras del conflicto ante vosotros se alcen, la mirada no desviaréis."
+    },
+    {
+      type: "dialogue",
+      speaker: "?????",
+      text: "Aquello que el destino os ponga delante... juntos resolver deberéis."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Una anciana noble golpeó el suelo con su bastón."
+    },
+    characterStep("aiko", { animation: "enter" }),
+    {
+      type: "dialogue",
+      speaker: "Fukuro",
+      text: "¡Como matrona de los Fukuro y maestra del té exijo otra mesa! ¡Aiko Fukuro no se sentará cerca de ese hombre desvergonzado que no mostró respeto hace cuatro años!"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Un gigante samurái completamente borracho apareció subido encima de una mesa."
+    },
+    {
+      type: "clearCharacters",
+      ids: ["aiko"]
+    },
+    characterStep("kenji", { animation: "enter" }),
+    {
+      type: "dialogue",
+      speaker: "Kenji",
+      text: "¡¡YO, KENJI GUROMARU, LO EXIJO!! ¡¡¡SI NO HAY COMPETICIÓN DE SAKE, ESTA BODA NO VALE NADA!!!"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Saltó sobre otra mesa rompiendo platos y lo que encontrara."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Mientras tanto, una mujer elegantísima sonreía mientras miraba por encima del hombro a una joven con un enorme sombrero lleno de flores."
+    },
+    {
+      type: "clearCharacters",
+      ids: ["kenji"]
+    },
+    characterStep("miko", { animation: "enter" }),
+    {
+      type: "dialogue",
+      speaker: "Lady Miko",
+      text: "Oh... qué interesante elección de tocado. Muy... atrevido de tu parte."
+    },
+    {
+      type: "dialogue",
+      speaker: "Joven",
+      text: "Oh, muchas gracias, Lady Miko."
+    },
+    {
+      type: "dialogue",
+      speaker: "Lady Miko",
+      text: "Tiene esa energía tan... valiente... de alguien que claramente hizo lo mejor que pudo. Me recuerda mucho a los funerales ceremoniales del norte. Aunque quizá eso era exactamente lo que buscabais."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "La sonrisa de la muchacha empezó a romperse lentamente."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Tartamudeó una disculpa y se marchó corriendo, mientras lloraba."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Lady Miko se giró hacia otra víctima."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Entonces se abrió otra puerta de golpe. Y entró un hombre cargando un shamisen gigante, dos cabras y tres personas que nadie conocía."
+    },
+    {
+      type: "clearCharacters",
+      ids: ["miko"]
+    },
+    characterStep("ren", { animation: "enter" }),
+    {
+      type: "dialogue",
+      speaker: "Ren",
+      text: "¡He traído acompañantes!"
+    },
+    {
+      type: "dialogue",
+      speaker: "Todos",
+      text: "¡Otra vez no, Ren!"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y en mitad del caos... un poeta dramático comenzó a llorar dramáticamente abrazado a una columna."
+    },
+    {
+      type: "clearCharacters",
+      ids: ["ren"]
+    },
+    characterStep("nobu", { animation: "enter" }),
+    {
+      type: "dialogue",
+      speaker: "Poeta",
+      text: "¡LAS BODAS SON TAN HERMOSAS! ¡ES TAN BONITO EL AMOR! ¡DEMASIADO BONITO PARA ESTE MUNDO CRUEL!"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Otros invitados empezaron a llorar también al escucharlo hablar."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y entonces llegó el golpe final."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Dos antiguos amantes comenzaron a discutir en mitad del salón."
+    },
+    {
+      type: "clearCharacters",
+      ids: ["nobu"]
+    },
+    characterStep("hana_takeshi", { animation: "enter" }),
+    {
+      type: "dialogue",
+      speaker: "Hana",
+      text: "¡TÚ ARRUINASTE NUESTRA RELACIÓN, TAKESHI!"
+    },
+    {
+      type: "dialogue",
+      speaker: "Takeshi",
+      text: "¡TÚ QUERÍAS CONTROLARLO TODO, HANA!"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Medio salón tomó partido inmediatamente."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky miró alrededor."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Todo el templo era un desastre absoluto. Invitados gritando. Copas volando. Música descontrolada. Cabras corriendo entre las mesas."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y entonces apareció la voz."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "La misma del puente."
+    },
+    {
+      type: "dialogue",
+      speaker: "?????",
+      text: "Si armonía deseáis encontrar... al banquete deberéis sobrevivir."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Pausa."
+    },
+    {
+      type: "dialogue",
+      speaker: "?????",
+      text: "Sin destruir lo que habéis venido a celebrar."
+    },
+    {
+      type: "clearCharacters",
+      ids: ["hana_takeshi"]
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Reina respiró hondo. Rocky sonrió lentamente."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "Vale. Tenemos que arreglar esto."
+    },
+    {
+      type: "dialogue",
+      speaker: "Reina",
+      text: "Qué desastre..."
+    },
+    {
+      type: "minigame",
+      game: "weddingSeating",
+      resetOnOpen: true,
+      allowClose: false,
+      completeDelayMs: 500
+    },
+    {
+      type: "background",
+      image: "Fondo_Banquete.jpeg"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El Templo del Banquete Eterno parecía haber sobrevivido... milagrosamente."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Las mesas seguían en pie. Más o menos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Los invitados espirituales seguían discutiendo."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Pero ahora brindaban, reían, bailaban, o lloraban emocionalmente sobre la comida ceremonial."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Lo cual, considerando cómo había empezado todo... era prácticamente un éxito histórico."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Goromaru cantaba abrazado a tres músicos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Lady Fukuro criticaba discretamente a otros invitados junto a Rocky como si fueran viejos amigos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Lady Suzume seguía siendo aterradora... pero ahora usaba sus comentarios para destruir únicamente a gente insufrible."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y hasta Akemi y Raizo habían dejado de gritarse."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Ahora discutían sentados. Lo cual era un progreso."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky cayó sentado sobre un cojín ceremonial completamente agotado."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "Creo... que acabamos de sobrevivir a la boda más peligrosa del planeta."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Reina se sentó a su lado."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "También estaba agotada, pero sonreía."
+    },
+    {
+      type: "dialogue",
+      speaker: "Reina",
+      text: "Y eso que ni siquiera era nuestra boda."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "No pienso organizar jamás una."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Silencio."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Reina lo miró."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "Vale. La nuestra sí."
+    },
+    {
+      type: "effect",
+      name: "shake"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Entonces ocurrió."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "CLONK."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Todas las copas del salón vibraron al mismo tiempo."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "La música se detuvo."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Los invitados espirituales levantaron lentamente la cabeza."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y al fondo del templo... unas enormes puertas doradas empezaron a abrirse."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky y Reina avanzaron lentamente."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Detrás de ellos, el ruido del banquete desaparecía poco a poco."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Como si el jardín existiera fuera del mundo."
+    },
+    {
+      type: "background",
+      image: "Fondo_Jardín.jpeg"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Más allá de las puertas... había un jardín imposible."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Cerezos blancos. Farolillos flotando en el aire. Ríos de agua cristalina. Luciérnagas azules moviéndose entre pétalos suspendidos por el viento."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Todo parecía silencioso. Sagrado."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "En el centro del jardín se alzaba un enorme pedestal de piedra."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y sobre él... descansaba una máscara."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "La Máscara del Kyūbi Celestial."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Blanca y azul, con detalles dorados que brillaban suavemente bajo la luz de la luna."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y alrededor de ella... el viento parecía girar en círculos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Los pétalos comenzaron a elevarse alrededor del pedestal."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y una figura apareció entre ellos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Gigantesca. Un zorro de nueve colas hecho de luz azul y fuego celestial."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El Kyūbi."
+    },
+    characterStep("kyubi", { animation: "enter" }),
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Sus ojos brillaban como estrellas antiguas. Y cuando habló... su voz resonó en todo el jardín."
+    },
+    {
+      type: "dialogue",
+      speaker: "Kyūbi",
+      text: "He observado vuestros pasos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Las nueve colas se movieron lentamente detrás de él."
+    },
+    {
+      type: "dialogue",
+      speaker: "Kyūbi",
+      text: "He visto cómo camináis cuando el puente desaparece."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El viento recorrió el jardín."
+    },
+    {
+      type: "dialogue",
+      speaker: "Kyūbi",
+      text: "Cómo habláis cuando el caos os rodea."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Pausa."
+    },
+    {
+      type: "dialogue",
+      speaker: "Kyūbi",
+      text: "Y cómo seguís avanzando... cuando sería más sencillo soltaros la mano."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky y Reina permanecieron en silencio."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El Kyūbi los observó unos segundos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Kyūbi",
+      text: "Muchos creen que una unión nace de la perfección."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Sus ojos brillaron."
+    },
+    {
+      type: "dialogue",
+      speaker: "Kyūbi",
+      text: "Pero lo eterno jamás fue aquello que nunca se rompe."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Las colas de fuego azul iluminaron los árboles."
+    },
+    {
+      type: "dialogue",
+      speaker: "Kyūbi",
+      text: "Lo eterno... es aquello que decide reconstruirse una y otra vez."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El jardín entero empezó a llenarse de luz."
+    },
+    {
+      type: "dialogue",
+      speaker: "Kyūbi",
+      text: "El camino ante vosotros no será recto."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Pausa."
+    },
+    {
+      type: "dialogue",
+      speaker: "Kyūbi",
+      text: "Pero quienes siguen eligiéndose incluso cuando el viento cambia..."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Las nueve colas se extendieron lentamente."
+    },
+    {
+      type: "dialogue",
+      speaker: "Kyūbi",
+      text: "...son dignos de continuar el viaje."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Entonces el viento se levantó."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "La máscara empezó a flotar sobre el pedestal."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Pétalos giraron alrededor de Rocky y Reina."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y lentamente... la Máscara del Kyūbi Celestial viajó por el aire hasta detenerse frente a Reina."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Ella la sostuvo entre sus manos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y en el instante en que sus dedos tocaron la máscara... todo se volvió borroso."
+    },
+    {
+      type: "clearCharacters",
+      ids: ["kyubi"]
+    },
+    {
+      type: "background",
+      image: "Fondo_Tori.jpeg"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El jardín desapareció."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "La luz se rompió en fragmentos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El viento rugió alrededor de ellos."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y un segundo después... Rocky y Reina aparecieron nuevamente frente al enorme Tori rojo del principio."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "El mismo camino. Los mismos árboles. El mismo viento suave."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Como si nada hubiera ocurrido."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Excepto por una cosa."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "La máscara seguía entre las manos de Reina."
     }
   ]
 });

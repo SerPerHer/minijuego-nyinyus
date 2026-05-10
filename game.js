@@ -262,6 +262,9 @@ function showCurrentStep() {
     case "inspect":
       showInspect(step);
       break;
+    case "minigame":
+      showMinigame(step);
+      break;
     default:
       advanceStep();
       break;
@@ -495,6 +498,54 @@ function showInspect(step) {
   }
 }
 
+function showMinigame(step) {
+  const controller = resolveMinigameController(step);
+
+  if (!controller || typeof controller.open !== "function") {
+    advanceStep();
+    return;
+  }
+
+  stopTyping();
+  clearChoices();
+  clearInspectPrompt();
+  closeInspectOverlay();
+  recordCheckpoint();
+  setSpeakingCharacter("");
+  nextButton.classList.add("hidden");
+
+  const delayMs =
+    typeof step.completeDelayMs === "number" && isFinite(step.completeDelayMs)
+      ? Math.max(step.completeDelayMs, 0)
+      : 450;
+  const openOptions = {
+    resetOnOpen: step.resetOnOpen !== false,
+    allowClose: step.allowClose !== false,
+    onComplete: () => {
+      window.setTimeout(() => {
+        if (typeof controller.close === "function") {
+          controller.close();
+        }
+
+        nextButton.classList.remove("hidden");
+
+        if (step.nextScene) {
+          jumpToScene(step.nextScene);
+          return;
+        }
+
+        advanceStep();
+      }, delayMs);
+    }
+  };
+
+  if (Array.isArray(step.map)) {
+    openOptions.map = step.map;
+  }
+
+  controller.open(openOptions);
+}
+
 function openInspectOverlay(step, options) {
   const resolvedStep = resolveInspectStep(step);
   const imagePath = resolvedStep.image ? "assets/backgrounds/" + resolvedStep.image : "";
@@ -661,6 +712,24 @@ function getCollectibleOrder(collectibleId) {
   }
 
   return collectible.order;
+}
+
+function resolveMinigameController(step) {
+  const gameId = normalizeSpeakerKey(step && (step.game || step.minigame));
+
+  if (!gameId) {
+    return null;
+  }
+
+  if (gameId === "weddingseating" || gameId === "mesasboda" || gameId === "banqueteboda") {
+    return globalThis.weddingSeatingGame || null;
+  }
+
+  if (gameId === "simplemaze" || gameId === "laberinto") {
+    return globalThis.simpleMazeGame || null;
+  }
+
+  return null;
 }
 
 function resolveInspectStep(step) {
