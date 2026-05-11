@@ -13,9 +13,6 @@ Object.assign(story, {
       type: "background",
       image: "Isla_Tempestaria.jpeg"
     },
-    characterStep("rocky", { animation: "enter" }),
-    characterStep("minutu", { animation: "enter" }),
-    characterStep("reina", { animation: "enter" }),
     {
       type: "dialogue",
       speaker: "Narrador",

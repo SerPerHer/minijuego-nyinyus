@@ -2,9 +2,6 @@ const story = {
   start: [
     { type: "background", image: "puerto_noche.png" },
 
-    characterStep("rocky", { animation: "enter" }),
-    characterStep("reina", { animation: "enter" }),
-
     {
       type: "dialogue",
       speaker: "Narrador",

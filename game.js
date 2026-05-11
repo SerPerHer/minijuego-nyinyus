@@ -36,6 +36,7 @@ const INTRO_SCENE_IDS = new Set([
 ]);
 
 const characterState = new Map();
+const revealedCharacterIds = new Set();
 const defaultSpeakerStyles = {
   narrador: {
     accent: "#9ac7d8",
@@ -99,6 +100,7 @@ let currentBackgroundState = null;
 let currentAudioState = null;
 let unlockedCollectibles = new Map();
 let currentOverlayCompletesInspectStep = false;
+let isDialogueRevealMode = false;
 
 introButton.addEventListener("click", showStartScreen);
 scenarioButtons.forEach((button) => {
@@ -143,6 +145,8 @@ function resetGameState() {
   setSpeakerStyle("");
   setSpeakingCharacter("");
   characterState.clear();
+  revealedCharacterIds.clear();
+  isDialogueRevealMode = false;
   characterLayer.innerHTML = "";
   currentBackgroundState = null;
   backgroundLayer.style.backgroundImage = "";
@@ -286,7 +290,7 @@ function jumpToScene(sceneId) {
 }
 
 function showBackground(step) {
-  currentBackgroundState =
+  const nextBackgroundState =
     step && step.image
       ? {
           image: step.image,
@@ -295,9 +299,20 @@ function showBackground(step) {
           backgroundRepeat: step.backgroundRepeat || ""
         }
       : null;
+
   stopSpeakingAnimation();
+  clearLayoutSettleTimeout();
+  resetCharactersForBackgroundChange();
+  currentBackgroundState = nextBackgroundState;
   applyBackgroundState(currentBackgroundState);
   renderCharacters("");
+}
+
+function resetCharactersForBackgroundChange() {
+  characterState.clear();
+  revealedCharacterIds.clear();
+  isDialogueRevealMode = true;
+  characterLayer.innerHTML = "";
 }
 
 function showCharacter(step) {
@@ -315,12 +330,14 @@ function clearCharacters(step) {
   if (Array.isArray(step.ids) && step.ids.length > 0) {
     step.ids.forEach((id) => {
       characterState.delete(id);
+      revealedCharacterIds.delete(id);
     });
     renderCharacters("");
     return;
   }
 
   characterState.clear();
+  revealedCharacterIds.clear();
   characterLayer.innerHTML = "";
 }
 
@@ -336,7 +353,7 @@ function renderCharacters(animatedId) {
     return;
   }
 
-  const layout = resolveCharacterLayout(Array.from(characterState.values()), animatedId);
+  const layout = resolveCharacterLayout(getRenderableCharacters(), animatedId);
 
   layout.items.forEach((item) => {
     const character = item.character;
@@ -405,10 +422,21 @@ function renderCharacters(animatedId) {
   }
 }
 
+function getRenderableCharacters() {
+  const characters = Array.from(characterState.values());
+
+  if (!isDialogueRevealMode) {
+    return characters;
+  }
+
+  return characters.filter((character) => revealedCharacterIds.has(character.id));
+}
+
 function showDialogue(step) {
   recordCheckpoint();
   const speaker = step.speaker || "";
 
+  revealSpeakingCharacter(speaker);
   speakerName.textContent = speaker;
   speakerName.classList.toggle("hidden", !speaker);
   setSpeakerStyle(speaker);
@@ -839,6 +867,47 @@ function setSpeakingCharacter(speaker) {
   }
 }
 
+function revealSpeakingCharacter(speaker) {
+  if (!speaker) {
+    return;
+  }
+
+  const currentCharacter = findCharacterBySpeaker(speaker);
+
+  if (currentCharacter) {
+    if (isDialogueRevealMode && !revealedCharacterIds.has(currentCharacter.id)) {
+      revealCharacter(currentCharacter.id);
+    }
+    return;
+  }
+
+  const character = findCharacterDefaultsBySpeaker(speaker);
+
+  if (!character) {
+    return;
+  }
+
+  setCharacterState({
+    type: "character",
+    id: character.id,
+    animation: "enter"
+  });
+  revealCharacter(character.id);
+}
+
+function revealCharacter(characterId) {
+  if (!characterId) {
+    return;
+  }
+
+  if (isDialogueRevealMode && revealedCharacterIds.has(characterId)) {
+    return;
+  }
+
+  revealedCharacterIds.add(characterId);
+  renderCharacters(characterId);
+}
+
 function getCharacterBottomValue(characterImage) {
   const computedBottom = parseFloat(window.getComputedStyle(characterImage).bottom);
 
@@ -885,6 +954,29 @@ function findCharacterBySpeaker(speaker) {
 
     if (matchesId || matchesName) {
       return character;
+    }
+  }
+
+  return null;
+}
+
+function findCharacterDefaultsBySpeaker(speaker) {
+  if (!speaker) {
+    return null;
+  }
+
+  const normalizedSpeaker = normalizeSpeakerKey(speaker);
+
+  for (const [id, character] of Object.entries(characterLibrary)) {
+    const characterId = character && character.id ? character.id : id;
+    const matchesId = normalizeSpeakerKey(characterId) === normalizedSpeaker;
+    const matchesName = normalizeSpeakerKey(character && character.name) === normalizedSpeaker;
+
+    if (matchesId || matchesName) {
+      return {
+        ...character,
+        id: characterId
+      };
     }
   }
 
@@ -1159,6 +1251,7 @@ function captureCheckpointState() {
   return {
     background: cloneBackgroundState(currentBackgroundState),
     characters: Array.from(characterState.values(), cloneCharacterState),
+    characterReveal: cloneCharacterRevealState(),
     audio: cloneAudioState(currentAudioState)
   };
 }
@@ -1179,6 +1272,7 @@ function restoreCheckpointState(state) {
       characterState.set(character.id, cloneCharacterState(character));
     }
   );
+  restoreCharacterRevealState(checkpointState.characterReveal);
   renderCharacters("");
   restoreAudioState(checkpointState.audio);
 }
@@ -1200,6 +1294,28 @@ function cloneCharacterState(character) {
   return {
     ...character
   };
+}
+
+function cloneCharacterRevealState() {
+  return {
+    dialogueOnly: isDialogueRevealMode,
+    revealedIds: Array.from(revealedCharacterIds)
+  };
+}
+
+function restoreCharacterRevealState(revealState) {
+  isDialogueRevealMode = Boolean(revealState && revealState.dialogueOnly);
+  revealedCharacterIds.clear();
+
+  if (!revealState || !Array.isArray(revealState.revealedIds)) {
+    return;
+  }
+
+  revealState.revealedIds.forEach((id) => {
+    if (id) {
+      revealedCharacterIds.add(id);
+    }
+  });
 }
 
 function cloneAudioState(audioState) {

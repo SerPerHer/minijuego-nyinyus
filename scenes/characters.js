@@ -132,6 +132,27 @@ window.CHARACTER_LIBRARY = {
     accent: "#d3d0c2",
     accentDark: "#6f6b5d",
     role: "tertiary"
+  },
+  lady_rin: {
+    name: "Lady Rin",
+    image: "Lady_Rin.png",
+    accent: "#f5d6ec",
+    accentDark: "#986581",
+    role: "tertiary"
+  },
+  lord_kazan: {
+    name: "Lord Kazan",
+    image: "Lord_Kazan.png",
+    accent: "#f0a672",
+    accentDark: "#874928",
+    role: "tertiary"
+  },
+  rey_hanabusa: {
+    name: "Rey Hanabusa",
+    image: "Rey_Hanabusa_III.png",
+    accent: "#f6d985",
+    accentDark: "#9b6f25",
+    role: "tertiary"
   }
 };
 
