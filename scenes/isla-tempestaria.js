@@ -11,7 +11,7 @@ Object.assign(story, {
     },
     {
       type: "background",
-      image: "Isla_Tempestaria.jpeg"
+      image: "FONDO TRANSICIÓN_1.png"
     },
     {
       type: "dialogue",
@@ -42,6 +42,10 @@ Object.assign(story, {
       type: "dialogue",
       speaker: "Narrador",
       text: "Y sobre un risco imposible, construido entre puentes, telas y estructuras ancladas con cadenas gigantescas:"
+    },
+    {
+      type: "background",
+      image: "Isla_Tempestaria.jpeg"
     },
     {
       type: "dialogue",

@@ -302,14 +302,15 @@ function showBackground(step) {
 
   stopSpeakingAnimation();
   clearLayoutSettleTimeout();
-  resetCharactersForBackgroundChange();
+  if (!isSameBackgroundState(currentBackgroundState, nextBackgroundState)) {
+    resetCharactersForBackgroundChange();
+  }
   currentBackgroundState = nextBackgroundState;
   applyBackgroundState(currentBackgroundState);
   renderCharacters("");
 }
 
 function resetCharactersForBackgroundChange() {
-  characterState.clear();
   revealedCharacterIds.clear();
   isDialogueRevealMode = true;
   characterLayer.innerHTML = "";
@@ -353,9 +354,10 @@ function renderCharacters(animatedId) {
     return;
   }
 
-  const layout = resolveCharacterLayout(getRenderableCharacters(), animatedId);
+  const layout = resolveCharacterLayout(Array.from(characterState.values()), animatedId);
+  const visibleItems = getVisibleLayoutItems(layout.items);
 
-  layout.items.forEach((item) => {
+  visibleItems.forEach((item) => {
     const character = item.character;
     const characterImage = document.createElement("img");
     const position = normalizePosition(item.position || character.position);
@@ -422,14 +424,14 @@ function renderCharacters(animatedId) {
   }
 }
 
-function getRenderableCharacters() {
-  const characters = Array.from(characterState.values());
-
+function getVisibleLayoutItems(items) {
   if (!isDialogueRevealMode) {
-    return characters;
+    return items;
   }
 
-  return characters.filter((character) => revealedCharacterIds.has(character.id));
+  return items.filter(
+    (item) => item && item.character && revealedCharacterIds.has(item.character.id)
+  );
 }
 
 function showDialogue(step) {
@@ -1400,6 +1402,19 @@ function isSameAudioState(leftState, rightState) {
   );
 }
 
+function isSameBackgroundState(leftState, rightState) {
+  if (!leftState || !rightState) {
+    return leftState === rightState;
+  }
+
+  return (
+    leftState.image === rightState.image &&
+    leftState.backgroundSize === rightState.backgroundSize &&
+    leftState.backgroundPosition === rightState.backgroundPosition &&
+    leftState.backgroundRepeat === rightState.backgroundRepeat
+  );
+}
+
 function stopSpeakingAnimation() {
   if (!speakingAnimation) {
     return;
@@ -1480,22 +1495,105 @@ function setCharacterState(step) {
 }
 
 function createManualLayoutItems(characters, width, height, scale) {
-  return characters.map((character) => ({
-    character,
-    position: character.position || "center",
-    scale: resolveCharacterDisplayScale(character, scale),
-    width: character.width || width,
-    height: character.height || height,
-    bottom: character.layoutMode === "manual" ? character.bottom : undefined,
-    offsetX: character.offsetX,
-    side: inferSideFromPosition(character.position),
-    manualFlip:
-      typeof character.manualFlip === "boolean"
-        ? character.manualFlip
-        : typeof character.flip === "boolean"
-          ? character.flip
-          : undefined
-  }));
+  const autoLayoutConfigs = buildAutoManualLayoutConfigs(characters);
+
+  return characters.map((character, index) =>
+    createResolvedLayoutItem(character, autoLayoutConfigs[index], width, height, scale)
+  );
+}
+
+function buildAutoManualLayoutConfigs(characters) {
+  const takenPositions = new Set(
+    characters
+      .filter((character) => hasExplicitCharacterPosition(character) || character.layoutMode === "manual")
+      .map((character) => normalizePosition(character.position))
+  );
+  const availableSlots = getBalancedAutoLayoutSlots(characters.length).filter(
+    (slot) => !takenPositions.has(slot.position)
+  );
+  const autoLayoutConfigs = new Array(characters.length).fill(undefined);
+  let nextAutoSlotIndex = 0;
+
+  characters.forEach((character, index) => {
+    if (hasExplicitCharacterPosition(character) || character.layoutMode === "manual") {
+      return;
+    }
+
+    if (nextAutoSlotIndex < availableSlots.length) {
+      autoLayoutConfigs[index] = availableSlots[nextAutoSlotIndex];
+      nextAutoSlotIndex += 1;
+      return;
+    }
+
+    autoLayoutConfigs[index] = getOverflowAutoLayoutSlot(nextAutoSlotIndex - availableSlots.length);
+    nextAutoSlotIndex += 1;
+  });
+
+  return autoLayoutConfigs;
+}
+
+function hasExplicitCharacterPosition(character) {
+  return Boolean(
+    character &&
+      Object.prototype.hasOwnProperty.call(character, "position") &&
+      String(character.position || "").trim()
+  );
+}
+
+function getBalancedAutoLayoutSlots(count) {
+  if (count <= 1) {
+    return [{ position: "center", side: "center" }];
+  }
+
+  if (count === 2) {
+    return [
+      { position: "left", side: "left" },
+      { position: "right", side: "right" }
+    ];
+  }
+
+  if (count === 3) {
+    return [
+      { position: "far-left", side: "left" },
+      { position: "center", side: "center" },
+      { position: "far-right", side: "right" }
+    ];
+  }
+
+  if (count === 4) {
+    return [
+      { position: "far-left", side: "left" },
+      { position: "left", side: "left" },
+      { position: "right", side: "right" },
+      { position: "far-right", side: "right" }
+    ];
+  }
+
+  return [
+    { position: "far-left", side: "left" },
+    { position: "left", side: "left" },
+    { position: "center", side: "center" },
+    { position: "right", side: "right" },
+    { position: "far-right", side: "right" }
+  ];
+}
+
+function getOverflowAutoLayoutSlot(index) {
+  const offset = String((Math.floor(index / 2) + 1) * 86) + "px";
+
+  if (index % 2 === 0) {
+    return {
+      position: "far-left",
+      side: "left",
+      offsetX: "-" + offset
+    };
+  }
+
+  return {
+    position: "far-right",
+    side: "right",
+    offsetX: offset
+  };
 }
 
 function createRoleBasedLayoutItems(characters, rocky, reina, animatedId, width, height, scale) {

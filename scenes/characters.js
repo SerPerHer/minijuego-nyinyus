@@ -158,7 +158,40 @@ window.CHARACTER_LIBRARY = {
 
 // El layout sale del motor según el rol de cada personaje.
 // Solo usa layoutMode: "manual" en una escena si quieres romper este estándar.
-window.SCENE_CHARACTER_LAYOUTS = {};
+window.SCENE_CHARACTER_LAYOUTS = {
+  tempestaria_llegada: {
+    minutu: {
+      position: "far-left",
+      scale: 0.94
+    },
+    rocky: {
+      position: "left"
+    },
+    reina: {
+      position: "right"
+    },
+    mako: {
+      position: "far-right",
+      scale: 0.94
+    }
+  },
+  tempestaria_escapar_con_mako: {
+    minutu: {
+      position: "far-left",
+      scale: 0.94
+    },
+    rocky: {
+      position: "left"
+    },
+    mako: {
+      position: "center",
+      scale: 0.94
+    },
+    reina: {
+      position: "right"
+    }
+  }
+};
 
 window.characterStep = function characterStep(id, overrides) {
   return {
