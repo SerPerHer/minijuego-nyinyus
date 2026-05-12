@@ -759,6 +759,10 @@ function resolveMinigameController(step) {
     return globalThis.simpleMazeGame || null;
   }
 
+  if (gameId === "engranajes" || gameId === "gearpuzzle" || gameId === "minijuegoengranajes") {
+    return globalThis.gearPuzzleGame || null;
+  }
+
   return null;
 }
 

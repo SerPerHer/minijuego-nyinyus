@@ -2845,6 +2845,10 @@ Object.assign(story, {
       type: "dialogue",
       speaker: "Narrador",
       text: "Pero ya no importaba demasiado. Porque la tripulación ya tenía su propio huracán a bordo."
+    },
+    {
+      type: "goto",
+      nextScene: "rabbita_llegada"
     }
   ],
 

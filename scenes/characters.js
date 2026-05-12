@@ -56,6 +56,8 @@ window.CHARACTER_LIBRARY = {
     imageTrimmed: "blue_trim.png",
     imageFlipped: "blue_flip.png",
     imageFlippedTrimmed: "blue_flip_trim.png",
+    accent: "#82c1fc",
+    accentDark: "#1abbec",
     role: "secondary"
   },
   lars: {
@@ -64,6 +66,8 @@ window.CHARACTER_LIBRARY = {
     imageTrimmed: "lars_trim.png",
     imageFlipped: "lars_flip.png",
     imageFlippedTrimmed: "lars_flip_trim.png",
+    accent: "#82fca7",
+    accentDark: "#44ec1a",
     role: "secondary"
   },
   haze: {
@@ -72,6 +76,8 @@ window.CHARACTER_LIBRARY = {
     imageTrimmed: "haze_trim.png",
     imageFlipped: "haze_flip.png",
     imageFlippedTrimmed: "haze_flip_trim.png",
+    accent: "#df82fc",
+    accentDark: "#c91aec",
     role: "secondary"
   },
   aiko: {
