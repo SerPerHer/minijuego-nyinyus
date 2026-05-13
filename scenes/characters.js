@@ -60,6 +60,14 @@ window.CHARACTER_LIBRARY = {
     accentDark: "#1abbec",
     role: "secondary"
   },
+  sylus: {
+    name: "Sylus",
+    image: "Sylus_y_Rubia.PNG",
+    accent: "#f0c47b",
+    accentDark: "#9b5d22",
+    scale: 1,
+    role: "tertiary"
+  },
   lars: {
     name: "Lars",
     image: "lars.png",

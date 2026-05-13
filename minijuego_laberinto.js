@@ -37,16 +37,35 @@
     "#...#...#...........#",
     "#####################"
   ];
+  const DEFAULT_COPY = {
+    eyebrow: "Templo oculto entre faroles y piedra",
+    title: "Laberinto del Templo",
+    subtitle: "Avanza por el templo oscuro hasta encontrar la salida.",
+    sectionKicker: "Mapa revelado",
+    sectionTitle: "Seguid la luz que dejais atras",
+    statusKicker: "Mensajes",
+    resetButton: "Reiniciar",
+    closeButton: "Cerrar",
+    initialMessage: "Avanza por el templo oscuro hasta encontrar la salida.",
+    outOfBoundsMessage: "El pasillo termina en oscuridad por ese lado.",
+    wallMessage: "Una pared de piedra os corta el paso.",
+    stepMessage: "La piedra del templo se ilumina bajo vuestros pasos.",
+    successMessage: "\u00a1Hab\u00e9is encontrado la salida del laberinto!",
+    counterTemplate: "{count} casillas reveladas",
+    counterSuccess: "Salida encontrada."
+  };
 
   const state = {
     initialized: false,
     isOpen: false,
     hasWon: false,
     completionDispatched: false,
+    allowClose: true,
     resizeFrame: 0,
     launchButton: null,
     lastFocusedElement: null,
     onComplete: null,
+    copy: { ...DEFAULT_COPY },
     layout: null,
     playerRow: 0,
     playerCol: 0,
@@ -94,6 +113,9 @@
 
     const resolvedOptions = options || {};
     state.onComplete = typeof resolvedOptions.onComplete === "function" ? resolvedOptions.onComplete : null;
+    state.allowClose = resolvedOptions.allowClose !== false;
+    state.copy = resolveCopy(resolvedOptions.copy);
+    applyCopy();
 
     if (Array.isArray(resolvedOptions.map)) {
       state.layout = resolveLayout(resolvedOptions.map, "open(map)");
@@ -106,11 +128,14 @@
     state.isOpen = true;
     state.elements.root.classList.remove("hidden");
     state.elements.root.setAttribute("aria-hidden", "false");
+    state.elements.closeButton.hidden = !state.allowClose;
     document.body.classList.add("simple-maze--open");
     render();
 
-    if (state.elements.closeButton) {
+    if (state.allowClose && state.elements.closeButton) {
       state.elements.closeButton.focus();
+    } else if (state.elements.resetButton) {
+      state.elements.resetButton.focus();
     }
 
     return simpleMazeGame;
@@ -144,7 +169,7 @@
     state.visitedCells = new Set([buildCellKey(state.playerRow, state.playerCol)]);
     state.hasWon = false;
     state.completionDispatched = false;
-    setMessage("info", "Avanza por el templo oscuro hasta encontrar la salida.");
+    setMessage("info", getCopyText("initialMessage"));
     render();
     return simpleMazeGame;
   }
@@ -180,13 +205,13 @@
     const nextCol = state.playerCol + dx;
 
     if (!isInsideMap(nextRow, nextCol)) {
-      setMessage("warning", "El pasillo termina en oscuridad por ese lado.");
+      setMessage("warning", getCopyText("outOfBoundsMessage"));
       render();
       return false;
     }
 
     if (state.layout.tiles[nextRow][nextCol] === WALL) {
-      setMessage("warning", "Una pared de piedra os corta el paso.");
+      setMessage("warning", getCopyText("wallMessage"));
       render();
       return false;
     }
@@ -197,13 +222,13 @@
 
     if (isGoalCell(nextRow, nextCol)) {
       state.hasWon = true;
-      setMessage("success", "\u00a1Hab\u00e9is encontrado la salida del laberinto!");
+      setMessage("success", getCopyText("successMessage"));
       render();
       dispatchCompletion();
       return true;
     }
 
-    setMessage("info", "La piedra del templo se ilumina bajo vuestros pasos.");
+    setMessage("info", getCopyText("stepMessage"));
     render();
     return true;
   }
@@ -218,24 +243,24 @@
       '<div class="simple-maze__frame">' +
       '<header class="simple-maze__header">' +
       '<div class="simple-maze__title-group">' +
-      '<p class="simple-maze__eyebrow">Templo oculto entre faroles y piedra</p>' +
-      '<h1 id="simple-maze-title" class="simple-maze__title">Laberinto del Templo</h1>' +
-      '<p class="simple-maze__subtitle">Avanza por el templo oscuro hasta encontrar la salida.</p>' +
+      '<p class="simple-maze__eyebrow" data-role="eyebrow">Templo oculto entre faroles y piedra</p>' +
+      '<h1 id="simple-maze-title" class="simple-maze__title" data-role="title">Laberinto del Templo</h1>' +
+      '<p class="simple-maze__subtitle" data-role="subtitle">Avanza por el templo oscuro hasta encontrar la salida.</p>' +
       "</div>" +
       '<div class="simple-maze__header-actions">' +
-      '<button class="simple-maze__action simple-maze__action--secondary" type="button" data-action="reset">Reiniciar</button>' +
-      '<button class="simple-maze__close" type="button" data-action="close">Cerrar</button>' +
+      '<button class="simple-maze__action simple-maze__action--secondary" type="button" data-action="reset" data-role="reset-button">Reiniciar</button>' +
+      '<button class="simple-maze__close" type="button" data-action="close" data-role="close-button">Cerrar</button>' +
       "</div>" +
       "</header>" +
       '<section class="simple-maze__status simple-maze__status--info" data-role="message">' +
-      '<p class="simple-maze__status-kicker">Mensajes</p>' +
+      '<p class="simple-maze__status-kicker" data-role="status-kicker">Mensajes</p>' +
       '<p class="simple-maze__status-text" data-role="message-text"></p>' +
       "</section>" +
       '<section class="simple-maze__card simple-maze__board-stage">' +
       '<div class="simple-maze__section-head">' +
       '<div>' +
-      '<p class="simple-maze__section-kicker">Mapa revelado</p>' +
-      '<h2 class="simple-maze__section-title">Seguid la luz que dejais atras</h2>' +
+      '<p class="simple-maze__section-kicker" data-role="section-kicker">Mapa revelado</p>' +
+      '<h2 class="simple-maze__section-title" data-role="section-title">Seguid la luz que dejais atras</h2>' +
       "</div>" +
       '<p class="simple-maze__counter" data-role="counter"></p>' +
       "</div>" +
@@ -255,7 +280,14 @@
       counter: root.querySelector('[data-role="counter"]'),
       message: root.querySelector('[data-role="message"]'),
       messageText: root.querySelector('[data-role="message-text"]'),
-      closeButton: root.querySelector(".simple-maze__close")
+      eyebrow: root.querySelector('[data-role="eyebrow"]'),
+      title: root.querySelector('[data-role="title"]'),
+      subtitle: root.querySelector('[data-role="subtitle"]'),
+      sectionKicker: root.querySelector('[data-role="section-kicker"]'),
+      sectionTitle: root.querySelector('[data-role="section-title"]'),
+      statusKicker: root.querySelector('[data-role="status-kicker"]'),
+      resetButton: root.querySelector('[data-role="reset-button"]'),
+      closeButton: root.querySelector('[data-role="close-button"]')
     };
 
     root.addEventListener("click", handleRootClick);
@@ -384,6 +416,49 @@
     return "";
   }
 
+  function applyCopy() {
+    if (!state.elements || !state.elements.root) {
+      return;
+    }
+
+    setElementText(state.elements.eyebrow, "eyebrow");
+    setElementText(state.elements.title, "title");
+    setElementText(state.elements.subtitle, "subtitle");
+    setElementText(state.elements.sectionKicker, "sectionKicker");
+    setElementText(state.elements.sectionTitle, "sectionTitle");
+    setElementText(state.elements.statusKicker, "statusKicker");
+    setElementText(state.elements.resetButton, "resetButton");
+    setElementText(state.elements.closeButton, "closeButton");
+  }
+
+  function setElementText(element, copyKey) {
+    if (!element) {
+      return;
+    }
+
+    element.textContent = getCopyText(copyKey);
+  }
+
+  function resolveCopy(copy) {
+    const resolvedCopy = { ...DEFAULT_COPY };
+
+    if (!copy || typeof copy !== "object") {
+      return resolvedCopy;
+    }
+
+    Object.keys(DEFAULT_COPY).forEach((key) => {
+      if (typeof copy[key] === "string") {
+        resolvedCopy[key] = copy[key];
+      }
+    });
+
+    return resolvedCopy;
+  }
+
+  function getCopyText(copyKey) {
+    return state.copy[copyKey] || DEFAULT_COPY[copyKey] || "";
+  }
+
   function renderMessage() {
     const tone = state.message && state.message.tone ? state.message.tone : "info";
     const text = state.message && state.message.text ? state.message.text : "";
@@ -398,11 +473,14 @@
     }
 
     if (state.hasWon) {
-      state.elements.counter.textContent = "Salida encontrada.";
+      state.elements.counter.textContent = getCopyText("counterSuccess");
       return;
     }
 
-    state.elements.counter.textContent = state.visitedCells.size + " casillas reveladas";
+    state.elements.counter.textContent = getCopyText("counterTemplate").replace(
+      "{count}",
+      String(state.visitedCells.size)
+    );
   }
 
   function handleRootClick(event) {
@@ -411,7 +489,7 @@
     if (actionTarget) {
       const action = actionTarget.getAttribute("data-action");
 
-      if (action === "close") {
+      if (action === "close" && state.allowClose) {
         close();
         return;
       }
@@ -433,7 +511,9 @@
 
     if (key === "Escape") {
       event.preventDefault();
-      close();
+      if (state.allowClose) {
+        close();
+      }
       return;
     }
 

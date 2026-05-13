@@ -917,6 +917,471 @@ Object.assign(story, {
     rabbitaDialogue(
       "Narrador",
       "Y en algún lugar, muchísimo más abajo... algo seguía latiendo dentro de Rabbita."
+    ),
+    {
+      type: "minigame",
+      game: "laberinto",
+      resetOnOpen: true,
+      allowClose: false,
+      copy: {
+        eyebrow: "Túneles bajo Rabbita",
+        title: "Laberinto de Rabbita",
+        subtitle: "Seguid el latido entre tuberías, metal y pasillos que parecen moverse solos.",
+        sectionKicker: "Ruta subterránea",
+        sectionTitle: "Trazad una salida entre hierro y vapor",
+        initialMessage: "Avanzad por los túneles oscuros hasta encontrar la salida.",
+        outOfBoundsMessage: "El pasillo termina en una placa metálica sellada.",
+        wallMessage: "Una pared de metal bloquea el paso.",
+        stepMessage: "El eco del corazón de Rabbita guía vuestros pasos.",
+        successMessage: "¡Habéis encontrado la salida del laberinto!"
+      }
+    },
+    {
+      type: "background",
+      image: "Fondo_Túnel.jpeg"
+    },
+    rabbitaDialogue(
+      "Narrador",
+      "Cuando por fin encontraron la salida del laberinto... ninguno supo exactamente cuánto tiempo había pasado."
+    ),
+    rabbitaDialogue(
+      "Narrador",
+      "Minutu insistía en que habían estado allí dentro más de tres horas."
+    ),
+    rabbitaDialogue("Narrador", "Mako juraba que mínimo ocho."),
+    rabbitaDialogue(
+      "Narrador",
+      "Rocky decía que había perdido totalmente la noción del tiempo en el momento en que una tubería empezó a moverse \"como si respirara\"."
+    ),
+    rabbitaDialogue("Narrador", "Blue simplemente parecía agotada. Al igual que Reina."),
+    rabbitaDialogue(
+      "Narrador",
+      "Los túneles terminaron desembocando en una enorme compuerta circular parcialmente abierta. Más allá... solo había oscuridad."
+    ),
+    rabbitaDialogue("Narrador", "Entraron."),
+    rabbitaDialogue("Narrador", "Y entonces la sala se iluminó."),
+    rabbitaDialogue("Narrador", "BOOOOOMMMMMM."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue(
+      "Narrador",
+      "Una luz anaranjada recorrió las paredes durante apenas un segundo antes de apagarse otra vez. Luego oscuridad. Luego otro destello. Y otro. Como un corazón intentando seguir latiendo."
+    ),
+    rabbitaDialogue("Narrador", "Todos levantaron lentamente la cabeza."),
+    {
+      type: "background",
+      image: "Fondo_camara_corazon_apagado.jpeg"
+    },
+    rabbitaDialogue(
+      "Narrador",
+      "La sala era gigantesca. Descomunal. Más alta que cualquier edificio que hubieran visto en Rabbita."
+    ),
+    rabbitaDialogue(
+      "Narrador",
+      "Columnas metálicas subían hacia un techo perdido entre sombras. Miles de tuberías recorrían paredes y suelo. Engranajes monumentales giraban lentamente alrededor de una estructura central suspendida sobre un abismo mecánico."
+    ),
+    rabbitaDialogue(
+      "Narrador",
+      "Y allí estaba. El corazón de Rabbita. Una enorme máquina circular llena de placas metálicas, conductos luminosos y mecanismos internos que se encendían y apagaban constantemente."
+    ),
+    {
+      type: "background",
+      image: "Corazón_gif.gif"
+    },
+    rabbitaDialogue("Narrador", "Cada vez que emitía luz..."),
+    rabbitaDialogue("Narrador", "CLONK."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue("Narrador", "Toda la sala temblaba. Pero algo iba mal."),
+    rabbitaDialogue(
+      "Narrador",
+      "Incluso desde lejos podía verse. Una sección lateral del mecanismo chirriaba violentamente. Varios engranajes intentaban girar... pero algo los bloqueaba. Cada vez que el corazón trataba de activarse completamente, el sistema fallaba."
+    ),
+    rabbitaDialogue("Narrador", "KRRRK-"),
+    rabbitaDialogue("Narrador", "CLANK."),
+    rabbitaDialogue("Narrador", "SHHHHHH-"),
+    rabbitaDialogue("Narrador", "Blue abrió los ojos."),
+    rabbitaDialogue("Blue", "Ese sistema debería girar sincronizado..."),
+    rabbitaDialogue("Narrador", "Minutu ya estaba analizando la estructura."),
+    rabbitaDialogue("Minutu", "Hay una obstrucción."),
+    rabbitaDialogue(
+      "Narrador",
+      "Reina entrecerró los ojos hacia el lateral del mecanismo. Y entonces lo vio. Un pedazo de metal enorme había quedado encajado entre dos engranajes internos. Probablemente se había desprendido hacía muchísimo tiempo."
+    ),
+    rabbitaDialogue(
+      "Narrador",
+      "Cada vez que el mecanismo intentaba girar... la pieza frenaba todo el sistema."
+    ),
+    rabbitaDialogue("Narrador", "Rocky se acercó al borde de la plataforma."),
+    rabbitaDialogue("Rocky", "Entonces solo tenemos que quitarlo."),
+    rabbitaDialogue("Narrador", "Minutu giró la cabeza inmediatamente."),
+    rabbitaDialogue("Minutu", "No."),
+    rabbitaDialogue("Narrador", "Pausa."),
+    rabbitaDialogue("Minutu", "Absolutamente no."),
+    rabbitaDialogue("Narrador", "Mako señaló el mecanismo."),
+    rabbitaDialogue("Mako", "Sí parece bastante mortal."),
+    rabbitaDialogue("Narrador", "Blue observó nerviosa el sistema."),
+    rabbitaDialogue("Blue", "Si el engranaje vuelve a activarse mientras alguien tiene el brazo ahí..."),
+    rabbitaDialogue("Narrador", "Silencio."),
+    rabbitaDialogue("Narrador", "Rocky sonrió igualmente."),
+    rabbitaDialogue("Rocky", "Entonces será mejor hacerlo rápido."),
+    rabbitaDialogue("Narrador", "Minutu se llevó una mano a la cara."),
+    rabbitaDialogue("Minutu", "Claro. Claro que sí. Total... ¿qué podría salir mal?"),
+    rabbitaDialogue(
+      "Narrador",
+      "Antes de que nadie pudiera detenerlo, Rocky saltó hacia una plataforma lateral cercana al mecanismo. Las luces del corazón volvieron a encenderse."
+    ),
+    rabbitaDialogue("Narrador", "BOOOOMMMMM."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue(
+      "Narrador",
+      "El enorme engranaje empezó a moverse lentamente. Rocky consiguió agarrarse a unas cadenas mientras avanzaba hacia la obstrucción. El metal vibraba bajo sus pies."
+    ),
+    rabbitaDialogue("Narrador", "Blue gritó desde abajo."),
+    {
+      type: "background",
+      image: "Fondo_camara_corazon encendido.jpeg"
+    },
+    rabbitaDialogue("Blue", "¡Rocky! ¡Cuando el corazón se ilumina el sistema vuelve a activarse!"),
+    rabbitaDialogue("Rocky", "¡Entonces tendré que hacerlo entre latidos!"),
+    rabbitaDialogue("Narrador", "Mako estaba agarrando a Minutu del brazo emocionadísima."),
+    rabbitaDialogue("Mako", "¡Esto es increíble!"),
+    rabbitaDialogue("Minutu", "Voy a desarrollar siete enfermedades nuevas."),
+    rabbitaDialogue("Narrador", "CLONK."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue("Narrador", "Las luces se apagaron otra vez."),
+    rabbitaDialogue(
+      "Narrador",
+      "Rocky aprovechó el instante. Metió el brazo entre los engranajes y agarró el trozo de metal atascado."
+    ),
+    rabbitaDialogue("Narrador", "No salió."),
+    rabbitaDialogue("Narrador", "Rocky apretó los dientes. El metal estaba completamente encajado."),
+    rabbitaDialogue("Narrador", "Entonces..."),
+    rabbitaDialogue("Narrador", "BOOOOOOMMMMMM."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue("Narrador", "La sala volvió a iluminarse. Los engranajes comenzaron a moverse."),
+    rabbitaDialogue("Blue", "¡¡¡ROCKY!!!"),
+    rabbitaDialogue("Narrador", "Rocky tiró con todas sus fuerzas."),
+    rabbitaDialogue("Narrador", "CRAAAAANK."),
+    rabbitaDialogue(
+      "Narrador",
+      "El pedazo metálico salió despedido justo antes de que los engranajes se cerraran violentamente. Y entonces... Todo Rabbita respondió."
+    ),
+    rabbitaDialogue("Narrador", "KRRRRRRRRRRRRRRRRRRRR-"),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue(
+      "Narrador",
+      "Los mecanismos comenzaron a activarse en cadena. Uno tras otro. Como una reacción dormida durante siglos."
+    ),
+    rabbitaDialogue(
+      "Narrador",
+      "Los engranajes gigantes empezaron a girar correctamente. Las tuberías vibraron. Las luces recorrieron toda la sala. Y el corazón... empezó a latir de verdad."
+    ),
+    rabbitaDialogue("Narrador", "BOOOOOOOOOOOOMMMMMMM."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue("Narrador", "Una luz inmensa atravesó el núcleo mecánico. Más brillante. Más intensa. Más viva."),
+    rabbitaDialogue("Narrador", "CLONK."),
+    rabbitaDialogue("Narrador", "CLONK."),
+    rabbitaDialogue("Narrador", "CLONK."),
+    rabbitaDialogue("Narrador", "Ya no sonaba enfermo. Sonaba poderoso."),
+    rabbitaDialogue("Narrador", "Blue observaba la escena completamente inmóvil. Casi emocionada."),
+    rabbitaDialogue("Blue", "Lo hemos... arreglado..."),
+    rabbitaDialogue(
+      "Narrador",
+      "Rocky aterrizó junto al grupo sujetando aún el pedazo de metal que había sacado. Pero al mirarlo... frunció el ceño."
+    ),
+    rabbitaDialogue("Rocky", "Eh."),
+    rabbitaDialogue("Narrador", "Pausa."),
+    rabbitaDialogue("Rocky", "Creo que esto no era solo chatarra."),
+    rabbitaDialogue(
+      "Narrador",
+      "Todos se acercaron. Era un engranaje antiguo. Torcido. Dañado por golpes y presión. Y grabado sobre uno de sus lados... estaba el símbolo. El círculo fragmentado en cinco partes."
+    ),
+    rabbitaDialogue("Narrador", "Mako abrió muchísimo los ojos."),
+    rabbitaDialogue("Mako", "¡¡¡OTRA PIEZA!!!"),
+    rabbitaDialogue(
+      "Narrador",
+      "Minutu cogió el engranaje cuidadosamente. Y entonces vio algo más. Casi borrados por los golpes... había números grabados junto al símbolo."
+    ),
+    rabbitaDialogue("Minutu", "...Aquí también."),
+    rabbitaDialogue("Narrador", "Blue ajustó lentamente sus gafas."),
+    rabbitaDialogue("Blue", "Entonces Sylus tenía razón..."),
+    rabbitaDialogue("Narrador", "Pero de repente... La sala empezó a cambiar."),
+    rabbitaDialogue("Narrador", "KRRRRRRRRR-"),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue(
+      "Narrador",
+      "Las paredes se movieron lentamente. Los mecanismos giraron. La enorme puerta por la que habían entrado se cerró tras ellos."
+    ),
+    rabbitaDialogue("Narrador", "CLONK."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue("Narrador", "Mako señaló inmediatamente."),
+    rabbitaDialogue("Mako", "Vale."),
+    rabbitaDialogue("Narrador", "Pausa."),
+    rabbitaDialogue("Mako", "Eso definitivamente parece una trampa."),
+    rabbitaDialogue("Narrador", "Pero al mismo tiempo... otra puerta empezó a abrirse lateralmente."),
+    rabbitaDialogue("Narrador", "Una salida."),
+    rabbitaDialogue("Narrador", "Reina observó el nuevo camino."),
+    rabbitaDialogue("Reina", "Creo que quiere que salgamos."),
+    rabbitaDialogue("Minutu", "No me gusta que la isla parezca tener intenciones."),
+    {
+      type: "background",
+      image: "Fondo_Túnel.jpeg"
+    },
+    rabbitaDialogue("Narrador", "Y así... siguieron el nuevo túnel. Esta vez sin laberintos. Sin bifurcaciones. Sin perderse."),
+    rabbitaDialogue("Narrador", "Como si Rabbita misma estuviera guiándolos hacia el exterior."),
+    rabbitaDialogue("Narrador", "Y cuando finalmente salieron... la isla entera había cambiado."),
+    {
+      type: "background",
+      image: "Fondo_Ciudad.jpeg"
+    },
+    rabbitaDialogue(
+      "Narrador",
+      "Las chimeneas ya no expulsaban humo negro. Los engranajes giraban con fuerza. Las luces de los edificios volvían a encenderse. Las máquinas rugían. La gente gritaba emocionada desde las calles."
+    ),
+    rabbitaDialogue(
+      "Narrador",
+      "Rabbita seguía siendo un caos. Pero ahora era un caos vivo. Incluso el suelo parecía moverse suavemente bajo sus pies."
+    ),
+    rabbitaDialogue("Narrador", "Mako abrió muchísimo los ojos."),
+    rabbitaDialogue("Mako", "LA ISLA SE ESTÁ MOVIENDO."),
+    rabbitaDialogue("Narrador", "Entonces una voz resonó detrás de ellos."),
+    rabbitaDialogue("?????", "Lo hiciste. Sabía que lo conseguirías."),
+    rabbitaDialogue("Narrador", "Todos se giraron."),
+    rabbitaDialogue(
+      "Narrador",
+      "Un hombre de unos cincuenta y muchos. Cabello blanco largo. Camisa playera abierta. Gafas oscuras apoyadas sobre la cabeza. Varias partes mecánicas visibles recorrían su cuerpo: la pierna izquierda, el brazo izquierdo, parte del pecho, el ojo y la oreja. Y bajo el brazo... una rubia espectacular que parecía estar muy a gusto donde estaba."
+    ),
+    rabbitaDialogue("Narrador", "Blue se quedó congelada."),
+    rabbitaDialogue("Blue", "...Mentor."),
+    characterStep("sylus", { animation: "enter", position: "right", scale: 1.06 }),
+    rabbitaDialogue("Narrador", "Sylus sonrió tranquilamente."),
+    rabbitaDialogue("Sylus", "Hola, chiquilla."),
+    rabbitaDialogue("Narrador", "Blue lo señaló inmediatamente."),
+    rabbitaDialogue("Blue", "¡¿ESTABAS VIVO?!"),
+    rabbitaDialogue("Narrador", "Sylus se encogió de hombros."),
+    rabbitaDialogue("Sylus", "Necesitaba un descanso."),
+    rabbitaDialogue("Narrador", "Pausa."),
+    rabbitaDialogue("Sylus", "Me estaba volviendo loco aquí abajo."),
+    rabbitaDialogue("Narrador", "Miró alrededor."),
+    rabbitaDialogue("Sylus", "Ya sabes... uno tiene que hacer lo que necesita cuando lo necesita."),
+    rabbitaDialogue("Narrador", "Blue murmuró por lo bajo:"),
+    rabbitaDialogue("Blue", "Viejo verde..."),
+    rabbitaDialogue("Narrador", "La rubia sonrió divertida."),
+    rabbitaDialogue("Narrador", "Mako levantó inmediatamente una mano."),
+    rabbitaDialogue("Mako", "Me cae increíblemente bien este hombre."),
+    rabbitaDialogue("Minutu", "Claro que sí."),
+    rabbitaDialogue("Narrador", "Tras las presentaciones, le contaron todo lo ocurrido. La puerta. El laberinto. El corazón."),
+    rabbitaDialogue("Narrador", "Sylus escuchó todo con una sonrisa orgullosa mientras asentía lentamente."),
+    rabbitaDialogue("Narrador", "Finalmente miró a Blue."),
+    rabbitaDialogue("Sylus", "Siempre fuiste mi mejor ayudante."),
+    rabbitaDialogue("Narrador", "Pausa."),
+    rabbitaDialogue("Sylus", "La más lista también."),
+    rabbitaDialogue("Narrador", "Blue bajó ligeramente la mirada."),
+    rabbitaDialogue("Narrador", "Sylus sonrió."),
+    rabbitaDialogue("Sylus", "Pero no puedes pasarte toda la vida encerrada entre tuberías y cables."),
+    rabbitaDialogue("Narrador", "Miró hacia el mar."),
+    rabbitaDialogue("Sylus", "El mundo ahí fuera es muchísimo más grande que Rabbita."),
+    rabbitaDialogue("Narrador", "Rocky dio un paso adelante sonriendo."),
+    rabbitaDialogue("Rocky", "Entonces ven con nosotros."),
+    rabbitaDialogue("Narrador", "Reina asintió suavemente."),
+    rabbitaDialogue("Reina", "Nos vendrá bien alguien capaz de entender máquinas imposibles."),
+    rabbitaDialogue(
+      "Narrador",
+      "Blue abrió un poco los ojos. Como si ni siquiera hubiera considerado la posibilidad. Pero Mako ya estaba abrazándola otra vez."
+    ),
+    rabbitaDialogue("Mako", "Oh no no no."),
+    rabbitaDialogue("Narrador", "Pausa."),
+    rabbitaDialogue("Mako", "Tú vienes."),
+    rabbitaDialogue("Blue", "¿Qué?"),
+    rabbitaDialogue("Mako", "Eso lo decidí literalmente desde el primer momento que te vi."),
+    rabbitaDialogue("Blue", "¡Pero ni siquiera me conocías!"),
+    rabbitaDialogue("Mako", "Detalles."),
+    rabbitaDialogue("Narrador", "Minutu suspiró profundamente."),
+    rabbitaDialogue("Minutu", "La tripulación vuelve a crecer de forma completamente descontrolada."),
+    rabbitaDialogue(
+      "Narrador",
+      "Y así... mientras Rabbita despertaba lentamente de un letargo de décadas... cinco figuras regresaron al Nyinyus."
+    ),
+    rabbitaDialogue("Narrador", "Y el barco volvió a zarpar."),
+    {
+      type: "background",
+      image: "FONDO TRANSICIÓN_2.png"
+    },
+    rabbitaDialogue(
+      "Narrador",
+      "Dejando atrás el humo, los engranajes, el corazón mecánico enterrado bajo la isla, y la gigantesca Rabbita ancestral que ahora... parecía volver a moverse lentamente sobre el océano."
+    ),
+    rabbitaDialogue("Narrador", "El viento llenó las velas. Y una nueva integrante observó el horizonte por primera vez."),
+    rabbitaDialogue(
+      "Narrador",
+      "El Nyinyus se alejaba lentamente de Rabbita mientras el sol empezaba a teñir el horizonte de tonos anaranjados."
+    ),
+    rabbitaDialogue(
+      "Narrador",
+      "El mar alrededor de la isla seguía vibrando ligeramente. Pero ya no transmitía decadencia. Ahora parecía... energía."
+    ),
+    rabbitaDialogue("Narrador", "Rocky sujetaba el timón con una sonrisa enorme."),
+    rabbitaDialogue(
+      "Narrador",
+      "Mako estaba subida sobre la barandilla saludando exageradamente al puerto. Blue observaba la isla en silencio. Y Minutu seguía intentando aceptar mentalmente que acababan de \"reparar el corazón mecánico oculto dentro de una isla ancestral viviente\"."
+    ),
+    rabbitaDialogue("Minutu", "Quiero dejar constancia de que esto supera ampliamente mis límites aceptables de normalidad."),
+    rabbitaDialogue("Narrador", "Reina sonrió ligeramente."),
+    rabbitaDialogue("Narrador", "Entonces..."),
+    rabbitaDialogue("Narrador", "CLONK."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue(
+      "Narrador",
+      "El sonido volvió a atravesar el océano. Pero esta vez no vino desde debajo de ellos. Vino desde Rabbita."
+    ),
+    rabbitaDialogue("Narrador", "Todos se giraron. Y la isla... se movió."),
+    rabbitaDialogue("Narrador", "Primero fue algo pequeño. Un temblor. Luego otro."),
+    rabbitaDialogue(
+      "Narrador",
+      "Grandes columnas de vapor comenzaron a salir disparadas desde distintos puntos de la ciudad. Los enormes engranajes exteriores empezaron a girar muchísimo más rápido."
+    ),
+    rabbitaDialogue("Narrador", "KRRRRRRRRRRR-"),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue("Narrador", "Blue abrió mucho los ojos."),
+    rabbitaDialogue("Blue", "...No puede ser."),
+    rabbitaDialogue("Narrador", "El puerto entero empezó a desplazarse. Literalmente."),
+    rabbitaDialogue(
+      "Narrador",
+      "Las plataformas metálicas donde estaban atracados los barcos comenzaron a recolocarse como piezas de un mecanismo gigantesco. Puentes enteros se plegaban. Calles completas giraban sobre sí mismas. Edificios industriales ascendían lentamente mientras enormes cadenas tensaban estructuras imposibles."
+    ),
+    rabbitaDialogue("Narrador", "Rocky empezó a reírse como un niño pequeño."),
+    rabbitaDialogue("Rocky", "¡¡¡NO PUEDE SER REAL!!!"),
+    rabbitaDialogue("Narrador", "Minutu observaba la escena completamente pálido."),
+    rabbitaDialogue("Minutu", "Oh."),
+    rabbitaDialogue("Narrador", "Pausa."),
+    rabbitaDialogue("Minutu", "Oh no."),
+    rabbitaDialogue(
+      "Narrador",
+      "Las chimeneas comenzaron a hundirse dentro de la estructura. Los barrios exteriores se desplazaban. Las plataformas inferiores se recolocaban como placas mecánicas gigantescas. Y entonces... el mar explotó."
+    ),
+    rabbitaDialogue("Narrador", "BOOOOOOOOOOOOOOMMMMM."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue("Narrador", "Agua y vapor salieron disparados alrededor de Rabbita mientras algo gigantesco emergía lentamente de debajo la isla."),
+    rabbitaDialogue("Narrador", "Mako señaló histérica."),
+    rabbitaDialogue("Mako", "¡¡¡ESTÁ SALIENDO ALGO!!!"),
+    rabbitaDialogue("Narrador", "Blue se quedó completamente inmóvil."),
+    rabbitaDialogue("Blue", "No..."),
+    rabbitaDialogue("Narrador", "Pausa."),
+    rabbitaDialogue("Blue", "La isla nunca fue una isla..."),
+    rabbitaDialogue(
+      "Narrador",
+      "El océano tembló. Enormes piezas metálicas empezaron a elevarse desde las profundidades. Gigantescos mecanismos ocultos durante siglos emergieron cubiertos de agua y algas. Y lentamente... Rabbita empezó a levantarse."
+    ),
+    rabbitaDialogue(
+      "Narrador",
+      "Las \"montañas\" metálicas se recolocaron formando hombros. Los barrios industriales se desplazaban encajándose como armaduras. Los puertos se plegaron sobre sí mismos. Los enormes engranajes laterales comenzaron a girar como articulaciones."
+    ),
+    rabbitaDialogue("Narrador", "El Nyinyus parecía diminuto frente a aquello."),
+    rabbitaDialogue(
+      "Narrador",
+      "Entonces aparecieron las orejas. Dos estructuras mecánicas gigantescas se desplegaron desde la parte superior de la isla mientras toneladas de agua caían al océano."
+    ),
+    {
+      type: "background",
+      image: "Coloso_Rabbita.jpeg"
+    },
+    rabbitaDialogue("Narrador", "Rocky abrió la boca lentamente."),
+    rabbitaDialogue("Rocky", "...Es un conejo."),
+    rabbitaDialogue("Minutu", "Es un robot."),
+    rabbitaDialogue("Narrador", "Pausa."),
+    rabbitaDialogue("Reina", "Un robot conejo tamaño isla."),
+    rabbitaDialogue("Narrador", "Pausa."),
+    rabbitaDialogue("Minutu", "Ya no sé qué está pasando con mi vida."),
+    rabbitaDialogue("Narrador", "CLONK."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue("Narrador", "CLONK."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue("Narrador", "CLONK."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue(
+      "Narrador",
+      "Ahora el sonido era ensordecedor. Los ojos del gigantesco Rabbita mecánico se iluminaron lentamente con una luz anaranjada. Todo el cuerpo terminó de incorporarse sobre el océano."
+    ),
+    rabbitaDialogue(
+      "Narrador",
+      "Una fortaleza viviente. Un coloso metálico. Un antiguo titán oculto bajo la apariencia de una isla moribunda. Y entonces... el gigantesco Rabbita dio un paso."
+    ),
+    rabbitaDialogue("Narrador", "BAAAAAAAAM."),
+    {
+      type: "effect",
+      name: "shake"
+    },
+    rabbitaDialogue("Narrador", "Una ola gigantesca sacudió el mar alrededor."),
+    rabbitaDialogue("Narrador", "Mako estaba llorando de emoción."),
+    rabbitaDialogue("Mako", "¡¡¡ESTO ES LO MÁS INCREÍBLE QUE HE VISTO EN MI VIDA!!!"),
+    rabbitaDialogue("Narrador", "Blue seguía mirando la escena completamente incapaz de procesarla."),
+    rabbitaDialogue("Blue", "Vivíamos encima de un conejo mecánico gigante..."),
+    rabbitaDialogue("Narrador", "Reina se encogió de hombros."),
+    rabbitaDialogue("Reina", "Sí."),
+    rabbitaDialogue("Narrador", "Pausa."),
+    rabbitaDialogue("Reina", "Era bastante evidente."),
+    rabbitaDialogue("Narrador", "Minutu giró lentamente la cabeza."),
+    rabbitaDialogue("Minutu", "¿¡EVIDENTE PARA QUIÉN!?"),
+    rabbitaDialogue("Narrador", "Reina señaló al gigantesco Rabbita."),
+    rabbitaDialogue("Reina", "Míralo. Tiene orejas."),
+    rabbitaDialogue("Narrador", "Mako asintió seriamente."),
+    rabbitaDialogue("Mako", "Argumento sólido."),
+    rabbitaDialogue(
+      "Narrador",
+      "El gigantesco Rabbita mecánico rugió una vez más mientras el corazón recién reparado brillaba dentro de su pecho. Y entonces... lentamente... el coloso comenzó a caminar a través del océano. Dejando enormes olas detrás. Convirtiendo Rabbita en una isla en movimiento."
+    ),
+    {
+      type: "background",
+      image: "FONDO TRANSICIÓN_2.png"
+    },
+    rabbitaDialogue("Narrador", "Mientras el Nyinyus continuaba avanzando hacia el horizonte."),
+    rabbitaDialogue(
+      "Narrador",
+      "Y sobre la cubierta... cinco personas observaban cómo acababan de dejar atrás una isla... que en realidad siempre había sido un gigante dormido."
     )
   ]
 });

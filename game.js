@@ -573,6 +573,10 @@ function showMinigame(step) {
     openOptions.map = step.map;
   }
 
+  if (step.copy && typeof step.copy === "object") {
+    openOptions.copy = step.copy;
+  }
+
   controller.open(openOptions);
 }
 
@@ -1628,11 +1632,12 @@ function createRoleBasedLayoutItems(characters, rocky, reina, animatedId, width,
   }
 
   const rightSlots = getRightGroupSlots(secondaryCharacters.length);
+  const coreSlots = getCorePairLeftSlots(2);
 
-  return [
-    createResolvedLayoutItem(rocky, { position: "left", side: "left" }, width, height, scale),
-    createResolvedLayoutItem(reina, { position: "far-left", side: "left" }, width, height, scale)
-  ]
+  return getCorePairCharacters(rocky, reina)
+    .map((character, index) =>
+      createResolvedLayoutItem(character, coreSlots[index], width, height, scale)
+    )
     .concat(
       secondaryCharacters.map((character, index) =>
         createResolvedLayoutItem(character, rightSlots[index], width, height, scale)
@@ -1651,68 +1656,153 @@ function createTertiaryPriorityLayoutItems(
   scale
 ) {
   const normalizedAnimatedId = normalizeSpeakerKey(animatedId);
-  const highlightedTertiary =
-    tertiaryCharacters.find(
-      (character) => normalizeSpeakerKey(character.id) === normalizedAnimatedId
-    ) || tertiaryCharacters[tertiaryCharacters.length - 1];
-  const remainingTertiaries = tertiaryCharacters.filter(
-    (character) => character !== highlightedTertiary
+  const tertiaryGroup = buildHighlightedTertiaryGroup(
+    tertiaryCharacters,
+    normalizedAnimatedId
   );
-  const leftGroup = [...secondaryCharacters, ...remainingTertiaries, reina, rocky];
-  const leftSlots = getPackedLeftGroupSlots(leftGroup.length);
-  const leftWidth = getPackedLeftGroupWidth(leftGroup.length, width);
-  const leftHeight = getPackedLeftGroupHeight(leftGroup.length, height);
+  const coreGroup = getCorePairCharacters(rocky, reina);
+  const compactWidth = getTertiaryLayoutWidth(
+    coreGroup.length + secondaryCharacters.length + tertiaryGroup.length,
+    width
+  );
+  const compactHeight = getTertiaryLayoutHeight(
+    coreGroup.length + secondaryCharacters.length + tertiaryGroup.length,
+    height
+  );
+  const coreSlots = getCorePairLeftSlots(coreGroup.length);
+  const tertiarySlots = getCenterGroupSlots(tertiaryGroup.length);
+  const secondarySlots = getRightGroupSlotsForCenteredTertiary(secondaryCharacters.length);
 
-  return leftGroup
+  return coreGroup
     .map((character, index) =>
-      applyCrowdedCorePairStacking(
-        createResolvedLayoutItem(character, leftSlots[index], leftWidth, leftHeight, scale),
-        leftGroup.length,
-        index
+      createResolvedLayoutItem(character, coreSlots[index], compactWidth, compactHeight, scale)
+    )
+    .concat(
+      tertiaryGroup.map((character, index) =>
+        createResolvedLayoutItem(
+          character,
+          tertiarySlots[index],
+          getTertiaryCenterWidth(tertiaryGroup.length, compactWidth),
+          getTertiaryCenterHeight(tertiaryGroup.length, compactHeight),
+          scale
+        )
       )
     )
-    .concat([
-      applyCrowdedCorePairStacking(
-        createResolvedLayoutItem(
-          highlightedTertiary,
-          { position: "far-right", side: "right" },
-          leftWidth,
-          leftHeight,
-          scale
-        ),
-        leftGroup.length,
-        leftGroup.length
+    .concat(
+      secondaryCharacters.map((character, index) =>
+        createResolvedLayoutItem(character, secondarySlots[index], compactWidth, compactHeight, scale)
       )
-    ]);
+    );
 }
 
-function applyCrowdedCorePairStacking(item, leftGroupCount, index) {
-  if (!item || !item.character) {
-    return item;
+function buildHighlightedTertiaryGroup(tertiaryCharacters, normalizedAnimatedId) {
+  const highlightedTertiary = tertiaryCharacters.find(
+    (character) => normalizeSpeakerKey(character.id) === normalizedAnimatedId
+  );
+
+  if (!highlightedTertiary) {
+    return tertiaryCharacters;
   }
 
-  if (isCharacter(item.character, "reina")) {
-    return {
-      ...item,
-      zIndex: 34
-    };
+  return [highlightedTertiary].concat(
+    tertiaryCharacters.filter((character) => character !== highlightedTertiary)
+  );
+}
+
+function getCorePairCharacters(rocky, reina) {
+  return [reina, rocky].filter(Boolean);
+}
+
+function getCorePairLeftSlots(count) {
+  const slots = [
+    { position: "far-left", side: "left", zIndex: 34 },
+    { position: "left", side: "left", zIndex: 33 }
+  ];
+
+  return buildSlotSequence(count, slots);
+}
+
+function getCenterGroupSlots(count) {
+  if (count <= 1) {
+    return [{ position: "center", side: "center" }];
   }
 
-  if (isCharacter(item.character, "rocky")) {
-    return {
-      ...item,
-      zIndex: 33
-    };
+  if (count === 2) {
+    return [
+      { position: "center", side: "center", offsetX: "-92px" },
+      { position: "center", side: "center", offsetX: "92px" }
+    ];
   }
 
-  if (leftGroupCount >= 3 && index >= leftGroupCount) {
-    return {
-      ...item,
-      zIndex: 35
-    };
+  const slots = [
+    { position: "center", side: "center" },
+    { position: "center", side: "center", offsetX: "-142px" },
+    { position: "center", side: "center", offsetX: "142px" }
+  ];
+
+  return buildSlotSequence(count, slots);
+}
+
+function getRightGroupSlotsForCenteredTertiary(count) {
+  if (count <= 1) {
+    return [{ position: "right", side: "right" }];
   }
 
-  return item;
+  if (count === 2) {
+    return [
+      { position: "right", side: "right" },
+      { position: "far-right", side: "right" }
+    ];
+  }
+
+  const slots = [
+    { position: "center", side: "right", offsetX: "206px" },
+    { position: "right", side: "right" },
+    { position: "far-right", side: "right" },
+    { position: "far-right", side: "right", offsetX: "112px" }
+  ];
+
+  return buildSlotSequence(count, slots);
+}
+
+function getTertiaryLayoutWidth(count, fallbackWidth) {
+  if (count >= 6) {
+    return "clamp(120px, 16vw, 210px)";
+  }
+
+  if (count === 5) {
+    return "clamp(138px, 19vw, 250px)";
+  }
+
+  return fallbackWidth;
+}
+
+function getTertiaryLayoutHeight(count, fallbackHeight) {
+  if (count >= 6) {
+    return "clamp(185px, 32vh, 285px)";
+  }
+
+  if (count === 5) {
+    return "clamp(205px, 36vh, 330px)";
+  }
+
+  return fallbackHeight;
+}
+
+function getTertiaryCenterWidth(count, fallbackWidth) {
+  if (count >= 2) {
+    return "clamp(112px, 14vw, 190px)";
+  }
+
+  return fallbackWidth;
+}
+
+function getTertiaryCenterHeight(count, fallbackHeight) {
+  if (count >= 2) {
+    return "clamp(175px, 30vh, 265px)";
+  }
+
+  return fallbackHeight;
 }
 
 function createResolvedLayoutItem(character, layoutConfig, width, height, scale) {
@@ -1730,6 +1820,7 @@ function createResolvedLayoutItem(character, layoutConfig, width, height, scale)
         ? pickDefined(character.bottom, config.bottom)
         : pickDefined(config.bottom),
     offsetX: pickDefined(character.offsetX, config.offsetX),
+    zIndex: pickDefined(config.zIndex, character.zIndex),
     side: config.side || inferSideFromPosition(config.position || character.position),
     manualFlip:
       preserveManualFlip && typeof character.manualFlip === "boolean"
@@ -1738,83 +1829,6 @@ function createResolvedLayoutItem(character, layoutConfig, width, height, scale)
           ? config.flip
           : undefined
   };
-}
-
-function getLeftGroupSlots(count) {
-  const slots = [
-    { position: "far-left", side: "left" },
-    { position: "left", side: "left" },
-    { position: "center", side: "left", offsetX: "-86px" },
-    { position: "right", side: "left", offsetX: "-154px" },
-    { position: "far-right", side: "left", offsetX: "-212px" }
-  ];
-
-  return buildSlotSequence(count, slots);
-}
-
-function getPackedLeftGroupSlots(count) {
-  if (count <= 2) {
-    return getLeftGroupSlots(count);
-  }
-
-  if (count === 3) {
-    return [
-      { position: "far-left", side: "left" },
-      { position: "center", side: "left", offsetX: "-214px" },
-      { position: "center", side: "left", offsetX: "-68px" }
-    ];
-  }
-
-  if (count === 4) {
-    return [
-      { position: "far-left", side: "left" },
-      { position: "left", side: "left" },
-      { position: "center", side: "left", offsetX: "-214px" },
-      { position: "center", side: "left", offsetX: "-68px" }
-    ];
-  }
-
-  const slots = [
-    { position: "far-left", side: "left" },
-    { position: "left", side: "left" },
-    { position: "center", side: "left", offsetX: "-230px" },
-    { position: "center", side: "left", offsetX: "-128px" },
-    { position: "center", side: "left", offsetX: "-320px" }
-  ];
-
-  return buildSlotSequence(count, slots);
-}
-
-function getPackedLeftGroupWidth(count, fallbackWidth) {
-  if (count === 3) {
-    return "clamp(150px, 20vw, 250px)";
-  }
-
-  if (count === 4) {
-    return "clamp(132px, 17vw, 215px)";
-  }
-
-  if (count >= 5) {
-    return "clamp(116px, 15vw, 188px)";
-  }
-
-  return fallbackWidth;
-}
-
-function getPackedLeftGroupHeight(count, fallbackHeight) {
-  if (count === 3) {
-    return "clamp(250px, 44vh, 390px)";
-  }
-
-  if (count === 4) {
-    return "clamp(220px, 38vh, 330px)";
-  }
-
-  if (count >= 5) {
-    return "clamp(190px, 33vh, 290px)";
-  }
-
-  return fallbackHeight;
 }
 
 function getRightGroupSlots(count) {
