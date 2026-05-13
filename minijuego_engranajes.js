@@ -7,7 +7,6 @@
     isOpen: false,
     completionDispatched: false,
     allowClose: true,
-    launchButton: null,
     lastFocusedElement: null,
     onComplete: null,
     elements: {}
@@ -35,7 +34,6 @@
 
     injectStyles();
     buildOverlay();
-    injectLaunchButton();
     window.addEventListener("message", handleWindowMessage);
     state.initialized = true;
     return gearPuzzleGame;
@@ -122,30 +120,6 @@
 
     root.addEventListener("click", handleRootClick);
     document.addEventListener("keydown", handleDocumentKeyDown);
-  }
-
-  function injectLaunchButton() {
-    const startScreen = document.getElementById("start-screen");
-    const scenarioSelect = document.getElementById("scenario-select");
-
-    if (!startScreen || state.launchButton) {
-      return;
-    }
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "gear-puzzle__launch";
-    wrapper.innerHTML =
-      '<p class="gear-puzzle__launch-copy">Prueba aparte el puzzle de la puerta de Rabbita sin alterar la ruta actual.</p>' +
-      '<button class="scenario-button gear-puzzle__launch-button" type="button">Probar engranajes</button>';
-
-    if (scenarioSelect && scenarioSelect.parentNode === startScreen) {
-      scenarioSelect.insertAdjacentElement("afterend", wrapper);
-    } else {
-      startScreen.appendChild(wrapper);
-    }
-
-    state.launchButton = wrapper.querySelector("button");
-    state.launchButton.addEventListener("click", () => open({ resetOnOpen: true }));
   }
 
   function injectStyles() {

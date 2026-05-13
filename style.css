@@ -18,6 +18,54 @@ body {
   color: white;
 }
 
+#screen-controls {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 260;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.screen-control-button {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 15px;
+  border-radius: 14px;
+  font-size: 15px;
+  line-height: 1;
+  background: rgba(248, 217, 139, 0.96);
+  box-shadow:
+    0 4px 0 var(--gold-dark),
+    0 12px 28px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(6px);
+}
+
+.screen-control-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+#save-status {
+  pointer-events: none;
+  max-width: min(48vw, 260px);
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: rgba(10, 14, 20, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff4d5;
+  font-size: 14px;
+  line-height: 1.2;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(8px);
+}
+
 #audio-controls {
   position: fixed;
   bottom: 16px;
@@ -118,8 +166,27 @@ body {
   margin-top: 6px;
 }
 
+#resume-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
 .scenario-button {
   min-width: 220px;
+}
+
+.secondary-button {
+  min-width: 170px;
+  padding: 12px 20px;
+  font-size: 16px;
+  background: rgba(255, 244, 213, 0.92);
+  box-shadow:
+    0 4px 0 #8e6026,
+    0 10px 22px rgba(0, 0, 0, 0.22);
 }
 
 button {
@@ -500,6 +567,25 @@ button:active {
 }
 
 @media (max-width: 600px) {
+  #screen-controls {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .screen-control-button {
+    min-height: 40px;
+    padding: 9px 12px;
+    font-size: 14px;
+  }
+
+  #save-status {
+    max-width: calc(100vw - 20px);
+    font-size: 13px;
+  }
+
   #audio-controls {
     bottom: 10px;
     right: 10px;

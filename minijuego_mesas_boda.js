@@ -435,7 +435,6 @@
     selectedSeat: null,
     solved: false,
     completionDispatched: false,
-    launchButton: null,
     lastFocusedElement: null,
     onComplete: null,
     allowClose: true,
@@ -481,7 +480,6 @@
     }
 
     buildOverlay();
-    injectLaunchButton();
     reset();
     validateReferenceSolution();
     state.initialized = true;
@@ -552,30 +550,6 @@
 
     root.addEventListener("click", handleRootClick);
     document.addEventListener("keydown", handleKeyDown);
-  }
-
-  function injectLaunchButton() {
-    const startScreen = document.getElementById("start-screen");
-    const scenarioSelect = document.getElementById("scenario-select");
-
-    if (!startScreen || state.launchButton) {
-      return;
-    }
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "seating-game__launch";
-    wrapper.innerHTML =
-      '<p class="seating-game__launch-copy">Prueba aparte el puzzle del banquete sin alterar la ruta actual de la visual novel.</p>' +
-      '<button class="scenario-button seating-game__launch-button" type="button">Probar minijuego de mesas</button>';
-
-    if (scenarioSelect && scenarioSelect.parentNode === startScreen) {
-      scenarioSelect.insertAdjacentElement("afterend", wrapper);
-    } else {
-      startScreen.appendChild(wrapper);
-    }
-
-    state.launchButton = wrapper.querySelector("button");
-    state.launchButton.addEventListener("click", () => open({ resetOnOpen: true }));
   }
 
   function open(options) {

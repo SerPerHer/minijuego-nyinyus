@@ -62,7 +62,6 @@
     completionDispatched: false,
     allowClose: true,
     resizeFrame: 0,
-    launchButton: null,
     lastFocusedElement: null,
     onComplete: null,
     copy: { ...DEFAULT_COPY },
@@ -102,7 +101,6 @@
 
     state.layout = resolveLayout(DEFAULT_MAZE_MAP, "DEFAULT_MAZE_MAP");
     buildOverlay();
-    injectLaunchButton();
     state.initialized = true;
     reset();
     return simpleMazeGame;
@@ -293,30 +291,6 @@
     root.addEventListener("click", handleRootClick);
     document.addEventListener("keydown", handleDocumentKeyDown);
     window.addEventListener("resize", handleWindowResize);
-  }
-
-  function injectLaunchButton() {
-    const startScreen = document.getElementById("start-screen");
-    const scenarioSelect = document.getElementById("scenario-select");
-
-    if (!startScreen || state.launchButton) {
-      return;
-    }
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "simple-maze__launch";
-    wrapper.innerHTML =
-      '<p class="simple-maze__launch-copy">Prueba aparte el laberinto del templo sin alterar la ruta actual de la aventura.</p>' +
-      '<button class="scenario-button simple-maze__launch-button" type="button">Probar laberinto</button>';
-
-    if (scenarioSelect && scenarioSelect.parentNode === startScreen) {
-      scenarioSelect.insertAdjacentElement("afterend", wrapper);
-    } else {
-      startScreen.appendChild(wrapper);
-    }
-
-    state.launchButton = wrapper.querySelector("button");
-    state.launchButton.addEventListener("click", () => open({ resetOnOpen: true }));
   }
 
   function renderBoard() {

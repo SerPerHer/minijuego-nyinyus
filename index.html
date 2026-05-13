@@ -4,9 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nyinyus - La Gran Aventura</title>
-  <link rel="stylesheet" href="style.css?v=20260510a" />
+  <link rel="stylesheet" href="style.css?v=20260513b" />
 </head>
 <body>
+  <div id="screen-controls">
+    <button id="home-button" class="screen-control-button" type="button" aria-label="Volver a la pantalla inicial">
+      <span class="screen-control-icon" aria-hidden="true">&#8592;</span>
+      <span>Inicio</span>
+    </button>
+    <button id="save-button" class="screen-control-button hidden" type="button" aria-label="Guardar partida">
+      <span class="screen-control-icon" aria-hidden="true">&#128190;</span>
+      <span>Guardar</span>
+    </button>
+    <span id="save-status" class="hidden" role="status" aria-live="polite"></span>
+  </div>
+
   <div id="audio-controls" class="hidden">
     <button id="mute-button" type="button">Musica: On</button>
     <label id="volume-control" for="volume-slider">
@@ -34,6 +46,10 @@
       />
       <p>El horizonte arde en promesas, el viento cambia de rumbo y el mar ya susurra vuestro nombre.</p>
       <p>Hoy no empieza solo un viaje. Empieza una leyenda que nadie podrá olvidar.</p>
+      <div id="resume-panel" class="hidden">
+        <button id="continue-button" class="scenario-button" type="button">Continuar partida guardada</button>
+        <button id="clear-save-button" class="secondary-button" type="button">Borrar guardado</button>
+      </div>
       <div id="scenario-select">
         <button class="scenario-button" data-start-scene="start">Introduccion</button>
         <button class="scenario-button" data-start-scene="toki_hanashima_llegada">Isla Toki no Hanashima</button>
@@ -71,9 +87,9 @@
   <script src="scenes/isla-toki-no-hanashima.js?v=20260511b"></script>
   <script src="scenes/isla-tempestaria.js?v=20260511a"></script>
   <script src="scenes/isla-rabbita.js?v=20260513c"></script>
-  <script src="game.js?v=20260513a"></script>
-  <script src="minijuego_mesas_boda.js?v=20260510b"></script>
-  <script src="minijuego_laberinto.js?v=20260513a"></script>
-  <script src="minijuego_engranajes.js?v=20260512a"></script>
+  <script src="game.js?v=20260513b"></script>
+  <script src="minijuego_mesas_boda.js?v=20260513a"></script>
+  <script src="minijuego_laberinto.js?v=20260513b"></script>
+  <script src="minijuego_engranajes.js?v=20260513a"></script>
 </body>
 </html>

@@ -3,6 +3,12 @@ const startScreen = document.getElementById("start-screen");
 const gameScreen = document.getElementById("game-screen");
 const introButton = document.getElementById("intro-button");
 const scenarioButtons = Array.from(document.querySelectorAll("[data-start-scene]"));
+const homeButton = document.getElementById("home-button");
+const saveButton = document.getElementById("save-button");
+const saveStatus = document.getElementById("save-status");
+const resumePanel = document.getElementById("resume-panel");
+const continueButton = document.getElementById("continue-button");
+const clearSaveButton = document.getElementById("clear-save-button");
 const audioControls = document.getElementById("audio-controls");
 const muteButton = document.getElementById("mute-button");
 const volumeSlider = document.getElementById("volume-slider");
@@ -24,6 +30,7 @@ const SPEAKING_BOUNCE_HEIGHT = 14;
 const TRANSITION_BACKGROUND_KEY = "fondo transicion.jpeg";
 const START_SCREEN_MUSIC = "One_Piece_tantantan_tantantanta.mp3";
 const START_GAME_MUSIC = "One_Piece_aventura.mp3";
+const SAVE_STORAGE_KEY = "nyinyus_adventure_save_v1";
 const INTRO_SCENE_IDS = new Set([
   "start",
   "aparicion_abuela",
@@ -101,8 +108,13 @@ let currentAudioState = null;
 let unlockedCollectibles = new Map();
 let currentOverlayCompletesInspectStep = false;
 let isDialogueRevealMode = false;
+let saveStatusTimeout = null;
 
 introButton.addEventListener("click", showStartScreen);
+homeButton.addEventListener("click", returnToStartScreen);
+saveButton.addEventListener("click", saveGame);
+continueButton.addEventListener("click", continueSavedGame);
+clearSaveButton.addEventListener("click", clearSavedGame);
 scenarioButtons.forEach((button) => {
   button.addEventListener("click", () => startGame(button.dataset.startScene || "start"));
 });
@@ -114,27 +126,42 @@ inspectClose.addEventListener("click", handleInspectClose);
 inspectOverlay.addEventListener("click", handleInspectBackdropClick);
 updateAudioControls();
 updateBackButton();
+updateScreenControls();
+updateSavedGameControls();
 
 function showStartScreen() {
   introScreen.classList.add("hidden");
+  gameScreen.classList.add("hidden");
   startScreen.classList.remove("hidden");
   playMusicFile(START_SCREEN_MUSIC, { loop: true, volume: 0.45 });
+  updateScreenControls();
+  updateSavedGameControls();
 }
 
 function returnToIntroScreen() {
+  returnToStartScreen();
+}
+
+function returnToStartScreen() {
+  closeActiveMinigames();
   resetGameState();
-  stopActiveAudio();
+  introScreen.classList.add("hidden");
   gameScreen.classList.add("hidden");
-  startScreen.classList.add("hidden");
-  introScreen.classList.remove("hidden");
+  startScreen.classList.remove("hidden");
+  playMusicFile(START_SCREEN_MUSIC, { loop: true, volume: 0.45 });
+  updateScreenControls();
+  updateSavedGameControls();
 }
 
 function startGame(sceneId) {
+  closeActiveMinigames();
+  introScreen.classList.add("hidden");
   startScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
   resetGameState();
   playMusicFile(START_GAME_MUSIC, { loop: true, volume: 0.55 });
   loadScene(sceneId || "start");
+  updateScreenControls();
 }
 
 function resetGameState() {
@@ -1257,11 +1284,176 @@ function updateBackButton() {
   backButton.disabled = checkpointHistory.length <= 1;
 }
 
+function updateScreenControls() {
+  const isGameVisible = !gameScreen.classList.contains("hidden");
+  saveButton.classList.toggle("hidden", !isGameVisible || !currentSceneId);
+}
+
+function saveGame() {
+  const checkpoint = buildCurrentCheckpoint();
+
+  if (!checkpoint) {
+    showSaveStatus("No hay partida en curso.");
+    return;
+  }
+
+  try {
+    window.localStorage.setItem(
+      SAVE_STORAGE_KEY,
+      JSON.stringify({
+        version: 1,
+        savedAt: new Date().toISOString(),
+        checkpoint
+      })
+    );
+  } catch (error) {
+    showSaveStatus("No se pudo guardar en este navegador.");
+    return;
+  }
+
+  showSaveStatus("Partida guardada.");
+  updateSavedGameControls();
+}
+
+function continueSavedGame() {
+  const checkpoint = readSavedCheckpoint();
+
+  if (!checkpoint) {
+    showSaveStatus("No hay partida guardada.");
+    updateSavedGameControls();
+    return;
+  }
+
+  closeActiveMinigames();
+  introScreen.classList.add("hidden");
+  startScreen.classList.add("hidden");
+  gameScreen.classList.remove("hidden");
+  resetGameState();
+  checkpointHistory = [cloneCheckpoint(checkpoint)];
+  restoreCheckpoint(checkpoint);
+  updateScreenControls();
+}
+
+function clearSavedGame() {
+  try {
+    window.localStorage.removeItem(SAVE_STORAGE_KEY);
+  } catch (error) {
+    showSaveStatus("No se pudo borrar el guardado.");
+    return;
+  }
+
+  updateSavedGameControls();
+  showSaveStatus("Guardado borrado.");
+}
+
+function updateSavedGameControls() {
+  const hasSave = Boolean(readSavedCheckpoint());
+  resumePanel.classList.toggle("hidden", !hasSave);
+  continueButton.disabled = !hasSave;
+  clearSaveButton.disabled = !hasSave;
+}
+
+function buildCurrentCheckpoint() {
+  if (!currentSceneId || !Array.isArray(story[currentSceneId])) {
+    return null;
+  }
+
+  const maxStepIndex = Math.max(story[currentSceneId].length - 1, 0);
+
+  return {
+    sceneId: currentSceneId,
+    stepIndex: Math.min(Math.max(currentStepIndex, 0), maxStepIndex),
+    state: captureCheckpointState()
+  };
+}
+
+function readSavedCheckpoint() {
+  let rawSave = "";
+
+  try {
+    rawSave = window.localStorage.getItem(SAVE_STORAGE_KEY);
+  } catch (error) {
+    return null;
+  }
+
+  if (!rawSave) {
+    return null;
+  }
+
+  try {
+    const parsedSave = JSON.parse(rawSave);
+    return normalizeSavedCheckpoint(parsedSave && parsedSave.checkpoint);
+  } catch (error) {
+    return null;
+  }
+}
+
+function normalizeSavedCheckpoint(checkpoint) {
+  if (!checkpoint || !checkpoint.sceneId || !Array.isArray(story[checkpoint.sceneId])) {
+    return null;
+  }
+
+  const scene = story[checkpoint.sceneId];
+  const numericStepIndex = Number(checkpoint.stepIndex);
+
+  if (!Number.isFinite(numericStepIndex)) {
+    return null;
+  }
+
+  return {
+    sceneId: checkpoint.sceneId,
+    stepIndex: Math.min(Math.max(Math.floor(numericStepIndex), 0), Math.max(scene.length - 1, 0)),
+    state: checkpoint.state || {}
+  };
+}
+
+function cloneCheckpoint(checkpoint) {
+  return {
+    sceneId: checkpoint.sceneId,
+    stepIndex: checkpoint.stepIndex,
+    state: cloneSerializableValue(checkpoint.state || {})
+  };
+}
+
+function cloneSerializableValue(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function showSaveStatus(message) {
+  saveStatus.textContent = message;
+  saveStatus.classList.remove("hidden");
+
+  if (saveStatusTimeout) {
+    window.clearTimeout(saveStatusTimeout);
+  }
+
+  saveStatusTimeout = window.setTimeout(() => {
+    saveStatus.classList.add("hidden");
+    saveStatus.textContent = "";
+    saveStatusTimeout = null;
+  }, 2400);
+}
+
+function closeActiveMinigames() {
+  [
+    globalThis.weddingSeatingGame,
+    globalThis.simpleMazeGame,
+    globalThis.gearPuzzleGame
+  ].forEach((controller) => {
+    if (!controller || typeof controller.close !== "function") {
+      return;
+    }
+
+    controller.close();
+  });
+}
+
 function captureCheckpointState() {
   return {
     background: cloneBackgroundState(currentBackgroundState),
     characters: Array.from(characterState.values(), cloneCharacterState),
     characterReveal: cloneCharacterRevealState(),
+    collectibles: cloneCollectibleState(),
     audio: cloneAudioState(currentAudioState)
   };
 }
@@ -1283,6 +1475,7 @@ function restoreCheckpointState(state) {
     }
   );
   restoreCharacterRevealState(checkpointState.characterReveal);
+  restoreCollectibleState(checkpointState.collectibles);
   renderCharacters("");
   restoreAudioState(checkpointState.audio);
 }
@@ -1325,6 +1518,36 @@ function restoreCharacterRevealState(revealState) {
     if (id) {
       revealedCharacterIds.add(id);
     }
+  });
+}
+
+function cloneCollectibleState() {
+  return Array.from(unlockedCollectibles.values()).map((collectible) => ({
+    id: collectible.id,
+    buttonText: collectible.buttonText || "Ver objeto",
+    image: collectible.image || "",
+    alt: collectible.alt || "Imagen"
+  }));
+}
+
+function restoreCollectibleState(collectibles) {
+  unlockedCollectibles = new Map();
+
+  if (!Array.isArray(collectibles)) {
+    return;
+  }
+
+  collectibles.forEach((collectible) => {
+    if (!collectible || !collectible.id) {
+      return;
+    }
+
+    unlockedCollectibles.set(collectible.id, {
+      id: collectible.id,
+      buttonText: collectible.buttonText || "Ver objeto",
+      image: collectible.image || "",
+      alt: collectible.alt || "Imagen"
+    });
   });
 }
 
