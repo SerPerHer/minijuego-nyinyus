@@ -349,6 +349,7 @@ function showCharacter(step) {
   }
 
   setCharacterState(step);
+  revealedCharacterIds.add(step.id);
   renderCharacters(step.id);
 }
 
@@ -381,7 +382,8 @@ function renderCharacters(animatedId) {
     return;
   }
 
-  const layout = resolveCharacterLayout(Array.from(characterState.values()), animatedId);
+  const layoutCharacters = getLayoutCharacters(Array.from(characterState.values()));
+  const layout = resolveCharacterLayout(layoutCharacters, animatedId);
   const visibleItems = getVisibleLayoutItems(layout.items);
 
   visibleItems.forEach((item) => {
@@ -449,6 +451,16 @@ function renderCharacters(animatedId) {
       renderCharacters("");
     }, 440);
   }
+}
+
+function getLayoutCharacters(characters) {
+  if (!isDialogueRevealMode) {
+    return characters;
+  }
+
+  return characters.filter(
+    (character) => character && revealedCharacterIds.has(character.id)
+  );
 }
 
 function getVisibleLayoutItems(items) {
@@ -1854,6 +1866,17 @@ function createRoleBasedLayoutItems(characters, rocky, reina, animatedId, width,
     );
   }
 
+  if (secondaryCharacters.length === 4) {
+    return createFullSecondaryCrewLayoutItems(
+      rocky,
+      reina,
+      secondaryCharacters,
+      width,
+      height,
+      scale
+    );
+  }
+
   const rightSlots = getRightGroupSlots(secondaryCharacters.length);
   const coreSlots = getCorePairLeftSlots(2);
 
@@ -1864,6 +1887,38 @@ function createRoleBasedLayoutItems(characters, rocky, reina, animatedId, width,
     .concat(
       secondaryCharacters.map((character, index) =>
         createResolvedLayoutItem(character, rightSlots[index], width, height, scale)
+      )
+    );
+}
+
+function createFullSecondaryCrewLayoutItems(
+  rocky,
+  reina,
+  secondaryCharacters,
+  width,
+  height,
+  scale
+) {
+  const coreGroup = getCorePairCharacters(rocky, reina);
+  const orderedSecondaryCharacters = buildOrderedCharacters(secondaryCharacters, ["mako"]);
+  const compactWidth = getFullSecondaryCrewLayoutWidth(width);
+  const compactHeight = getFullSecondaryCrewLayoutHeight(height);
+  const coreSlots = getFullSecondaryCrewCoreSlots(coreGroup.length);
+  const secondarySlots = getFullSecondaryCrewSecondarySlots(orderedSecondaryCharacters.length);
+
+  return coreGroup
+    .map((character, index) =>
+      createResolvedLayoutItem(character, coreSlots[index], compactWidth, compactHeight, scale)
+    )
+    .concat(
+      orderedSecondaryCharacters.map((character, index) =>
+        createResolvedLayoutItem(
+          character,
+          secondarySlots[index],
+          compactWidth,
+          compactHeight,
+          scale
+        )
       )
     );
 }
@@ -2026,6 +2081,34 @@ function getTertiaryCenterHeight(count, fallbackHeight) {
   }
 
   return fallbackHeight;
+}
+
+function getFullSecondaryCrewCoreSlots(count) {
+  const slots = [
+    { position: "far-left", side: "left", offsetX: "14px", zIndex: 35 },
+    { position: "left", side: "left", offsetX: "-18px", zIndex: 34 }
+  ];
+
+  return buildSlotSequence(count, slots);
+}
+
+function getFullSecondaryCrewSecondarySlots(count) {
+  const slots = [
+    { position: "center", side: "right", offsetX: "clamp(-84px, -5vw, -54px)", zIndex: 33 },
+    { position: "center", side: "right", offsetX: "clamp(158px, 10vw, 188px)", zIndex: 32 },
+    { position: "center", side: "right", offsetX: "clamp(340px, 22vw, 388px)", zIndex: 31 },
+    { position: "center", side: "right", offsetX: "clamp(520px, 34vw, 600px)", zIndex: 30 }
+  ];
+
+  return buildSlotSequence(count, slots);
+}
+
+function getFullSecondaryCrewLayoutWidth() {
+  return "clamp(118px, 15vw, 205px)";
+}
+
+function getFullSecondaryCrewLayoutHeight() {
+  return "clamp(170px, 30vh, 238px)";
 }
 
 function createResolvedLayoutItem(character, layoutConfig, width, height, scale) {

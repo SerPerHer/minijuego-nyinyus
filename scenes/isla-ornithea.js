@@ -831,6 +831,10 @@ Object.assign(story, {
     ornitheaDialogue("Mako", "Estoy conectando con Ornithea emocionalmente."),
     ornitheaDialogue("Minutu", "Ornithea va a pedir una orden de alejamiento."),
     ornitheaDialogue("Narrador", "Entonces el sendero se dividió en tres."),
+    {
+      type: "background",
+      image: "Fondo_islas.jpeg"
+    },
     ornitheaDialogue(
       "Narrador",
       "Uno descendía hacia una zona llena de piedras, como monolitos."
@@ -1052,11 +1056,1084 @@ Object.assign(story, {
     }
   ],
 
-  ornithea_monolitos: [],
+  ornithea_monolitos: [
+    {
+      type: "background",
+      image: "Fondo_islas.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "El sendero descendía entre monolitos cubiertos de moho y hongos. La niebla allí era muchísimo más densa. Las gaviotas seguían observándolos. Demasiado."
+    ),
+    ornitheaDialogue("Narrador", "Entonces una de ellas gritó. Y el suelo cedió."),
+    ornitheaDialogue(
+      "Narrador",
+      "Rocky consiguió agarrar a Blue justo antes de que ambos desaparecieran por una plataforma rota oculta bajo el musgo. Abajo solo había vacío y corrientes de aire."
+    ),
+    ornitheaDialogue("Minutu", "¡PELIGRO! ¡QUÉ SORPRESA!"),
+    ornitheaDialogue(
+      "Narrador",
+      "Las gaviotas empezaron a sobrevolarlos riéndose con sonidos horribles."
+    ),
+    ornitheaDialogue("Narrador", "Haze observó el agujero tranquilamente."),
+    ornitheaDialogue("Haze", "Sí. Las de ojos saltones no traen nada bueno."),
+    ornitheaDialogue("Rocky", "Volvamos."),
+    {
+      type: "choice",
+      text: "¿Qué hacéis?",
+      options: [
+        {
+          text: "Ir hacia los monolitos.",
+          nextScene: "ornithea_monolitos"
+        },
+        {
+          text: "Cruzar el puente.",
+          nextScene: "ornithea_puente_albatros"
+        },
+        {
+          text: "Subir hacia las islas suspendidas.",
+          nextScene: "ornithea_islas_suspendidas"
+        }
+      ]
+    }
+  ],
 
-  ornithea_puente_albatros: [],
+  ornithea_puente_albatros: [
+    {
+      type: "background",
+      image: "Fondo_islas.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "El puente colgante se balanceaba lentamente entre la niebla."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "El albatros caminó delante de ellos unos metros. Luego levantó vuelo lentamente. Y delante de ellos… El lugar era precioso. Flores. Campanas de viento. Pequeños estanques flotantes. Y absolutamente ningún camino."
+    ),
+    ornitheaDialogue("Blue", "…Creo que estamos dando vueltas."),
+    ornitheaDialogue("Mako", "Pero son vueltas MUY bonitas."),
+    ornitheaDialogue("Minutu", "Eso no ayuda."),
+    ornitheaDialogue("Narrador", "Entonces escucharon:"),
+    ornitheaDialogue("Narrador", "Fiuuuuu… fiu."),
+    ornitheaDialogue("Narrador", "Un silbido largo y uno corto."),
+    ornitheaDialogue("Narrador", "Haze observó el paisaje unos segundos."),
+    ornitheaDialogue("Haze", "Ah. Puede que este no sea el camino."),
+    ornitheaDialogue("Minutu", "“Puede.” Fantástico… De regreso al inicio…"),
+    {
+      type: "choice",
+      text: "¿Qué hacéis?",
+      options: [
+        {
+          text: "Ir hacia los monolitos.",
+          nextScene: "ornithea_monolitos"
+        },
+        {
+          text: "Cruzar el puente.",
+          nextScene: "ornithea_puente_albatros"
+        },
+        {
+          text: "Subir hacia las islas suspendidas.",
+          nextScene: "ornithea_islas_suspendidas"
+        }
+      ]
+    }
+  ],
 
-  ornithea_islas_suspendidas: [],
+  ornithea_islas_suspendidas: [
+    {
+      type: "background",
+      image: "Fondo_islas.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "Subieron hacia las pequeñas islas suspendidas. No veían prácticamente nada, pero de golpe el viento cambió."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "La niebla se abrió apenas unos segundos dejando ver algo a lo lejos. Miles de aves cruzando el cielo. De todos los colores imaginables y de todos los tamaños. Durante solo un instante fue como volar con ellos por el cielo."
+    ),
+    ornitheaDialogue("Narrador", "Luego volvió a cerrarse."),
+    ornitheaDialogue("Reina", "¿Habéis visto eso?"),
+    ornitheaDialogue("Blue", "Sí…"),
+    ornitheaDialogue("Narrador", "Haze parecía completamente tranquila."),
+    ornitheaDialogue("Haze", "Vamos bien."),
+    ornitheaDialogue(
+      "Narrador",
+      "Cuanto más subían… más extraño se volvía… Las raíces crecían flotando parcialmente en el aire. Las pequeñas islas suspendidas cambiaban lentamente de posición empujadas por corrientes invisibles. Y decenas de aves cruzaban constantemente entre la niebla como sombras vivas."
+    ),
+    ornitheaDialogue("Narrador", "Mako miraba hacia abajo fascinada."),
+    ornitheaDialogue(
+      "Mako",
+      "Vale. Si me caigo desde aquí probablemente me convierto en leyenda."
+    ),
+    ornitheaDialogue("Minutu", "O en una plasta contra el suelo."),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze caminaba delante completamente tranquila sobre una pasarela inclinada que se balanceaba peligrosamente."
+    ),
+    ornitheaDialogue("Narrador", "Blue observó las corrientes de aire."),
+    ornitheaDialogue("Blue", "No entiendo cómo se sostienen estas islas."),
+    ornitheaDialogue("Reina", "No creo que nadie lo entienda."),
+    ornitheaDialogue("Narrador", "Rocky empezó a reírse."),
+    ornitheaDialogue(
+      "Narrador",
+      "Siguieron avanzando entre plataformas y puentes estrechos hasta que el camino terminó abruptamente en una enorme isla suspendida cubierta de roca húmeda y vegetación."
+    ),
+    {
+      type: "background",
+      image: "Fondo_géiseres.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "A la izquierda, una enorme liana descendía hacia la niebla profunda, perdiéndose completamente de vista. Varias raíces colgaban alrededor como si formaran una especie de descenso natural."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "A la derecha, unas gigantescas placas de piedra flotaban sobre un abismo mientras potentes géiseres de aire salían disparados desde abajo a intervalos irregulares."
+    ),
+    ornitheaDialogue("Narrador", "BOOOOOSH."),
+    ornitheaDialogue(
+      "Narrador",
+      "Las ráfagas levantaban hojas, niebla y plumas constantemente."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Encima de las placas descansaba un pequeño albatros plateado completamente tranquilo pese al viento."
+    ),
+    ornitheaDialogue("Narrador", "Entonces escucharon:"),
+    ornitheaDialogue("Narrador", "Fiu. Fiu."),
+    ornitheaDialogue("Narrador", "Dos silbidos cortos."),
+    ornitheaDialogue("Narrador", "Poco después:"),
+    ornitheaDialogue("Narrador", "Fiuuuuu… fiu."),
+    ornitheaDialogue(
+      "Narrador",
+      "Un silbido largo y uno corto. El sonido parecía venir desde la zona de la liana."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Mako se acercó peligrosamente al borde observando los géiseres de aire."
+    ),
+    ornitheaDialogue("Mako", "Esto parece peligrosísimo."),
+    ornitheaDialogue("Narrador", "Rocky sonrió."),
+    ornitheaDialogue("Rocky", "Sí."),
+    ornitheaDialogue(
+      "Narrador",
+      "Blue observó cómo las placas se movían ligeramente con las corrientes."
+    ),
+    ornitheaDialogue("Blue", "No creo que estén estables."),
+    ornitheaDialogue("Minutu", "Esto mejora por momentos..."),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze observó ambos caminos en silencio mientras el viento movía lentamente su pelo."
+    ),
+    ornitheaDialogue(
+      "Haze",
+      "Creo que una vez soñé con este sitio. O quizá me caí aquí de pequeña. No estoy segura."
+    ),
+    {
+      type: "choice",
+      text: "¿Qué hacéis?",
+      options: [
+        {
+          text: "Descender por la liana.",
+          nextScene: "ornithea_descenso_liana"
+        },
+        {
+          text: "Cruzar los géiseres saltando entre las placas de piedra.",
+          nextScene: "ornithea_geiseres"
+        }
+      ]
+    }
+  ],
+
+  ornithea_descenso_liana: [
+    {
+      type: "background",
+      image: "Fondo_géiseres.jpeg"
+    },
+    ornitheaDialogue("Narrador", "El grupo decidió descender por la liana."),
+    ornitheaDialogue(
+      "Narrador",
+      "La enorme y gruesa raíz vegetal crujía suavemente mientras bajaban envueltos completamente por la niebla. Cuanto más descendían… menos podían ver. El bosque desapareció arriba. Las islas suspendidas también."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Ahora solo había humedad, raíces, roca mojada, y oscuridad."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Blue bajaba agarrándose con muchísima tensión."
+    ),
+    ornitheaDialogue("Blue", "No me gusta no ver el fondo."),
+    ornitheaDialogue("Narrador", "Mako descendía bastante más rápido."),
+    ornitheaDialogue("Mako", "¡Eso es lo divertido!"),
+    ornitheaDialogue("Minutu", "Voy a desarrollar siete fobias nuevas en esta isla."),
+    ornitheaDialogue("Narrador", "La liana seguía descendiendo. Y descendiendo. Demasiado."),
+    ornitheaDialogue("Narrador", "Rocky levantó ligeramente la mirada."),
+    ornitheaDialogue("Rocky", "¿No llevamos muchísimo rato bajando?"),
+    ornitheaDialogue("Narrador", "Entonces escucharon algo."),
+    ornitheaDialogue("Narrador", "Fiuuuuu… fiu."),
+    ornitheaDialogue("Narrador", "Un silbido largo y uno corto."),
+    ornitheaDialogue("Narrador", "Muy cerca."),
+    ornitheaDialogue("Narrador", "Y justo después…"),
+    ornitheaDialogue("Narrador", "CRAAAAK."),
+    ornitheaDialogue("Narrador", "La liana entera se tensó violentamente."),
+    ornitheaDialogue("Blue", "…¿Eso ha sido la liana rompiéndose?"),
+    ornitheaDialogue("Narrador", "Mako levantó lentamente la cabeza."),
+    ornitheaDialogue("Mako", "Sip."),
+    ornitheaDialogue("Narrador", "Silencio."),
+    ornitheaDialogue("Narrador", "Y entonces la raíz empezó a deslizarse."),
+    ornitheaDialogue("Narrador", "Todo ocurrió rapidísimo."),
+    ornitheaDialogue(
+      "Narrador",
+      "La enorme liana se soltó parcialmente de las rocas y comenzó a balancearse violentamente sobre el vacío."
+    ),
+    ornitheaDialogue("Rocky", "¡AGARRAOS!"),
+    ornitheaDialogue(
+      "Narrador",
+      "El grupo quedó colgando mientras la niebla giraba a su alrededor y las corrientes de aire empujaban la liana de un lado a otro."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Blue estaba abrazada a la raíz con los ojos completamente abiertos."
+    ),
+    ornitheaDialogue("Blue", "NO QUIERO MORIR EN UNA ENSALADA VERTICAL."),
+    ornitheaDialogue("Narrador", "Mako se reía como una psicópata."),
+    ornitheaDialogue("Minutu", "¡¿POR QUÉ TE DIVIERTE ESTO?!"),
+    ornitheaDialogue("Mako", "¡PORQUE ES EMOCIONAAANTE!"),
+    ornitheaDialogue(
+      "Narrador",
+      "La liana terminó golpeando violentamente una pared rocosa."
+    ),
+    ornitheaDialogue("Narrador", "BOOOOM."),
+    ornitheaDialogue(
+      "Narrador",
+      "Todos consiguieron saltar hacia una pequeña plataforma natural cubierta de raíces justo antes de que la liana desapareciera completamente dentro de la niebla."
+    ),
+    ornitheaDialogue("Narrador", "Silencio."),
+    ornitheaDialogue("Narrador", "Todos respiraban agitadamente."),
+    ornitheaDialogue("Narrador", "Blue todavía abrazada al suelo."),
+    ornitheaDialogue(
+      "Narrador",
+      "Minutu se levantó lentamente limpiándose la ropa."
+    ),
+    ornitheaDialogue(
+      "Minutu",
+      "La isla acaba de rechazar activamente nuestra existencia."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze observó tranquilamente el vacío por donde había desaparecido la liana."
+    ),
+    ornitheaDialogue("Haze", "Hmm."),
+    ornitheaDialogue("Narrador", "Pausa."),
+    ornitheaDialogue("Haze", "Sí. Creo que no era por ahí."),
+    ornitheaDialogue("Rocky", "¿Y ahora cómo volvemos?"),
+    ornitheaDialogue("Reina", "Mirad. Creo que por ahí podemos volver."),
+    ornitheaDialogue(
+      "Narrador",
+      "Todos se giraron y vieron unas raíces puestas a un lado de la isla flotante de la que acababan de bajar. Sin muchas más opciones, volvieron a subir."
+    ),
+    {
+      type: "choice",
+      text: "¿Qué hacéis?",
+      options: [
+        {
+          text: "Descender por la liana.",
+          nextScene: "ornithea_descenso_liana"
+        },
+        {
+          text: "Cruzar los géiseres saltando entre las placas de piedra.",
+          nextScene: "ornithea_geiseres"
+        }
+      ]
+    }
+  ],
+
+  ornithea_geiseres: [
+    {
+      type: "background",
+      image: "Fondo_géiseres.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "El grupo decidió cruzar por las placas de piedra."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Las enormes losas flotaban suspendidas sobre el vacío entre violentos géiseres de aire que surgían desde las profundidades de Ornithea."
+    ),
+    ornitheaDialogue("Narrador", "BOOOOOSH."),
+    ornitheaDialogue(
+      "Narrador",
+      "Una ráfaga atravesó el abismo, alborotando sus cabellos."
+    ),
+    ornitheaDialogue("Narrador", "Blue miró inmediatamente hacia abajo."),
+    ornitheaDialogue("Blue", "No veo el fondo."),
+    ornitheaDialogue("Minutu", "Eso es porque probablemente no existe."),
+    ornitheaDialogue("Narrador", "Mako ya había saltado a la primera placa."),
+    ornitheaDialogue("Mako", "¡¡¡ESTO ES INCREÍBLE!!!"),
+    ornitheaDialogue("Narrador", "La piedra se movió ligeramente bajo su peso."),
+    ornitheaDialogue(
+      "Narrador",
+      "Rocky fue detrás riéndose mientras el viento les golpeaba constantemente desde abajo. Las corrientes eran absurdamente fuertes. A veces parecían empujarlos. Otras… casi lanzarlos por los aires."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "El pequeño albatros plateado seguía avanzando tranquilamente de placa en placa como si aquello fuera el suelo más normal del mundo."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze lo observaba mientras caminaba distraídamente por el borde de una losa."
+    ),
+    ornitheaDialogue("Haze", "Los albatros siempre saben dónde poner los pies."),
+    ornitheaDialogue("Minutu", "Ojalá nosotros también."),
+    ornitheaDialogue("Narrador", "BOOOOSH."),
+    ornitheaDialogue("Narrador", "Otro géiser explotó debajo de ellos."),
+    ornitheaDialogue("Narrador", "Blue perdió el equilibrio un instante."),
+    ornitheaDialogue(
+      "Narrador",
+      "Reina consiguió agarrarla antes de que saliera despedida."
+    ),
+    ornitheaDialogue("Blue", "¡Gracias!"),
+    ornitheaDialogue(
+      "Narrador",
+      "Reina tragó saliva, intentando no mirar hacia abajo."
+    ),
+    ornitheaDialogue("Reina", "No hay de qué."),
+    ornitheaDialogue(
+      "Narrador",
+      "Mako extendió ambos brazos dejando que el viento la sostuviera unos segundos."
+    ),
+    ornitheaDialogue("Mako", "¡ESTOY VOLANDOOOO!"),
+    ornitheaDialogue(
+      "Narrador",
+      "Minutu y Reina estaban un poco pálidos, observándola."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "El grupo siguió avanzando entre saltos y corrientes imposibles mientras la niebla se movía alrededor como un océano suspendido."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Y entonces… empezó a cambiar. El viento ya no sonaba agresivo. Los silbidos eran distintos ahora. Más suaves. Más armónicos."
+    ),
+    ornitheaDialogue("Narrador", "Fiu. Fiu."),
+    ornitheaDialogue("Narrador", "Dos silbidos cortos."),
+    ornitheaDialogue(
+      "Narrador",
+      "Las corrientes comenzaron a elevar pequeñas plumas blancas alrededor de las placas. Y poco a poco… la niebla empezó a abrirse. Primero apenas un poco. Luego más. Y finalmente pudieron verlo. Muy a lo lejos."
+    ),
+    {
+      type: "background",
+      image: "Fondo_arboles_gigantescos.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "Árboles gigantescos elevándose por encima de la niebla. Cientos de aves cruzando el cielo. Y destellos de colores moviéndose entre las ramas."
+    ),
+    ornitheaDialogue("Narrador", "Rocky levantó lentamente la cabeza."),
+    ornitheaDialogue("Rocky", "…Parece que estamos cerca."),
+    ornitheaDialogue("Narrador", "Incluso Haze parecía más atenta ahora."),
+    ornitheaDialogue("Haze", "Sí. Creo que sí."),
+    ornitheaDialogue(
+      "Narrador",
+      "El grupo siguió avanzando mientras Ornithea cambiaba lentamente a su alrededor. Ya no parecía un bosque hostil. Ahora todo se sentía… antiguo. Silencioso. Casi sagrado."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "La niebla seguía cubriéndolo todo, pero ya no era opresiva. Los rayos de luz atravesaban poco a poco las corrientes de aire iluminando pequeñas plumas suspendidas en el ambiente."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Y cada vez había más aves. Cientos. Volaban entre los árboles gigantescos. Descansaban sobre raíces suspendidas. Cruzaban las corrientes de aire como si el viento las llevara exactamente donde debían estar."
+    ),
+    ornitheaDialogue("Narrador", "Incluso los silbidos habían cambiado."),
+    ornitheaDialogue("Narrador", "Fiu. Fiu."),
+    ornitheaDialogue("Narrador", "Suaves. Tranquilos."),
+    ornitheaDialogue("Narrador", "Blue observaba el cielo completamente fascinada."),
+    ornitheaDialogue("Blue", "Nunca había visto tantas especies juntas."),
+    ornitheaDialogue(
+      "Narrador",
+      "Mako iba girando sobre sí misma intentando seguirlas todas."
+    ),
+    ornitheaDialogue("Mako", "¡MIRA ESA! ¡Y ESA! ¡Y ESA TAMBIÉN!"),
+    ornitheaDialogue(
+      "Minutu",
+      "Voy a asumir que todas te parecen increíbles."
+    ),
+    ornitheaDialogue("Mako", "Correcto."),
+    ornitheaDialogue(
+      "Narrador",
+      "Reina se reía, encantada mientras seguía con la mirada todas las aves que los sobrevolaban."
+    ),
+    ornitheaDialogue("Reina", "Podría quedarme aquí todo el día."),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze caminaba delante completamente distraída mirando las ramas más altas. Entonces se detuvo. El camino volvía a dividirse."
+    ),
+    {
+      type: "background",
+      image: "Fondo_arbol_hueco.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "A la izquierda, una enorme pasarela natural formada por raíces blancas cruzaba lentamente hacia una zona iluminada por pequeñas esporas brillantes suspendidas en el aire."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "A la derecha, unas plataformas estrechas descendían entre acantilados cubiertos de niebla y corrientes de aire."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Y en el centro… un árbol gigantesco completamente hueco por dentro. El interior descendía en espiral hacia oscuridad absoluta."
+    ),
+    ornitheaDialogue("Narrador", "Entonces escucharon:"),
+    ornitheaDialogue("Narrador", "Fiu. Fiu."),
+    ornitheaDialogue(
+      "Narrador",
+      "Dos silbidos cortos. Provenía de la pasarela de raíces."
+    ),
+    ornitheaDialogue("Narrador", "Poco después:"),
+    ornitheaDialogue("Narrador", "Fiuuuuu… fiu. Fiu."),
+    ornitheaDialogue(
+      "Narrador",
+      "Un silbido largo y dos cortos. Este silbido parecía venir de las plataformas de la derecha."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Sobre las raíces blancas descansaban varios albatros plateados completamente tranquilos."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "En las plataformas descendentes había varias gaviotas observándolos inmóviles desde las cuerdas."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Y alrededor del árbol hueco… no había pájaros. Ni uno. Silencio absoluto."
+    ),
+    ornitheaDialogue("Narrador", "Rocky levantó lentamente la vista."),
+    ornitheaDialogue("Rocky", "Vale. Eso da bastante mal rollo."),
+    ornitheaDialogue("Narrador", "Blue observó el árbol vacío."),
+    ornitheaDialogue("Reina", "Es raro. No hay ni sonido."),
+    ornitheaDialogue(
+      "Narrador",
+      "Mako se acercó ligeramente al borde del tronco hueco."
+    ),
+    ornitheaDialogue("Mako", "Vale."),
+    ornitheaDialogue("Narrador", "Pausa."),
+    ornitheaDialogue("Mako", "Hay cero posibilidades de que algo bueno viva ahí dentro."),
+    ornitheaDialogue(
+      "Minutu",
+      "Por una vez estoy completamente de acuerdo contigo."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze observó los tres caminos durante bastante rato. Más de lo normal incluso para ella. Luego levantó lentamente la mirada hacia las raíces blancas."
+    ),
+    ornitheaDialogue("Haze", "Creo… Creo que quizá es por aquí."),
+    {
+      type: "choice",
+      text: "¿Qué hacéis?",
+      options: [
+        {
+          text: "Cruzar las raíces blancas.",
+          nextScene: "ornithea_raices_blancas"
+        },
+        {
+          text: "Descender por las plataformas.",
+          nextScene: "ornithea_plataformas_descendentes"
+        },
+        {
+          text: "Entrar en el árbol hueco.",
+          nextScene: "ornithea_arbol_hueco"
+        }
+      ]
+    }
+  ],
+
+  ornithea_raices_blancas: [
+    {
+      type: "background",
+      image: "Fondo_arbol_hueco.jpeg"
+    },
+    ornitheaDialogue("Narrador", "El grupo decidió cruzar las raíces blancas."),
+    ornitheaDialogue(
+      "Narrador",
+      "La enorme pasarela natural crujía suavemente bajo sus pies mientras avanzaban suspendidos entre la niebla y las corrientes de aire. Pero algo había cambiado."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Las raíces eran anchas. Firmes. Casi suaves al tacto. Y las pequeñas esporas luminosas flotaban lentamente alrededor del grupo iluminando la niebla con tonos azulados y dorados."
+    ),
+    ornitheaDialogue("Narrador", "Fiu. Fiu."),
+    ornitheaDialogue(
+      "Narrador",
+      "Los silbidos seguían resonando entre los árboles. Pero ahora sonaban cercanos. Armónicos. Como si el bosque estuviera respirando tranquilamente."
+    ),
+    ornitheaDialogue("Narrador", "Reina observaba todo completamente fascinada."),
+    ornitheaDialogue("Reina", "Esto parece otro lugar distinto."),
+    ornitheaDialogue("Narrador", "Minutu miró alrededor lentamente."),
+    ornitheaDialogue("Minutu", "Sí… Demasiado distinto."),
+    ornitheaDialogue(
+      "Narrador",
+      "Mako caminaba intentando atrapar las pequeñas luces flotantes."
+    ),
+    ornitheaDialogue("Mako", "¡SON COMO ESTRELLITAS!"),
+    ornitheaDialogue(
+      "Narrador",
+      "Reina seguía observando las aves sobrevolando las raíces."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Cada vez había más. Pequeñas. Grandes. Coloridas. Extrañas. Y todas parecían dirigirse hacia el mismo sitio."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze caminaba delante completamente tranquila mientras el viento movía lentamente su pelo."
+    ),
+    ornitheaDialogue("Haze", "Sí."),
+    ornitheaDialogue("Narrador", "Pausa."),
+    ornitheaDialogue("Haze", "Estamos llegando. Lo noto."),
+    ornitheaDialogue(
+      "Narrador",
+      "Entonces la niebla empezó a abrirse. Muy lentamente. Primero apenas unos metros. Luego más. Y finalmente… desapareció."
+    ),
+    ornitheaDialogue("Narrador", "Todos se quedaron completamente inmóviles."),
+    ornitheaDialogue(
+      "Narrador",
+      "Ante ellos se extendía un enorme santuario natural suspendido entre montañas ocultas por las nubes."
+    ),
+    {
+      type: "background",
+      image: "Fondo_santuario.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "Árboles gigantescos crecían hacia el cielo atravesando corrientes de aire brillantes. Miles y miles de aves volaban completamente libres entre ramas inmensas, puentes naturales y pequeñas islas suspendidas cubiertas de flores."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "El lugar entero era de una belleza sorprendente. Como algo sagrado. Antiguo. Vivo."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "La luz atravesaba las corrientes de niebla creando destellos de colores por todas partes."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Y en el centro del santuario… sobre una rama gigantesca que nacía directamente del árbol más grande de Ornithea… descansaba el cuervo negro iridiscente."
+    ),
+    ornitheaDialogue("Narrador", "Silencio."),
+    ornitheaDialogue(
+      "Narrador",
+      "Sus plumas absorbían la luz y al mismo tiempo la reflejaban en tonos azules, violetas y verdes. Y colgando de su cuello… una pequeña esfera brillante. La misma que había visto Reina al llegar a la isla."
+    ),
+    ornitheaDialogue("Narrador", "Reina dio un paso adelante lentamente."),
+    ornitheaDialogue("Reina", "Es él…"),
+    ornitheaDialogue(
+      "Narrador",
+      "El cuervo inclinó ligeramente la cabeza observándolos."
+    ),
+    ornitheaDialogue("Narrador", "Y entonces… abrió las alas."),
+    ornitheaDialogue(
+      "Narrador",
+      "Todas las aves del santuario reaccionaron al mismo tiempo. Miles. El cielo entero empezó a llenarse de plumas y corrientes de aire mientras los cantos resonaban entre las montañas."
+    ),
+    ornitheaDialogue("Narrador", "Blue se quedó completamente sin palabras."),
+    ornitheaDialogue(
+      "Narrador",
+      "Mako tenía los ojos abiertos como una niña viendo magia por primera vez."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Incluso Minutu había dejado de analizar cosas durante unos segundos."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Rocky y Reina estaban cogidos de la mano mientras miraban aquella maravilla con ojos brillantes."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Y Haze… simplemente sonrió. Una sonrisa pequeña. Tranquila. Como alguien que acababa de volver a casa."
+    ),
+    {
+      type: "background",
+      image: "Fondo_santuario.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "El santuario entero parecía contener la respiración."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Miles de aves observaban en silencio desde las ramas gigantescas mientras el cuervo negro iridiscente seguía posado sobre aquella enorme raíz suspendida."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Sus ojos eran extraños. Antiguos. Como si estuviera mirando mucho más allá de ellos. El viento movió lentamente las plumas negras de sus alas."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Y entonces habló. No movió el pico. La voz simplemente apareció alrededor del grupo."
+    ),
+    ornitheaDialogue(
+      "Cuervo",
+      "Cuando alguien está perdido… ¿qué es más importante? ¿El mapa… o el motivo por el que sigue caminando?"
+    ),
+    ornitheaDialogue("Narrador", "Silencio absoluto."),
+    ornitheaDialogue("Narrador", "Reina parpadeó lentamente."),
+    ornitheaDialogue("Mako", "Vale… El pájaro habla. Normal. Sí… Claaaro."),
+    ornitheaDialogue(
+      "Narrador",
+      "Minutu observaba al cuervo completamente inmóvil."
+    ),
+    ornitheaDialogue("Minutu", "No estoy preparado intelectualmente para esto."),
+    ornitheaDialogue("Narrador", "Rocky frunció ligeramente el ceño pensando."),
+    ornitheaDialogue(
+      "Narrador",
+      "Blue bajó la mirada. Como si intentara encontrar una respuesta lógica."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Pero Haze… simplemente observaba al cuervo en silencio."
+    ),
+    ornitheaDialogue("Narrador", "Reina dio un paso adelante lentamente."),
+    ornitheaDialogue("Reina", "El motivo."),
+    ornitheaDialogue("Narrador", "El viento atravesó el santuario."),
+    ornitheaDialogue(
+      "Narrador",
+      "Las aves levantaron el vuelo parcialmente entre las ramas."
+    ),
+    ornitheaDialogue("Narrador", "Reina mantuvo la mirada fija en el cuervo."),
+    ornitheaDialogue(
+      "Reina",
+      "Porque puedes perder un mapa. Equivocarte. Dar vueltas. Pero si sabes por qué sigues caminando… acabarás encontrando el camino igualmente."
+    ),
+    ornitheaDialogue("Narrador", "Silencio."),
+    ornitheaDialogue(
+      "Narrador",
+      "Y entonces el cuervo inclinó lentamente la cabeza."
+    ),
+    ornitheaDialogue("Cuervo", "Correcto."),
+    ornitheaDialogue(
+      "Narrador",
+      "Las corrientes de aire cambiaron inmediatamente."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Miles de plumas comenzaron a elevarse alrededor del santuario como si Ornithea hubiera respondido a aquella frase. Y entonces el cuervo voló. Descendió lentamente entre corrientes de aire brillantes… hasta posarse sobre el brazo de Haze."
+    ),
+    ornitheaDialogue("Narrador", "Ella ni siquiera pareció sorprendida."),
+    ornitheaDialogue("Haze", "Hola otra vez."),
+    ornitheaDialogue(
+      "Narrador",
+      "El cuervo rozó ligeramente su hombro con la cabeza. Y por primera vez desde conocerla… Haze parecía completamente presente. Completamente conectada con algo. El pequeño collar brilló ligeramente bajo la luz."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Reina se acercó despacio. El cuervo no se movió. Con muchísimo cuidado… Reina deslizó la esfera fuera del cuello del ave."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "La pequeña bola metálica descansó entre sus manos."
+    ),
+    ornitheaDialogue("Narrador", "Todos se acercaron inmediatamente."),
+    ornitheaDialogue(
+      "Narrador",
+      "Y allí estaba. El símbolo. Exactamente igual que en las otras reliquias."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Reina giró lentamente la esfera. Y en la parte trasera… grabados casi invisibles entre pequeñas líneas iridiscentes… había números."
+    ),
+    ornitheaDialogue("Narrador", "Minutu abrió mucho los ojos."),
+    ornitheaDialogue("Minutu", "Otro código."),
+    ornitheaDialogue("Rocky", "Entonces ya tenemos cuatro."),
+    ornitheaDialogue("Narrador", "Mako levantó ambos brazos emocionada."),
+    ornitheaDialogue("Mako", "¡¡¡VAMOS GANANDO AL MISTERIO!!!"),
+    ornitheaDialogue("Narrador", "Fiu. Fiu."),
+    ornitheaDialogue("Narrador", "El cuervo emitió dos silbidos cortos. Y el cielo respondió."),
+    {
+      type: "background",
+      image: "Fondo_aves.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "Tres enormes aves descendieron desde las corrientes superiores atravesando la niebla. Gigantescas. Majestuosas. Con alas tan grandes que parecían cubrir el cielo."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Se posaron lentamente frente al grupo levantando corrientes de aire y pequeñas plumas luminosas."
+    ),
+    ornitheaDialogue(
+      "Cuervo",
+      "Ellos os llevarán al puerto. Debéis continuar vuestro camino."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze bajó lentamente la mirada. Por primera vez desde conocerla… parecía triste."
+    ),
+    ornitheaDialogue("Haze", "Creo… Creo que quiero quedarme aquí."),
+    ornitheaDialogue("Narrador", "El cuervo la observó en silencio unos segundos."),
+    ornitheaDialogue("Cuervo", "No."),
+    ornitheaDialogue("Narrador", "Haze levantó lentamente la cabeza."),
+    ornitheaDialogue("Cuervo", "Este lugar fue tu refugio. No tu destino."),
+    ornitheaDialogue(
+      "Narrador",
+      "El viento movió las ramas gigantescas del santuario."
+    ),
+    ornitheaDialogue("Cuervo", "Debes encontrar tu propio camino ahora."),
+    ornitheaDialogue("Narrador", "Silencio."),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze observó las aves alrededor. El santuario. La niebla. El cielo. Y sonrió apenas un poco."
+    ),
+    ornitheaDialogue("Haze", "Hmm. Eso suena importante."),
+    ornitheaDialogue(
+      "Narrador",
+      "Poco después… los seis atravesaban Ornithea montados sobre las enormes aves gigantes mientras la niebla se abría a su paso."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Mako iba abrazada al cuello de una de ellas gritando de emoción."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Blue intentaba no mirar hacia abajo, mientras Haze ausentemente acariciaba las plumas del ave en la que iban."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Minutu ya había aceptado que su vida había dejado de tener sentido hacía varias islas."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Y Rocky y Reina observaban el paisaje sonriendo mientras las corrientes los llevaban de regreso al puerto."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Cuando finalmente llegaron al Nyinyus… el silencio apareció durante unos segundos. Haze observaba el barco. Luego el mar. Luego Ornithea cubierta otra vez por la niebla."
+    ),
+    ornitheaDialogue("Narrador", "Reina dio un paso adelante."),
+    ornitheaDialogue("Reina", "Oye. ¿Quieres venir con nosotros?"),
+    ornitheaDialogue("Narrador", "Haze parpadeó lentamente."),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze dudó. Miró otra vez hacia la isla. Como si una parte de ella quisiera quedarse. Y entonces… un pequeño destello iridiscente atravesó la niebla en el cielo. Muy arriba."
+    ),
+    ornitheaDialogue("Narrador", "Fiu. Fiu. Dos silbidos cortos."),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze levantó lentamente la mirada. Y sonrió. Una sonrisa tranquila. Pequeña. Segura."
+    ),
+    ornitheaDialogue("Haze", "Hmm. Sí. Creo que este es el camino correcto."),
+    ornitheaDialogue(
+      "Narrador",
+      "Y así… la tripulación del Nyinyus volvió a zarpar."
+    ),
+    ornitheaDialogue("Narrador", "Rocky y Reina como capitanes."),
+    ornitheaDialogue("Narrador", "Minutu como estratega."),
+    ornitheaDialogue("Narrador", "Mako como vigía."),
+    ornitheaDialogue("Narrador", "Blue como ingeniera."),
+    ornitheaDialogue(
+      "Narrador",
+      "Y Haze Clouds… la exploradora que parecía perdida incluso cuando encontraba el camino antes que nadie."
+    ),
+    {
+      type: "background",
+      image: "Fondo_despedida_aves.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "Mientras el barco se alejaba… la niebla de Ornithea se abrió apenas unos segundos. Y todos jurarían haber visto una gigantesca bandada de aves de todos los colores sobrevolando la isla bajo la luz del amanecer."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Como si Ornithea… se estuviera despidiendo."
+    ),
+    {
+      type: "background",
+      image: "FONDO TRANSICIÓN_3.png"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "El Nyinyus navegó durante días bajo cielos tranquilos. Atrás quedaba Ornithea. La isla de la niebla. De los silbidos. Y de los caminos que solo podían encontrarse cuando dejabas de intentar controlarlo todo."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Mientras tanto, sobre la mesa principal del Nyinyus… los cuatro objetos descansaban juntos por primera vez. Cuatro símbolos. Cuatro series de números."
+    ),
+    ornitheaDialogue("Narrador", "Y una única pregunta."),
+    ornitheaDialogue("Narrador", "¿Qué les depararía la quinta isla?")
+  ],
+
+  ornithea_plataformas_descendentes: [
+    {
+      type: "background",
+      image: "Fondo_arbol_hueco.jpeg"
+    },
+    ornitheaDialogue(
+      "Narrador",
+      "El grupo decidió descender por las plataformas. Las gaviotas que había en las cuerdas echaron a volar cuando se acercaron."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Las estructuras de madera estaban sujetas entre acantilados mediante cuerdas antiguas y raíces entrelazadas. Cuanto más bajaban… más espesa se volvía la niebla. Y también… más húmeda."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Las aves desaparecieron poco a poco. Primero dejaron de escuchar cantos. Luego los silbidos. Y finalmente… incluso el viento."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Solo quedaba el sonido de las tablas crujiendo bajo sus pies."
+    ),
+    ornitheaDialogue("Narrador", "CRRK."),
+    ornitheaDialogue("Narrador", "CRRK."),
+    ornitheaDialogue("Narrador", "CRRK."),
+    ornitheaDialogue("Narrador", "Blue observó alrededor inquieta."),
+    ornitheaDialogue("Blue", "No me gusta que ya no haya pájaros."),
+    ornitheaDialogue("Narrador", "Reina miró hacia arriba."),
+    ornitheaDialogue("Reina", "Sí, es algo preocupante."),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze iba delante completamente distraída observando unas flores que crecían entre las rocas."
+    ),
+    ornitheaDialogue("Minutu", "¿Nos estamos alejando del santuario?"),
+    ornitheaDialogue("Narrador", "Haze pensó unos segundos."),
+    ornitheaDialogue("Haze", "Hmm."),
+    ornitheaDialogue("Narrador", "Pausa."),
+    ornitheaDialogue("Haze", "Puede."),
+    ornitheaDialogue("Narrador", "Minutu cerró lentamente los ojos."),
+    ornitheaDialogue("Minutu", "Fantástico."),
+    ornitheaDialogue(
+      "Narrador",
+      "El descenso continuó durante muchísimo rato. Demasiado."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Las plataformas empezaron a inclinarse peligrosamente."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Las cuerdas estaban húmedas y cubiertas de musgo. Y la niebla era tan densa que apenas podían verse entre ellos."
+    ),
+    ornitheaDialogue("Narrador", "Entonces escucharon algo."),
+    ornitheaDialogue("Narrador", "No un silbido. Respiración. Lenta. Profunda."),
+    ornitheaDialogue("Narrador", "Blue se quedó inmóvil."),
+    ornitheaDialogue("Blue", "…¿Habéis oído eso?"),
+    ornitheaDialogue("Narrador", "Silencio."),
+    ornitheaDialogue("Narrador", "CRRRRK."),
+    ornitheaDialogue(
+      "Narrador",
+      "Algo enorme se movió bajo las plataformas. Las tablas temblaron violentamente."
+    ),
+    ornitheaDialogue("Rocky", "¡¿Qué demonios—?!"),
+    ornitheaDialogue("Narrador", "BOOOOM."),
+    ornitheaDialogue(
+      "Narrador",
+      "Una gigantesca corriente de aire explotó desde abajo atravesando la niebla. Y durante apenas un segundo… lo vieron. Algo gigantesco moviéndose entre las corrientes bajo los acantilados. Alas enormes. Demasiado. Plumas negras mezcladas con niebla. Y unos ojos brillando entre la oscuridad."
+    ),
+    ornitheaDialogue("Mako", "¡NOPE! ¡NOPE! ¡ESO ES UN NO GIGANTE!"),
+    ornitheaDialogue(
+      "Narrador",
+      "Las plataformas empezaron a balancearse violentamente."
+    ),
+    ornitheaDialogue("Narrador", "CRAAAK."),
+    ornitheaDialogue("Narrador", "Una de las cuerdas principales se rompió."),
+    ornitheaDialogue(
+      "Narrador",
+      "Reina perdió el equilibrio y cayó de rodillas mientras toda la estructura se inclinaba peligrosamente hacia el vacío."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Rocky se agarró a una raíz como un hombre aceptando el final de su vida."
+    ),
+    ornitheaDialogue("Rocky", "La isla tiene depredadores."),
+    ornitheaDialogue(
+      "Narrador",
+      "Y entonces la criatura volvió a moverse. Muchísimo más cerca."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Las corrientes empezaron a absorber la niebla alrededor revelando parcialmente un enorme pico lleno de marcas y cicatrices."
+    ),
+    ornitheaDialogue("Narrador", "Haze observó hacia abajo tranquilamente."),
+    ornitheaDialogue("Haze", "Ah."),
+    ornitheaDialogue("Narrador", "Pausa."),
+    ornitheaDialogue("Haze", "Los Nidos Hundidos."),
+    ornitheaDialogue("Rocky", "¡¡¿LOS QUÉ?!!"),
+    ornitheaDialogue(
+      "Haze",
+      "Creo que aquí viven las cosas que se comen a los perdidos… pájaros… personas…"
+    ),
+    ornitheaDialogue("Narrador", "Silencio."),
+    ornitheaDialogue(
+      "Minutu",
+      "¡¡ESA INFORMACIÓN HUBIESE SIDO MUY IMPORTANTE HACE RATO!!"
+    ),
+    ornitheaDialogue("Narrador", "BOOOOOM."),
+    ornitheaDialogue(
+      "Narrador",
+      "La criatura golpeó otra vez las corrientes bajo las plataformas haciendo que toda la estructura empezara a desprenderse."
+    ),
+    ornitheaDialogue("Rocky", "¡¡ARRIBA!! ¡¡CORRED!!"),
+    ornitheaDialogue(
+      "Narrador",
+      "El grupo empezó a subir desesperadamente mientras las plataformas crujían detrás de ellos y la criatura ascendía parcialmente entre la niebla."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Y cuando finalmente consiguieron regresar arriba… las plataformas inferiores desaparecieron completamente tragadas por la bruma."
+    ),
+    ornitheaDialogue("Narrador", "Silencio."),
+    ornitheaDialogue(
+      "Narrador",
+      "Ni un solo pájaro volaba cerca de aquella zona."
+    ),
+    ornitheaDialogue("Narrador", "Blue respiraba agitada."),
+    ornitheaDialogue("Blue", "Definitivamente ese no era el camino."),
+    ornitheaDialogue("Narrador", "Haze observó la niebla unos segundos."),
+    ornitheaDialogue("Haze", "Parece que no."),
+    {
+      type: "choice",
+      text: "¿Qué hacéis?",
+      options: [
+        {
+          text: "Cruzar las raíces blancas.",
+          nextScene: "ornithea_raices_blancas"
+        },
+        {
+          text: "Descender por las plataformas.",
+          nextScene: "ornithea_plataformas_descendentes"
+        },
+        {
+          text: "Entrar en el árbol hueco.",
+          nextScene: "ornithea_arbol_hueco"
+        }
+      ]
+    }
+  ],
+
+  ornithea_arbol_hueco: [
+    {
+      type: "background",
+      image: "Fondo_arbol_hueco.jpeg"
+    },
+    ornitheaDialogue("Narrador", "El grupo decidió entrar en el árbol hueco."),
+    ornitheaDialogue(
+      "Narrador",
+      "El interior descendía en espiral alrededor de un enorme vacío central oculto completamente por la oscuridad y la niebla."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Y cuanto más bajaban…  más extraño se volvía todo. Ya no había pájaros. Ni silbidos. Ni viento."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Solo el eco de sus propios pasos sobre la madera húmeda."
+    ),
+    ornitheaDialogue("Narrador", "CLONK."),
+    ornitheaDialogue("Narrador", "CLONK."),
+    ornitheaDialogue("Narrador", "CLONK."),
+    ornitheaDialogue("Narrador", "Reina observó alrededor inquieta."),
+    ornitheaDialogue("Reina", "No me gusta esto."),
+    ornitheaDialogue("Narrador", "Mako susurraba ahora, incluso ella."),
+    ornitheaDialogue("Mako", "Esto tiene una pinta de muerte con patatas que flipas."),
+    ornitheaDialogue("Narrador", "Rocky pasó la mano por la pared interior del árbol."),
+    ornitheaDialogue("Rocky", "Mirad esto."),
+    ornitheaDialogue(
+      "Narrador",
+      "La madera estaba llena de marcas. Arañazos. Miles. Como si algo enorme hubiera estado trepando constantemente por el interior del tronco."
+    ),
+    ornitheaDialogue("Narrador", "Silencio."),
+    ornitheaDialogue("Narrador", "Blue levantó lentamente la cabeza hacia arriba."),
+    ornitheaDialogue("Blue", "…¿Habéis escuchado eso?"),
+    ornitheaDialogue("Narrador", "CRRRRRR…"),
+    ornitheaDialogue("Narrador", "Algo se movió. Muy abajo. Algo grande."),
+    ornitheaDialogue("Narrador", "El sonido fue húmedo. Lento. Pesado."),
+    ornitheaDialogue(
+      "Narrador",
+      "Y entonces… dos enormes ojos se abrieron en la oscuridad. Muchísimo más abajo dentro del árbol."
+    ),
+    ornitheaDialogue("Narrador", "Blue dejó de respirar un instante."),
+    ornitheaDialogue("Mako", "…Ah."),
+    ornitheaDialogue("Narrador", "El árbol entero tembló."),
+    ornitheaDialogue("Narrador", "BOOOOM."),
+    ornitheaDialogue(
+      "Narrador",
+      "Algo gigantesco empezó a subir violentamente por el interior del tronco. No podían verlo bien. Solo sombras. Garras. Movimiento. Demasiado rápido."
+    ),
+    ornitheaDialogue("Rocky", "¡¡CORRED!!"),
+    ornitheaDialogue(
+      "Narrador",
+      "El grupo empezó a subir la espiral mientras el árbol entero crujía detrás de ellos."
+    ),
+    ornitheaDialogue("Narrador", "CRAAAAAK."),
+    ornitheaDialogue(
+      "Narrador",
+      "Una enorme garra atravesó la madera a pocos centímetros de Minutu."
+    ),
+    ornitheaDialogue("Minutu", "¡MIERDAMIERDAMIERDA!"),
+    ornitheaDialogue(
+      "Narrador",
+      "Haze, sorprendentemente, parecía completamente tranquila mientras corría."
+    ),
+    ornitheaDialogue("Haze", "Oh. Ahora recuerdo por qué no volví a entrar aquí."),
+    ornitheaDialogue("Minutu", "¡¡¿AHORA LO RECUERDAS?!!"),
+    ornitheaDialogue("Narrador", "BOOOOOM."),
+    ornitheaDialogue(
+      "Narrador",
+      "La criatura golpeó otra vez el interior del árbol haciendo caer trozos enormes de madera. Y entonces la vieron parcialmente."
+    ),
+    ornitheaDialogue(
+      "Narrador",
+      "Una especie de criatura cubierta de plumas negras húmedas y raíces mezcladas con carne. Ojos rojos. Y un pico gigantesco lleno de dientes irregulares, del que caía saliva."
+    ),
+    ornitheaDialogue("Blue", "¡¿QUÉ ES ESO?!"),
+    ornitheaDialogue("Haze", "Creo que se come a las cosas que bajan demasiado."),
+    ornitheaDialogue("Minutu", "¡EXCELENTE DATO PARA RECIBIR AHORA!"),
+    ornitheaDialogue(
+      "Narrador",
+      "Finalmente el grupo consiguió salir del árbol justo antes de que una gigantesca mandíbula atravesara la entrada desde abajo."
+    ),
+    ornitheaDialogue("Narrador", "BOOOOM."),
+    ornitheaDialogue("Narrador", "Todos cayeron al suelo jadeando."),
+    ornitheaDialogue("Narrador", "El árbol volvió a quedarse completamente inmóvil."),
+    ornitheaDialogue("Narrador", "Silencio."),
+    ornitheaDialogue("Narrador", "Ni un solo pájaro se acercaba a él."),
+    ornitheaDialogue("Narrador", "Mako respiraba tirada boca arriba."),
+    ornitheaDialogue("Mako", "Vaaale… Eso no me ha gustado un pelo."),
+    ornitheaDialogue(
+      "Narrador",
+      "Todos se giraron para mirarla. Sin saber si reír o llorar del susto."
+    ),
+    ornitheaDialogue("Minutu", "Vaya… Algo que le da miedo."),
+    ornitheaDialogue("Narrador", "Mako se encogió de hombros."),
+    ornitheaDialogue("Mako", "Me gusta tentar a la suerte, no morir."),
+    ornitheaDialogue("Narrador", "Haze observó el árbol unos segundos."),
+    ornitheaDialogue("Haze", "Ese definitivamente no era el camino."),
+    ornitheaDialogue("Reina", "¿No me digas…?"),
+    {
+      type: "choice",
+      text: "¿Qué hacéis?",
+      options: [
+        {
+          text: "Cruzar las raíces blancas.",
+          nextScene: "ornithea_raices_blancas"
+        },
+        {
+          text: "Descender por las plataformas.",
+          nextScene: "ornithea_plataformas_descendentes"
+        },
+        {
+          text: "Entrar en el árbol hueco.",
+          nextScene: "ornithea_arbol_hueco"
+        }
+      ]
+    }
+  ],
 
   ornithea_camino_raices: [
     {
