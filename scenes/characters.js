@@ -88,6 +88,14 @@ window.CHARACTER_LIBRARY = {
     accentDark: "#c91aec",
     role: "secondary"
   },
+  anciana: {
+    name: "Anciana",
+    image: "Anciana.png",
+    accent: "#d5d7c1",
+    accentDark: "#737852",
+    scale: 0.96,
+    role: "tertiary"
+  },
   aiko: {
     name: "Fukuro",
     image: "Aiko_Fukuro.png",

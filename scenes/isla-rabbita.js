@@ -1382,6 +1382,10 @@ Object.assign(story, {
     rabbitaDialogue(
       "Narrador",
       "Y sobre la cubierta... cinco personas observaban cómo acababan de dejar atrás una isla... que en realidad siempre había sido un gigante dormido."
-    )
+    ),
+    {
+      type: "goto",
+      nextScene: "ornithea_llegada"
+    }
   ]
 });
