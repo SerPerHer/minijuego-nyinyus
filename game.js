@@ -1677,6 +1677,15 @@ function clearLayoutSettleTimeout() {
 }
 
 function resolveCharacterLayout(characters, animatedId) {
+  const anchoredFocalCharacters = characters.filter(isAnchoredFocalCharacter);
+
+  if (anchoredFocalCharacters.length > 0) {
+    return {
+      items: createAnchoredFocalLayoutItems(characters, anchoredFocalCharacters, animatedId),
+      settleAfterEnter: false
+    };
+  }
+
   const count = characters.length;
   const width = getCharacterWidth(count);
   const height = getCharacterHeight(count);
@@ -1695,6 +1704,13 @@ function resolveCharacterLayout(characters, animatedId) {
   if (count === 1) {
     return {
       items: createManualLayoutItems(characters, width, height, autoScale),
+      settleAfterEnter: false
+    };
+  }
+
+  if (shouldUseCrowdedCrewLayout(characters)) {
+    return {
+      items: createCrowdedCrewLayoutItems(characters, animatedId),
       settleAfterEnter: false
     };
   }
@@ -1971,6 +1987,280 @@ function createTertiaryPriorityLayoutItems(
         createResolvedLayoutItem(character, secondarySlots[index], compactWidth, compactHeight, scale)
       )
     );
+}
+
+function createAnchoredFocalLayoutItems(characters, focalCharacters, animatedId) {
+  const companionCharacters = characters.filter((character) => !isAnchoredFocalCharacter(character));
+  const companionItems = createAnchoredCompanionLayoutItems(companionCharacters, animatedId);
+  const focalItems = focalCharacters.map((character, index) =>
+    createResolvedLayoutItem(
+      character,
+      getAnchoredFocalSlot(index),
+      getAnchoredFocalWidth(),
+      getAnchoredFocalHeight(),
+      1
+    )
+  );
+
+  return companionItems.concat(focalItems);
+}
+
+function createAnchoredCompanionLayoutItems(characters, animatedId) {
+  if (characters.length === 0) {
+    return [];
+  }
+
+  if (shouldUseCrowdedCrewLayout(characters)) {
+    return createCrowdedCrewLayoutItems(characters, animatedId);
+  }
+
+  const usedCharacters = new Set();
+  const layoutCount = Math.max(characters.length + 1, 4);
+  const width = getCharacterWidth(layoutCount);
+  const height = getCharacterHeight(layoutCount);
+  const scale = getCharacterScale(layoutCount);
+  const leftGroup = takeOrderedCharacters(characters, ["reina", "rocky", "mako"], usedCharacters);
+  const rightGroup = takeOrderedCharacters(
+    characters,
+    ["minutu", "haze", "blue", "lars"],
+    usedCharacters
+  );
+  const remainingGroup = buildHighlightedTertiaryGroup(
+    characters.filter((character) => !usedCharacters.has(character)),
+    normalizeSpeakerKey(animatedId)
+  );
+  const leftSlots = getAnchoredCompanionLeftSlots(leftGroup.length);
+  const rightSlots = getAnchoredCompanionRightSlots(rightGroup.length);
+
+  return leftGroup
+    .map((character, index) =>
+      createResolvedLayoutItem(character, leftSlots[index], width, height, scale)
+    )
+    .concat(
+      rightGroup.map((character, index) =>
+        createResolvedLayoutItem(character, rightSlots[index], width, height, scale)
+      )
+    )
+    .concat(
+      remainingGroup.map((character, index) =>
+        createResolvedLayoutItem(
+          character,
+          getAnchoredCompanionRemainingSlot(index),
+          width,
+          height,
+          scale
+        )
+      )
+    );
+}
+
+function getAnchoredCompanionLeftSlots(count) {
+  if (count <= 1) {
+    return [{ position: "left", side: "left", zIndex: 34 }];
+  }
+
+  if (count === 2) {
+    return [
+      { position: "far-left", side: "left", zIndex: 35 },
+      { position: "left", side: "left", zIndex: 34 }
+    ];
+  }
+
+  return [
+    { position: "far-left", side: "left", zIndex: 35 },
+    { position: "left", side: "left", zIndex: 34 },
+    { position: "center", side: "left", offsetX: "clamp(-320px, -18vw, -140px)", zIndex: 33 }
+  ];
+}
+
+function getAnchoredCompanionRightSlots(count) {
+  if (count <= 1) {
+    return [{ position: "right", side: "right", zIndex: 34 }];
+  }
+
+  if (count === 2) {
+    return [
+      { position: "right", side: "right", zIndex: 35 },
+      { position: "far-right", side: "right", zIndex: 34 }
+    ];
+  }
+
+  if (count === 3) {
+    return [
+      { position: "center", side: "right", offsetX: "clamp(250px, 20vw, 360px)", zIndex: 35 },
+      { position: "right", side: "right", zIndex: 34 },
+      { position: "far-right", side: "right", zIndex: 33 }
+    ];
+  }
+
+  return [
+    { position: "center", side: "right", offsetX: "clamp(210px, 17vw, 320px)", zIndex: 36 },
+    { position: "right", side: "right", zIndex: 35 },
+    { position: "far-right", side: "right", zIndex: 34 },
+    { position: "far-right", side: "right", offsetX: "clamp(70px, 8vw, 120px)", zIndex: 33 }
+  ];
+}
+
+function getAnchoredCompanionRemainingSlot(index) {
+  if (index % 2 === 0) {
+    return {
+      position: "far-left",
+      side: "left",
+      offsetX: String(-82 * Math.floor(index / 2)) + "px",
+      zIndex: 31
+    };
+  }
+
+  return {
+    position: "far-right",
+    side: "right",
+    offsetX: String(82 * Math.floor(index / 2)) + "px",
+    zIndex: 31
+  };
+}
+
+function getAnchoredFocalSlot(index) {
+  const bottom = "clamp(315px, 54vh, 455px)";
+  const slots = [
+    { position: "center", side: "center", bottom, zIndex: 38 },
+    { position: "center", side: "center", bottom, offsetX: "-120px", zIndex: 37 },
+    { position: "center", side: "center", bottom, offsetX: "120px", zIndex: 37 }
+  ];
+
+  return slots[index] || {
+    position: "center",
+    side: "center",
+    bottom,
+    offsetX: String((index - 1) * 120) + "px",
+    zIndex: 37
+  };
+}
+
+function getAnchoredFocalWidth() {
+  return "clamp(220px, 28vw, 420px)";
+}
+
+function getAnchoredFocalHeight() {
+  return "clamp(250px, 44vh, 390px)";
+}
+
+function shouldUseCrowdedCrewLayout(characters) {
+  if (characters.length < 6) {
+    return false;
+  }
+
+  const crowdedCrewIds = ["rocky", "reina", "mako", "minutu", "haze", "blue", "lars"];
+  const presentCrewCount = crowdedCrewIds.filter((characterId) =>
+    characters.some((character) => isCharacter(character, characterId))
+  ).length;
+
+  return presentCrewCount >= 5;
+}
+
+function createCrowdedCrewLayoutItems(characters, animatedId) {
+  const usedCharacters = new Set();
+  const leftGroup = takeOrderedCharacters(characters, ["reina", "rocky", "mako"], usedCharacters);
+  const rightGroup = takeOrderedCharacters(
+    characters,
+    ["minutu", "haze", "blue", "lars"],
+    usedCharacters
+  );
+  const centerGroup = buildHighlightedTertiaryGroup(
+    characters.filter((character) => !usedCharacters.has(character)),
+    normalizeSpeakerKey(animatedId)
+  );
+  centerGroup.forEach((character) => usedCharacters.add(character));
+
+  const width = getCrowdedCrewLayoutWidth(characters.length);
+  const height = getCrowdedCrewLayoutHeight(characters.length);
+
+  return leftGroup
+    .map((character, index) =>
+      createResolvedLayoutItem(character, getCrowdedLeftGroupSlots()[index], width, height, 1)
+    )
+    .concat(
+      centerGroup.map((character, index) =>
+        createResolvedLayoutItem(character, getCrowdedCenterGroupSlot(index), width, height, 1)
+      )
+    )
+    .concat(
+      rightGroup.map((character, index) =>
+        createResolvedLayoutItem(character, getCrowdedRightGroupSlots()[index], width, height, 1)
+      )
+    );
+}
+
+function takeOrderedCharacters(characters, characterIds, usedCharacters) {
+  const orderedCharacters = [];
+
+  characterIds.forEach((characterId) => {
+    const character = characters.find(
+      (candidate) => !usedCharacters.has(candidate) && isCharacter(candidate, characterId)
+    );
+
+    if (character) {
+      usedCharacters.add(character);
+      orderedCharacters.push(character);
+    }
+  });
+
+  return orderedCharacters;
+}
+
+function getCrowdedLeftGroupSlots() {
+  return [
+    { position: "center", side: "left", offsetX: "clamp(-620px, -37vw, -500px)", zIndex: 35 },
+    { position: "center", side: "left", offsetX: "clamp(-420px, -24vw, -320px)", zIndex: 36 },
+    { position: "center", side: "left", offsetX: "clamp(-190px, -9vw, -120px)", zIndex: 37 }
+  ];
+}
+
+function getCrowdedRightGroupSlots() {
+  return [
+    { position: "center", side: "right", offsetX: "clamp(120px, 9vw, 170px)", zIndex: 37 },
+    { position: "center", side: "right", offsetX: "clamp(300px, 20vw, 390px)", zIndex: 36 },
+    { position: "center", side: "right", offsetX: "clamp(500px, 31vw, 610px)", zIndex: 35 },
+    { position: "center", side: "right", offsetX: "max(560px, calc(50vw - 115px))", zIndex: 34 }
+  ];
+}
+
+function getCrowdedCenterGroupSlot(index) {
+  const slots = [
+    { position: "center", side: "center", zIndex: 39 },
+    { position: "center", side: "center", offsetX: "-88px", zIndex: 38 },
+    { position: "center", side: "center", offsetX: "88px", zIndex: 38 }
+  ];
+
+  return slots[index] || {
+    position: "center",
+    side: "center",
+    offsetX: String((index - 1) * 88) + "px",
+    zIndex: 38
+  };
+}
+
+function getCrowdedCrewLayoutWidth() {
+  return "clamp(118px, 13vw, 210px)";
+}
+
+function getCrowdedCrewLayoutHeight(count) {
+  if (count >= 7) {
+    return "clamp(185px, 30vh, 220px)";
+  }
+
+  return "clamp(200px, 34vh, 270px)";
+}
+
+function isPirateCharacter(character) {
+  return isCharacter(character, "pirata") || isCharacter(character, "pirata_rojo");
+}
+
+function isChildCharacter(character) {
+  return isCharacter(character, "nino") || isCharacter(character, "ninos");
+}
+
+function isAnchoredFocalCharacter(character) {
+  return isPirateCharacter(character) || isChildCharacter(character);
 }
 
 function buildHighlightedTertiaryGroup(tertiaryCharacters, normalizedAnimatedId) {

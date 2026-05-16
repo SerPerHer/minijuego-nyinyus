@@ -1865,7 +1865,11 @@ Object.assign(story, {
       "Mientras tanto, sobre la mesa principal del Nyinyus… los cuatro objetos descansaban juntos por primera vez. Cuatro símbolos. Cuatro series de números."
     ),
     ornitheaDialogue("Narrador", "Y una única pregunta."),
-    ornitheaDialogue("Narrador", "¿Qué les depararía la quinta isla?")
+    ornitheaDialogue("Narrador", "¿Qué les depararía la quinta isla?"),
+    {
+      type: "goto",
+      nextScene: "eirene_llegada"
+    }
   ],
 
   ornithea_plataformas_descendentes: [

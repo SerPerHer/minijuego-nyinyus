@@ -88,6 +88,54 @@ window.CHARACTER_LIBRARY = {
     accentDark: "#c91aec",
     role: "secondary"
   },
+  anciano_triste: {
+    name: "Anciano",
+    image: "Anciano_triste.png",
+    accent: "#d7d0bd",
+    accentDark: "#736a58",
+    scale: 0.96,
+    role: "tertiary"
+  },
+  anciano_contento: {
+    name: "Anciano",
+    image: "Anciano_contento.png",
+    accent: "#d7d0bd",
+    accentDark: "#736a58",
+    scale: 0.96,
+    role: "tertiary"
+  },
+  pirata: {
+    name: "Pirata",
+    image: "Piratas.png",
+    accent: "#e05757",
+    accentDark: "#7d2020",
+    scale: 1,
+    role: "tertiary"
+  },
+  pirata_rojo: {
+    name: "Pirata Rojo",
+    image: "Pirata_rojo.png",
+    accent: "#e05757",
+    accentDark: "#7d2020",
+    scale: 1,
+    role: "tertiary"
+  },
+  ninos: {
+    name: "Niños",
+    image: "Niños.png",
+    accent: "#f2d58c",
+    accentDark: "#9b6b25",
+    scale: 0.96,
+    role: "tertiary"
+  },
+  nino: {
+    name: "Niño",
+    image: "Niños.png",
+    accent: "#f2d58c",
+    accentDark: "#9b6b25",
+    scale: 0.96,
+    role: "tertiary"
+  },
   anciana: {
     name: "Anciana",
     image: "Anciana.png",
