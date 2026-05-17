@@ -139,7 +139,7 @@ Object.assign(story, {
       "Narrador",
       "Uno de ellos sujetaba al anciano panadero por el cuello de la camisa mientras el otro vaciaba brutalmente una caja llena de monedas."
     ),
-    characterStep("Pirata", { animation: "enter" }),
+    characterStep("pirata", { animation: "enter" }),
     eireneDialogue("Pirata", "¿Esto es todo? ¿Eh, viejo?"), 
     characterStep("anciano_triste", { animation: "enter" }),
     eireneDialogue("Narrador", "El anciano temblaba."),
@@ -831,7 +831,7 @@ Object.assign(story, {
       "Narrador",
       "Uno de ellos observó inmediatamente el humo y el desastre."
     ),
-    characterStep("Piratas", { animation: "enter" }),
+    characterStep("piratas", { animation: "enter" }),
     eireneDialogue("Piratas", "¿Qué coño ha pasado aquí?"),
     eireneDialogue("Narrador", "Otro vio a Lars. Y sonrió."),
     eireneDialogue(

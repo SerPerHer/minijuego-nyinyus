@@ -2252,7 +2252,7 @@ function getCrowdedCrewLayoutHeight(count) {
 }
 
 function isPirateCharacter(character) {
-  return isCharacter(character, "pirata") || isCharacter(character, "pirata_rojo");
+  return isCharacter(character, "pirata") || isCharacter(character, "piratas");
 }
 
 function isChildCharacter(character) {
