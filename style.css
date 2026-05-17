@@ -694,6 +694,10 @@ button:active {
   pointer-events: auto;
 }
 
+#credits-overlay.is-finished #credits-roll > :not(.credits-ending-block) {
+  visibility: hidden;
+}
+
 .credits-ending:active {
   box-shadow: none;
   transform: none;

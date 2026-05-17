@@ -2086,7 +2086,7 @@ Object.assign(story, {
     },
     {
       type: "background",
-      image: "Fondo_playa_destrozada.jpeg"
+      image: "Fondo_Bahia_pirata.jpeg"
     },
     eireneDialogue(
       "Narrador",
@@ -2256,7 +2256,7 @@ Object.assign(story, {
     },
     {
       type: "background",
-      image: "Fondo_playa_destrozada.jpeg"
+      image: "Fondo_Bahia_pirata.jpeg"
     },
     eireneDialogue(
       "Narrador",
@@ -3489,7 +3489,7 @@ Object.assign(story, {
     eireneDialogue("Blue", "Porque literalmente lo es."),
     {
       type: "background",
-      image: "Fondo_ruta_secreta.jpeg"
+      image: "Fondo_camino_secreto.jpeg"
     },
     eireneDialogue(
       "Narrador",
