@@ -28,7 +28,7 @@ const eireneFightPendingScene = () => [
     type: "background",
     image: "Fondo_Barriles_Eirene.jpeg"
   },
-  characterStep("pirata", { animation: "enter" }),
+  characterStep("piratas", { animation: "enter" }),
   eireneDialogue("Narrador", "Continuará...")
 ];
 
@@ -40,7 +40,7 @@ const eireneFightScene = (steps) => [
     type: "background",
     image: "Fondo_Barriles_Eirene.jpeg"
   },
-  characterStep("pirata", { animation: "enter" }),
+  characterStep("piratas", { animation: "enter" }),
   ...steps,
   {
     type: "goto",
@@ -844,7 +844,7 @@ Object.assign(story, {
       "Ha sido un accidente. Solo unos niños jugando."
     ),
     eireneDialogue(
-      "Pirata",
+      "Piratas",
       "¿Y nosotros tenemos cara de preocuparnos por niños?"
     ),
     eireneDialogue(
@@ -852,7 +852,7 @@ Object.assign(story, {
       "Otro de los Mandíbula Roja escupió al suelo mirando el destrozo."
     ),
     eireneDialogue(
-      "Pirata",
+      "Piratas",
       "Ese almacén paga tributo. Si algo explota aquí… alguien compensa las pérdidas."
     ),
     eireneDialogue("Narrador", "Lars bajó ligeramente la mirada."),
@@ -900,13 +900,13 @@ Object.assign(story, {
       "Los Mandíbula Roja intercambiaron miradas. Y entonces… sacaron armas."
     ),
     eireneDialogue(
-      "Pirata",
+      "Piratas",
       "Perfecto. Entonces os romperemos a vosotros también."
     ),
     {
       type: "clearCharacters"
     },
-    characterStep("pirata", { animation: "enter" }),
+    characterStep("piratas", { animation: "enter" }),
     {
       type: "choice",
       text: "¿Con quién luchas?",
@@ -3771,7 +3771,7 @@ Object.assign(story, {
     ),
     {
       type: "background",
-      image: "Fondo_puerto.jpeg"
+      image: "Fondo_ciudad_Eirene.jpeg"
     },
     eireneDialogue(
       "Narrador",
