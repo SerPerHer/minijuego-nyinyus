@@ -649,7 +649,7 @@ button:active {
 }
 
 .credits-ending-block {
-  margin: 80px auto 0;
+  margin: max(80px, 58vh) auto 0;
   text-align: center;
 }
 

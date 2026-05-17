@@ -17,7 +17,7 @@ Object.assign(story, {
     },
     {
       type: "background",
-      image: "FONDO TRANSICIÓN_4.png"
+      image: "Fondo_todos.jpeg"
     },
     finalHistoriaDialogue(
       "Narrador",
@@ -69,21 +69,17 @@ Object.assign(story, {
       "Narrador",
       "El mundo siguió haciéndose más grande. Más vivo. Más hermoso."
     ),
-    {
-      type: "background",
-      image: "Fondo_Fiesta.jpeg"
-    },
     finalHistoriaDialogue("Narrador", "Unos meses más tarde… el mar volvió a llenarse de música."),
     finalHistoriaDialogue("Narrador", "Pero esta vez no era una batalla."),
     finalHistoriaDialogue("Narrador", "Era una celebración."),
+    {
+      type: "background",
+      image: "Fondo_celebracion.jpeg"
+    },
     finalHistoriaDialogue(
       "Narrador",
       "Una enorme fiesta bajo cientos de faroles flotantes junto al océano. Mesas llenas de comida. Flores por todas partes. Música. Risas. Lágrimas felices."
     ),
-    {
-      type: "background",
-      image: "boda_nakamas.png"
-    },
     finalHistoriaDialogue("Narrador", "Y en mitad de todo aquello… Rocky y Reina."),
     finalHistoriaDialogue("Narrador", "Casándose."),
     finalHistoriaDialogue(
@@ -108,10 +104,6 @@ Object.assign(story, {
     ),
     finalHistoriaDialogue("Narrador", "Porque después de todo lo vivido… seguían allí."),
     finalHistoriaDialogue("Narrador", "Juntos."),
-    {
-      type: "background",
-      image: "boda_solos.png"
-    },
     finalHistoriaDialogue(
       "Narrador",
       "Rocky miró a Reina como si el resto del mundo hubiera desaparecido."

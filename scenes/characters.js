@@ -239,7 +239,7 @@ window.CHARACTER_LIBRARY = {
 window.SCENE_CHARACTER_LAYOUTS = {
   tempestaria_llegada: {
     minutu: {
-      position: "far-left",
+      position: "far-right",
       scale: 0.94
     },
     rocky: {

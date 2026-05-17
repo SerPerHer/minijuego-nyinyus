@@ -595,9 +595,6 @@ Object.assign(story, {
       text: "Finalmente llegaron a una pequeña zona elevada de la ciudad. Las casas estaban construidas unas sobre otras, sujetas con cadenas gigantescas clavadas entre sí."
     },
     {
-      type: "stopSound"
-    },
-    {
       type: "character",
       id: "minutu",
       name: "Minutu",
@@ -2227,9 +2224,6 @@ Object.assign(story, {
       text: "Y alguien gritando: QUE ALGUIEN HAGA QUE SE CALLE."
     },
     {
-      type: "stopSound"
-    },
-    {
       type: "clearCharacters",
       ids: ["valerio"]
     },
@@ -2412,9 +2406,6 @@ Object.assign(story, {
   ],
 
   tempestaria_final: [
-    {
-      type: "stopSound"
-    },
     {
       type: "background",
       image: "FONDO FINAL.jpeg"
