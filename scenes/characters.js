@@ -120,6 +120,14 @@ window.CHARACTER_LIBRARY = {
     scale: 1,
     role: "tertiary"
   },
+  varko_rojo: {
+    name: "Varko el Rojo",
+    image: "Varko_el_Rojo.png",
+    accent: "#b52c2c",
+    accentDark: "#5f1515",
+    scale: 1.04,
+    role: "tertiary"
+  },
   ninos: {
     name: "Niños",
     image: "Niños.png",
