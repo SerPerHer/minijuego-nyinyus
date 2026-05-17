@@ -134,8 +134,8 @@ Object.assign(story, {
       text: "",
       options: [
         {
-          text: "Volver al inicio",
-          action: "returnToIntro"
+          text: "To be continued...",
+          action: "showCredits"
         }
       ]
     }

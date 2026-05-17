@@ -17,6 +17,9 @@ const nextButton = document.getElementById("next-button");
 const backgroundLayer = document.getElementById("background-layer");
 const characterLayer = document.getElementById("character-layer");
 const inspectPrompt = document.getElementById("inspect-prompt");
+const creditsOverlay = document.getElementById("credits-overlay");
+const creditsRoll = document.getElementById("credits-roll");
+const creditsReturnButton = document.getElementById("credits-return-button");
 const inspectOverlay = document.getElementById("inspect-overlay");
 const inspectPanel = document.getElementById("inspect-panel");
 const inspectImage = document.getElementById("inspect-image");
@@ -30,6 +33,7 @@ const SPEAKING_BOUNCE_HEIGHT = 14;
 const TRANSITION_BACKGROUND_KEY = "fondo transicion.jpeg";
 const START_SCREEN_MUSIC = "One_Piece_tantantan_tantantanta.mp3";
 const START_GAME_MUSIC = "One_Piece_aventura.mp3";
+const CREDITS_MUSIC = "";
 const SAVE_STORAGE_KEY = "nyinyus_adventure_save_v1";
 const INTRO_SCENE_IDS = new Set([
   "start",
@@ -88,6 +92,75 @@ const collectibleLibrary = {
     alt: "Pergamino con una mascara de zorro y un simbolo circular fragmentado"
   }
 };
+const creditTeam = [
+  {
+    name: "Laia",
+    title: "Arquitecta del caos narrativo",
+    work: "Guion, diálogos y parte narrativa"
+  },
+  {
+    name: "Anna",
+    title: "Maestra de islas y organizadora",
+    work: "Parte visual y coordinadora de escenas"
+  },
+  {
+    name: "Sergi",
+    title: "Forjador de sistemas y mecánicas",
+    work: "Programación y montaje del videojuego"
+  }
+];
+const creditParticipants = [
+  {
+    name: "Xènia",
+    title: "Soñadora oficial entre islas"
+  },
+  {
+    name: "Toni",
+    title: "Monje zen del archipiélago"
+  }
+];
+const creditCharacters = [
+  {
+    name: "MINUTU D. Silentium x SERGI",
+    quote: "<Debo revisar los posibles inconvenientes del viaje>",
+    images: [
+      { file: "wanted_minutu.png", alt: "Wanted de Minutu" },
+      { file: "Credits_Sergi.png", alt: "Creditos de Sergi" }
+    ]
+  },
+  {
+    name: "MAKO \"Huracán\" x LAIA",
+    quote: "<Un punto para mi, esto es una competición, no preguntes cuál.>",
+    images: [
+      { file: "wanted_mako.png", alt: "Wanted de Mako" },
+      { file: "Credits_Laia.jpg", alt: "Creditos de Laia" }
+    ]
+  },
+  {
+    name: "BLUE \"Psychic\" x ANNA",
+    quote: "<Necesito un momento para procesar esto>",
+    images: [
+      { file: "wanted_blue.png", alt: "Wanted de Blue" },
+      { file: "Credits_Anna.jpg", alt: "Creditos de Anna" }
+    ]
+  },
+  {
+    name: "HAZE \"La Pajaritos\" x XÈNIA",
+    quote: "<Sí, os estaba escuchando... más o menos>",
+    images: [
+      { file: "wanted_haze.png", alt: "Wanted de Haze" },
+      { file: "Credits_Xènia.png", alt: "Creditos de Xenia" }
+    ]
+  },
+  {
+    name: "LARS \"corazón amable\" x TONI",
+    quote: "<El dolor también puede transformarse>",
+    images: [
+      { file: "wanted_lars.png", alt: "Wanted de Lars" },
+      { file: "Credits_Toni.jpg", alt: "Creditos de Toni" }
+    ]
+  }
+];
 
 let currentScene = [];
 let currentStepIndex = 0;
@@ -124,6 +197,7 @@ backButton.addEventListener("click", previousStep);
 nextButton.addEventListener("click", nextStep);
 inspectClose.addEventListener("click", handleInspectClose);
 inspectOverlay.addEventListener("click", handleInspectBackdropClick);
+creditsReturnButton.addEventListener("click", returnToStartScreen);
 updateAudioControls();
 updateBackButton();
 updateScreenControls();
@@ -169,6 +243,7 @@ function resetGameState() {
   clearChoices();
   clearInspectPrompt();
   closeInspectOverlay();
+  hideCredits();
   setSpeakerStyle("");
   setSpeakingCharacter("");
   characterState.clear();
@@ -180,6 +255,7 @@ function resetGameState() {
   speakerName.textContent = "";
   speakerName.classList.add("hidden");
   dialogueText.textContent = "";
+  dialogueBox.classList.remove("hidden");
   nextButton.classList.remove("hidden");
   currentScene = [];
   currentStepIndex = 0;
@@ -234,7 +310,9 @@ function loadScene(sceneId) {
   clearChoices();
   clearInspectPrompt();
   closeInspectOverlay();
+  hideCredits();
   setSpeakingCharacter("");
+  dialogueBox.classList.remove("hidden");
   nextButton.classList.remove("hidden");
   currentSceneId = sceneId;
   setInspectPromptCompact(!isIntroSceneId(sceneId));
@@ -524,6 +602,11 @@ function chooseOption(option) {
     return;
   }
 
+  if (option && option.action === "showCredits") {
+    showCredits();
+    return;
+  }
+
   if (option && option.nextScene) {
     jumpToScene(option.nextScene);
     return;
@@ -541,6 +624,131 @@ function chooseOption(option) {
 function clearChoices() {
   choiceBox.innerHTML = "";
   choiceBox.classList.add("hidden");
+}
+
+function showCredits() {
+  stopTyping();
+  clearChoices();
+  clearInspectPrompt();
+  closeInspectOverlay();
+  stopSpeakingAnimation();
+  setSpeakingCharacter("");
+  speakerName.textContent = "";
+  speakerName.classList.add("hidden");
+  dialogueText.textContent = "";
+  nextButton.classList.add("hidden");
+  dialogueBox.classList.add("hidden");
+  buildCreditsRoll();
+
+  if (CREDITS_MUSIC) {
+    playMusicFile(CREDITS_MUSIC, { loop: false, volume: 0.75 });
+  }
+
+  creditsOverlay.classList.remove("hidden", "is-finished");
+  creditsOverlay.setAttribute("aria-hidden", "false");
+  creditsRoll.style.animation = "none";
+  void creditsRoll.offsetHeight;
+  const duration = Math.max(78, Math.ceil(creditsRoll.scrollHeight / 22));
+  creditsRoll.style.setProperty("--credits-duration", duration + "s");
+  creditsRoll.style.animation = "";
+  creditsRoll.onanimationend = () => {
+    creditsOverlay.classList.add("is-finished");
+  };
+  updateScreenControls();
+}
+
+function hideCredits() {
+  if (!creditsOverlay || !creditsRoll) {
+    return;
+  }
+
+  creditsRoll.onanimationend = null;
+  creditsRoll.style.animation = "";
+  creditsOverlay.classList.add("hidden");
+  creditsOverlay.classList.remove("is-finished");
+  creditsOverlay.setAttribute("aria-hidden", "true");
+  updateScreenControls();
+}
+
+function buildCreditsRoll() {
+  creditsRoll.innerHTML = "";
+
+  appendCreditText(
+    creditsRoll,
+    "Gracias por jugar a esta aventura creada por gente que claramente necesitará unas vacaciones.",
+    "credits-thanks"
+  );
+  appendCreditText(creditsRoll, "Créditos definitivamente profesionales", "credits-title");
+  appendCreditText(creditsRoll, "Equipo", "credits-section-title");
+
+  creditTeam.forEach((member) => {
+    appendCreditPerson(creditsRoll, member);
+  });
+
+  appendCreditText(creditsRoll, "Con la participación de:", "credits-kicker");
+  creditParticipants.forEach((member) => {
+    appendCreditPerson(creditsRoll, member, { compact: true });
+  });
+
+  appendCreditText(creditsRoll, "Personajes", "credits-section-title");
+  creditCharacters.forEach((character) => {
+    appendCreditCharacter(creditsRoll, character);
+  });
+
+  const groupBlock = document.createElement("section");
+  groupBlock.className = "credits-group-photo";
+  appendCreditText(groupBlock, "Foto grupal", "credits-section-title");
+  appendCreditText(groupBlock, "*Aún no la tengo", "credits-note");
+  creditsRoll.appendChild(groupBlock);
+
+  appendCreditText(creditsRoll, "La aventura continúa...", "credits-ending");
+}
+
+function appendCreditPerson(parent, member, options) {
+  const person = document.createElement("article");
+  person.className = "credits-person";
+  person.classList.toggle("is-compact", Boolean(options && options.compact));
+
+  appendCreditText(person, member.name, "credits-person-name");
+  appendCreditText(person, "\"" + member.title + "\"", "credits-person-title");
+
+  if (member.work) {
+    appendCreditText(person, member.work, "credits-person-work");
+  }
+
+  parent.appendChild(person);
+}
+
+function appendCreditCharacter(parent, character) {
+  const characterBlock = document.createElement("article");
+  characterBlock.className = "credits-character";
+
+  appendCreditText(characterBlock, character.name, "credits-character-name");
+  appendCreditText(characterBlock, character.quote, "credits-character-quote");
+
+  const images = document.createElement("div");
+  images.className = "credits-character-images";
+  character.images.forEach((image) => {
+    const img = document.createElement("img");
+    img.src = "assets/backgrounds/" + image.file;
+    img.alt = image.alt || character.name;
+    img.loading = "lazy";
+    img.onerror = () => {
+      img.classList.add("hidden");
+    };
+    images.appendChild(img);
+  });
+
+  characterBlock.appendChild(images);
+  parent.appendChild(characterBlock);
+}
+
+function appendCreditText(parent, text, className) {
+  const element = document.createElement("p");
+  element.className = className;
+  element.textContent = text;
+  parent.appendChild(element);
+  return element;
 }
 
 function showInspect(step) {
@@ -1298,7 +1506,8 @@ function updateBackButton() {
 
 function updateScreenControls() {
   const isGameVisible = !gameScreen.classList.contains("hidden");
-  saveButton.classList.toggle("hidden", !isGameVisible || !currentSceneId);
+  const isCreditsVisible = creditsOverlay && !creditsOverlay.classList.contains("hidden");
+  saveButton.classList.toggle("hidden", !isGameVisible || !currentSceneId || isCreditsVisible);
 }
 
 function saveGame() {

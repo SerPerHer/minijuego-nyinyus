@@ -1948,7 +1948,7 @@ Object.assign(story, {
     },
     {
       type: "background",
-      image: "Fondo_ruta_secreta.jpeg"
+      image: "Fondo_sendero.jpeg"
     },
     eireneDialogue(
       "Narrador",
@@ -1968,7 +1968,7 @@ Object.assign(story, {
     ),
     {
       type: "background",
-      image: "Fondo_playa_destrozada.jpeg"
+      image: "Fondo_Bahia_pirata.jpeg"
     },
     eireneDialogue(
       "Narrador",
@@ -2409,7 +2409,7 @@ Object.assign(story, {
     },
     {
       type: "background",
-      image: "Fondo_playa_destrozada.jpeg"
+      image: "Fondo_Bahia_pirata.jpeg"
     },
     eireneDialogue(
       "Narrador",
@@ -3558,7 +3558,7 @@ Object.assign(story, {
     eireneDialogue("Narrador", "CLANK."),
     {
       type: "background",
-      image: "Fondo_cueva_pirata.jpeg"
+      image: "Fondo_entrada_cueva.jpeg"
     },
     eireneDialogue(
       "Narrador",
@@ -3617,7 +3617,7 @@ Object.assign(story, {
     },
     {
       type: "background",
-      image: "Fondo_playa_destrozada.jpeg"
+      image: "Fondo_Bahia_pirata.jpeg"
     },
     eireneDialogue(
       "Narrador",
