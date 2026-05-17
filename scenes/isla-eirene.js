@@ -3707,8 +3707,11 @@ Object.assign(story, {
       "Unos minutos después… Lars reapareció. Y sostenía algo entre las manos. Una pequeña estatuilla de bronce."
     ),
     {
-      type: "background",
-      image: "Busto_mujer.jpeg"
+      type: "inspect",
+      image: "Busto_mujer.jpeg",
+      buttonText: "Busto",
+      alt: "Busto de la primera sanadora de Eirene",
+      autoOpen: true
     },
     eireneDialogue(
       "Narrador",

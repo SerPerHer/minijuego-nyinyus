@@ -2014,27 +2014,35 @@ function createAnchoredCompanionLayoutItems(characters, animatedId) {
     return createCrowdedCrewLayoutItems(characters, animatedId);
   }
 
+  const centeredSupportCharacters = characters.filter(isCenteredSupportCharacter);
+  const sideCharacters = characters.filter((character) => !isCenteredSupportCharacter(character));
   const usedCharacters = new Set();
   const layoutCount = Math.max(characters.length + 1, 4);
   const width = getCharacterWidth(layoutCount);
   const height = getCharacterHeight(layoutCount);
   const scale = getCharacterScale(layoutCount);
-  const leftGroup = takeOrderedCharacters(characters, ["reina", "rocky", "mako"], usedCharacters);
+  const leftGroup = takeOrderedCharacters(sideCharacters, ["reina", "rocky", "mako"], usedCharacters);
   const rightGroup = takeOrderedCharacters(
-    characters,
+    sideCharacters,
     ["minutu", "haze", "blue", "lars"],
     usedCharacters
   );
   const remainingGroup = buildHighlightedTertiaryGroup(
-    characters.filter((character) => !usedCharacters.has(character)),
+    sideCharacters.filter((character) => !usedCharacters.has(character)),
     normalizeSpeakerKey(animatedId)
   );
   const leftSlots = getAnchoredCompanionLeftSlots(leftGroup.length);
+  const centerSlots = getAnchoredCompanionCenterSlots(centeredSupportCharacters.length);
   const rightSlots = getAnchoredCompanionRightSlots(rightGroup.length);
 
   return leftGroup
     .map((character, index) =>
       createResolvedLayoutItem(character, leftSlots[index], width, height, scale)
+    )
+    .concat(
+      centeredSupportCharacters.map((character, index) =>
+        createResolvedLayoutItem(character, centerSlots[index], width, height, scale)
+      )
     )
     .concat(
       rightGroup.map((character, index) =>
@@ -2071,6 +2079,14 @@ function getAnchoredCompanionLeftSlots(count) {
     { position: "left", side: "left", zIndex: 34 },
     { position: "center", side: "left", offsetX: "clamp(-320px, -18vw, -140px)", zIndex: 33 }
   ];
+}
+
+function getAnchoredCompanionCenterSlots(count) {
+  return buildSlotSequence(count, [
+    { position: "center", side: "center", zIndex: 36 },
+    { position: "center", side: "center", offsetX: "-92px", zIndex: 35 },
+    { position: "center", side: "center", offsetX: "92px", zIndex: 35 }
+  ]);
 }
 
 function getAnchoredCompanionRightSlots(count) {
@@ -2122,9 +2138,9 @@ function getAnchoredCompanionRemainingSlot(index) {
 function getAnchoredFocalSlot(index) {
   const bottom = "clamp(315px, 54vh, 455px)";
   const slots = [
-    { position: "center", side: "center", bottom, zIndex: 38 },
-    { position: "center", side: "center", bottom, offsetX: "-120px", zIndex: 37 },
-    { position: "center", side: "center", bottom, offsetX: "120px", zIndex: 37 }
+    { position: "center", side: "center", bottom, zIndex: 48 },
+    { position: "center", side: "center", bottom, offsetX: "-120px", zIndex: 47 },
+    { position: "center", side: "center", bottom, offsetX: "120px", zIndex: 47 }
   ];
 
   return slots[index] || {
@@ -2132,7 +2148,7 @@ function getAnchoredFocalSlot(index) {
     side: "center",
     bottom,
     offsetX: String((index - 1) * 120) + "px",
-    zIndex: 37
+    zIndex: 47
   };
 }
 
@@ -2252,7 +2268,11 @@ function getCrowdedCrewLayoutHeight(count) {
 }
 
 function isPirateCharacter(character) {
-  return isCharacter(character, "pirata") || isCharacter(character, "piratas");
+  return (
+    isCharacter(character, "pirata") ||
+    isCharacter(character, "piratas") ||
+    isCharacter(character, "varko_rojo")
+  );
 }
 
 function isChildCharacter(character) {
@@ -2261,6 +2281,10 @@ function isChildCharacter(character) {
 
 function isAnchoredFocalCharacter(character) {
   return isPirateCharacter(character) || isChildCharacter(character);
+}
+
+function isCenteredSupportCharacter(character) {
+  return isCharacter(character, "anciano_triste") || isCharacter(character, "anciano_contento");
 }
 
 function buildHighlightedTertiaryGroup(tertiaryCharacters, normalizedAnimatedId) {
