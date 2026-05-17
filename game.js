@@ -33,6 +33,7 @@ const TRANSITION_BACKGROUND_KEY = "fondo transicion.jpeg";
 const START_SCREEN_MUSIC = "One_Piece_tantantan_tantantanta.mp3";
 const START_GAME_MUSIC = "One_Piece_aventura.mp3";
 const CREDITS_MUSIC = "Binks Sake - Brook lyrics.mp3";
+const CREDITS_FINAL_MUSIC = "Más Allá del Sí.mp3";
 const SAVE_STORAGE_KEY = "nyinyus_adventure_save_v1";
 const INTRO_SCENE_IDS = new Set([
   "start",
@@ -660,8 +661,17 @@ async function showCredits() {
   creditsRoll.style.animation = "";
   creditsRoll.onanimationend = () => {
     creditsOverlay.classList.add("is-finished");
+    playCreditsFinalMusic();
   };
   updateScreenControls();
+}
+
+function playCreditsFinalMusic() {
+  if (!CREDITS_FINAL_MUSIC) {
+    return;
+  }
+
+  playMusicFile(CREDITS_FINAL_MUSIC, { loop: false, volume: 0.85 });
 }
 
 function hideCredits() {
