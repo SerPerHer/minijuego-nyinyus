@@ -1,7 +1,8 @@
-const rabbitaDialogue = (speaker, text) => ({
+const rabbitaDialogue = (speaker, text, characterId) => ({
   type: "dialogue",
   speaker,
-  text
+  text,
+  ...(characterId ? { characterId } : {})
 });
 
 Object.assign(story, {
@@ -212,7 +213,7 @@ Object.assign(story, {
     ),
     rabbitaDialogue("Mako", "¡¡¡HOLAAAAA!!!"),
     rabbitaDialogue("Narrador", "La chica pegó un pequeño salto. Sus papeles casi salieron volando."),
-    rabbitaDialogue("?????", "¿¡Qué...!?"),
+    rabbitaDialogue("?????", "¿¡Qué...!?", "blue"),
     rabbitaDialogue(
       "Mako",
       "¿Por qué estás triste y científica al mismo tiempo? ¿Quieres ser mi amiga? ¿Cómo te llamas? ¿Qué haces aquí?"
@@ -221,7 +222,7 @@ Object.assign(story, {
       "Narrador",
       "La chica parpadeó varias veces, intentando procesar todo lo que estaba ocurriendo."
     ),
-    rabbitaDialogue("?????", "Yo... no estoy... ¿eh? Soy Blue... y yo... eh..."),
+    rabbitaDialogue("?????", "Yo... no estoy... ¿eh? Soy Blue... y yo... eh...", "blue"),
     rabbitaDialogue("Narrador", "Miró el brazo de Mako todavía colgado sobre ella."),
     rabbitaDialogue("Blue", "Necesito un momento para procesar esto."),
     rabbitaDialogue("Narrador", "Rocky empezó a reírse desde la mesa."),
@@ -1177,7 +1178,7 @@ Object.assign(story, {
     rabbitaDialogue("Narrador", "Mako abrió muchísimo los ojos."),
     rabbitaDialogue("Mako", "LA ISLA SE ESTÁ MOVIENDO."),
     rabbitaDialogue("Narrador", "Entonces una voz resonó detrás de ellos."),
-    rabbitaDialogue("?????", "Lo hiciste. Sabía que lo conseguirías."),
+    rabbitaDialogue("?????", "Lo hiciste. Sabía que lo conseguirías.", "sylus"),
     rabbitaDialogue("Narrador", "Todos se giraron."),
     rabbitaDialogue(
       "Narrador",

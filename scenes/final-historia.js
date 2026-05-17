@@ -141,8 +141,6 @@ Object.assign(story, {
       options: [
         {
           text: "To be continued...",
-          text: "Sábado 23 de Mayo a las 10:20h",
-          text: "41.362428, 1.708434",
           action: "showCredits"
         }
       ]

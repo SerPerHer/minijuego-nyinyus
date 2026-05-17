@@ -133,7 +133,7 @@ Object.assign(story, {
     },
     {
       type: "dialogue",
-      speaker: "Anciana",
+      speaker: "Vieja",
       text: "ALGUIEN HA CAMBIADO LOS DULCES DE LAS 08:03 POR LOS DE LAS 08:04."
     },
     {

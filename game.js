@@ -88,7 +88,8 @@ const collectibleLibrary = {
     order: 2,
     buttonText: "Pergamino",
     image: "PERGAMINO_DEL_KYUBI_CELESTIAL.jpeg",
-    alt: "Pergamino con una mascara de zorro y un simbolo circular fragmentado"
+    alt: "Pergamino con una mascara de zorro y un simbolo circular fragmentado",
+    visibleScenePrefixes: ["toki_hanashima_"]
   }
 };
 const creditTeam = [
@@ -554,12 +555,13 @@ function getVisibleLayoutItems(items) {
 function showDialogue(step) {
   recordCheckpoint();
   const speaker = step.speaker || "";
+  const speakingCharacterKey = step.characterId || step.character || speaker;
 
-  revealSpeakingCharacter(speaker);
+  revealSpeakingCharacter(speakingCharacterKey);
   speakerName.textContent = speaker;
   speakerName.classList.toggle("hidden", !speaker);
-  setSpeakerStyle(speaker);
-  setSpeakingCharacter(speaker);
+  setSpeakerStyle(speakingCharacterKey);
+  setSpeakingCharacter(speakingCharacterKey);
   typeText(step.text || "");
 }
 
@@ -652,7 +654,7 @@ async function showCredits() {
   const endingBlock = creditsRoll.querySelector(".credits-ending-block");
   const endOffset = calculateCreditsEndOffset(endingBlock);
   const travelDistance = window.innerHeight - endOffset;
-  const duration = Math.max(78, Math.ceil(travelDistance / 22));
+  const duration = Math.max(58, Math.ceil(travelDistance / 30));
   creditsRoll.style.setProperty("--credits-end-offset", endOffset + "px");
   creditsRoll.style.setProperty("--credits-duration", duration + "s");
   creditsRoll.style.animation = "";
@@ -702,8 +704,6 @@ function buildCreditsRoll() {
 
   const groupBlock = document.createElement("section");
   groupBlock.className = "credits-group-photo";
-  appendCreditText(groupBlock, "Foto grupal", "credits-section-title");
-  appendCreditText(groupBlock, "*Aún no la tengo", "credits-note");
   creditsRoll.appendChild(groupBlock);
 
   appendCreditEndingButton();
@@ -981,7 +981,7 @@ function renderInspectPrompt(options) {
 
   inspectPrompt.innerHTML = "";
 
-  getUnlockedCollectiblesInOrder().forEach((collectible) => {
+  getVisibleUnlockedCollectiblesInOrder().forEach((collectible) => {
     const isRequired =
       requiredStep &&
       requiredStep.collectible &&
@@ -1050,6 +1050,25 @@ function handleInspectButtonClick(step, options) {
 function getUnlockedCollectiblesInOrder() {
   return Array.from(unlockedCollectibles.values()).sort((left, right) => {
     return getCollectibleOrder(left.id) - getCollectibleOrder(right.id);
+  });
+}
+
+function getVisibleUnlockedCollectiblesInOrder() {
+  return getUnlockedCollectiblesInOrder().filter((collectible) => {
+    return isCollectibleVisibleInScene(collectible.id, currentSceneId);
+  });
+}
+
+function isCollectibleVisibleInScene(collectibleId, sceneId) {
+  const collectible = collectibleLibrary[collectibleId];
+  const visibleScenePrefixes = collectible && collectible.visibleScenePrefixes;
+
+  if (!Array.isArray(visibleScenePrefixes) || visibleScenePrefixes.length === 0) {
+    return true;
+  }
+
+  return visibleScenePrefixes.some((prefix) => {
+    return typeof prefix === "string" && typeof sceneId === "string" && sceneId.startsWith(prefix);
   });
 }
 
@@ -1879,8 +1898,7 @@ function applyBackgroundState(backgroundState) {
 }
 
 function shouldHideCharactersForCurrentBackground() {
-  return normalizeAssetKey(currentBackgroundState && currentBackgroundState.image) ===
-    TRANSITION_BACKGROUND_KEY;
+  return false;
 }
 
 function normalizeAssetKey(value) {
@@ -2359,6 +2377,13 @@ function getAnchoredCompanionLeftSlots(count) {
 }
 
 function getAnchoredCompanionCenterSlots(count) {
+  if (count === 2) {
+    return [
+      { position: "center", side: "center", offsetX: "-92px", zIndex: 35 },
+      { position: "center", side: "center", offsetX: "92px", zIndex: 35 }
+    ];
+  }
+
   return buildSlotSequence(count, [
     { position: "center", side: "center", zIndex: 36 },
     { position: "center", side: "center", offsetX: "-92px", zIndex: 35 },
@@ -2552,16 +2577,25 @@ function isPirateCharacter(character) {
   );
 }
 
+function isElevatedFocalCharacter(character) {
+  return isPirateCharacter(character) || isCharacter(character, "rey_hanabusa");
+}
+
 function isChildCharacter(character) {
   return isCharacter(character, "nino") || isCharacter(character, "ninos");
 }
 
 function isAnchoredFocalCharacter(character) {
-  return isPirateCharacter(character) || isChildCharacter(character);
+  return isElevatedFocalCharacter(character) || isChildCharacter(character);
 }
 
 function isCenteredSupportCharacter(character) {
-  return isCharacter(character, "anciano_triste") || isCharacter(character, "anciano_contento");
+  return (
+    isCharacter(character, "anciano_triste") ||
+    isCharacter(character, "anciano_contento") ||
+    isCharacter(character, "lady_rin") ||
+    isCharacter(character, "lord_kazan")
+  );
 }
 
 function buildHighlightedTertiaryGroup(tertiaryCharacters, normalizedAnimatedId) {

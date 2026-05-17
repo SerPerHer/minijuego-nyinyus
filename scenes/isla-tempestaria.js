@@ -232,7 +232,7 @@ Object.assign(story, {
     {
       type: "dialogue",
       speaker: "Hombre",
-      text: "DETENEDLA."
+      text: "¡¡MAKO, VUELVE!! ¡¡¡DETENEDLA!!!"
     },
     {
       type: "dialogue",
