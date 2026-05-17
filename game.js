@@ -19,6 +19,9 @@ const characterLayer = document.getElementById("character-layer");
 const inspectPrompt = document.getElementById("inspect-prompt");
 const creditsOverlay = document.getElementById("credits-overlay");
 const creditsRoll = document.getElementById("credits-roll");
+const creditsLyrics = document.getElementById("credits-lyrics");
+const creditsLyricCurrent = document.getElementById("credits-lyric-current");
+const creditsLyricNext = document.getElementById("credits-lyric-next");
 const inspectOverlay = document.getElementById("inspect-overlay");
 const inspectPanel = document.getElementById("inspect-panel");
 const inspectImage = document.getElementById("inspect-image");
@@ -162,6 +165,73 @@ const creditCharacters = [
     ]
   }
 ];
+const creditsFinalLyrics = [
+  { time: 1, text: "El puerto nunca dormía." },
+  { time: 3, text: "Y aquella noche, antes de prometerse para siempre," },
+  { time: 8, text: "Rocky y Reina encontraron un mapa marcado con cinco islas." },
+  { time: 12, text: "No buscaban oro." },
+  { time: 14, text: "Buscaban saber si podían elegir el mismo rumbo" },
+  { time: 20, text: "cuando el mar cambiara bajo sus pies." },
+  { time: 23, text: "Así nació el viaje del Nyinyus." },
+  { time: 28, text: "¡Nyinyus!" },
+  { time: 29, text: "¡Zarpa ya!" },
+  { time: 30, text: "Rocky abre rumbo," },
+  { time: 33, text: "Reina mira al sol." },
+  { time: 35, text: "Minutu lee el caos," },
+  { time: 38, text: "Mako reta al ciclón." },
+  { time: 41, text: "Blue enciende el hierro," },
+  { time: 44, text: "Haze sigue el azar." },
+  { time: 47, text: "Lars dejó sus cadenas" },
+  { time: 50, text: "para volver a soñar." },
+  { time: 53, text: "Flores, tormentas," },
+  { time: 55, text: "metal, niebla y libertad." },
+  { time: 58, text: "Cinco islas nos hicieron" },
+  { time: 61, text: "una misma verdad." },
+  { time: 64, text: "¡Vamos, Nyinyus!" },
+  { time: 67, text: "¡Velas al sol!" },
+  { time: 70, text: "Que el sueño nos empuje" },
+  { time: 72, text: "mucho más allá." },
+  { time: 76, text: "Antes del “sí”," },
+  { time: 78, text: "cruzamos el mar." },
+  { time: 82, text: "El tesoro era elegirnos" },
+  { time: 85, text: "y no mirar atrás." },
+  { time: 93, text: "Hanashima nos puso" },
+  { time: 95, text: "a prueba el corazón." },
+  { time: 98, text: "Tempestaria gritaba," },
+  { time: 100, text: "pero Mako corrió." },
+  { time: 104, text: "Rabbita volvió a latir," },
+  { time: 106, text: "Ornithea nos guio." },
+  { time: 109, text: "Y en Eirene sin miedo," },
+  { time: 112, text: "Lars por fin sonrió." },
+  { time: 115, text: "Si cae la noche," },
+  { time: 117, text: "si ruge el temporal," },
+  { time: 121, text: "con esta tripulación" },
+  { time: 124, text: "nadie se queda atrás." },
+  { time: 127, text: "¡Vamos, Nyinyus!" },
+  { time: 130, text: "¡Velas al sol!" },
+  { time: 133, text: "Que el sueño nos empuje" },
+  { time: 135, text: "mucho más allá." },
+  { time: 139, text: "Antes del “sí”," },
+  { time: 141, text: "cruzamos el mar." },
+  { time: 144, text: "El tesoro era elegirnos" },
+  { time: 148, text: "y no mirar atrás." },
+  { time: 153, text: "Cinco marcas brillarán," },
+  { time: 157, text: "un mapa despertará." },
+  { time: 159, text: "Y aunque el mundo sea inmenso," },
+  { time: 162, text: "juntos será nuestro hogar." },
+  { time: 181, text: "¡Vamos, Nyinyus!" },
+  { time: 184, text: "¡Velas al sol!" },
+  { time: 187, text: "Rocky y Reina al frente," },
+  { time: 189, text: "con todo el corazón." },
+  { time: 193, text: "Minutu, Mako," },
+  { time: 195, text: "Blue, Haze y Lars:" },
+  { time: 198, text: "somos una familia" },
+  { time: 201, text: "nacida en altamar." },
+  { time: 204, text: "¡Vamos, Nyinyus!" },
+  { time: 207, text: "¡Zarpa ya!" },
+  { time: 210, text: "Nuestro viaje acaba" },
+  { time: 213, text: "de empezar." }
+];
 
 let currentScene = [];
 let currentStepIndex = 0;
@@ -184,6 +254,8 @@ let currentOverlayCompletesInspectStep = false;
 let isDialogueRevealMode = false;
 let saveStatusTimeout = null;
 let creditsImagePreloadPromise = null;
+let creditsLyricAudio = null;
+let creditsLyricIndex = -1;
 
 introButton.addEventListener("click", showStartScreen);
 homeButton.addEventListener("click", returnToStartScreen);
@@ -671,7 +743,85 @@ function playCreditsFinalMusic() {
     return;
   }
 
-  playMusicFile(CREDITS_FINAL_MUSIC, { loop: false, volume: 0.85 });
+  const audio = playMusicFile(CREDITS_FINAL_MUSIC, { loop: false, volume: 0.85 });
+  startCreditsFinalLyrics(audio);
+}
+
+function startCreditsFinalLyrics(audio) {
+  stopCreditsFinalLyrics();
+
+  if (!audio || !creditsLyrics || !creditsLyricCurrent || !creditsLyricNext) {
+    return;
+  }
+
+  creditsLyricAudio = audio;
+  creditsLyricIndex = -1;
+  creditsLyrics.classList.remove("hidden");
+  updateCreditsLyricText(0);
+
+  audio.addEventListener("loadedmetadata", updateCreditsLyricFromAudio);
+  audio.addEventListener("timeupdate", updateCreditsLyricFromAudio);
+  audio.addEventListener("ended", finishCreditsFinalLyrics);
+  updateCreditsLyricFromAudio();
+}
+
+function stopCreditsFinalLyrics() {
+  if (creditsLyricAudio) {
+    creditsLyricAudio.removeEventListener("loadedmetadata", updateCreditsLyricFromAudio);
+    creditsLyricAudio.removeEventListener("timeupdate", updateCreditsLyricFromAudio);
+    creditsLyricAudio.removeEventListener("ended", finishCreditsFinalLyrics);
+  }
+
+  creditsLyricAudio = null;
+  creditsLyricIndex = -1;
+
+  if (creditsLyrics) {
+    creditsLyrics.classList.add("hidden");
+  }
+
+  if (creditsLyricCurrent) {
+    creditsLyricCurrent.textContent = "";
+  }
+
+  if (creditsLyricNext) {
+    creditsLyricNext.textContent = "";
+  }
+}
+
+function updateCreditsLyricFromAudio() {
+  if (!creditsLyricAudio) {
+    return;
+  }
+
+  updateCreditsLyricText(getCreditsLyricIndex(creditsLyricAudio.currentTime || 0));
+}
+
+function finishCreditsFinalLyrics() {
+  updateCreditsLyricText(creditsFinalLyrics.length - 1);
+}
+
+function getCreditsLyricIndex(elapsed) {
+  for (let index = creditsFinalLyrics.length - 1; index >= 0; index -= 1) {
+    if (elapsed >= creditsFinalLyrics[index].time) {
+      return index;
+    }
+  }
+
+  return 0;
+}
+
+function updateCreditsLyricText(index) {
+  if (index === creditsLyricIndex || !creditsLyricCurrent || !creditsLyricNext) {
+    return;
+  }
+
+  creditsLyricIndex = index;
+  creditsLyricCurrent.textContent = creditsFinalLyrics[index]
+    ? creditsFinalLyrics[index].text
+    : "";
+  creditsLyricNext.textContent = creditsFinalLyrics[index + 1]
+    ? creditsFinalLyrics[index + 1].text
+    : "";
 }
 
 function hideCredits() {
@@ -679,6 +829,7 @@ function hideCredits() {
     return;
   }
 
+  stopCreditsFinalLyrics();
   creditsRoll.onanimationend = null;
   creditsRoll.style.animation = "";
   creditsOverlay.classList.add("hidden");
