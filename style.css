@@ -498,6 +498,22 @@ button:active {
   color: #fff3ce;
 }
 
+#credits-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.46)),
+    url("assets/backgrounds/Fondo_grupal.jpeg") center / cover no-repeat;
+  opacity: 0;
+  transition: opacity 900ms ease;
+  pointer-events: none;
+}
+
+#credits-overlay.is-finished::before {
+  opacity: 1;
+}
+
 #credits-viewport {
   position: absolute;
   inset: 0;
@@ -520,6 +536,8 @@ button:active {
 }
 
 #credits-roll {
+  position: relative;
+  z-index: 1;
   width: min(920px, 92vw);
   margin: 0 auto;
   padding: 0 0 18vh;
@@ -630,31 +648,55 @@ button:active {
   margin: 18px auto 92px;
 }
 
+.credits-ending-block {
+  margin: 80px auto 0;
+  text-align: center;
+}
+
 .credits-ending {
-  margin: 80px 0 0;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--gold);
   font-size: clamp(32px, 6.2vw, 72px);
   text-transform: none;
-}
-
-#credits-return-button {
-  position: absolute;
-  left: 50%;
-  bottom: 24px;
-  z-index: 2;
-  min-width: 220px;
-  opacity: 0;
+  text-align: center;
+  text-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.95),
+    0 0 28px rgba(248, 217, 139, 0.26);
   pointer-events: none;
-  transform: translateX(-50%);
-  transition: opacity 240ms ease;
+  transform: none;
 }
 
-#credits-overlay.is-finished #credits-return-button {
-  opacity: 1;
+.credits-ending-detail {
+  margin: 12px 0 0;
+  color: #fff3ce;
+  font-size: clamp(20px, 3.2vw, 34px);
+  font-weight: 800;
+  line-height: 1.15;
+  text-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.95),
+    0 0 20px rgba(248, 217, 139, 0.2);
+}
+
+.credits-ending:hover {
+  filter: brightness(1.16);
+}
+
+#credits-overlay.is-finished .credits-ending {
+  cursor: pointer;
   pointer-events: auto;
 }
 
-#credits-return-button:active {
-  transform: translateX(-50%) translateY(3px);
+.credits-ending:active {
+  box-shadow: none;
+  transform: none;
 }
 
 @keyframes credits-roll {
@@ -662,7 +704,7 @@ button:active {
     transform: translateY(100vh);
   }
   to {
-    transform: translateY(calc(-100% - 20vh));
+    transform: translateY(var(--credits-end-offset, calc(-100% - 20vh)));
   }
 }
 
@@ -845,10 +887,6 @@ button:active {
     height: clamp(190px, 58vw, 300px);
   }
 
-  #credits-return-button {
-    bottom: 12px;
-    min-width: 190px;
-  }
 }
 
 @media (max-width: 420px) {

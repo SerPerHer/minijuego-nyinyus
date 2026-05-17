@@ -19,7 +19,6 @@ const characterLayer = document.getElementById("character-layer");
 const inspectPrompt = document.getElementById("inspect-prompt");
 const creditsOverlay = document.getElementById("credits-overlay");
 const creditsRoll = document.getElementById("credits-roll");
-const creditsReturnButton = document.getElementById("credits-return-button");
 const inspectOverlay = document.getElementById("inspect-overlay");
 const inspectPanel = document.getElementById("inspect-panel");
 const inspectImage = document.getElementById("inspect-image");
@@ -33,7 +32,7 @@ const SPEAKING_BOUNCE_HEIGHT = 14;
 const TRANSITION_BACKGROUND_KEY = "fondo transicion.jpeg";
 const START_SCREEN_MUSIC = "One_Piece_tantantan_tantantanta.mp3";
 const START_GAME_MUSIC = "One_Piece_aventura.mp3";
-const CREDITS_MUSIC = "";
+const CREDITS_MUSIC = "Binks Sake - Brook lyrics.mp3";
 const SAVE_STORAGE_KEY = "nyinyus_adventure_save_v1";
 const INTRO_SCENE_IDS = new Set([
   "start",
@@ -182,6 +181,7 @@ let unlockedCollectibles = new Map();
 let currentOverlayCompletesInspectStep = false;
 let isDialogueRevealMode = false;
 let saveStatusTimeout = null;
+let creditsImagePreloadPromise = null;
 
 introButton.addEventListener("click", showStartScreen);
 homeButton.addEventListener("click", returnToStartScreen);
@@ -197,7 +197,7 @@ backButton.addEventListener("click", previousStep);
 nextButton.addEventListener("click", nextStep);
 inspectClose.addEventListener("click", handleInspectClose);
 inspectOverlay.addEventListener("click", handleInspectBackdropClick);
-creditsReturnButton.addEventListener("click", returnToStartScreen);
+preloadCreditImages();
 updateAudioControls();
 updateBackButton();
 updateScreenControls();
@@ -626,7 +626,7 @@ function clearChoices() {
   choiceBox.classList.add("hidden");
 }
 
-function showCredits() {
+async function showCredits() {
   stopTyping();
   clearChoices();
   clearInspectPrompt();
@@ -639,6 +639,7 @@ function showCredits() {
   nextButton.classList.add("hidden");
   dialogueBox.classList.add("hidden");
   buildCreditsRoll();
+  await preloadCreditImages();
 
   if (CREDITS_MUSIC) {
     playMusicFile(CREDITS_MUSIC, { loop: false, volume: 0.75 });
@@ -648,7 +649,11 @@ function showCredits() {
   creditsOverlay.setAttribute("aria-hidden", "false");
   creditsRoll.style.animation = "none";
   void creditsRoll.offsetHeight;
-  const duration = Math.max(78, Math.ceil(creditsRoll.scrollHeight / 22));
+  const endingBlock = creditsRoll.querySelector(".credits-ending-block");
+  const endOffset = calculateCreditsEndOffset(endingBlock);
+  const travelDistance = window.innerHeight - endOffset;
+  const duration = Math.max(78, Math.ceil(travelDistance / 22));
+  creditsRoll.style.setProperty("--credits-end-offset", endOffset + "px");
   creditsRoll.style.setProperty("--credits-duration", duration + "s");
   creditsRoll.style.animation = "";
   creditsRoll.onanimationend = () => {
@@ -701,7 +706,24 @@ function buildCreditsRoll() {
   appendCreditText(groupBlock, "*Aún no la tengo", "credits-note");
   creditsRoll.appendChild(groupBlock);
 
-  appendCreditText(creditsRoll, "La aventura continúa...", "credits-ending");
+  appendCreditEndingButton();
+}
+
+function appendCreditEndingButton() {
+  const endingBlock = document.createElement("section");
+  endingBlock.className = "credits-ending-block";
+
+  const endingButton = document.createElement("button");
+  endingButton.type = "button";
+  endingButton.className = "credits-ending";
+  endingButton.textContent = "La aventura continua...";
+  endingButton.addEventListener("click", returnToStartScreen);
+  endingBlock.appendChild(endingButton);
+
+  appendCreditText(endingBlock, "Sábado 23 de Mayo a las 10:20h", "credits-ending-detail");
+  appendCreditText(endingBlock, "41.362428, 1.708434", "credits-ending-detail");
+
+  creditsRoll.appendChild(endingBlock);
 }
 
 function appendCreditPerson(parent, member, options) {
@@ -730,12 +752,14 @@ function appendCreditCharacter(parent, character) {
   images.className = "credits-character-images";
   character.images.forEach((image) => {
     const img = document.createElement("img");
-    img.src = "assets/backgrounds/" + image.file;
     img.alt = image.alt || character.name;
-    img.loading = "lazy";
+    img.loading = "eager";
+    img.decoding = "sync";
+    img.fetchPriority = "high";
     img.onerror = () => {
       img.classList.add("hidden");
     };
+    img.src = "assets/backgrounds/" + image.file;
     images.appendChild(img);
   });
 
@@ -749,6 +773,50 @@ function appendCreditText(parent, text, className) {
   element.textContent = text;
   parent.appendChild(element);
   return element;
+}
+
+function calculateCreditsEndOffset(endingElement) {
+  if (!endingElement) {
+    return -creditsRoll.scrollHeight;
+  }
+
+  const endingCenter = endingElement.offsetTop + endingElement.offsetHeight / 2;
+  return Math.round(window.innerHeight / 2 - endingCenter);
+}
+
+function preloadCreditImages() {
+  if (creditsImagePreloadPromise) {
+    return creditsImagePreloadPromise;
+  }
+
+  const imageFiles = Array.from(
+    new Set(
+      creditCharacters
+        .flatMap((character) => character.images.map((image) => image.file).filter(Boolean))
+        .concat("Fondo_grupal.jpeg")
+    )
+  );
+
+  creditsImagePreloadPromise = Promise.all(imageFiles.map(preloadCreditImage)).then(
+    () => undefined
+  );
+  return creditsImagePreloadPromise;
+}
+
+function preloadCreditImage(fileName) {
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => {
+      if (typeof image.decode === "function") {
+        image.decode().catch(() => {}).finally(resolve);
+        return;
+      }
+
+      resolve();
+    };
+    image.onerror = resolve;
+    image.src = "assets/backgrounds/" + fileName;
+  });
 }
 
 function showInspect(step) {

@@ -10,6 +10,12 @@ Object.assign(story, {
       type: "clearCharacters"
     },
     {
+      type: "sound",
+      file: "Naruto - Orochimaru theme (Dark Version).mp3",
+      loop: true,
+      volume: 0.55
+    },
+    {
       type: "background",
       image: "FONDO TRANSICIÓN.jpeg"
     },

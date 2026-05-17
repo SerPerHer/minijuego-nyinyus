@@ -70,6 +70,12 @@ Object.assign(story, {
       type: "clearCharacters"
     },
     {
+      type: "sound",
+      file: "One Piece Soundtrack - Eirene.mp3",
+      loop: true,
+      volume: 0.55
+    },
+    {
       type: "background",
       image: "FONDO TRANSICIÓN_3.png"
     },
@@ -1669,7 +1675,7 @@ Object.assign(story, {
     eireneDialogue("Piratas", "¡¡QUIETA DE UNA VEZ!!"),
     eireneDialogue("Narrador", "Haze levantó lentamente la mirada hacia arriba."),
     eireneDialogue("Haze", "Creo que no has visto eso."),
-    eireneDialogue("Piratas", "¿¡QUÉ—!?"),
+    eireneDialogue("Piratas", "¿¡QUÉ!?"),
     eireneDialogue("Narrador", "CRAAASH."),
     {
       type: "effect",
@@ -2147,7 +2153,7 @@ Object.assign(story, {
     ),
     eireneDialogue(
       "Mako",
-      "¡¡SIOSPEGOTÉCNICAMENTEESEDUCACIÓNEMOCIONALPORQUEESTOYAYUDANDOAQUEDESCUBRÁISVUESTROSLÍMITESPERSONALESY—!!"
+      "¡¡SI OS PEGO TÉCNICAMENTE ES EDUCACIÓN EMOCIONAL PORQUE ESTOY AYUDANDO A QUE DESCUBRÁIS VUESTROS LÍMITES PERSONALES Y ...!!"
     ),
     eireneDialogue("Narrador", "THOOOM."),
     {
@@ -2882,7 +2888,7 @@ Object.assign(story, {
     ),
     eireneDialogue("Narrador", "Varko intentó liberarse. Entonces Reina habló. Tranquila."),
     eireneDialogue("Reina", "Ya has perdido."),
-    eireneDialogue("Varko", "¡¿QUÉ—!?"),
+    eireneDialogue("Varko", "¡¿QUÉ!?"),
     eireneDialogue("Narrador", "FSSSHHH."),
     eireneDialogue(
       "Narrador",
@@ -2922,7 +2928,7 @@ Object.assign(story, {
     eireneDialogue("Narrador", "WHOOOOOSH."),
     eireneDialogue("Narrador", "La arena explotó detrás suyo."),
     eireneDialogue("Narrador", "Varko apenas tuvo tiempo de reaccionar antes de que Mako ya estuviera girando alrededor de él a una velocidad absurda."),
-    eireneDialogue("Varko", "¿¡QUÉ COÑO—!?"),
+    eireneDialogue("Varko", "¿¡QUÉ COÑO!?"),
     eireneDialogue("Narrador", "THOOOM."),
     {
       type: "effect",
@@ -3246,7 +3252,7 @@ Object.assign(story, {
     },
     eireneDialogue("Narrador", "La espada atravesó la arena. Pero Haze ya no estaba allí."),
     eireneDialogue("Narrador", "Silencio."),
-    eireneDialogue("Varko", "…¿Dónde coño—?"),
+    eireneDialogue("Varko", "…¿Dónde coño?"),
     eireneDialogue("Narrador", "Haze estaba sentada encima de una caja detrás suyo."),
     eireneDialogue("Haze", "Creo que te has pasado un poco."),
     eireneDialogue("Rocky", "¡¡NI ELLA SABE CÓMO HACE ESTO!!"),

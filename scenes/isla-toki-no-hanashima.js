@@ -13,7 +13,7 @@ Object.assign(story, {
       type: "sound",
       file: "One_Piece_Welcome_Wano.mp3",
       loop: true,
-      volume: 0.55
+      volume: 0.45
     },
     {
       type: "background",

@@ -10,6 +10,12 @@ Object.assign(story, {
       type: "clearCharacters"
     },
     {
+      type: "sound",
+      file: "One Piece _ Drums of Liberation x Overtaken.mp3",
+      loop: true,
+      volume: 0.55
+    },
+    {
       type: "background",
       image: "FONDO TRANSICIÓN_4.png"
     },
@@ -24,22 +30,22 @@ Object.assign(story, {
       "Narrador",
       "Blue levantó lentamente la mirada desde los papeles extendidos sobre la mesa."
     ),
-    finalHistoriaDialogue("Blue", "—…No son números aleatorios."),
+    finalHistoriaDialogue("Blue", "…No son números aleatorios."),
     finalHistoriaDialogue("Narrador", "Minutu dejó de escribir inmediatamente."),
     finalHistoriaDialogue("Narrador", "Blue señaló una serie concreta."),
-    finalHistoriaDialogue("Blue", "—Son coordenadas."),
+    finalHistoriaDialogue("Blue", "Son coordenadas."),
     finalHistoriaDialogue("Narrador", "Silencio."),
     finalHistoriaDialogue("Narrador", "Rocky parpadeó."),
-    finalHistoriaDialogue("Rocky", "—¿De… qué?"),
+    finalHistoriaDialogue("Rocky", "¿De… qué?"),
     finalHistoriaDialogue(
       "Narrador",
       "Minutu ya estaba haciendo cálculos a una velocidad completamente inhumana."
     ),
-    finalHistoriaDialogue("Minutu", "—No. No puede ser."),
+    finalHistoriaDialogue("Minutu", "No. No puede ser."),
     finalHistoriaDialogue("Narrador", "Pausa."),
-    finalHistoriaDialogue("Minutu", "—Sí, sí puede."),
+    finalHistoriaDialogue("Minutu", "Sí, sí puede."),
     finalHistoriaDialogue("Narrador", "Mako apareció literalmente encima de la mesa."),
-    finalHistoriaDialogue("Mako", "—¡¡¿ESO SIGNIFICA TESORO?!!"),
+    finalHistoriaDialogue("Mako", "¡¡¿ESO SIGNIFICA TESORO?!!"),
     {
       type: "inspect",
       collectible: "mapa",
@@ -135,6 +141,8 @@ Object.assign(story, {
       options: [
         {
           text: "To be continued...",
+          text: "Sábado 23 de Mayo a las 10:20h",
+          text: "41.362428, 1.708434",
           action: "showCredits"
         }
       ]

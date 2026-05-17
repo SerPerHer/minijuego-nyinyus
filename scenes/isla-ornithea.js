@@ -10,6 +10,12 @@ Object.assign(story, {
       type: "clearCharacters"
     },
     {
+      type: "sound",
+      file: "One_Piece_piano_triste.mp3",
+      loop: true,
+      volume: 0.55
+    },
+    {
       type: "background",
       image: "FONDO TRANSICIÓN_2.png"
     },
@@ -1933,7 +1939,7 @@ Object.assign(story, {
       "Narrador",
       "Algo enorme se movió bajo las plataformas. Las tablas temblaron violentamente."
     ),
-    ornitheaDialogue("Rocky", "¡¿Qué demonios—?!"),
+    ornitheaDialogue("Rocky", "¡¿Qué demonios?!"),
     ornitheaDialogue("Narrador", "BOOOOM."),
     ornitheaDialogue(
       "Narrador",
