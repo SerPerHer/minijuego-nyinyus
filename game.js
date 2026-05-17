@@ -2286,11 +2286,7 @@ function createTertiaryPriorityLayoutItems(
 
 function createAnchoredFocalLayoutItems(characters, focalCharacters, animatedId) {
   const companionCharacters = characters.filter((character) => !isAnchoredFocalCharacter(character));
-  const companionItems = createAnchoredCompanionLayoutItems(
-    companionCharacters,
-    animatedId,
-    focalCharacters
-  );
+  const companionItems = createAnchoredCompanionLayoutItems(companionCharacters, animatedId);
   const focalItems = focalCharacters.map((character, index) =>
     createResolvedLayoutItem(
       character,
@@ -2304,7 +2300,7 @@ function createAnchoredFocalLayoutItems(characters, focalCharacters, animatedId)
   return companionItems.concat(focalItems);
 }
 
-function createAnchoredCompanionLayoutItems(characters, animatedId, focalCharacters) {
+function createAnchoredCompanionLayoutItems(characters, animatedId) {
   if (characters.length === 0) {
     return [];
   }
@@ -2320,17 +2316,14 @@ function createAnchoredCompanionLayoutItems(characters, animatedId, focalCharact
   const width = getCharacterWidth(layoutCount);
   const height = getCharacterHeight(layoutCount);
   const scale = getCharacterScale(layoutCount);
-  const shouldSeparateMakoFromCore = hasChildFocalCharacter(focalCharacters);
   const leftGroup = takeOrderedCharacters(
     sideCharacters,
-    shouldSeparateMakoFromCore ? ["reina", "rocky"] : ["reina", "rocky", "mako"],
+    ["reina", "rocky"],
     usedCharacters
   );
   const rightGroup = takeOrderedCharacters(
     sideCharacters,
-    shouldSeparateMakoFromCore
-      ? ["mako", "minutu", "haze", "blue", "lars"]
-      : ["minutu", "haze", "blue", "lars"],
+    ["mako", "minutu", "haze", "blue", "lars"],
     usedCharacters
   );
   const remainingGroup = buildHighlightedTertiaryGroup(
@@ -2339,7 +2332,9 @@ function createAnchoredCompanionLayoutItems(characters, animatedId, focalCharact
   );
   const leftSlots = getAnchoredCompanionLeftSlots(leftGroup.length);
   const centerSlots = getAnchoredCompanionCenterSlots(centeredSupportCharacters.length);
-  const rightSlots = getAnchoredCompanionRightSlots(rightGroup.length);
+  const rightSlots = getAnchoredFocalCompanionRightSlots(rightGroup.length);
+  const rightWidth = getAnchoredFocalCompanionRightWidth(rightGroup.length, width);
+  const rightHeight = getAnchoredFocalCompanionRightHeight(rightGroup.length, height);
 
   return leftGroup
     .map((character, index) =>
@@ -2352,7 +2347,7 @@ function createAnchoredCompanionLayoutItems(characters, animatedId, focalCharact
     )
     .concat(
       rightGroup.map((character, index) =>
-        createResolvedLayoutItem(character, rightSlots[index], width, height, scale)
+        createResolvedLayoutItem(character, rightSlots[index], rightWidth, rightHeight, scale)
       )
     )
     .concat(
@@ -2402,32 +2397,64 @@ function getAnchoredCompanionCenterSlots(count) {
   ]);
 }
 
-function getAnchoredCompanionRightSlots(count) {
+function getAnchoredFocalCompanionRightSlots(count) {
   if (count <= 1) {
     return [{ position: "right", side: "right", zIndex: 34 }];
   }
 
   if (count === 2) {
     return [
-      { position: "right", side: "right", zIndex: 35 },
+      { position: "center", side: "right", offsetX: "clamp(110px, 10vw, 170px)", zIndex: 35 },
       { position: "far-right", side: "right", zIndex: 34 }
     ];
   }
 
   if (count === 3) {
     return [
-      { position: "center", side: "right", offsetX: "clamp(250px, 20vw, 360px)", zIndex: 35 },
-      { position: "right", side: "right", zIndex: 34 },
-      { position: "far-right", side: "right", zIndex: 33 }
+      { position: "center", side: "right", offsetX: "clamp(35px, 5vw, 75px)", zIndex: 36 },
+      { position: "center", side: "right", offsetX: "clamp(235px, 21vw, 315px)", zIndex: 35 },
+      { position: "far-right", side: "right", zIndex: 34 }
     ];
   }
 
-  return [
-    { position: "center", side: "right", offsetX: "clamp(210px, 17vw, 320px)", zIndex: 36 },
-    { position: "right", side: "right", zIndex: 35 },
-    { position: "far-right", side: "right", zIndex: 34 },
-    { position: "far-right", side: "right", offsetX: "clamp(70px, 8vw, 120px)", zIndex: 33 }
-  ];
+  return buildSlotSequence(count, [
+    { position: "center", side: "right", offsetX: "clamp(20px, 3vw, 60px)", zIndex: 37 },
+    { position: "center", side: "right", offsetX: "clamp(175px, 15vw, 230px)", zIndex: 36 },
+    { position: "center", side: "right", offsetX: "clamp(330px, 27vw, 405px)", zIndex: 35 },
+    { position: "far-right", side: "right", zIndex: 34 }
+  ]);
+}
+
+function getAnchoredFocalCompanionRightWidth(count, fallbackWidth) {
+  if (count >= 4) {
+    return "clamp(96px, 13vw, 190px)";
+  }
+
+  if (count >= 2) {
+    return "clamp(112px, 16vw, 230px)";
+  }
+
+  if (count === 1) {
+    return "clamp(120px, 18vw, 240px)";
+  }
+
+  return fallbackWidth;
+}
+
+function getAnchoredFocalCompanionRightHeight(count, fallbackHeight) {
+  if (count >= 4) {
+    return "clamp(140px, 23vh, 205px)";
+  }
+
+  if (count >= 2) {
+    return "clamp(170px, 30vh, 270px)";
+  }
+
+  if (count === 1) {
+    return "clamp(185px, 34vh, 295px)";
+  }
+
+  return fallbackHeight;
 }
 
 function getAnchoredCompanionRemainingSlot(index) {
@@ -2594,10 +2621,6 @@ function isElevatedFocalCharacter(character) {
 
 function isChildCharacter(character) {
   return isCharacter(character, "nino") || isCharacter(character, "ninos");
-}
-
-function hasChildFocalCharacter(focalCharacters) {
-  return Array.isArray(focalCharacters) && focalCharacters.some(isChildCharacter);
 }
 
 function isAnchoredFocalCharacter(character) {

@@ -54,7 +54,7 @@ const eireneVarkoFightScene = (steps) => [
   },
   {
     type: "background",
-    image: "Fondo_playa_destrozada.jpeg"
+    image: "Fondo_Bahia_pirata.jpeg"
   },
   characterStep("varko_rojo", { animation: "enter" }),
   ...steps,
