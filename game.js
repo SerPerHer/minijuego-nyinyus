@@ -46,8 +46,8 @@ const characterState = new Map();
 const revealedCharacterIds = new Set();
 const defaultSpeakerStyles = {
   narrador: {
-    accent: "#9ac7d8",
-    accentDark: "#406678"
+    accent: "#fbfbfb",
+    accentDark: "#a7a7a7"
   },
   abuela: {
     accent: "#9fd7b7",

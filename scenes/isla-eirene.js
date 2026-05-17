@@ -3833,6 +3833,10 @@ Object.assign(story, {
     eireneDialogue(
       "Narrador",
       "Poco después… el Nyinyus abandonó lentamente el puerto de Eirene. Y mientras el barco se alejaba… la isla quedó atrás entre la niebla violeta y la luz del amanecer. Pero esta vez… sin cadenas."
-    )
+    ),
+    {
+      type: "goto",
+      nextScene: "final_historia"
+    }
   ]
 });

@@ -575,40 +575,120 @@ const story = {
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Reina cerró el mapa con cuidado."
+      text: "Reina observó el mapa unos segundos más. Las cinco marcas. El símbolo fragmentado. El mar esperándolos ahí fuera. Luego suspiró suavemente."
     },
     {
       type: "dialogue",
       speaker: "Reina",
-      text: "No. Tenemos demasiadas cosas que preparar."
-    },
-    {
-      type: "dialogue",
-      speaker: "Rocky",
-      text: "Tiene sentido."
+      text: "Gracias, abuela… pero ahora mismo no tenemos tiempo para esto."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "La abuela no discutió. Solo sonrió, como si ya supiera que algunas llamadas no se pueden ignorar para siempre."
+      text: "Rocky levantó una ceja."
+    },
+    {
+      type: "dialogue",
+      speaker: "Reina",
+      text: "Tenemos una boda que organizar."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "La abuela la observó en silencio. No parecía decepcionada. Solo… tranquila. Como alguien que sabía perfectamente que hay viajes que empiezan… y otros que simplemente no."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "La anciana se encogió ligeramente de hombros."
     },
     {
       type: "dialogue",
       speaker: "Abuela",
-      text: "El mar sabe esperar."
+      text: "Entonces ya habéis elegido."
     },
     {
       type: "dialogue",
       speaker: "Narrador",
-      text: "Pero aquella noche, ninguno de los dos dejó de pensar en las cinco islas marcadas en el mapa."
+      text: "Reina sonrió."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky pasó un brazo por sus hombros."
+    },
+    {
+      type: "dialogue",
+      speaker: "Rocky",
+      text: "Además, seguro que el One Piece sigue ahí mañana."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "La abuela soltó una pequeña risa."
+    },
+    {
+      type: "dialogue",
+      speaker: "Abuela",
+      text: "Quizá."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Se dio la vuelta lentamente y caminó hacia la puerta. Pero dejó el mapa sobre la mesa. Como si las historias importantes… no desaparecieran tan fácilmente."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y así…"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Rocky y Reina no zarparon. No atravesaron tormentas imposibles. No ayudaron a un maníaco del control. No soportaron vientos kilométricos ni charlas infinitas. No ayudaron a una científica a revivir un robot gigante."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "No se perdieron junto a una soñadora por un bosque lleno de niebla. Y no se enfrentaron a unos malvados junto a un corazón amable. No encontraron reliquias antiguas. No descifraron mapas. No persiguieron leyendas."
+    },
+    {
+      type: "background",
+      image: "boda_solos.png",
+      backgroundSize: "cover, 88% auto",
+      backgroundPosition: "center, center",
+      backgroundRepeat: "no-repeat, no-repeat"
+    },
+    {
+      type: "clearCharacters"
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "En lugar de eso… Organizaron su boda. Y fue preciosa. Hubo música. Risas. Amigos. Familia. Miradas cómplices. Promesas dichas con el corazón. Y durante años fueron felices. Muy felices."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Pero a veces… en noches tranquilas. Cuando el viento soplaba desde el mar. Rocky miraba el horizonte unos segundos de más. Y Reina… sin decir nada… hacía exactamente lo mismo."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Preguntándose: Qué aventuras habrían vivido. A quién habrían conocido. Qué historias nunca llegaron a existir."
+    },
+    {
+      type: "dialogue",
+      speaker: "Narrador",
+      text: "Y en algún lugar de la casa… cubierto lentamente por el polvo… seguía descansando aquel viejo mapa. Esperando por un viaje… que nunca comenzó."
     },
     {
       type: "choice",
-      text: "Fin de la introduccion.",
+      text: "FIN",
       options: [
         {
-          text: "Fin",
-          nextScene: "ignorar_leyenda_final"
+          text: "Volver al inicio",
+          action: "returnToIntro"
         }
       ]
     }
