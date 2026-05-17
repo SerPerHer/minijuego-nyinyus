@@ -139,8 +139,8 @@ Object.assign(story, {
       "Narrador",
       "Uno de ellos sujetaba al anciano panadero por el cuello de la camisa mientras el otro vaciaba brutalmente una caja llena de monedas."
     ),
+    characterStep("Pirata", { animation: "enter" }),
     eireneDialogue("Pirata", "¿Esto es todo? ¿Eh, viejo?"), 
-    characterStep("pirata_rojo", { animation: "enter" }),
     characterStep("anciano_triste", { animation: "enter" }),
     eireneDialogue("Narrador", "El anciano temblaba."),
     eireneDialogue(

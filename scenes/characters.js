@@ -104,7 +104,7 @@ window.CHARACTER_LIBRARY = {
     scale: 0.96,
     role: "tertiary"
   },
-  pirata: {
+  piratas: {
     name: "Piratas",
     image: "Piratas.png",
     accent: "#e05757",
@@ -112,7 +112,7 @@ window.CHARACTER_LIBRARY = {
     scale: 1,
     role: "tertiary"
   },
-  pirata_rojo: {
+  pirata: {
     name: "Pirata",
     image: "Pirata_rojo.png",
     accent: "#e05757",
