@@ -1806,6 +1806,7 @@ Object.assign(story, {
       "Narrador",
       "El anciano del pan volvió a llorar. Pero esta vez… de alivio."
     ),
+    characterStep("anciano_contento", { animation: "enter" }),
     eireneDialogue("Anciano", "Lo habéis conseguido…"),
     eireneDialogue("Narrador", "Mako levantó ambos brazos."),
     eireneDialogue("Mako", "¡¡SOMOS INCREÍBLES!!"),
@@ -2953,7 +2954,7 @@ Object.assign(story, {
     ),
     eireneDialogue(
       "Mako",
-      "¡¡ADEMÁSCREOQUETUBIGOTETIENEVIDAPROPIAYHONESTAMENTEESOMEGENERAMUCHASPREGUNTASPORQUESIYOTUVIERAUNBIGOTETANGRANDE…!!"
+      "¡¡ADEMÁS CREO QUE TU BIGOTE TIENE VIDA PROPIA Y HONESTAMENTE ESO ME GENERA MUCHAS PREGUNTAS PORQUE SI YO TUVIERA UN BIGOTE TAN GRANDE…!!"
     ),
     eireneDialogue("Varko", "¡¡CÁLLATE!!"),
     eireneDialogue("Narrador", "WHOOOOM."),
@@ -2994,7 +2995,7 @@ Object.assign(story, {
     ),
     eireneDialogue(
       "Mako",
-      "¡¡PORQUEVERÁSNORMALMENTEINTENTONOROMPERDEMASIADASCOSASPORQUÉMINUTUSIEMPREMERIÑEPEROAHORAMISMOCREOQUEELCONCEPTODEMODERACIÓNHAMUERTOCOMPLETAMENTEY…!!"
+      "¡¡PORQUE VERÁS NORMALMENTE INTENTO NO ROMPER DEMASIADAS COSAS PORQUÉ MINUTU SIEMPRE ME RIÑE PERO AHORA MISMO CREO QUE EL CONCEPTO DE MODERACIÓN HA MUERTO COMPLETAMENTE Y…!!"
     ),
     eireneDialogue("Narrador", "Patada giratoria."),
     eireneDialogue("Narrador", "BOOOOOOM."),
@@ -3003,7 +3004,7 @@ Object.assign(story, {
       name: "shake"
     },
     eireneDialogue("Narrador", "Varko atravesó parte de la cubierta del barco. Pero todavía intentó levantarse. Mako apareció encima del mástil roto. Sonriendo como una absoluta lunática."),
-    eireneDialogue("Mako", "¡¡ATAQUEDEFINITIVAMENTENOPLANIFICADOOOO!!"),
+    eireneDialogue("Mako", "¡¡ATAQUE DEFINITIVAMENTE NO PLANIFICADOOOO!!"),
     eireneDialogue("Minutu", "Eso no me gusta nada."),
     eireneDialogue("Narrador", "Mako agarró una cuerda enorme del barco. Y saltó."),
     eireneDialogue("Narrador", "WHOOOOOOOM."),

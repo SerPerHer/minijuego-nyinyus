@@ -2286,7 +2286,11 @@ function createTertiaryPriorityLayoutItems(
 
 function createAnchoredFocalLayoutItems(characters, focalCharacters, animatedId) {
   const companionCharacters = characters.filter((character) => !isAnchoredFocalCharacter(character));
-  const companionItems = createAnchoredCompanionLayoutItems(companionCharacters, animatedId);
+  const companionItems = createAnchoredCompanionLayoutItems(
+    companionCharacters,
+    animatedId,
+    focalCharacters
+  );
   const focalItems = focalCharacters.map((character, index) =>
     createResolvedLayoutItem(
       character,
@@ -2300,7 +2304,7 @@ function createAnchoredFocalLayoutItems(characters, focalCharacters, animatedId)
   return companionItems.concat(focalItems);
 }
 
-function createAnchoredCompanionLayoutItems(characters, animatedId) {
+function createAnchoredCompanionLayoutItems(characters, animatedId, focalCharacters) {
   if (characters.length === 0) {
     return [];
   }
@@ -2316,10 +2320,17 @@ function createAnchoredCompanionLayoutItems(characters, animatedId) {
   const width = getCharacterWidth(layoutCount);
   const height = getCharacterHeight(layoutCount);
   const scale = getCharacterScale(layoutCount);
-  const leftGroup = takeOrderedCharacters(sideCharacters, ["reina", "rocky", "mako"], usedCharacters);
+  const shouldSeparateMakoFromCore = hasChildFocalCharacter(focalCharacters);
+  const leftGroup = takeOrderedCharacters(
+    sideCharacters,
+    shouldSeparateMakoFromCore ? ["reina", "rocky"] : ["reina", "rocky", "mako"],
+    usedCharacters
+  );
   const rightGroup = takeOrderedCharacters(
     sideCharacters,
-    ["minutu", "haze", "blue", "lars"],
+    shouldSeparateMakoFromCore
+      ? ["mako", "minutu", "haze", "blue", "lars"]
+      : ["minutu", "haze", "blue", "lars"],
     usedCharacters
   );
   const remainingGroup = buildHighlightedTertiaryGroup(
@@ -2583,6 +2594,10 @@ function isElevatedFocalCharacter(character) {
 
 function isChildCharacter(character) {
   return isCharacter(character, "nino") || isCharacter(character, "ninos");
+}
+
+function hasChildFocalCharacter(focalCharacters) {
+  return Array.isArray(focalCharacters) && focalCharacters.some(isChildCharacter);
 }
 
 function isAnchoredFocalCharacter(character) {
