@@ -139,7 +139,8 @@ Object.assign(story, {
       "Narrador",
       "Uno de ellos sujetaba al anciano panadero por el cuello de la camisa mientras el otro vaciaba brutalmente una caja llena de monedas."
     ),
-    eireneDialogue("Pirata", "¿Esto es todo? ¿Eh, viejo?"),
+    eireneDialogue("Pirata", "¿Esto es todo? ¿Eh, viejo?"), 
+    characterStep("pirata_rojo", { animation: "enter" }),
     characterStep("anciano_triste", { animation: "enter" }),
     eireneDialogue("Narrador", "El anciano temblaba."),
     eireneDialogue(
@@ -830,11 +831,11 @@ Object.assign(story, {
       "Narrador",
       "Uno de ellos observó inmediatamente el humo y el desastre."
     ),
-    characterStep("pirata", { animation: "enter" }),
-    eireneDialogue("Pirata", "¿Qué coño ha pasado aquí?"),
+    characterStep("Piratas", { animation: "enter" }),
+    eireneDialogue("Piratas", "¿Qué coño ha pasado aquí?"),
     eireneDialogue("Narrador", "Otro vio a Lars. Y sonrió."),
     eireneDialogue(
-      "Pirata",
+      "Piratas",
       "Ah. Claro. Tenía que estar el héroe del pueblo metido en medio."
     ),
     eireneDialogue("Narrador", "Lars dio un paso adelante inmediatamente."),
@@ -858,7 +859,7 @@ Object.assign(story, {
     eireneDialogue("Lars", "Yo me haré responsable."),
     eireneDialogue("Narrador", "Rocky frunció el ceño. Mucho."),
     eireneDialogue("Narrador", "El pirata sonrió cruelmente."),
-    eireneDialogue("Pirata", "Claro que sí."),
+    eireneDialogue("Piratas", "Claro que sí."),
     eireneDialogue(
       "Narrador",
       "Y lanzó un puñetazo directo hacia Lars. Pero esta vez…"
@@ -961,7 +962,7 @@ Object.assign(story, {
       "¡¡SÍÍÍ!! ¡¡REPARTO DE VIOLENCIA EQUILIBRADO!!"
     ),
     eireneDialogue("Narrador", "Los Mandíbula Roja gruñeron inmediatamente."),
-    eireneDialogue("Pirata", "Maldito imbécil…"),
+    eireneDialogue("Piratas", "Maldito imbécil…"),
     eireneDialogue(
       "Narrador",
       "Y los tres se lanzaron contra Rocky al mismo tiempo."
@@ -992,7 +993,7 @@ Object.assign(story, {
       "Narrador",
       "Rocky bloqueó el golpe con el antebrazo. Como si no doliera absolutamente nada."
     ),
-    eireneDialogue("Pirata", "¿Qué demonios eres tú?"),
+    eireneDialogue("Piratas", "¿Qué demonios eres tú?"),
     eireneDialogue("Rocky", "Grande."),
     eireneDialogue("Narrador", "Y le estampó la cabeza contra un barril."),
     eireneDialogue("Narrador", "BOOM."),
@@ -1036,7 +1037,7 @@ Object.assign(story, {
       "Narrador",
       "Los dos Mandíbula Roja restantes observaron horrorizados a sus compañeros inconscientes esparcidos por toda la plaza. Uno tragó saliva. El otro intentó mantener la compostura levantando el martillo."
     ),
-    eireneDialogue("Pirata", "T-tú…"),
+    eireneDialogue("Piratas", "T-tú…"),
     eireneDialogue(
       "Narrador",
       "Rocky giró lentamente la cabeza hacia ellos. Y sonrió."
@@ -1056,14 +1057,14 @@ Object.assign(story, {
       "Narrador",
       "El pirata del martillo rugió y salió corriendo hacia Rocky."
     ),
-    eireneDialogue("Pirata", "¡¡MUERE!!"),
+    eireneDialogue("Piratas", "¡¡MUERE!!"),
     eireneDialogue("Narrador", "WHOOOOM."),
     eireneDialogue(
       "Narrador",
       "El enorme martillo descendió directamente hacia su cabeza."
     ),
     eireneDialogue("Narrador", "Rocky lo atrapó con una mano. Silencio absoluto."),
-    eireneDialogue("Pirata", "…¿Qué?"),
+    eireneDialogue("Piratas", "…¿Qué?"),
     eireneDialogue("Narrador", "Rocky ni siquiera parecía esforzarse."),
     eireneDialogue("Rocky", "Pesado."),
     eireneDialogue(
@@ -1083,7 +1084,7 @@ Object.assign(story, {
       "Narrador",
       "El último Mandíbula Roja intentó huir. Literalmente. Se giró y empezó a correr calle abajo."
     ),
-    eireneDialogue("Pirata", "¡¡A LA MIERDA ESTO!!"),
+    eireneDialogue("Piratas", "¡¡A LA MIERDA ESTO!!"),
     eireneDialogue("Narrador", "Mako señaló emocionadísima."),
     eireneDialogue("Mako", "¡¡SE ESCAPA!!"),
     eireneDialogue("Narrador", "Rocky suspiró. Y agarró un barril roto del suelo."),
@@ -1139,14 +1140,14 @@ Object.assign(story, {
       "Finos lazos rosados de energía comenzaron a manifestarse alrededor de Reina. Elegantes. Suaves. Hermosos. Pero había algo inquietante en ellos. Porque no parecían moverse al azar. Parecían… controlar el espacio."
     ),
     eireneDialogue("Narrador", "Los cinco piratas se tensaron inmediatamente."),
-    eireneDialogue("Pirata", "¿Qué demonios es eso…?"),
+    eireneDialogue("Piratas", "¿Qué demonios es eso…?"),
     eireneDialogue(
       "Narrador",
       "Reina los observó en silencio. Completamente tranquila."
     ),
     eireneDialogue("Reina", "Última oportunidad. Marchaos."),
     eireneDialogue("Narrador", "El líder escupió al suelo."),
-    eireneDialogue("Pirata", "Que te den."),
+    eireneDialogue("Piratas", "Que te den."),
     eireneDialogue("Narrador", "Y cargaron. Todos a la vez."),
     eireneDialogue("Narrador", "FSSSHHH."),
     eireneDialogue(
@@ -1173,7 +1174,7 @@ Object.assign(story, {
     },
     eireneDialogue("Narrador", "Cayó de cara contra el empedrado."),
     eireneDialogue("Narrador", "El tercer Mandíbula Roja levantó un martillo enorme."),
-    eireneDialogue("Pirata", "¡¡MUERE!!"),
+    eireneDialogue("Piratas", "¡¡MUERE!!"),
     eireneDialogue("Narrador", "WHOOOM."),
     eireneDialogue("Narrador", "El arma descendió brutalmente."),
     eireneDialogue("Narrador", "Pero una barrera rosada apareció frente a Reina."),
@@ -1186,7 +1187,7 @@ Object.assign(story, {
       "Narrador",
       "El impacto hizo temblar toda la plaza. Y antes de que el pirata entendiera qué acababa de pasar… cinco lazos envolvieron completamente su cuerpo. Inmovilizándolo en el aire."
     ),
-    eireneDialogue("Pirata", "¿¡QUÉ COÑO!?"),
+    eireneDialogue("Piratas", "¿¡QUÉ COÑO!?"),
     eireneDialogue(
       "Narrador",
       "Reina movió ligeramente la mano. Y el hombre salió disparado contra unas cajas."
@@ -1275,7 +1276,7 @@ Object.assign(story, {
     ),
     eireneDialogue("Narrador", "SWOOOSH."),
     eireneDialogue("Narrador", "Salió disparada balanceándose por toda la plaza."),
-    eireneDialogue("Pirata", "¿¡PERO QUÉ!?"),
+    eireneDialogue("Piratas", "¿¡PERO QUÉ!?"),
     eireneDialogue("Narrador", "WHAM."),
     {
       type: "effect",
@@ -1309,7 +1310,7 @@ Object.assign(story, {
       "Narrador",
       "Los dos Mandíbula Roja restantes empezaron a ponerse nerviosos. Uno levantó un cuchillo temblando."
     ),
-    eireneDialogue("Pirata", "¡¿QUÉ DEMONIOS ERES TÚ!?"),
+    eireneDialogue("Piratas", "¡¿QUÉ DEMONIOS ERES TÚ!?"),
     eireneDialogue("Narrador", "Mako se quedó quieta un segundo. Pensando."),
     eireneDialogue("Mako", "…No lo sé del todo todavía."),
     eireneDialogue("Narrador", "Y volvió a lanzarse."),
@@ -1342,7 +1343,7 @@ Object.assign(story, {
       "Narrador",
       "El último Mandíbula Roja quedó completamente paralizado viendo a Mako acercarse lentamente sonriendo como una absoluta psicópata."
     ),
-    eireneDialogue("Pirata", "…No estás bien de la cabeza."),
+    eireneDialogue("Piratas", "…No estás bien de la cabeza."),
     eireneDialogue("Mako", "¡¡GRACIAS!!"),
     eireneDialogue("Narrador", "Y le estampó una caja entera encima."),
     eireneDialogue("Narrador", "CRAAASH."),
@@ -1375,7 +1376,7 @@ Object.assign(story, {
       "Narrador",
       "Blue avanzó lentamente. Sin prisas. Ajustándose las gafas mientras observaba a los cinco Mandíbula Roja como si fueran un problema matemático bastante molesto. Los piratas soltaron varias carcajadas."
     ),
-    eireneDialogue("Pirata", "¿La niña lista quiere pelear?"),
+    eireneDialogue("Piratas", "¿La niña lista quiere pelear?"),
     eireneDialogue("Narrador", "Blue suspiró."),
     eireneDialogue("Blue", "No especialmente."),
     eireneDialogue(
@@ -1398,7 +1399,7 @@ Object.assign(story, {
       "Narrador",
       "Uno de los piratas rugió intentando atacar. Pero se detuvo a mitad de camino. Confundido."
     ),
-    eireneDialogue("Pirata", "¿Qué…? ¿Qué coño…?"),
+    eireneDialogue("Piratas", "¿Qué…? ¿Qué coño…?"),
     eireneDialogue(
       "Narrador",
       "De repente el hombre empezó a sentir miedo. Muchísimo miedo. Sin entender por qué."
@@ -1419,7 +1420,7 @@ Object.assign(story, {
       "Narrador",
       "Blue seguía avanzando. Tranquila. Controlada. Mientras los Mandíbula Roja empezaban a desmoronarse mentalmente. Uno soltó el arma. Otro empezó a gritarle a sus propios compañeros. Uno directamente retrocedió varios pasos."
     ),
-    eireneDialogue("Pirata", "¡¿QUÉ NOS ESTÁS HACIENDO!?"),
+    eireneDialogue("Piratas", "¡¿QUÉ NOS ESTÁS HACIENDO!?"),
     eireneDialogue(
       "Narrador",
       "Blue inclinó ligeramente la cabeza."
@@ -1528,7 +1529,7 @@ Object.assign(story, {
       "Minutu",
       "En exactamente cuatro segundos vas a cometer un error gravísimo."
     ),
-    eireneDialogue("Pirata", "¿¡QUÉ!?"),
+    eireneDialogue("Piratas", "¿¡QUÉ!?"),
     eireneDialogue(
       "Narrador",
       "El hombre atacó. Y cuatro segundos después…"
@@ -1603,7 +1604,7 @@ Object.assign(story, {
       "Haze observó a los cinco Mandíbula Roja en silencio desde encima de los barriles. Tranquila."
     ),
     eireneDialogue("Narrador", "Los piratas levantaron sus armas."),
-    eireneDialogue("Pirata", "¿Y esa qué hace? ¿Dormirse?"),
+    eireneDialogue("Piratas", "¿Y esa qué hace? ¿Dormirse?"),
     eireneDialogue("Narrador", "Haze inclinó ligeramente la cabeza."),
     eireneDialogue("Haze", "Podría. Pero ahora mismo estoy procesando."),
     eireneDialogue(
@@ -1624,14 +1625,14 @@ Object.assign(story, {
       "Narrador",
       "Ni siquiera los piratas parecían entender qué acababa de pasar. El líder frunció el ceño."
     ),
-    eireneDialogue("Pirata", "¿La chica rara ha huido?"),
+    eireneDialogue("Piratas", "¿La chica rara ha huido?"),
     eireneDialogue(
       "Narrador",
       "Haze apareció detrás de él. Sentada encima de unas cajas. Comiendo pipas."
     ),
     eireneDialogue("Narrador", "CRUNCH."),
     eireneDialogue("Narrador", "Todos pegaron un bote."),
-    eireneDialogue("Pirata", "¿¡QUÉ COÑO!?"),
+    eireneDialogue("Piratas", "¿¡QUÉ COÑO!?"),
     eireneDialogue("Narrador", "Haze también parecía sorprendida."),
     eireneDialogue("Haze", "Ah. No esperaba llegar tan rápido."),
     eireneDialogue("Narrador", "Rocky empezó a reírse."),
@@ -1655,7 +1656,7 @@ Object.assign(story, {
     ),
     eireneDialogue("Narrador", "CRUNCH."),
     eireneDialogue("Narrador", "Otra pipa."),
-    eireneDialogue("Pirata", "¡¡DEJA DE MOVERTE!!"),
+    eireneDialogue("Piratas", "¡¡DEJA DE MOVERTE!!"),
     eireneDialogue("Haze", "No me estoy moviendo tanto. Vosotros sois muy intensos."),
     eireneDialogue("Narrador", "Blue observaba completamente fascinada."),
     eireneDialogue("Blue", "No está calculando rutas. Simplemente… fluye."),
@@ -1665,10 +1666,10 @@ Object.assign(story, {
       "Narrador",
       "El líder intentó un último ataque desesperado. Corrió directamente hacia Haze rugiendo."
     ),
-    eireneDialogue("Pirata", "¡¡QUIETA DE UNA VEZ!!"),
+    eireneDialogue("Piratas", "¡¡QUIETA DE UNA VEZ!!"),
     eireneDialogue("Narrador", "Haze levantó lentamente la mirada hacia arriba."),
     eireneDialogue("Haze", "Creo que no has visto eso."),
-    eireneDialogue("Pirata", "¿¡QUÉ—!?"),
+    eireneDialogue("Piratas", "¿¡QUÉ—!?"),
     eireneDialogue("Narrador", "CRAAASH."),
     {
       type: "effect",
@@ -1702,7 +1703,7 @@ Object.assign(story, {
       "Narrador",
       "Lars dio un paso adelante. Y eso por sí solo sorprendió a todo el mundo. Porque hasta ese momento… había intentado evitar el conflicto constantemente. Los cinco Mandíbula Roja levantaron sus armas."
     ),
-    eireneDialogue("Pirata", "¿Ahora sí quieres hacerte el héroe?"),
+    eireneDialogue("Piratas", "¿Ahora sí quieres hacerte el héroe?"),
     eireneDialogue(
       "Narrador",
       "Lars no respondió inmediatamente. Observó a los piratas. Luego alrededor. La plaza. El miedo de la gente escondida. La tensión del grupo. Y suspiró. Cansado."
@@ -1722,7 +1723,7 @@ Object.assign(story, {
       "Narrador",
       "Los piratas comenzaron a sentirse extraños. Inquietos."
     ),
-    eireneDialogue("Pirata", "¿Qué demonios nos estás haciendo?"),
+    eireneDialogue("Piratas", "¿Qué demonios nos estás haciendo?"),
     eireneDialogue(
       "Narrador",
       "Lars cerró lentamente los ojos. Y siguió absorbiendo. Más. Y más. Y más."
