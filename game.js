@@ -448,6 +448,9 @@ function showCurrentStep() {
     case "minigame":
       showMinigame(step);
       break;
+    case "credits":
+      showCredits();
+      break;
     default:
       advanceStep();
       break;

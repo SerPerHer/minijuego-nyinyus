@@ -5,6 +5,11 @@ const finalHistoriaDialogue = (speaker, text) => ({
 });
 
 Object.assign(story, {
+  creditos: [
+    {
+      type: "credits"
+    }
+  ],
   final_historia: [
     {
       type: "clearCharacters"
